@@ -118,7 +118,7 @@
             // 
             // cancel
             // 
-            this.cancel.Location = new System.Drawing.Point(10, 321);
+            this.cancel.Location = new System.Drawing.Point(20, 336);
             this.cancel.Name = "cancel";
             this.cancel.Size = new System.Drawing.Size(90, 28);
             this.cancel.TabIndex = 9;
@@ -128,7 +128,7 @@
             // 
             // create
             // 
-            this.create.Location = new System.Drawing.Point(506, 321);
+            this.create.Location = new System.Drawing.Point(496, 336);
             this.create.Name = "create";
             this.create.Size = new System.Drawing.Size(90, 28);
             this.create.TabIndex = 8;
