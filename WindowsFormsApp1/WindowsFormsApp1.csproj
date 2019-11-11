@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="exitbutton\MouseEnter.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -61,6 +62,13 @@
     <Compile Include="Przykładowy widok\planowanieRealizacjiKursu.Designer.cs">
       <DependentUpon>planowanieRealizacjiKursu.cs</DependentUpon>
     </Compile>
+    <Compile Include="Widoki Bielecki\DodawanieNowejLinii.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Widoki Bielecki\DodawanieNowejLinii.Designer.cs">
+      <DependentUpon>DodawanieNowejLinii.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Widoki Bielecki\OnMouseLeaveButton1.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -76,6 +84,9 @@
     <EmbeddedResource Include="Przykładowy widok\planowanieRealizacjiKursu.resx">
       <DependentUpon>planowanieRealizacjiKursu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Widoki Bielecki\DodawanieNowejLinii.resx">
+      <DependentUpon>DodawanieNowejLinii.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -90,7 +101,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Widoki Bielecki\" />
     <Folder Include="Widoki Mastaliński\" />
     <Folder Include="Widoki Wilk\" />
     <Folder Include="Widoki Zagata\" />

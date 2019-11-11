@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsFormsApp1.Widoki_Bielecki;
 
 namespace WindowsFormsApp1 {
     static class Program {
@@ -13,7 +14,7 @@ namespace WindowsFormsApp1 {
         static void Main() {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new planowanieRealizacjiKursu());
+            Application.Run(new DodawanieNowejLinii());
         }
     }
 }
