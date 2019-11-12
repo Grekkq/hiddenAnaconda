@@ -69,6 +69,12 @@
       <DependentUpon>DodawanieNowejLinii.cs</DependentUpon>
     </Compile>
     <Compile Include="Widoki Bielecki\OnMouseLeaveButton1.cs" />
+    <Compile Include="Widoki Zagoła\DodawanieTrasy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Widoki Zagoła\DodawanieTrasy.Designer.cs">
+      <DependentUpon>DodawanieTrasy.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -87,6 +93,9 @@
     <EmbeddedResource Include="Widoki Bielecki\DodawanieNowejLinii.resx">
       <DependentUpon>DodawanieNowejLinii.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Widoki Zagoła\DodawanieTrasy.resx">
+      <DependentUpon>DodawanieTrasy.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -104,7 +113,6 @@
     <Folder Include="Widoki Mastaliński\" />
     <Folder Include="Widoki Wilk\" />
     <Folder Include="Widoki Zagata\" />
-    <Folder Include="Widoki Zagoła\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
