@@ -87,6 +87,10 @@
             // comboBox4
             // 
             this.comboBox4.FormattingEnabled = true;
+            this.comboBox4.Items.AddRange(new object[] {
+            "657",
+            "296",
+            "409"});
             this.comboBox4.Location = new System.Drawing.Point(293, 98);
             this.comboBox4.Name = "comboBox4";
             this.comboBox4.Size = new System.Drawing.Size(131, 21);
@@ -408,7 +412,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "DodawanieTrasy";
-            this.Text = "Form1";
+            this.Text = "Formularz tworzenia trasy";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
