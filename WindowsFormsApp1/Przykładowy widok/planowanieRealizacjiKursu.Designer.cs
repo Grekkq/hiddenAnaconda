@@ -39,11 +39,12 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.plikToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.edytujToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pomocToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.zapiszToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.zamknijBezZapisywaniaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pomocToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.wersjaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.wyświetlaPomocToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.label7 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -212,15 +213,6 @@
             this.edytujToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
             this.edytujToolStripMenuItem.Text = "Edytuj";
             // 
-            // pomocToolStripMenuItem
-            // 
-            this.pomocToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.wersjaToolStripMenuItem,
-            this.wyświetlaPomocToolStripMenuItem});
-            this.pomocToolStripMenuItem.Name = "pomocToolStripMenuItem";
-            this.pomocToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
-            this.pomocToolStripMenuItem.Text = "Pomoc";
-            // 
             // zapiszToolStripMenuItem
             // 
             this.zapiszToolStripMenuItem.Name = "zapiszToolStripMenuItem";
@@ -233,17 +225,36 @@
             this.zamknijBezZapisywaniaToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
             this.zamknijBezZapisywaniaToolStripMenuItem.Text = "zamknij bez zapisywania";
             // 
+            // pomocToolStripMenuItem
+            // 
+            this.pomocToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.wersjaToolStripMenuItem,
+            this.wyświetlaPomocToolStripMenuItem});
+            this.pomocToolStripMenuItem.Name = "pomocToolStripMenuItem";
+            this.pomocToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
+            this.pomocToolStripMenuItem.Text = "Pomoc";
+            // 
             // wersjaToolStripMenuItem
             // 
             this.wersjaToolStripMenuItem.Name = "wersjaToolStripMenuItem";
-            this.wersjaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.wersjaToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.wersjaToolStripMenuItem.Text = "Wersja";
             // 
             // wyświetlaPomocToolStripMenuItem
             // 
             this.wyświetlaPomocToolStripMenuItem.Name = "wyświetlaPomocToolStripMenuItem";
-            this.wyświetlaPomocToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.wyświetlaPomocToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.wyświetlaPomocToolStripMenuItem.Text = "Wyświetla pomoc";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(106, 132);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(616, 13);
+            this.label7.TabIndex = 16;
+            this.label7.Text = "Jak będziecie tworzyć nowe formularze to skopiujcie sobie podstawę od widoku mate" +
+    "usza nie będziecie musieli tworzyć podstawy";
             // 
             // planowanieRealizacjiKursu
             // 
@@ -251,6 +262,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.comboBox4);
@@ -298,5 +310,6 @@
         private System.Windows.Forms.ToolStripMenuItem pomocToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem wersjaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem wyświetlaPomocToolStripMenuItem;
+        private System.Windows.Forms.Label label7;
     }
 }

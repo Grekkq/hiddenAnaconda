@@ -15,7 +15,7 @@ namespace WindowsFormsApp1 {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //    Application.Run(new DodawanieNowejLinii());
-            Application.Run(new Widoki_Zagoła.DodawanieTrasy());
+            Application.Run(new Widoki_Zagoła.DodawaniePrzystanku());
 
         }
     }
