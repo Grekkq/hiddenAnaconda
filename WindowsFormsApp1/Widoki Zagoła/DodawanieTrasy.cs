@@ -50,7 +50,7 @@ namespace WindowsFormsApp1.Widoki_Zagoła
 
         private void create_Click1(object sender, EventArgs e)
         {
-            
+
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -136,11 +136,11 @@ namespace WindowsFormsApp1.Widoki_Zagoła
         private void create_Click(object sender, EventArgs e)
         {
             {
-                if ((string.IsNullOrEmpty(WyborMiasta.Text)) && (string.IsNullOrEmpty(textBox10.Text)) && (string.IsNullOrEmpty(WyborNazwy.Text)) && (string.IsNullOrEmpty(comboBox4.Text)))
+                if ((string.IsNullOrEmpty(comboBox3.Text)) && (string.IsNullOrEmpty(textBox1.Text)) && (string.IsNullOrEmpty(comboBox2.Text)) && (string.IsNullOrEmpty(comboBox4.Text)))
                 {
                     MessageBox.Show("Nie wypełniono formularza", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
-                else if ((string.IsNullOrEmpty(WyborMiasta.Text)) || (string.IsNullOrEmpty(textBox10.Text)) || (string.IsNullOrEmpty(WyborNazwy.Text)) || (string.IsNullOrEmpty(comboBox4.Text)))
+                else if ((string.IsNullOrEmpty(comboBox3.Text)) || (string.IsNullOrEmpty(textBox1.Text)) || (string.IsNullOrEmpty(comboBox2.Text)) || (string.IsNullOrEmpty(comboBox4.Text)))
                 {
                     MessageBox.Show("Formularz niewypełniony całkowicie.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
@@ -156,6 +156,34 @@ namespace WindowsFormsApp1.Widoki_Zagoła
                     }
                 }
             }
+        }
+
+        private void label13_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (panel3.Visible == true)
+                panel4.Visible = true;
+
+            panel3.Visible = true;
+             
+
+        }
+        private void button2_Click(object sender, EventArgs e)
+        {
+            
+            if (panel4.Visible == true)
+                panel4.Visible = false;
+            else
+                panel3.Visible = false;
         }
     }
 }
