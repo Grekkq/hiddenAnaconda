@@ -122,7 +122,6 @@
             this.kurs.Size = new System.Drawing.Size(127, 119);
             this.kurs.Sorted = true;
             this.kurs.TabIndex = 10;
-            this.kurs.SelectedIndexChanged += new System.EventHandler(this.kurs_SelectedIndexChanged);
             // 
             // cancel
             // 

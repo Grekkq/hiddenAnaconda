@@ -44,21 +44,6 @@ namespace WindowsFormsApp1.Widoki_Bielecki
             exit.BackColor = Color.FromArgb(0, 99, 183);
         }
 
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void turnoff_focus(object sender, EventArgs e)  //wyłączenie fokusu na pola tekstowe przy uruchomieniu formularza
         {
             this.ActiveControl = null;
@@ -93,21 +78,6 @@ namespace WindowsFormsApp1.Widoki_Bielecki
                 }
             }
         SkipToEnd:;
-        }
-
-        private void label5_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void kurs_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }
