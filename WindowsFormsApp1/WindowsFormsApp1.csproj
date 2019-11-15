@@ -70,6 +70,12 @@
       <DependentUpon>DodawanieNowejLinii.cs</DependentUpon>
     </Compile>
     <Compile Include="Widoki Bielecki\OnMouseLeaveButton1.cs" />
+    <Compile Include="Widoki Bielecki\WypelnianieCzasuRealizacjiKursu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Widoki Bielecki\WypelnianieCzasuRealizacjiKursu.Designer.cs">
+      <DependentUpon>WypelnianieCzasuRealizacjiKursu.cs</DependentUpon>
+    </Compile>
     <Compile Include="Widoki Zagoła\DodawaniePrzystanku.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -93,12 +99,16 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Przykładowy widok\planowanieRealizacjiKursu.resx">
       <DependentUpon>planowanieRealizacjiKursu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Widoki Bielecki\DodawanieNowejLinii.resx">
       <DependentUpon>DodawanieNowejLinii.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Widoki Bielecki\WypelnianieCzasuRealizacjiKursu.resx">
+      <DependentUpon>WypelnianieCzasuRealizacjiKursu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Widoki Zagoła\DodawaniePrzystanku.resx">
       <DependentUpon>DodawaniePrzystanku.cs</DependentUpon>
@@ -123,6 +133,9 @@
     <Folder Include="Widoki Mastaliński\" />
     <Folder Include="Widoki Wilk\" />
     <Folder Include="Widoki Zagata\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\time.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
