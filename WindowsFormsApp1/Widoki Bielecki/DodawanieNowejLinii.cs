@@ -12,34 +12,29 @@ using System.Windows.Forms;
 namespace WindowsFormsApp1.Widoki_Bielecki {
     public partial class DodawanieNowejLinii : Form {
 
-        public const int WM_NCLBUTTONDOWN = 0xA1;                                               // stałe do funkcji przesuwania okna
-        public const int HT_CAPTION = 0x2;                                                      //
-        [System.Runtime.InteropServices.DllImport("user32.dll")]                                // importowanie funkcji do przesuwania okna
-        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);     // 
-        [System.Runtime.InteropServices.DllImport("user32.dll")]                                //
-        public static extern bool ReleaseCapture();
+        // funkcje wspólne dla widoków
+        SharedView sharedView = new SharedView(); 
 
-        private void move_window(object sender, MouseEventArgs e) {                             // metoda do przesuwania okna
+        private void move_window(object sender, MouseEventArgs e) {
             if (e.Button == MouseButtons.Left) {
-                ReleaseCapture();
-                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+                sharedView.moveWindow(sender, e, Handle);
             }
         }
-
+        
         private void hover_exitbutton(object sender, EventArgs e) {
-            exit.BackColor = Color.FromArgb(218, 83, 44);
+            sharedView.hover_exitbutton(exit);
         }
 
         private void leave_exitbutton(object sender, EventArgs e) {
-            exit.BackColor = Color.FromArgb(0, 99, 183);
+            sharedView.leave_exitbutton(exit);
         }
 
         public DodawanieNowejLinii() {
             InitializeComponent();
         }
-
-        private void turnoff_focus(object sender, EventArgs e)  //wyłączenie fokusu na pola tekstowe przy uruchomieniu formularza
-        {
+        
+        // wyłączenie fokusu na pola tekstowe przy uruchomieniu formularza
+        private void turnoffFocus(object sender, EventArgs e) {
             this.ActiveControl = null;
         }
 
@@ -51,6 +46,7 @@ namespace WindowsFormsApp1.Widoki_Bielecki {
 
         }
 
+        // walidacja pól i zamknięcie okna
         private void create_Click(object sender, EventArgs e) {
             if ((yes.Checked == false && no.Checked == false) && (string.IsNullOrEmpty(line_name.Text))) {
                 MessageBox.Show("Nie wypełniono formularza", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -63,12 +59,16 @@ namespace WindowsFormsApp1.Widoki_Bielecki {
                 const string caption = "Sukces";
                 var result = MessageBox.Show(message, caption, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 if (result == DialogResult.OK) {
-                    Application.Exit();
+                    this.Close();
                 }
             }
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e) {
+
+        }
+
+        private void DodawanieNowejLinii_Load(object sender, EventArgs e) {
 
         }
     }

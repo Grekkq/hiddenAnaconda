@@ -22,55 +22,52 @@ namespace WindowsFormsApp1.Widoki_Wilk
             this.Close();
         }
 
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void Linia_Click(object sender, EventArgs e)
         {
-            Widoki_Bielecki.DodawanieNowejLinii form1 = new Widoki_Bielecki.DodawanieNowejLinii();
-            form1.Show();
+            Widoki_Bielecki.DodawanieNowejLinii form = new Widoki_Bielecki.DodawanieNowejLinii();
+            form.Show();
         }
 
         private void Trasa_Click(object sender, EventArgs e)
         {
-            Widoki_Zagoła.DodawanieTrasy form2 = new Widoki_Zagoła.DodawanieTrasy();
-            form2.Show();
+            Widoki_Zagoła.DodawanieTrasy form = new Widoki_Zagoła.DodawanieTrasy();
+            form.Show();
         }
 
         private void Przystanek_Click(object sender, EventArgs e)
         {
-            Widoki_Zagoła.DodawaniePrzystanku form3 = new Widoki_Zagoła.DodawaniePrzystanku();
-            form3.Show();
+            Widoki_Zagoła.DodawaniePrzystanku form = new Widoki_Zagoła.DodawaniePrzystanku();
+            form.Show();
         }
 
         private void Pojazd_Click(object sender, EventArgs e)
         {
-
+            Widoki_Mastaliński.DodawaniePojazdow form = new Widoki_Mastaliński.DodawaniePojazdow();
+            form.Show();
         }
 
         private void Kierowca_Click(object sender, EventArgs e)
         {
-            Widoki_Wilk.DodawanieKierowcy form5 = new Widoki_Wilk.DodawanieKierowcy();
-            form5.Show();
+            Widoki_Wilk.DodawanieKierowcy form = new Widoki_Wilk.DodawanieKierowcy();
+            form.Show();
         }
 
         private void Kurs_Click(object sender, EventArgs e)
         {
-
+            Widoki_Mastaliński.DodawanieKursu form = new Widoki_Mastaliński.DodawanieKursu();
+            form.Show();
         }
 
         private void Przypisanie_Click(object sender, EventArgs e)
         {
-            planowanieRealizacjiKursu form7 = new planowanieRealizacjiKursu();
-            form7.Show();
+            planowanieRealizacjiKursu form = new planowanieRealizacjiKursu();
+            form.Show();
         }
 
         private void Czas_Click(object sender, EventArgs e)
         {
-            Widoki_Bielecki.WypelnianieCzasuRealizacjiKursu form8 = new Widoki_Bielecki.WypelnianieCzasuRealizacjiKursu();
-            form8.Show();
+            Widoki_Bielecki.WypelnianieCzasuRealizacjiKursu form = new Widoki_Bielecki.WypelnianieCzasuRealizacjiKursu();
+            form.Show();
         }
     }
 }

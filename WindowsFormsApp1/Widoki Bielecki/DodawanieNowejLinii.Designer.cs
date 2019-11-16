@@ -200,7 +200,8 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "DodawanieNowejLinii";
             this.Text = "Kreator dodawania nowej linii";
-            this.Activated += new System.EventHandler(this.turnoff_focus);
+            this.Activated += new System.EventHandler(this.turnoffFocus);
+            this.Load += new System.EventHandler(this.DodawanieNowejLinii_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.move_window);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

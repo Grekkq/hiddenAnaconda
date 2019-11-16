@@ -17,14 +17,9 @@ namespace WindowsFormsApp1.Widoki_Wilk
             InitializeComponent();
         }
 
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void powrot_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
 
         private void Reset_Click(object sender, EventArgs e)
@@ -38,11 +33,6 @@ namespace WindowsFormsApp1.Widoki_Wilk
         private void Zapisz_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Zapisano Kierowcę");
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void exit_Click(object sender, EventArgs e)

@@ -74,7 +74,7 @@ namespace WindowsFormsApp1.Widoki_Bielecki
                 var result = MessageBox.Show(message, caption, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 if (result == DialogResult.OK)
                 {
-                    Application.Exit();
+                    this.Close();
                 }
             }
         SkipToEnd:;
