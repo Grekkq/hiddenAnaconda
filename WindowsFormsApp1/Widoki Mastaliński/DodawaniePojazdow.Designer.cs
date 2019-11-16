@@ -67,6 +67,7 @@
             this.label1.Size = new System.Drawing.Size(283, 21);
             this.label1.TabIndex = 6;
             this.label1.Text = "Formularz tworzenia nowego pojazdu";
+            this.label1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.move_window);
             // 
             // exit
             // 
@@ -148,7 +149,7 @@
             // year_number
             // 
             this.year_number.HideSelection = false;
-            this.year_number.Location = new System.Drawing.Point(20, 252);
+            this.year_number.Location = new System.Drawing.Point(20, 291);
             this.year_number.MaxLength = 4;
             this.year_number.Name = "year_number";
             this.year_number.Size = new System.Drawing.Size(109, 20);
@@ -157,7 +158,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(17, 236);
+            this.label8.Location = new System.Drawing.Point(17, 275);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(196, 13);
             this.label8.TabIndex = 17;
@@ -166,7 +167,7 @@
             // vin_number
             // 
             this.vin_number.HideSelection = false;
-            this.vin_number.Location = new System.Drawing.Point(20, 213);
+            this.vin_number.Location = new System.Drawing.Point(20, 241);
             this.vin_number.MaxLength = 4;
             this.vin_number.Name = "vin_number";
             this.vin_number.Size = new System.Drawing.Size(109, 20);
@@ -175,7 +176,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(17, 197);
+            this.label7.Location = new System.Drawing.Point(17, 225);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(185, 13);
             this.label7.TabIndex = 15;
@@ -184,7 +185,7 @@
             // plate_numer
             // 
             this.plate_numer.HideSelection = false;
-            this.plate_numer.Location = new System.Drawing.Point(20, 174);
+            this.plate_numer.Location = new System.Drawing.Point(20, 185);
             this.plate_numer.MaxLength = 4;
             this.plate_numer.Name = "plate_numer";
             this.plate_numer.Size = new System.Drawing.Size(109, 20);
@@ -193,7 +194,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(17, 158);
+            this.label6.Location = new System.Drawing.Point(17, 169);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(225, 13);
             this.label6.TabIndex = 13;
@@ -273,7 +274,7 @@
             // mark_name
             // 
             this.mark_name.HideSelection = false;
-            this.mark_name.Location = new System.Drawing.Point(20, 96);
+            this.mark_name.Location = new System.Drawing.Point(20, 84);
             this.mark_name.MaxLength = 4;
             this.mark_name.Name = "mark_name";
             this.mark_name.Size = new System.Drawing.Size(109, 20);
@@ -283,7 +284,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(17, 80);
+            this.label4.Location = new System.Drawing.Point(17, 68);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(164, 13);
             this.label4.TabIndex = 3;
@@ -324,6 +325,9 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "DodawaniePojazdow";
             this.Text = "Kreator Dodawanie Pojazdu";
+            this.Activated += new System.EventHandler(this.turnoffFocus);
+            this.Load += new System.EventHandler(this.DodawaniePojazdow_Load);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.move_window);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.groupBox2.ResumeLayout(false);

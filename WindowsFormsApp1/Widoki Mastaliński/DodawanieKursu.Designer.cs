@@ -74,18 +74,18 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.BackColor = System.Drawing.Color.White;
+            this.label9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label9.Location = new System.Drawing.Point(134, 177);
+            this.label9.Location = new System.Drawing.Point(135, 218);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(235, 13);
+            this.label9.Size = new System.Drawing.Size(226, 13);
             this.label9.TabIndex = 20;
-            this.label9.Text = "Akceptowany format czasu - DD:MM:RR";
+            this.label9.Text = "Akceptowany format daty - DD:MM:RR";
             // 
             // date_name
             // 
             this.date_name.HideSelection = false;
-            this.date_name.Location = new System.Drawing.Point(20, 174);
+            this.date_name.Location = new System.Drawing.Point(20, 211);
             this.date_name.MaxLength = 4;
             this.date_name.Name = "date_name";
             this.date_name.Size = new System.Drawing.Size(109, 20);
@@ -94,7 +94,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(16, 158);
+            this.label8.Location = new System.Drawing.Point(17, 195);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(134, 13);
             this.label8.TabIndex = 18;
@@ -103,9 +103,9 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.White;
+            this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label6.Location = new System.Drawing.Point(135, 138);
+            this.label6.Location = new System.Drawing.Point(135, 160);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(213, 13);
             this.label6.TabIndex = 17;
@@ -114,7 +114,7 @@
             // line_choose
             // 
             this.line_choose.FormattingEnabled = true;
-            this.line_choose.Location = new System.Drawing.Point(19, 95);
+            this.line_choose.Location = new System.Drawing.Point(20, 96);
             this.line_choose.Name = "line_choose";
             this.line_choose.Size = new System.Drawing.Size(130, 21);
             this.line_choose.TabIndex = 15;
@@ -122,7 +122,7 @@
             // c_number
             // 
             this.c_number.HideSelection = false;
-            this.c_number.Location = new System.Drawing.Point(17, 213);
+            this.c_number.Location = new System.Drawing.Point(20, 266);
             this.c_number.MaxLength = 4;
             this.c_number.Name = "c_number";
             this.c_number.Size = new System.Drawing.Size(109, 20);
@@ -131,7 +131,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(14, 197);
+            this.label5.Location = new System.Drawing.Point(17, 250);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(136, 13);
             this.label5.TabIndex = 13;
@@ -140,7 +140,7 @@
             // hour_name
             // 
             this.hour_name.HideSelection = false;
-            this.hour_name.Location = new System.Drawing.Point(20, 135);
+            this.hour_name.Location = new System.Drawing.Point(20, 157);
             this.hour_name.MaxLength = 4;
             this.hour_name.Name = "hour_name";
             this.hour_name.Size = new System.Drawing.Size(109, 20);
@@ -149,7 +149,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(17, 119);
+            this.label3.Location = new System.Drawing.Point(17, 144);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(150, 13);
             this.label3.TabIndex = 11;
@@ -235,7 +235,7 @@
             this.label7.Size = new System.Drawing.Size(264, 21);
             this.label7.TabIndex = 23;
             this.label7.Text = "Formularz tworzenia nowego kursu";
-            this.label7.Click += new System.EventHandler(this.label7_Click);
+            this.label1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.move_window);
             // 
             // DodawanieKursu
             // 
@@ -250,6 +250,9 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "DodawanieKursu";
             this.Text = "DodawaniekKursu";
+            this.Activated += new System.EventHandler(this.turnoffFocus);
+            this.Load += new System.EventHandler(this.DodawanieKursu_Load);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.move_window);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);

@@ -13,60 +13,70 @@ namespace WindowsFormsApp1.Widoki_Mastaliński
     public partial class DodawaniePojazdow : Form
     {
 
-        public const int WM_NCLBUTTONDOWN = 0xA1;                                               // stałe do funkcji przesuwania okna
-        public const int HT_CAPTION = 0x2;                                                      //
-        [System.Runtime.InteropServices.DllImport("user32.dll")]                                // importowanie funkcji do przesuwania okna
-        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);     // 
-        [System.Runtime.InteropServices.DllImport("user32.dll")]                                //
-        public static extern bool ReleaseCapture();
-
+        SharedView sharedView = new SharedView();
         private void move_window(object sender, MouseEventArgs e)
-        {                             // metoda do przesuwania okna
+        {
             if (e.Button == MouseButtons.Left)
             {
-                ReleaseCapture();
-                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+                sharedView.moveWindow(sender, e, Handle);
             }
         }
 
         private void hover_exitbutton(object sender, EventArgs e)
         {
-            exit.BackColor = Color.FromArgb(218, 83, 44);
+            sharedView.hover_exitbutton(exit);
         }
 
         private void leave_exitbutton(object sender, EventArgs e)
         {
-            exit.BackColor = Color.FromArgb(0, 99, 183);
+            sharedView.leave_exitbutton(exit);
         }
 
         public DodawaniePojazdow()
         {
             InitializeComponent();
         }
-        private void turnoff_focus(object sender, EventArgs e)  //wyłączenie fokusu na pola tekstowe przy uruchomieniu formularza
+        private void turnoffFocus(object sender, EventArgs e)
         {
             this.ActiveControl = null;
         }
+
         private void close_on_click(object sender, EventArgs e)
         {
             this.Close();
         }
+
         private void mark_name_TextChanged(object sender, EventArgs e)
         {
 
         }
         private void create_Click(object sender, EventArgs e)
         {
-            if ((yes.Checked == false && no.Checked == false) && (string.IsNullOrEmpty(mark_name.Text)))
+            if ((string.IsNullOrEmpty(mark_name.Text)))
             {
-                MessageBox.Show("Nie wypełniono formularza", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Nie wypełniono pola marka", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            else if (((string.IsNullOrEmpty(vin_number.Text)) || (string.IsNullOrEmpty(model_name.Text)) || (string.IsNullOrEmpty(year_number.Text))) || (string.IsNullOrEmpty(plate_numer.Text)))
+            else if ((string.IsNullOrEmpty(model_name.Text)))
             {
-                MessageBox.Show("Formularz niewypełniony całkowicie.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Nie wypełniono pola model.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-
+            else if ((string.IsNullOrEmpty(plate_numer.Text)))
+            {
+                MessageBox.Show("Nie wypełniono pola numer rejestracyjny pojazdu.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else if ((string.IsNullOrEmpty(vin_number.Text)))
+            {
+                MessageBox.Show("Nie wypełniono pola numer VIN pojazdu.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else if ((string.IsNullOrEmpty(year_number.Text)))
+            {
+                MessageBox.Show("Nie wypełniono pola rok produkcji pojazdu.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
             else if (yes.Checked == false && no.Checked == false)
+            {
+                MessageBox.Show("Nie zaznaczono odpowiedz na pytanie.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else if (yes2.Checked == false && no1.Checked == false)
             {
                 MessageBox.Show("Nie zaznaczono odpowiedz na pytanie.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
@@ -77,12 +87,16 @@ namespace WindowsFormsApp1.Widoki_Mastaliński
                 var result = MessageBox.Show(message, caption, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 if (result == DialogResult.OK)
                 {
-                    Application.Exit();
+                    this.Close();
                 }
             }
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+        private void DodawaniePojazdow_Load(object sender, EventArgs e)
         {
 
         }
