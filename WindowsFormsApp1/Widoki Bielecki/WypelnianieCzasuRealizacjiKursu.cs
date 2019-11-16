@@ -27,8 +27,7 @@ namespace WindowsFormsApp1.Widoki_Bielecki
 
         private void move_window(object sender, MouseEventArgs e)
         {                             // metoda do przesuwania okna
-            if (e.Button == MouseButtons.Left)
-            {
+            if (e.Button == MouseButtons.Left) {
                 ReleaseCapture();
                 SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }
@@ -56,28 +55,38 @@ namespace WindowsFormsApp1.Widoki_Bielecki
 
         private void assign_Click(object sender, EventArgs e)
         {
-            Regex regex = new Regex(@"^(0[0-9]|1[0-9]|2[0-3]|[0-9]):[0-5][0-9]$");
-            bool isValid = regex.IsMatch(czas_realizacji.Text.Trim());
-            if (kurs.SelectedIndex == -1)
-            {
+            //Regex regex = new Regex(@"^(0[0-9]|1[0-9]|2[0-3]|[0-9]):[0-5][0-9]$");
+            //bool isValid = regex.IsMatch(czas_realizacji.Text.Trim());
+            if (kurs.SelectedIndex == -1) {
                 MessageBox.Show("Nie wybrano kursu.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 goto SkipToEnd;
-            } else if (!isValid)
-            {
-                MessageBox.Show("Podano nieprawidłowy czas realizacji kursu.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            } else if (driver.SelectedIndex == -1) {
+                MessageBox.Show("Nie wybrano kierowcy.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 goto SkipToEnd;
-            }
-            else
-            {
+            } else {
                 const string message = "Pomyślnie przypisano czas realizacji danego kursu.";
                 const string caption = "Sukces";
                 var result = MessageBox.Show(message, caption, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                if (result == DialogResult.OK)
-                {
+                if (result == DialogResult.OK) {
                     this.Close();
                 }
             }
-        SkipToEnd:;
+        SkipToEnd:
+            ;
+        }
+
+        private void ComboBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void kurs_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (kurs.SelectedIndex > -1) {
+                tabela.Visible = true;
+                alert.Visible = true;
+                alertpic.Visible = true;
+            }
         }
     }
 }

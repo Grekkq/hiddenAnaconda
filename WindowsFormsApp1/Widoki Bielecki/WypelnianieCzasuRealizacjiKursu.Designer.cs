@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.czas_realizacji = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.kurs = new System.Windows.Forms.ComboBox();
             this.cancel = new System.Windows.Forms.Button();
@@ -41,18 +41,30 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.exit = new System.Windows.Forms.Button();
+            this.tabela = new System.Windows.Forms.DataGridView();
+            this.Przystanek = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Czas = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.alert = new System.Windows.Forms.Label();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.alertpic = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.driver = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tabela)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.alertpic)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.panel1.Controls.Add(this.driver);
+            this.panel1.Controls.Add(this.alertpic);
+            this.panel1.Controls.Add(this.alert);
+            this.panel1.Controls.Add(this.tabela);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.czas_realizacji);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.kurs);
             this.panel1.Controls.Add(this.cancel);
@@ -84,21 +96,14 @@
             this.label6.Size = new System.Drawing.Size(0, 13);
             this.label6.TabIndex = 13;
             // 
-            // czas_realizacji
-            // 
-            this.czas_realizacji.Location = new System.Drawing.Point(19, 248);
-            this.czas_realizacji.Name = "czas_realizacji";
-            this.czas_realizacji.Size = new System.Drawing.Size(41, 20);
-            this.czas_realizacji.TabIndex = 12;
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(16, 232);
+            this.label5.Location = new System.Drawing.Point(17, 231);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(197, 13);
+            this.label5.Size = new System.Drawing.Size(94, 13);
             this.label5.TabIndex = 11;
-            this.label5.Text = "Podaj czas realizacji wskazanego kursu:\r\n";
+            this.label5.Text = "Wybierz kierowcę:";
             // 
             // kurs
             // 
@@ -122,6 +127,8 @@
             this.kurs.Size = new System.Drawing.Size(127, 119);
             this.kurs.Sorted = true;
             this.kurs.TabIndex = 10;
+            this.kurs.SelectedIndexChanged += new System.EventHandler(this.kurs_SelectedIndexChanged);
+            this.kurs.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ComboBox1_KeyPress);
             // 
             // cancel
             // 
@@ -182,9 +189,9 @@
             this.label3.ForeColor = System.Drawing.SystemColors.Window;
             this.label3.Location = new System.Drawing.Point(8, 4);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(347, 21);
+            this.label3.Size = new System.Drawing.Size(343, 21);
             this.label3.TabIndex = 8;
-            this.label3.Text = "Formularz przypisania czasu realizacji  do kursu";
+            this.label3.Text = "Formularz przypisania czasu realizacji do kursu";
             this.label3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.move_window);
             // 
             // exit
@@ -206,6 +213,59 @@
             this.exit.MouseEnter += new System.EventHandler(this.hover_exitbutton);
             this.exit.MouseLeave += new System.EventHandler(this.leave_exitbutton);
             // 
+            // tabela
+            // 
+            this.tabela.AllowUserToAddRows = false;
+            this.tabela.AllowUserToDeleteRows = false;
+            this.tabela.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.tabela.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Przystanek,
+            this.Czas});
+            this.tabela.Location = new System.Drawing.Point(304, 96);
+            this.tabela.Name = "tabela";
+            this.tabela.Size = new System.Drawing.Size(245, 172);
+            this.tabela.TabIndex = 16;
+            this.tabela.Visible = false;
+            // 
+            // Przystanek
+            // 
+            this.Przystanek.HeaderText = "Przystanek";
+            this.Przystanek.Name = "Przystanek";
+            // 
+            // Czas
+            // 
+            this.Czas.HeaderText = "Czas";
+            this.Czas.Name = "Czas";
+            // 
+            // alert
+            // 
+            this.alert.AutoSize = true;
+            this.alert.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.alert.Location = new System.Drawing.Point(317, 280);
+            this.alert.Name = "alert";
+            this.alert.Size = new System.Drawing.Size(260, 26);
+            this.alert.TabIndex = 17;
+            this.alert.Text = "Lista przystanków będzie zczytywana z bazy danych. \r\nKolumna czas będzie wypełnia" +
+    "na przez użytkownika.";
+            this.alert.Visible = false;
+            // 
+            // imageList1
+            // 
+            this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
+            this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            // 
+            // alertpic
+            // 
+            this.alertpic.Image = global::WindowsFormsApp1.Properties.Resources.Alert_Download_PNG;
+            this.alertpic.Location = new System.Drawing.Point(284, 280);
+            this.alertpic.Name = "alertpic";
+            this.alertpic.Size = new System.Drawing.Size(27, 26);
+            this.alertpic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.alertpic.TabIndex = 18;
+            this.alertpic.TabStop = false;
+            this.alertpic.Visible = false;
+            // 
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.White;
@@ -216,6 +276,19 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 15;
             this.pictureBox1.TabStop = false;
+            // 
+            // driver
+            // 
+            this.driver.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.driver.FormattingEnabled = true;
+            this.driver.Items.AddRange(new object[] {
+            "Jan Kowalski",
+            "Adam Meller",
+            "Łukasz Nowak"});
+            this.driver.Location = new System.Drawing.Point(20, 247);
+            this.driver.Name = "driver";
+            this.driver.Size = new System.Drawing.Size(121, 21);
+            this.driver.TabIndex = 19;
             // 
             // WypelnianieCzasuRealizacjiKursu
             // 
@@ -233,6 +306,8 @@
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.move_window);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tabela)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.alertpic)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -251,9 +326,15 @@
         private System.Windows.Forms.Button exit;
         private System.Windows.Forms.ComboBox kurs;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox czas_realizacji;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.DataGridView tabela;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Przystanek;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Czas;
+        private System.Windows.Forms.Label alert;
+        private System.Windows.Forms.PictureBox alertpic;
+        private System.Windows.Forms.ImageList imageList1;
+        private System.Windows.Forms.ComboBox driver;
     }
 }
