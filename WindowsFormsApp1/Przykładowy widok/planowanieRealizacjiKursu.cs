@@ -24,30 +24,32 @@ namespace WindowsFormsApp1 {
         // funkcje wspólne dla widoków
         SharedView sharedView = new SharedView();
 
-        private void move_window(object sender, MouseEventArgs e) {
+        // przesuwanie okna
+        private void Move_window(object sender, MouseEventArgs e) {
             if (e.Button == MouseButtons.Left) {
                 sharedView.moveWindow(sender, e, Handle);
             }
         }
 
-        private void hover_exitbutton(object sender, EventArgs e) {
-            sharedView.hover_exitbutton(exit);
+        // akcje po wjechaniu na przycisk X
+        private void Hover_exitbutton(object sender, EventArgs e) => sharedView.hover_exitbutton(exit);
+
+        // ajkcje po zjechaniu z przycisku X
+        private void Leave_exitbutton(object sender, EventArgs e) => sharedView.leave_exitbutton(exit);
+
+        // akcje po kliknięciu Anuluj
+        private void Cancel_Click(object sender, EventArgs e) => this.Close();
+
+        // akcje po kliknięciu przycisku X
+        private void Exit_Click(object sender, EventArgs e) => this.Close();
+
+        private void PrzypisywanieKierowcowPojazdowDoRealizacji_Load(object sender, EventArgs e) {
+
         }
 
-        private void leave_exitbutton(object sender, EventArgs e) {
-            sharedView.leave_exitbutton(exit);
-        }
-
-        private void przypisywanieKierowcowPojazdowDoRealizacji_Load(object sender, EventArgs e) {
-
-        }
-
-
-        private void cancel_Click(object sender, EventArgs e) {
-            this.Close();
-        }
-
-        private void save_Click(object sender, EventArgs e) {
+        // akcje po kliknięciu Przypisz
+        private void Save_Click(object sender, EventArgs e) {
+            // walidacja danych i zmykanie okna w wypadku powodzenia
             if (String.IsNullOrEmpty(liniaSelectionComboBox.Text))
                 MessageBox.Show("Nie wybrano lini", "Błąd!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             else if (String.IsNullOrEmpty(kursSelectionComboBox.Text))
@@ -63,16 +65,15 @@ namespace WindowsFormsApp1 {
             }
         }
 
-        private void exit_Click(object sender, EventArgs e) {
-            this.Close();
-        }
 
-        private void liniaSelectionComboBox_SelectedIndexChanged(object sender, EventArgs e) {
+        // pokazywanie wybierania kursu po wybraniu linii
+        private void LiniaSelectionComboBox_SelectedIndexChanged(object sender, EventArgs e) {
             kursSelectionLabel.Show();
             kursSelectionComboBox.Show();
         }
 
-        private void kursSelectionComboBox_SelectedIndexChanged(object sender, EventArgs e) {
+        // pokazywanie wyboru kierowcy i pojazdu po wybraniu kursu
+        private void KursSelectionComboBox_SelectedIndexChanged(object sender, EventArgs e) {
             kierowcaSelectionLabel.Show();
             kierowcaSelectionComboBox.Show();
             pojazdSelectionLabel.Show();

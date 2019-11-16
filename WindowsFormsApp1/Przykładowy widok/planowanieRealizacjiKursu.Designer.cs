@@ -53,7 +53,7 @@
             this.windowTitle.Size = new System.Drawing.Size(158, 21);
             this.windowTitle.TabIndex = 8;
             this.windowTitle.Text = "Przypisanie do kursu";
-            this.windowTitle.MouseDown += new System.Windows.Forms.MouseEventHandler(this.move_window);
+            this.windowTitle.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Move_window);
             // 
             // instructionSublabel
             // 
@@ -168,7 +168,7 @@
             this.kursSelectionComboBox.Name = "kursSelectionComboBox";
             this.kursSelectionComboBox.Size = new System.Drawing.Size(121, 21);
             this.kursSelectionComboBox.TabIndex = 12;
-            this.kursSelectionComboBox.SelectedIndexChanged += new System.EventHandler(this.kursSelectionComboBox_SelectedIndexChanged);
+            this.kursSelectionComboBox.SelectedIndexChanged += new System.EventHandler(this.KursSelectionComboBox_SelectedIndexChanged);
             // 
             // kursSelectionLabel
             // 
@@ -190,7 +190,7 @@
             this.liniaSelectionComboBox.Name = "liniaSelectionComboBox";
             this.liniaSelectionComboBox.Size = new System.Drawing.Size(121, 21);
             this.liniaSelectionComboBox.TabIndex = 10;
-            this.liniaSelectionComboBox.SelectedIndexChanged += new System.EventHandler(this.liniaSelectionComboBox_SelectedIndexChanged);
+            this.liniaSelectionComboBox.SelectedIndexChanged += new System.EventHandler(this.LiniaSelectionComboBox_SelectedIndexChanged);
             // 
             // cancel
             // 
@@ -200,7 +200,7 @@
             this.cancel.TabIndex = 9;
             this.cancel.Text = "Anuluj";
             this.cancel.UseVisualStyleBackColor = true;
-            this.cancel.Click += new System.EventHandler(this.cancel_Click);
+            this.cancel.Click += new System.EventHandler(this.Cancel_Click);
             // 
             // save
             // 
@@ -210,7 +210,7 @@
             this.save.TabIndex = 8;
             this.save.Text = "Przypisz";
             this.save.UseVisualStyleBackColor = true;
-            this.save.Click += new System.EventHandler(this.save_Click);
+            this.save.Click += new System.EventHandler(this.Save_Click);
             // 
             // liniaSelectionLabel
             // 
@@ -236,9 +236,9 @@
             this.exit.TabIndex = 7;
             this.exit.Text = "x";
             this.exit.UseVisualStyleBackColor = false;
-            this.exit.Click += new System.EventHandler(this.exit_Click);
-            this.exit.MouseEnter += new System.EventHandler(this.hover_exitbutton);
-            this.exit.MouseLeave += new System.EventHandler(this.leave_exitbutton);
+            this.exit.Click += new System.EventHandler(this.Exit_Click);
+            this.exit.MouseEnter += new System.EventHandler(this.Hover_exitbutton);
+            this.exit.MouseLeave += new System.EventHandler(this.Leave_exitbutton);
             // 
             // planowanieRealizacjiKursu
             // 
@@ -252,9 +252,9 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "planowanieRealizacjiKursu";
             this.Text = "przypisywanieKierowcowPojazdowDoRealizacji";
-            this.Activated += new System.EventHandler(this.przypisywanieKierowcowPojazdowDoRealizacji_Load);
-            this.Load += new System.EventHandler(this.przypisywanieKierowcowPojazdowDoRealizacji_Load);
-            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.move_window);
+            this.Activated += new System.EventHandler(this.PrzypisywanieKierowcowPojazdowDoRealizacji_Load);
+            this.Load += new System.EventHandler(this.PrzypisywanieKierowcowPojazdowDoRealizacji_Load);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Move_window);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
