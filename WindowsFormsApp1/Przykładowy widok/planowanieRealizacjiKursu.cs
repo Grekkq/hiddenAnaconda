@@ -10,64 +10,42 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp1 {
     public partial class planowanieRealizacjiKursu : Form {
+
         public planowanieRealizacjiKursu() {
             InitializeComponent();
         }
 
-        private void przypisz_kierowce_Click(object sender, EventArgs e) {
+        // funkcje wspólne dla widoków
+        SharedView sharedView = new SharedView();
 
+        private void move_window(object sender, MouseEventArgs e) {
+            if (e.Button == MouseButtons.Left) {
+                sharedView.moveWindow(sender, e, Handle);
+            }
         }
 
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e) {
-
+        private void hover_exitbutton(object sender, EventArgs e) {
+            sharedView.hover_exitbutton(exit);
         }
 
-        private void groupBox1_Enter(object sender, EventArgs e) {
-
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e) {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e) {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e) {
-
-        }
-
-        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e) {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e) {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e) {
-
+        private void leave_exitbutton(object sender, EventArgs e) {
+            sharedView.leave_exitbutton(exit);
         }
 
         private void przypisywanieKierowcowPojazdowDoRealizacji_Load(object sender, EventArgs e) {
-
+            this.ActiveControl = null;
         }
 
-        private void label4_Click(object sender, EventArgs e) {
-
+        private void cancel_Click(object sender, EventArgs e) {
+            this.Close();
         }
 
-        private void label4_Click_1(object sender, EventArgs e) {
-
+        private void save_Click(object sender, EventArgs e) {
+            this.Close();
         }
 
-        private void comboBox4_SelectedIndexChanged(object sender, EventArgs e) {
-
-        }
-
-        private void label6_Click(object sender, EventArgs e) {
-
+        private void exit_Click(object sender, EventArgs e) {
+            this.Close();
         }
     }
 }
