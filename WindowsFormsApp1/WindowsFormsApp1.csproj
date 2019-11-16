@@ -76,6 +76,18 @@
     <Compile Include="Widoki Bielecki\WypelnianieCzasuRealizacjiKursu.Designer.cs">
       <DependentUpon>WypelnianieCzasuRealizacjiKursu.cs</DependentUpon>
     </Compile>
+    <Compile Include="Widoki Wilk\DodawanieKierowcy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Widoki Wilk\DodawanieKierowcy.Designer.cs">
+      <DependentUpon>DodawanieKierowcy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Widoki Wilk\WybórEkranu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Widoki Wilk\WybórEkranu.Designer.cs">
+      <DependentUpon>WybórEkranu.cs</DependentUpon>
+    </Compile>
     <Compile Include="Widoki Zagoła\DodawaniePrzystanku.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,6 +122,12 @@
     <EmbeddedResource Include="Widoki Bielecki\WypelnianieCzasuRealizacjiKursu.resx">
       <DependentUpon>WypelnianieCzasuRealizacjiKursu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Widoki Wilk\DodawanieKierowcy.resx">
+      <DependentUpon>DodawanieKierowcy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Widoki Wilk\WybórEkranu.resx">
+      <DependentUpon>WybórEkranu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Widoki Zagoła\DodawaniePrzystanku.resx">
       <DependentUpon>DodawaniePrzystanku.cs</DependentUpon>
     </EmbeddedResource>
@@ -131,7 +149,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Widoki Mastaliński\" />
-    <Folder Include="Widoki Wilk\" />
     <Folder Include="Widoki Zagata\" />
   </ItemGroup>
   <ItemGroup>

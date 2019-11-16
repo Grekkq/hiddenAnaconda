@@ -16,7 +16,7 @@ namespace WindowsFormsApp1 {
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new DodawanieNowejLinii());
             //Application.Run(new Widoki_Zagoła.DodawaniePrzystanku());
-            Application.Run(new Widoki_Bielecki.WypelnianieCzasuRealizacjiKursu());
+            Application.Run(new Widoki_Wilk.WybórEkranu());
 
         }
     }
