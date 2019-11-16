@@ -55,6 +55,7 @@
             this.label1.Size = new System.Drawing.Size(608, 68);
             this.label1.TabIndex = 1;
             this.label1.Text = " \r\n      Tworzenie nowej lini";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -99,10 +100,10 @@
             this.no.AutoSize = true;
             this.no.Location = new System.Drawing.Point(92, 32);
             this.no.Name = "no";
-            this.no.Size = new System.Drawing.Size(41, 17);
+            this.no.Size = new System.Drawing.Size(44, 17);
             this.no.TabIndex = 7;
             this.no.TabStop = true;
-            this.no.Text = "Nie";
+            this.no.Text = "Nie ";
             this.no.UseVisualStyleBackColor = true;
             // 
             // yes
