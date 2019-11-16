@@ -1,6 +1,7 @@
-﻿namespace Dodawaniepojazdu
+﻿namespace WindowsFormsApp1.Widoki_Mastaliński
 {
-    partial class Dodawaniepojazdu
+    partial class DodawaniePojazdow
+
     {
         /// <summary>
         /// Wymagana zmienna projektanta.
@@ -31,6 +32,17 @@
             this.label1 = new System.Windows.Forms.Label();
             this.exit = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.no1 = new System.Windows.Forms.RadioButton();
+            this.yes2 = new System.Windows.Forms.RadioButton();
+            this.year_number = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.vin_number = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.plate_numer = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.model_name = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.no = new System.Windows.Forms.RadioButton();
             this.yes = new System.Windows.Forms.RadioButton();
@@ -40,20 +52,9 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.model_name = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.plate_numer = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.vin_number = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.year_number = new System.Windows.Forms.TextBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.no1 = new System.Windows.Forms.RadioButton();
-            this.yes2 = new System.Windows.Forms.RadioButton();
             this.panel1.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -66,7 +67,6 @@
             this.label1.Size = new System.Drawing.Size(283, 21);
             this.label1.TabIndex = 6;
             this.label1.Text = "Formularz tworzenia nowego pojazdu";
-            
             // 
             // exit
             // 
@@ -111,6 +111,111 @@
             this.panel1.Size = new System.Drawing.Size(606, 374);
             this.panel1.TabIndex = 8;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.no1);
+            this.groupBox2.Controls.Add(this.yes2);
+            this.groupBox2.Location = new System.Drawing.Point(341, 169);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(245, 80);
+            this.groupBox2.TabIndex = 19;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Czy tworzony pojazd jest dostępny?";
+            // 
+            // no1
+            // 
+            this.no1.AutoSize = true;
+            this.no1.Location = new System.Drawing.Point(92, 32);
+            this.no1.Name = "no1";
+            this.no1.Size = new System.Drawing.Size(41, 17);
+            this.no1.TabIndex = 7;
+            this.no1.TabStop = true;
+            this.no1.Text = "Nie";
+            this.no1.UseVisualStyleBackColor = true;
+            // 
+            // yes2
+            // 
+            this.yes2.AutoSize = true;
+            this.yes2.Location = new System.Drawing.Point(31, 32);
+            this.yes2.Name = "yes2";
+            this.yes2.Size = new System.Drawing.Size(44, 17);
+            this.yes2.TabIndex = 6;
+            this.yes2.TabStop = true;
+            this.yes2.Text = "Tak";
+            this.yes2.UseVisualStyleBackColor = true;
+            // 
+            // year_number
+            // 
+            this.year_number.HideSelection = false;
+            this.year_number.Location = new System.Drawing.Point(20, 252);
+            this.year_number.MaxLength = 4;
+            this.year_number.Name = "year_number";
+            this.year_number.Size = new System.Drawing.Size(109, 20);
+            this.year_number.TabIndex = 18;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(17, 236);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(196, 13);
+            this.label8.TabIndex = 17;
+            this.label8.Text = "Podaj rok produkcji tworzonego pojazdu";
+            // 
+            // vin_number
+            // 
+            this.vin_number.HideSelection = false;
+            this.vin_number.Location = new System.Drawing.Point(20, 213);
+            this.vin_number.MaxLength = 4;
+            this.vin_number.Name = "vin_number";
+            this.vin_number.Size = new System.Drawing.Size(109, 20);
+            this.vin_number.TabIndex = 16;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(17, 197);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(185, 13);
+            this.label7.TabIndex = 15;
+            this.label7.Text = "Podaj numer VIN tworzonego pojazdu";
+            // 
+            // plate_numer
+            // 
+            this.plate_numer.HideSelection = false;
+            this.plate_numer.Location = new System.Drawing.Point(20, 174);
+            this.plate_numer.MaxLength = 4;
+            this.plate_numer.Name = "plate_numer";
+            this.plate_numer.Size = new System.Drawing.Size(109, 20);
+            this.plate_numer.TabIndex = 14;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(17, 158);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(225, 13);
+            this.label6.TabIndex = 13;
+            this.label6.Text = "Podaj numer rejestracyjny tworzonego pojazdu";
+            // 
+            // model_name
+            // 
+            this.model_name.HideSelection = false;
+            this.model_name.Location = new System.Drawing.Point(20, 135);
+            this.model_name.MaxLength = 4;
+            this.model_name.Name = "model_name";
+            this.model_name.Size = new System.Drawing.Size(109, 20);
+            this.model_name.TabIndex = 12;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(17, 119);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(163, 13);
+            this.label5.TabIndex = 11;
+            this.label5.Text = "Podaj model tworzonego pojazdu";
             // 
             // groupBox1
             // 
@@ -205,112 +310,7 @@
             this.label3.TabIndex = 1;
             this.label3.Text = " \r\n      Tworzenie nowego pojazdu";
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(17, 119);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(163, 13);
-            this.label5.TabIndex = 11;
-            this.label5.Text = "Podaj model tworzonego pojazdu";
-            // 
-            // model_name
-            // 
-            this.model_name.HideSelection = false;
-            this.model_name.Location = new System.Drawing.Point(20, 135);
-            this.model_name.MaxLength = 4;
-            this.model_name.Name = "model_name";
-            this.model_name.Size = new System.Drawing.Size(109, 20);
-            this.model_name.TabIndex = 12;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(17, 158);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(225, 13);
-            this.label6.TabIndex = 13;
-            this.label6.Text = "Podaj numer rejestracyjny tworzonego pojazdu";
-            // 
-            // plate_numer
-            // 
-            this.plate_numer.HideSelection = false;
-            this.plate_numer.Location = new System.Drawing.Point(20, 174);
-            this.plate_numer.MaxLength = 4;
-            this.plate_numer.Name = "plate_numer";
-            this.plate_numer.Size = new System.Drawing.Size(109, 20);
-            this.plate_numer.TabIndex = 14;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(17, 197);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(185, 13);
-            this.label7.TabIndex = 15;
-            this.label7.Text = "Podaj numer VIN tworzonego pojazdu";
-            // 
-            // vin_number
-            // 
-            this.vin_number.HideSelection = false;
-            this.vin_number.Location = new System.Drawing.Point(20, 213);
-            this.vin_number.MaxLength = 4;
-            this.vin_number.Name = "vin_number";
-            this.vin_number.Size = new System.Drawing.Size(109, 20);
-            this.vin_number.TabIndex = 16;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(17, 236);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(196, 13);
-            this.label8.TabIndex = 17;
-            this.label8.Text = "Podaj rok produkcji tworzonego pojazdu";
-            // 
-            // year_number
-            // 
-            this.year_number.HideSelection = false;
-            this.year_number.Location = new System.Drawing.Point(20, 252);
-            this.year_number.MaxLength = 4;
-            this.year_number.Name = "year_number";
-            this.year_number.Size = new System.Drawing.Size(109, 20);
-            this.year_number.TabIndex = 18;
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.no1);
-            this.groupBox2.Controls.Add(this.yes2);
-            this.groupBox2.Location = new System.Drawing.Point(341, 169);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(245, 80);
-            this.groupBox2.TabIndex = 19;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Czy tworzony pojazd jest dostępny?";
-            // 
-            // no1
-            // 
-            this.no1.AutoSize = true;
-            this.no1.Location = new System.Drawing.Point(92, 32);
-            this.no1.Name = "no1";
-            this.no1.Size = new System.Drawing.Size(41, 17);
-            this.no1.TabIndex = 7;
-            this.no1.TabStop = true;
-            this.no1.Text = "Nie";
-            this.no1.UseVisualStyleBackColor = true;
-            // 
-            // yes2
-            // 
-            this.yes2.AutoSize = true;
-            this.yes2.Location = new System.Drawing.Point(31, 32);
-            this.yes2.Name = "yes2";
-            this.yes2.Size = new System.Drawing.Size(44, 17);
-            this.yes2.TabIndex = 6;
-            this.yes2.TabStop = true;
-            this.yes2.Text = "Tak";
-            this.yes2.UseVisualStyleBackColor = true;
-            // 
-            // Dodawaniepojazdu
+            // DodawaniePojazdow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -322,15 +322,14 @@
             this.Controls.Add(this.label1);
             this.ForeColor = System.Drawing.SystemColors.MenuText;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Dodawaniepojazdu";
+            this.Name = "DodawaniePojazdow";
             this.Text = "Kreator Dodawanie Pojazdu";
-           
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -362,4 +361,3 @@
         private System.Windows.Forms.Label label3;
     }
 }
-

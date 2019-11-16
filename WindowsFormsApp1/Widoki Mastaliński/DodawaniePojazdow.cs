@@ -8,9 +8,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Dodawaniepojazdu
+namespace WindowsFormsApp1.Widoki_Mastaliński
 {
-    public partial class Dodawaniepojazdu : Form    {
+    public partial class DodawaniePojazdow : Form
+    {
 
         public const int WM_NCLBUTTONDOWN = 0xA1;                                               // stałe do funkcji przesuwania okna
         public const int HT_CAPTION = 0x2;                                                      //
@@ -38,7 +39,7 @@ namespace Dodawaniepojazdu
             exit.BackColor = Color.FromArgb(0, 99, 183);
         }
 
-        public Dodawaniepojazdu()
+        public DodawaniePojazdow()
         {
             InitializeComponent();
         }
@@ -64,7 +65,7 @@ namespace Dodawaniepojazdu
             {
                 MessageBox.Show("Formularz niewypełniony całkowicie.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            
+
             else if (yes.Checked == false && no.Checked == false)
             {
                 MessageBox.Show("Nie zaznaczono odpowiedz na pytanie.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -87,9 +88,3 @@ namespace Dodawaniepojazdu
         }
     }
 }
-
-
-
-
-
-
