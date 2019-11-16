@@ -13,6 +13,12 @@ namespace WindowsFormsApp1 {
 
         public planowanieRealizacjiKursu() {
             InitializeComponent();
+            kursSelectionLabel.Hide();
+            kursSelectionComboBox.Hide();
+            kierowcaSelectionLabel.Hide();
+            kierowcaSelectionComboBox.Hide();
+            pojazdSelectionLabel.Hide();
+            pojazdSelectionComboBox.Hide();
         }
 
         // funkcje wspólne dla widoków
@@ -33,19 +39,44 @@ namespace WindowsFormsApp1 {
         }
 
         private void przypisywanieKierowcowPojazdowDoRealizacji_Load(object sender, EventArgs e) {
-            this.ActiveControl = null;
+
         }
+
 
         private void cancel_Click(object sender, EventArgs e) {
             this.Close();
         }
 
         private void save_Click(object sender, EventArgs e) {
-            this.Close();
+            if (String.IsNullOrEmpty(liniaSelectionComboBox.Text))
+                MessageBox.Show("Nie wybrano lini", "Błąd!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            else if (String.IsNullOrEmpty(kursSelectionComboBox.Text))
+                MessageBox.Show("Nie wybrano kursu", "Błąd!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            else if (String.IsNullOrEmpty(kierowcaSelectionComboBox.Text))
+                MessageBox.Show("Nie wybrano kierowcy", "Błąd!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            else if (String.IsNullOrEmpty(pojazdSelectionComboBox.Text))
+                MessageBox.Show("Nie wybrano pojazdu", "Błąd!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            else {
+                var result = MessageBox.Show("Pomyślnie przypisano <kierowca> i <pojazd> do <kurs>", "Sukces!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (result == DialogResult.OK)
+                    this.Close();
+            }
         }
 
         private void exit_Click(object sender, EventArgs e) {
             this.Close();
+        }
+
+        private void liniaSelectionComboBox_SelectedIndexChanged(object sender, EventArgs e) {
+            kursSelectionLabel.Show();
+            kursSelectionComboBox.Show();
+        }
+
+        private void kursSelectionComboBox_SelectedIndexChanged(object sender, EventArgs e) {
+            kierowcaSelectionLabel.Show();
+            kierowcaSelectionComboBox.Show();
+            pojazdSelectionLabel.Show();
+            pojazdSelectionComboBox.Show();
         }
     }
 }

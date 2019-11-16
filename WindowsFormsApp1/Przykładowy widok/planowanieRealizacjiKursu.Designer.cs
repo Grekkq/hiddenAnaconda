@@ -30,7 +30,7 @@
             this.datePickerLabel = new System.Windows.Forms.Label();
             this.pojazdSelectionComboBox = new System.Windows.Forms.ComboBox();
             this.pojazdSelectionLabel = new System.Windows.Forms.Label();
-            this.kierowcaSelectionConboBox = new System.Windows.Forms.ComboBox();
+            this.kierowcaSelectionComboBox = new System.Windows.Forms.ComboBox();
             this.kierowcaSelectionLabel = new System.Windows.Forms.Label();
             this.dataKursuPicker = new System.Windows.Forms.MonthCalendar();
             this.kursSelectionComboBox = new System.Windows.Forms.ComboBox();
@@ -83,7 +83,7 @@
             this.panel1.Controls.Add(this.datePickerLabel);
             this.panel1.Controls.Add(this.pojazdSelectionComboBox);
             this.panel1.Controls.Add(this.pojazdSelectionLabel);
-            this.panel1.Controls.Add(this.kierowcaSelectionConboBox);
+            this.panel1.Controls.Add(this.kierowcaSelectionComboBox);
             this.panel1.Controls.Add(this.kierowcaSelectionLabel);
             this.panel1.Controls.Add(this.dataKursuPicker);
             this.panel1.Controls.Add(this.kursSelectionComboBox);
@@ -111,6 +111,10 @@
             // pojazdSelectionComboBox
             // 
             this.pojazdSelectionComboBox.FormattingEnabled = true;
+            this.pojazdSelectionComboBox.Items.AddRange(new object[] {
+            "Mercedes - SG 6743K",
+            "Solaris - SK 98551",
+            "Man - ST 12985"});
             this.pojazdSelectionComboBox.Location = new System.Drawing.Point(309, 272);
             this.pojazdSelectionComboBox.Name = "pojazdSelectionComboBox";
             this.pojazdSelectionComboBox.Size = new System.Drawing.Size(121, 21);
@@ -125,13 +129,17 @@
             this.pojazdSelectionLabel.TabIndex = 17;
             this.pojazdSelectionLabel.Text = "Wybierz pojazd:";
             // 
-            // kierowcaSelectionConboBox
+            // kierowcaSelectionComboBox
             // 
-            this.kierowcaSelectionConboBox.FormattingEnabled = true;
-            this.kierowcaSelectionConboBox.Location = new System.Drawing.Point(309, 218);
-            this.kierowcaSelectionConboBox.Name = "kierowcaSelectionConboBox";
-            this.kierowcaSelectionConboBox.Size = new System.Drawing.Size(121, 21);
-            this.kierowcaSelectionConboBox.TabIndex = 16;
+            this.kierowcaSelectionComboBox.FormattingEnabled = true;
+            this.kierowcaSelectionComboBox.Items.AddRange(new object[] {
+            "Kowalski Jan",
+            "Zielnik Piotr",
+            "Gawron Małgorzata"});
+            this.kierowcaSelectionComboBox.Location = new System.Drawing.Point(309, 218);
+            this.kierowcaSelectionComboBox.Name = "kierowcaSelectionComboBox";
+            this.kierowcaSelectionComboBox.Size = new System.Drawing.Size(121, 21);
+            this.kierowcaSelectionComboBox.TabIndex = 16;
             // 
             // kierowcaSelectionLabel
             // 
@@ -151,10 +159,16 @@
             // kursSelectionComboBox
             // 
             this.kursSelectionComboBox.FormattingEnabled = true;
+            this.kursSelectionComboBox.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4"});
             this.kursSelectionComboBox.Location = new System.Drawing.Point(309, 148);
             this.kursSelectionComboBox.Name = "kursSelectionComboBox";
             this.kursSelectionComboBox.Size = new System.Drawing.Size(121, 21);
             this.kursSelectionComboBox.TabIndex = 12;
+            this.kursSelectionComboBox.SelectedIndexChanged += new System.EventHandler(this.kursSelectionComboBox_SelectedIndexChanged);
             // 
             // kursSelectionLabel
             // 
@@ -168,10 +182,15 @@
             // liniaSelectionComboBox
             // 
             this.liniaSelectionComboBox.FormattingEnabled = true;
+            this.liniaSelectionComboBox.Items.AddRange(new object[] {
+            "32",
+            "617",
+            "A4"});
             this.liniaSelectionComboBox.Location = new System.Drawing.Point(309, 94);
             this.liniaSelectionComboBox.Name = "liniaSelectionComboBox";
             this.liniaSelectionComboBox.Size = new System.Drawing.Size(121, 21);
             this.liniaSelectionComboBox.TabIndex = 10;
+            this.liniaSelectionComboBox.SelectedIndexChanged += new System.EventHandler(this.liniaSelectionComboBox_SelectedIndexChanged);
             // 
             // cancel
             // 
@@ -258,7 +277,7 @@
         private System.Windows.Forms.Label kursSelectionLabel;
         private System.Windows.Forms.ComboBox pojazdSelectionComboBox;
         private System.Windows.Forms.Label pojazdSelectionLabel;
-        private System.Windows.Forms.ComboBox kierowcaSelectionConboBox;
+        private System.Windows.Forms.ComboBox kierowcaSelectionComboBox;
         private System.Windows.Forms.Label kierowcaSelectionLabel;
         private System.Windows.Forms.MonthCalendar dataKursuPicker;
         private System.Windows.Forms.Label datePickerLabel;
