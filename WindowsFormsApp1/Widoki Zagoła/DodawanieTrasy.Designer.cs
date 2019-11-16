@@ -39,23 +39,6 @@
             this.create = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.exit = new System.Windows.Forms.Button();
-            this.label10 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.comboBox6 = new System.Windows.Forms.ComboBox();
-            this.comboBox9 = new System.Windows.Forms.ComboBox();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.comboBox10 = new System.Windows.Forms.ComboBox();
@@ -63,12 +46,29 @@
             this.label23 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.comboBox6 = new System.Windows.Forms.ComboBox();
+            this.comboBox9 = new System.Windows.Forms.ComboBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.exit = new System.Windows.Forms.Button();
+            this.label10 = new System.Windows.Forms.Label();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // label2
@@ -215,123 +215,81 @@
             this.panel1.Size = new System.Drawing.Size(606, 423);
             this.panel1.TabIndex = 19;
             // 
-            // exit
+            // panel4
             // 
-            this.exit.BackColor = System.Drawing.Color.Transparent;
-            this.exit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.exit.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.exit.FlatAppearance.BorderSize = 0;
-            this.exit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.exit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.exit.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.exit.Location = new System.Drawing.Point(561, 2);
-            this.exit.Name = "exit";
-            this.exit.Size = new System.Drawing.Size(48, 28);
-            this.exit.TabIndex = 20;
-            this.exit.Text = "x";
-            this.exit.UseVisualStyleBackColor = false;
-            this.exit.Click += new System.EventHandler(this.exit_Click);
-            this.exit.MouseEnter += new System.EventHandler(this.hover_exitbutton);
-            this.exit.MouseLeave += new System.EventHandler(this.leave_exitbutton);
+            this.panel4.Controls.Add(this.textBox3);
+            this.panel4.Controls.Add(this.comboBox10);
+            this.panel4.Controls.Add(this.comboBox11);
+            this.panel4.Controls.Add(this.label23);
+            this.panel4.Controls.Add(this.label24);
+            this.panel4.Controls.Add(this.label25);
+            this.panel4.Location = new System.Drawing.Point(66, 274);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(463, 78);
+            this.panel4.TabIndex = 22;
+            this.panel4.Visible = false;
             // 
-            // label10
+            // textBox3
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
-            this.label10.ForeColor = System.Drawing.SystemColors.Window;
-            this.label10.Location = new System.Drawing.Point(3, 5);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(244, 21);
-            this.label10.TabIndex = 23;
-            this.label10.Text = "Formularz tworzenia nowej trasy";
-            this.label10.Click += new System.EventHandler(this.label10_Click);
-            this.label10.MouseDown += new System.Windows.Forms.MouseEventHandler(this.move_window);
+            this.textBox3.Location = new System.Drawing.Point(384, 12);
+            this.textBox3.MaxLength = 5;
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(76, 20);
+            this.textBox3.TabIndex = 5;
             // 
-            // panel2
+            // comboBox10
             // 
-            this.panel2.Controls.Add(this.textBox1);
-            this.panel2.Controls.Add(this.comboBox3);
-            this.panel2.Controls.Add(this.comboBox2);
-            this.panel2.Controls.Add(this.label18);
-            this.panel2.Controls.Add(this.label15);
-            this.panel2.Controls.Add(this.label13);
-            this.panel2.Location = new System.Drawing.Point(66, 106);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(463, 78);
-            this.panel2.TabIndex = 19;
-            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
-            // 
-            // label13
-            // 
-            this.label13.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label13.Location = new System.Drawing.Point(3, 9);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(42, 25);
-            this.label13.TabIndex = 0;
-            this.label13.Text = "1";
-            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label15
-            // 
-            this.label15.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label15.Location = new System.Drawing.Point(51, 9);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(77, 28);
-            this.label15.TabIndex = 1;
-            this.label15.Text = "Miasto:";
-            this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label18
-            // 
-            this.label18.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label18.Location = new System.Drawing.Point(51, 44);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(77, 28);
-            this.label18.TabIndex = 2;
-            this.label18.Text = "Nazwa:";
-            this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
-            "Gliwice",
-            "Katowice",
-            "Zabrze"});
-            this.comboBox2.Location = new System.Drawing.Point(134, 12);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(244, 21);
-            this.comboBox2.TabIndex = 3;
-            // 
-            // comboBox3
-            // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Items.AddRange(new object[] {
+            this.comboBox10.FormattingEnabled = true;
+            this.comboBox10.Items.AddRange(new object[] {
             "Plac Piastów",
             "Bogucice Markiefki",
             "Biskupice Kościół"});
-            this.comboBox3.Location = new System.Drawing.Point(134, 49);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(244, 21);
-            this.comboBox3.TabIndex = 4;
+            this.comboBox10.Location = new System.Drawing.Point(134, 49);
+            this.comboBox10.Name = "comboBox10";
+            this.comboBox10.Size = new System.Drawing.Size(244, 21);
+            this.comboBox10.TabIndex = 4;
             // 
-            // textBox1
+            // comboBox11
             // 
-            this.textBox1.Location = new System.Drawing.Point(384, 12);
-            this.textBox1.MaxLength = 5;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(76, 20);
-            this.textBox1.TabIndex = 5;
+            this.comboBox11.FormattingEnabled = true;
+            this.comboBox11.Items.AddRange(new object[] {
+            "Gliwice",
+            "Katowice",
+            "Zabrze"});
+            this.comboBox11.Location = new System.Drawing.Point(134, 12);
+            this.comboBox11.Name = "comboBox11";
+            this.comboBox11.Size = new System.Drawing.Size(244, 21);
+            this.comboBox11.TabIndex = 3;
             // 
-            // button1
+            // label23
             // 
-            this.button1.Location = new System.Drawing.Point(316, 379);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(82, 28);
-            this.button1.TabIndex = 20;
-            this.button1.Text = "Dodaj";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.label23.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label23.Location = new System.Drawing.Point(51, 44);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(77, 28);
+            this.label23.TabIndex = 2;
+            this.label23.Text = "Nazwa:";
+            this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label24
+            // 
+            this.label24.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label24.Location = new System.Drawing.Point(51, 9);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(77, 28);
+            this.label24.TabIndex = 1;
+            this.label24.Text = "Miasto:";
+            this.label24.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label25
+            // 
+            this.label25.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label25.Location = new System.Drawing.Point(3, 9);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(42, 25);
+            this.label25.TabIndex = 0;
+            this.label25.Text = "3";
+            this.label25.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel3
             // 
@@ -409,82 +367,6 @@
             this.label22.Text = "2";
             this.label22.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.textBox3);
-            this.panel4.Controls.Add(this.comboBox10);
-            this.panel4.Controls.Add(this.comboBox11);
-            this.panel4.Controls.Add(this.label23);
-            this.panel4.Controls.Add(this.label24);
-            this.panel4.Controls.Add(this.label25);
-            this.panel4.Location = new System.Drawing.Point(66, 274);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(463, 78);
-            this.panel4.TabIndex = 22;
-            this.panel4.Visible = false;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(384, 12);
-            this.textBox3.MaxLength = 5;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(76, 20);
-            this.textBox3.TabIndex = 5;
-            // 
-            // comboBox10
-            // 
-            this.comboBox10.FormattingEnabled = true;
-            this.comboBox10.Items.AddRange(new object[] {
-            "Plac Piastów",
-            "Bogucice Markiefki",
-            "Biskupice Kościół"});
-            this.comboBox10.Location = new System.Drawing.Point(134, 49);
-            this.comboBox10.Name = "comboBox10";
-            this.comboBox10.Size = new System.Drawing.Size(244, 21);
-            this.comboBox10.TabIndex = 4;
-            // 
-            // comboBox11
-            // 
-            this.comboBox11.FormattingEnabled = true;
-            this.comboBox11.Items.AddRange(new object[] {
-            "Gliwice",
-            "Katowice",
-            "Zabrze"});
-            this.comboBox11.Location = new System.Drawing.Point(134, 12);
-            this.comboBox11.Name = "comboBox11";
-            this.comboBox11.Size = new System.Drawing.Size(244, 21);
-            this.comboBox11.TabIndex = 3;
-            // 
-            // label23
-            // 
-            this.label23.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label23.Location = new System.Drawing.Point(51, 44);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(77, 28);
-            this.label23.TabIndex = 2;
-            this.label23.Text = "Nazwa:";
-            this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label24
-            // 
-            this.label24.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label24.Location = new System.Drawing.Point(51, 9);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(77, 28);
-            this.label24.TabIndex = 1;
-            this.label24.Text = "Miasto:";
-            this.label24.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label25
-            // 
-            this.label25.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label25.Location = new System.Drawing.Point(3, 9);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(42, 25);
-            this.label25.TabIndex = 0;
-            this.label25.Text = "3";
-            this.label25.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(191, 379);
@@ -494,6 +376,125 @@
             this.button2.Text = "Usuń";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(316, 379);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(82, 28);
+            this.button1.TabIndex = 20;
+            this.button1.Text = "Dodaj";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.textBox1);
+            this.panel2.Controls.Add(this.comboBox3);
+            this.panel2.Controls.Add(this.comboBox2);
+            this.panel2.Controls.Add(this.label18);
+            this.panel2.Controls.Add(this.label15);
+            this.panel2.Controls.Add(this.label13);
+            this.panel2.Location = new System.Drawing.Point(66, 106);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(463, 78);
+            this.panel2.TabIndex = 19;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(384, 12);
+            this.textBox1.MaxLength = 5;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(76, 20);
+            this.textBox1.TabIndex = 5;
+            this.textBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
+            // 
+            // comboBox3
+            // 
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Items.AddRange(new object[] {
+            "Plac Piastów",
+            "Bogucice Markiefki",
+            "Biskupice Kościół"});
+            this.comboBox3.Location = new System.Drawing.Point(134, 49);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(244, 21);
+            this.comboBox3.TabIndex = 4;
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Items.AddRange(new object[] {
+            "Gliwice",
+            "Katowice",
+            "Zabrze"});
+            this.comboBox2.Location = new System.Drawing.Point(134, 12);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(244, 21);
+            this.comboBox2.TabIndex = 3;
+            // 
+            // label18
+            // 
+            this.label18.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label18.Location = new System.Drawing.Point(51, 44);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(77, 28);
+            this.label18.TabIndex = 2;
+            this.label18.Text = "Nazwa:";
+            this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label15
+            // 
+            this.label15.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label15.Location = new System.Drawing.Point(51, 9);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(77, 28);
+            this.label15.TabIndex = 1;
+            this.label15.Text = "Miasto:";
+            this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label13
+            // 
+            this.label13.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label13.Location = new System.Drawing.Point(3, 9);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(42, 25);
+            this.label13.TabIndex = 0;
+            this.label13.Text = "1";
+            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // exit
+            // 
+            this.exit.BackColor = System.Drawing.Color.Transparent;
+            this.exit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.exit.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.exit.FlatAppearance.BorderSize = 0;
+            this.exit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.exit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.exit.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.exit.Location = new System.Drawing.Point(561, 2);
+            this.exit.Name = "exit";
+            this.exit.Size = new System.Drawing.Size(48, 28);
+            this.exit.TabIndex = 20;
+            this.exit.Text = "x";
+            this.exit.UseVisualStyleBackColor = false;
+            this.exit.Click += new System.EventHandler(this.exit_Click);
+            this.exit.MouseEnter += new System.EventHandler(this.hover_exitbutton);
+            this.exit.MouseLeave += new System.EventHandler(this.leave_exitbutton);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.label10.ForeColor = System.Drawing.SystemColors.Window;
+            this.label10.Location = new System.Drawing.Point(3, 5);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(244, 21);
+            this.label10.TabIndex = 23;
+            this.label10.Text = "Formularz tworzenia nowej trasy";
+            this.label10.Click += new System.EventHandler(this.label10_Click);
+            this.label10.MouseDown += new System.Windows.Forms.MouseEventHandler(this.move_window);
             // 
             // DodawanieTrasy
             // 
@@ -516,12 +517,12 @@
             this.tableLayoutPanel2.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

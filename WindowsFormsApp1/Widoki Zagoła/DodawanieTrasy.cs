@@ -152,7 +152,7 @@ namespace WindowsFormsApp1.Widoki_Zagoła
                     var result = MessageBox.Show(message, caption, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     if (result == DialogResult.OK)
                     {
-                        Application.Exit();
+                        this.Close();
                     }
                 }
             }
@@ -185,5 +185,23 @@ namespace WindowsFormsApp1.Widoki_Zagoła
             else
                 panel3.Visible = false;
         }
+
+        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsDigit(e.KeyChar) || e.KeyChar == (char)Keys.Back || (e.KeyChar == ':') || (e.KeyChar == '.'))
+                base.OnKeyPress(e);
+            else
+                e.Handled = true;
+
+            // pozwala na tylko jeden przecinek w słowie
+            if ((e.KeyChar == '.' && (sender as TextBox).Text.Contains('.')) || (e.KeyChar == ':' && (sender as TextBox).Text.Contains(':')) || (e.KeyChar == '.' && (sender as TextBox).Text.Contains(':')) || (e.KeyChar == ':' && (sender as TextBox).Text.Contains('.')))
+                e.Handled = true;
+
+            // nie pozwala na przecinek na początku
+            if ((e.KeyChar == '.' && textBox1.SelectionStart == 0) || (e.KeyChar == ':' && textBox1.SelectionStart == 0))
+                e.Handled = true;
+
+        }       
+    
     }
 }

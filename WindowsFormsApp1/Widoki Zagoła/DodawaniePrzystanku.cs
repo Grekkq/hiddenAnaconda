@@ -67,9 +67,17 @@ namespace WindowsFormsApp1.Widoki_Zagoła
                 {
                     MessageBox.Show("Nie wypełniono formularza", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
-                else if ((string.IsNullOrEmpty(textBox1.Text)) || (string.IsNullOrEmpty(textBox2.Text)) || (string.IsNullOrEmpty(textBox3.Text)))
+                else if ((string.IsNullOrEmpty(textBox1.Text)))
                 {
-                    MessageBox.Show("Formularz niewypełniony całkowicie.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Niewypełniono pola: Nazwa.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else if ((string.IsNullOrEmpty(textBox2.Text)))
+                {
+                    MessageBox.Show("Niewypełniono pola: Miasto.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else if ((string.IsNullOrEmpty(textBox3.Text)))
+                {
+                    MessageBox.Show("Niewypełniono pola: Adres.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else if (yes.Checked == false && no.Checked == false)
                 {
@@ -82,7 +90,7 @@ namespace WindowsFormsApp1.Widoki_Zagoła
                     var result = MessageBox.Show(message, caption, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     if (result == DialogResult.OK)
                     {
-                        Application.Exit();
+                        this.Close();
                     }
                 }
             }
