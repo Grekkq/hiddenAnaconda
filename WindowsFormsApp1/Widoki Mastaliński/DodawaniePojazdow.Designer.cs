@@ -228,6 +228,7 @@
             this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Czy tworzony pojazd będzie niskopodłogowy?";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // no
             // 

@@ -100,5 +100,9 @@ namespace WindowsFormsApp1.Widoki_Mastaliński
         {
 
         }
+
+        private void groupBox1_Enter(object sender, EventArgs e) {
+
+        }
     }
 }

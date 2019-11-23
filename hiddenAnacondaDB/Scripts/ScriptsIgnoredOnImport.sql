@@ -534,3 +534,6 @@ if exists (select 1
             and   type = 'U')
    drop table trasa
 GO
+
+INSERT INTO kierowca VALUES (5, Jan, asd, TRUE, 12345678985)
+GO
