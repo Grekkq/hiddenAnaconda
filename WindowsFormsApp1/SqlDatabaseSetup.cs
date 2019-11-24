@@ -1,13 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Data.Common;
 using Microsoft.Data.Tools.Schema.Sql.UnitTesting;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace WindowsFormsApp1
-{
+namespace WindowsFormsApp1 {
     [TestClass()]
     public class SqlDatabaseSetup
     {
@@ -21,5 +15,7 @@ namespace WindowsFormsApp1
             SqlDatabaseTestClass.TestService.GenerateData();
         }
 
+        private class AssemblyInitializeAttribute : Attribute {
+        }
     }
 }

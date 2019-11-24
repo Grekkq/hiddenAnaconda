@@ -71,6 +71,8 @@
     <Compile Include="SqlServerUnitTest1.cs">
       <SubType>Designer</SubType>
     </Compile>
+    <Compile Include="TestClassAttribute.cs" />
+    <Compile Include="TestContext.cs" />
     <Compile Include="Widoki Bielecki\DodawanieNowejLinii.cs">
       <SubType>Form</SubType>
     </Compile>

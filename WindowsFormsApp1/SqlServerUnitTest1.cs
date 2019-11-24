@@ -1,14 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Common;
-using System.Text;
 using Microsoft.Data.Tools.Schema.Sql.UnitTesting;
-using Microsoft.Data.Tools.Schema.Sql.UnitTesting.Conditions;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace WindowsFormsApp1
-{
+namespace WindowsFormsApp1 {
     [TestClass()]
     public class SqlServerUnitTest1 : SqlDatabaseTestClass
     {
@@ -82,5 +75,14 @@ namespace WindowsFormsApp1
         #endregion
 
         private SqlDatabaseTestActions SqlTest1Data;
+
+        private class TestInitializeAttribute : Attribute {
+        }
+
+        private class TestCleanupAttribute : Attribute {
+        }
+
+        private class TestMethodAttribute : Attribute {
+        }
     }
 }
