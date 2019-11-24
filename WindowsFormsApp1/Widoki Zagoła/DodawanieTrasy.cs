@@ -48,74 +48,9 @@ namespace WindowsFormsApp1.Widoki_Zagoła
             InitializeComponent();
         }
 
-        private void create_Click1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void textBox5_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox10_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox12_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox15_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void cancel_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void DodawanieTrasy_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
         }
 
         private void exit_Click(object sender, EventArgs e)
@@ -123,85 +58,53 @@ namespace WindowsFormsApp1.Widoki_Zagoła
             this.Close();
         }
 
-        private void label10_Click(object sender, EventArgs e)
-        {
-
+        // DRAG&DROP
+        private void mainListBox_MouseDown(object sender, MouseEventArgs e) {
+            if (this.mainListBox.SelectedItem == null)
+                return;
+            this.mainListBox.DoDragDrop(this.mainListBox.SelectedItem, DragDropEffects.Move);
         }
 
-        private void comboBox4_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
+        private void mainListBox_DragOver(object sender, DragEventArgs e) {
+            e.Effect = DragDropEffects.Move;
         }
 
-        private void create_Click(object sender, EventArgs e)
-        {
-            {
-                if ((string.IsNullOrEmpty(comboBox3.Text)) && (string.IsNullOrEmpty(textBox1.Text)) && (string.IsNullOrEmpty(comboBox2.Text)) && (string.IsNullOrEmpty(comboBox4.Text)))
-                {
-                    MessageBox.Show("Nie wypełniono formularza", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-                else if ((string.IsNullOrEmpty(comboBox3.Text)) || (string.IsNullOrEmpty(textBox1.Text)) || (string.IsNullOrEmpty(comboBox2.Text)) || (string.IsNullOrEmpty(comboBox4.Text)))
-                {
-                    MessageBox.Show("Formularz niewypełniony całkowicie.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-
-                else
-                {
-                    const string message = "Pomyślnie utworzono nową trasę.";
-                    const string caption = "Sukces";
-                    var result = MessageBox.Show(message, caption, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    if (result == DialogResult.OK)
-                    {
-                        this.Close();
-                    }
-                }
+        private void mainListBox_DragDrop(object sender, DragEventArgs e) {
+            Point point = mainListBox.PointToClient(new Point(e.X, e.Y));
+            int index = this.mainListBox.IndexFromPoint(point);
+            if (index < 0)
+                index = this.mainListBox.Items.Count - 1;
+            object data = mainListBox.SelectedItem;
+            this.mainListBox.Items.Remove(data);
+            this.mainListBox.Items.Insert(index, data);
+            // Napraw indexy
+            index = 1;
+            List<String> replacmentData = new List<String>();
+            foreach (object item in mainListBox.Items) {
+                string content = (string) item;
+                String[] separator = { ") " };
+                String newcontent = content.Split(separator, 2, StringSplitOptions.RemoveEmptyEntries)[1].TrimStart();
+                newcontent = (index + ") ").PadRight(11, ' ') + newcontent;
+                replacmentData.Add(newcontent);
+                MessageBox.Show(content + "\n" + newcontent);
+                index++;
+            }
+            this.mainListBox.Items.Clear();
+            foreach (object item in replacmentData) {
+                this.mainListBox.Items.Add(item);
             }
         }
 
-        private void label13_Click(object sender, EventArgs e)
-        {
+        private void itemcreator_Load(object sender, EventArgs e) {
+            this.mainListBox.AllowDrop = true;
+        }
+
+        private void mainListBox_SelectedIndexChanged(object sender, EventArgs e) {
 
         }
 
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
+        private void clearButton_Click(object sender, EventArgs e) {
+            mainListBox.Items.Clear();
         }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            if (panel3.Visible == true)
-                panel4.Visible = true;
-
-            panel3.Visible = true;
-             
-
-        }
-        private void button2_Click(object sender, EventArgs e)
-        {
-            
-            if (panel4.Visible == true)
-                panel4.Visible = false;
-            else
-                panel3.Visible = false;
-        }
-
-        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (char.IsDigit(e.KeyChar) || e.KeyChar == (char)Keys.Back || (e.KeyChar == ':') || (e.KeyChar == '.'))
-                base.OnKeyPress(e);
-            else
-                e.Handled = true;
-
-            // pozwala na tylko jeden przecinek w słowie
-            if ((e.KeyChar == '.' && (sender as TextBox).Text.Contains('.')) || (e.KeyChar == ':' && (sender as TextBox).Text.Contains(':')) || (e.KeyChar == '.' && (sender as TextBox).Text.Contains(':')) || (e.KeyChar == ':' && (sender as TextBox).Text.Contains('.')))
-                e.Handled = true;
-
-            // nie pozwala na przecinek na początku
-            if ((e.KeyChar == '.' && textBox1.SelectionStart == 0) || (e.KeyChar == ':' && textBox1.SelectionStart == 0))
-                e.Handled = true;
-
-        }       
-    
     }
 }
