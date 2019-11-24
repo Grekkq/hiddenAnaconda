@@ -73,6 +73,12 @@
     </Compile>
     <Compile Include="TestClassAttribute.cs" />
     <Compile Include="TestContext.cs" />
+    <Compile Include="Widoki Bielecki\DodajPrzystanekDoTrasy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Widoki Bielecki\DodajPrzystanekDoTrasy.Designer.cs">
+      <DependentUpon>DodajPrzystanekDoTrasy.cs</DependentUpon>
+    </Compile>
     <Compile Include="Widoki Bielecki\DodawanieNowejLinii.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -135,6 +141,9 @@
     <EmbeddedResource Include="Przykładowy widok\planowanieRealizacjiKursu.resx">
       <DependentUpon>planowanieRealizacjiKursu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Widoki Bielecki\DodajPrzystanekDoTrasy.resx">
+      <DependentUpon>DodajPrzystanekDoTrasy.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Widoki Bielecki\DodawanieNowejLinii.resx">
       <DependentUpon>DodawanieNowejLinii.cs</DependentUpon>
     </EmbeddedResource>
@@ -170,7 +179,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Alert-Download-PNG.png" />

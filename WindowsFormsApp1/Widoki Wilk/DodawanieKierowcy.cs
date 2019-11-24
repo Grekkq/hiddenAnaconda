@@ -64,5 +64,10 @@ namespace WindowsFormsApp1.Widoki_Wilk
                 SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }
         }
+
+        private void DodawanieKierowcy_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

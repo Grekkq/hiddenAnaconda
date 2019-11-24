@@ -88,5 +88,11 @@ namespace WindowsFormsApp1.Widoki_Zagoła {
                 sharedView.fixIndex(this.mainListBox);
             }
         }
+
+        private void addButton_Click(object sender, EventArgs e)
+        {
+            Widoki_Bielecki.DodajPrzystanekDoTrasy form = new Widoki_Bielecki.DodajPrzystanekDoTrasy();
+            form.Show();
+        }
     }
 }
