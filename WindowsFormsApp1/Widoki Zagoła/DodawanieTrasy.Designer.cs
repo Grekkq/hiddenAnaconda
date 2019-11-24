@@ -212,9 +212,9 @@
             this.mainListBox.Name = "mainListBox";
             this.mainListBox.Size = new System.Drawing.Size(460, 164);
             this.mainListBox.TabIndex = 23;
-            this.mainListBox.SelectedIndexChanged += new System.EventHandler(this.mainListBox_SelectedIndexChanged);
             this.mainListBox.DragDrop += new System.Windows.Forms.DragEventHandler(this.mainListBox_DragDrop);
             this.mainListBox.DragOver += new System.Windows.Forms.DragEventHandler(this.mainListBox_DragOver);
+            this.mainListBox.DoubleClick += new System.EventHandler(this.mainListBox_DoubleClick);
             this.mainListBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.mainListBox_MouseDown);
             // 
             // deleteButton
@@ -225,6 +225,7 @@
             this.deleteButton.TabIndex = 20;
             this.deleteButton.Text = "Usuń";
             this.deleteButton.UseVisualStyleBackColor = true;
+            this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
             // 
             // addButton
             // 
