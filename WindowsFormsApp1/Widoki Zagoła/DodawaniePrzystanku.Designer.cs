@@ -77,7 +77,6 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(140, 20);
             this.textBox1.TabIndex = 5;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // groupBox1
             // 
@@ -91,7 +90,6 @@
             this.groupBox1.TabIndex = 11;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Czy utworzony przystanek jest pojedynczy?";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // no
             // 
@@ -134,7 +132,6 @@
             this.label4.Size = new System.Drawing.Size(63, 13);
             this.label4.TabIndex = 13;
             this.label4.Text = "Lokalizacja:";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // textBox2
             // 
@@ -231,7 +228,6 @@
             this.label7.Size = new System.Drawing.Size(303, 21);
             this.label7.TabIndex = 22;
             this.label7.Text = "Formularz tworzenia nowego przystanku";
-            this.label7.Click += new System.EventHandler(this.label7_Click);
             this.label7.MouseDown += new System.Windows.Forms.MouseEventHandler(this.move_window);
             // 
             // DodawaniePrzystanku
@@ -256,8 +252,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "DodawaniePrzystanku";
             this.Text = "Formularz dodawania przystanku";
-            this.Activated += new System.EventHandler(this.turnoff_focus);
-            this.Load += new System.EventHandler(this.DodawaniePrzystanku_Load);
+            this.Shown += new System.EventHandler(this.turnoff_focus);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.move_window);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

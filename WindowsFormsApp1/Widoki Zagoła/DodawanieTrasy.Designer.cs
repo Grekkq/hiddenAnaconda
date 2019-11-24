@@ -205,9 +205,9 @@
             this.mainListBox.FormattingEnabled = true;
             this.mainListBox.ItemHeight = 20;
             this.mainListBox.Items.AddRange(new object[] {
-            "1)                       Gliwice, Plac Piastów                          7:15",
-            "2)                       Zabrze, Plac Kroczka                          8:00",
-            "3)                       Zabrze, Rokietnica                              8:30"});
+            "1)              Gliwice, Plac Piastów                          7:15",
+            "2)              Zabrze, Plac Kroczka                          8:00",
+            "3)              Zabrze, Rokietnica                              8:30"});
             this.mainListBox.Location = new System.Drawing.Point(68, 89);
             this.mainListBox.Name = "mainListBox";
             this.mainListBox.Size = new System.Drawing.Size(460, 164);
