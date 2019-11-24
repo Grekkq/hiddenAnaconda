@@ -33,5 +33,23 @@ namespace WindowsFormsApp1 {
         public void leave_exitbutton(Button exit) {
             exit.BackColor = Color.FromArgb(0, 99, 183);
         }
+
+        public void fixIndex(ListBox listBox) {
+            int index = 1;
+            List<String> replacmentData = new List<String>();
+            foreach (object item in listBox.Items) {
+                string content = (string) item;
+                String[] separator = { ") " };
+                String newcontent = content.Split(separator, 2, StringSplitOptions.RemoveEmptyEntries)[1].TrimStart();
+                newcontent = (index + ") ").PadRight(11, ' ') + newcontent;
+                replacmentData.Add(newcontent);
+                MessageBox.Show(content + "\n" + newcontent);
+                index++;
+            }
+            listBox.Items.Clear();
+            foreach (object item in replacmentData) {
+                listBox.Items.Add(item);
+            }
+        }
     }
 }

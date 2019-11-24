@@ -8,123 +8,63 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WindowsFormsApp1.Widoki_Zagoła
-{
-    public partial class DodawaniePrzystanku : Form
-    {
+namespace WindowsFormsApp1.Widoki_Zagoła {
+    public partial class DodawaniePrzystanku : Form {
+        // funkcje wspólne dla widoków
+        SharedView sharedView = new SharedView();
 
-        public const int WM_NCLBUTTONDOWN = 0xA1;                                               // stałe do funkcji przesuwania okna
-        public const int HT_CAPTION = 0x2;                                                      //
-        [System.Runtime.InteropServices.DllImport("user32.dll")]                                // importowanie funkcji do przesuwania okna
-        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);     // 
-        [System.Runtime.InteropServices.DllImport("user32.dll")]                                //
-        public static extern bool ReleaseCapture();
-
-
-        private void move_window(object sender, MouseEventArgs e)
-        {                             // metoda do przesuwania okna
-            if (e.Button == MouseButtons.Left)
-            {
-                ReleaseCapture();
-                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+        private void move_window(object sender, MouseEventArgs e) {
+            if (e.Button == MouseButtons.Left) {
+                sharedView.moveWindow(sender, e, Handle);
             }
         }
 
-        private void hover_exitbutton(object sender, EventArgs e)
-        {
-            exit.BackColor = Color.FromArgb(218, 83, 44);
+        private void hover_exitbutton(object sender, EventArgs e) {
+            sharedView.hover_exitbutton(this.exit);
         }
 
-        private void leave_exitbutton(object sender, EventArgs e)
-        {
-            exit.BackColor = Color.FromArgb(0, 99, 183);
+        private void leave_exitbutton(object sender, EventArgs e) {
+            sharedView.leave_exitbutton(this.exit);
         }
 
-        private void turnoff_focus(object sender, EventArgs e)  //wyłączenie fokusu na pola tekstowe przy uruchomieniu formularza
-        {
+        // Wyłączenie fokusu
+        private void turnoff_focus(object sender, EventArgs e) {
             this.ActiveControl = null;
         }
 
-        public DodawaniePrzystanku()
-        {
+        public DodawaniePrzystanku() {
             InitializeComponent();
         }
 
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-            private void create_Click(object sender, EventArgs e)
-        {
+        private void create_Click(object sender, EventArgs e) {
             {
-                if ((yes.Checked == false && no.Checked == false) && (string.IsNullOrEmpty(textBox1.Text)) && (string.IsNullOrEmpty(textBox2.Text)) && (string.IsNullOrEmpty(textBox3.Text)))
-                {
+                if ((yes.Checked == false && no.Checked == false) && (string.IsNullOrEmpty(textBox1.Text)) && (string.IsNullOrEmpty(textBox2.Text)) && (string.IsNullOrEmpty(textBox3.Text))) {
                     MessageBox.Show("Nie wypełniono formularza", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-                else if ((string.IsNullOrEmpty(textBox1.Text)))
-                {
+                } else if ((string.IsNullOrEmpty(textBox1.Text))) {
                     MessageBox.Show("Niewypełniono pola: Nazwa.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-                else if ((string.IsNullOrEmpty(textBox2.Text)))
-                {
+                } else if ((string.IsNullOrEmpty(textBox2.Text))) {
                     MessageBox.Show("Niewypełniono pola: Miasto.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-                else if ((string.IsNullOrEmpty(textBox3.Text)))
-                {
+                } else if ((string.IsNullOrEmpty(textBox3.Text))) {
                     MessageBox.Show("Niewypełniono pola: Adres.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-                else if (yes.Checked == false && no.Checked == false)
-                {
+                } else if (yes.Checked == false && no.Checked == false) {
                     MessageBox.Show("Nie zaznaczono odpowiedz na pytanie.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-                else
-                {
+                } else {
                     const string message = "Pomyślnie utworzono nowy przystanek.";
                     const string caption = "Sukces";
                     var result = MessageBox.Show(message, caption, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    if (result == DialogResult.OK)
-                    {
+                    if (result == DialogResult.OK) {
                         this.Close();
                     }
                 }
             }
         }
 
-        private void cancel_Click(object sender, EventArgs e)
-        {
+        private void cancel_Click(object sender, EventArgs e) {
             this.Close();
         }
 
-        private void DodawaniePrzystanku_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void exit_Click(object sender, EventArgs e)
-        {
-             this.Close();
-       
-        }
-
-        private void turn(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
+        private void exit_Click(object sender, EventArgs e) {
+            this.Close();
         }
     }
 }
