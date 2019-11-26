@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApp1.Views
+﻿namespace hiddenAnaconda.Views
 {
 
     partial class DodawanieNowejLinii

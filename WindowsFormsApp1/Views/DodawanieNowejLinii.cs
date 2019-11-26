@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 
-namespace WindowsFormsApp1.Views {
+namespace hiddenAnaconda.Views {
     public partial class DodawanieNowejLinii : Form {
 
         // funkcje wspólne dla widoków

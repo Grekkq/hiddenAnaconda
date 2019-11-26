@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace WindowsFormsApp1 {
+namespace hiddenAnaconda {
     internal class TestClassAttribute : Attribute {
     }
 }

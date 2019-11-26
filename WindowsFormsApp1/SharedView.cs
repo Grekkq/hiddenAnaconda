@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing;
 
-namespace WindowsFormsApp1 {
+namespace hiddenAnaconda {
 
     class SharedView {
         private readonly int WM_NCLBUTTONDOWN = 0xA1;

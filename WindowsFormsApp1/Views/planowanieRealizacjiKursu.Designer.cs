@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApp1 {
+﻿namespace hiddenAnaconda.Views {
     partial class planowanieRealizacjiKursu {
         /// <summary>
         /// Required designer variable.

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
 
-namespace WindowsFormsApp1.Views
+namespace hiddenAnaconda.Views
 {
     public partial class WypelnianieCzasuRealizacjiKursu : Form
     {

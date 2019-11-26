@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApp1.Views
+﻿namespace hiddenAnaconda.Views
 {
     partial class WypelnianieCzasuRealizacjiKursu
     {
@@ -257,7 +257,7 @@
             // 
             // alertpic
             // 
-            this.alertpic.Image = global::WindowsFormsApp1.Properties.Resources.Alert_Download_PNG;
+            this.alertpic.Image = global::hiddenAnaconda.Properties.Resources.Alert_Download_PNG;
             this.alertpic.Location = new System.Drawing.Point(284, 280);
             this.alertpic.Name = "alertpic";
             this.alertpic.Size = new System.Drawing.Size(27, 26);
@@ -269,7 +269,7 @@
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.White;
-            this.pictureBox1.Image = global::WindowsFormsApp1.Properties.Resources.time;
+            this.pictureBox1.Image = global::hiddenAnaconda.Properties.Resources.time;
             this.pictureBox1.Location = new System.Drawing.Point(518, 6);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(78, 56);

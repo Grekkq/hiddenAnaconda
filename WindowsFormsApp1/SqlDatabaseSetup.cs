@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.Data.Tools.Schema.Sql.UnitTesting;
 
-namespace WindowsFormsApp1 {
+namespace hiddenAnaconda {
     [TestClass()]
     public class SqlDatabaseSetup
     {
