@@ -88,11 +88,19 @@ namespace hiddenAnaconda.Views {
                 sharedView.fixIndex(this.mainListBox);
             }
         }
-
-        private void addButton_Click(object sender, EventArgs e)
-        {
-            Views.DodajPrzystanekDoTrasy form = new Views.DodajPrzystanekDoTrasy();
-            form.Show();
+        
+        //TODO dorobić odpowiednią liczbę spacji przy godzinie 
+        private void addButton_Click(object sender, EventArgs e) {
+            Models.routeElementModel przystanek;
+            using (Views.DodajPrzystanekDoTrasy InnerForm = new Views.DodajPrzystanekDoTrasy())
+                if (InnerForm.ShowDialog() == DialogResult.OK) {
+                    przystanek = InnerForm.GetStop;
+                    Console.WriteLine($"Miasto: {przystanek.City}");
+                    string toAdd = "1) " + przystanek.City + ", " + przystanek.Name + "    " + przystanek.ArrivalTime;
+                    this.mainListBox.Items.Add(toAdd);
+                    sharedView.fixIndex(this.mainListBox);
+                }
         }
+
     }
 }

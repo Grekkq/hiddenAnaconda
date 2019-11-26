@@ -32,10 +32,10 @@
             this.anuluj = new System.Windows.Forms.Button();
             this.cancel = new System.Windows.Forms.Button();
             this.create = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.arrivalTime = new System.Windows.Forms.TextBox();
+            this.cityName = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.line_name = new System.Windows.Forms.TextBox();
+            this.stopName = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -50,17 +50,16 @@
             this.panel1.Controls.Add(this.anuluj);
             this.panel1.Controls.Add(this.cancel);
             this.panel1.Controls.Add(this.create);
-            this.panel1.Controls.Add(this.textBox2);
-            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.arrivalTime);
+            this.panel1.Controls.Add(this.cityName);
             this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.line_name);
+            this.panel1.Controls.Add(this.stopName);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Location = new System.Drawing.Point(2, 31);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(313, 216);
             this.panel1.TabIndex = 6;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // dodaj
             // 
@@ -70,7 +69,7 @@
             this.dodaj.TabIndex = 10;
             this.dodaj.Text = "Dodaj";
             this.dodaj.UseVisualStyleBackColor = true;
-            this.dodaj.Click += new System.EventHandler(this.dodaj_Click);
+            this.dodaj.Click += new System.EventHandler(this.Dodaj_Click);
             // 
             // anuluj
             // 
@@ -80,7 +79,7 @@
             this.anuluj.TabIndex = 10;
             this.anuluj.Text = "Anuluj";
             this.anuluj.UseVisualStyleBackColor = true;
-            this.anuluj.Click += new System.EventHandler(this.button1_Click);
+            this.anuluj.Click += new System.EventHandler(this.cancel_Click);
             // 
             // cancel
             // 
@@ -100,23 +99,23 @@
             this.create.Text = "Utwórz";
             this.create.UseVisualStyleBackColor = true;
             // 
-            // textBox2
+            // arrivalTime
             // 
-            this.textBox2.HideSelection = false;
-            this.textBox2.Location = new System.Drawing.Point(10, 130);
-            this.textBox2.MaxLength = 4;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(109, 20);
-            this.textBox2.TabIndex = 4;
+            this.arrivalTime.HideSelection = false;
+            this.arrivalTime.Location = new System.Drawing.Point(10, 130);
+            this.arrivalTime.MaxLength = 4;
+            this.arrivalTime.Name = "arrivalTime";
+            this.arrivalTime.Size = new System.Drawing.Size(109, 20);
+            this.arrivalTime.TabIndex = 4;
             // 
-            // textBox1
+            // cityName
             // 
-            this.textBox1.HideSelection = false;
-            this.textBox1.Location = new System.Drawing.Point(10, 80);
-            this.textBox1.MaxLength = 4;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(109, 20);
-            this.textBox1.TabIndex = 4;
+            this.cityName.HideSelection = false;
+            this.cityName.Location = new System.Drawing.Point(10, 80);
+            this.cityName.MaxLength = 4;
+            this.cityName.Name = "cityName";
+            this.cityName.Size = new System.Drawing.Size(109, 20);
+            this.cityName.TabIndex = 4;
             // 
             // label6
             // 
@@ -127,14 +126,14 @@
             this.label6.TabIndex = 3;
             this.label6.Text = "Podaj czas odjazdu:";
             // 
-            // line_name
+            // stopName
             // 
-            this.line_name.HideSelection = false;
-            this.line_name.Location = new System.Drawing.Point(10, 31);
-            this.line_name.MaxLength = 4;
-            this.line_name.Name = "line_name";
-            this.line_name.Size = new System.Drawing.Size(109, 20);
-            this.line_name.TabIndex = 4;
+            this.stopName.HideSelection = false;
+            this.stopName.Location = new System.Drawing.Point(10, 31);
+            this.stopName.MaxLength = 4;
+            this.stopName.Name = "stopName";
+            this.stopName.Size = new System.Drawing.Size(109, 20);
+            this.stopName.TabIndex = 4;
             // 
             // label5
             // 
@@ -153,7 +152,6 @@
             this.label4.Size = new System.Drawing.Size(125, 13);
             this.label4.TabIndex = 3;
             this.label4.Text = "Podaj nazwę przystanku:";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label3
             // 
@@ -182,7 +180,7 @@
             this.exit.TabIndex = 9;
             this.exit.Text = "x";
             this.exit.UseVisualStyleBackColor = false;
-            this.exit.Click += new System.EventHandler(this.close_on_click);
+            this.exit.Click += new System.EventHandler(this.Close_on_click);
             this.exit.MouseEnter += new System.EventHandler(this.hover_exitbutton);
             this.exit.MouseLeave += new System.EventHandler(this.leave_exitbutton);
             // 
@@ -198,7 +196,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "DodajPrzystanekDoTrasy";
             this.Text = "DodajPrzystanekDoTrasy";
-            this.Activated += new System.EventHandler(this.turnoffFocus);
+            this.Activated += new System.EventHandler(this.TurnoffFocus);
             this.Load += new System.EventHandler(this.DodajPrzystanekDoTrasy_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.move_window);
             this.panel1.ResumeLayout(false);
@@ -212,12 +210,12 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button cancel;
         private System.Windows.Forms.Button create;
-        private System.Windows.Forms.TextBox line_name;
+        private System.Windows.Forms.TextBox stopName;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox cityName;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox arrivalTime;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button dodaj;
         private System.Windows.Forms.Button anuluj;

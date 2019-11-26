@@ -8,70 +8,58 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace hiddenAnaconda.Views
-{
-    public partial class DodajPrzystanekDoTrasy : Form
-    {
-        public DodajPrzystanekDoTrasy()
-        {
+namespace hiddenAnaconda.Views {
+    public partial class DodajPrzystanekDoTrasy : Form {
+        public DodajPrzystanekDoTrasy() {
             InitializeComponent();
         }
 
+        Models.routeElementModel przystanek;
         SharedView sharedView = new SharedView();
 
-        private void move_window(object sender, MouseEventArgs e)
-        {
+        private void move_window(object sender, MouseEventArgs e) {
             sharedView.moveWindow(sender, e, Handle);
         }
 
-        private void hover_exitbutton(object sender, EventArgs e)
-        {
+        private void hover_exitbutton(object sender, EventArgs e) {
             sharedView.hover_exitbutton(exit);
         }
 
-        private void leave_exitbutton(object sender, EventArgs e)
-        {
+        private void leave_exitbutton(object sender, EventArgs e) {
             sharedView.leave_exitbutton(exit);
         }
 
         // wyłączenie fokusu na pola tekstowe przy uruchomieniu formularza
-        private void turnoffFocus(object sender, EventArgs e)
-        {
+        private void TurnoffFocus(object sender, EventArgs e) {
             this.ActiveControl = null;
         }
 
-        private void close_on_click(object sender, EventArgs e)
-        {
+        private void Close_on_click(object sender, EventArgs e) {
             this.Close();
         }
 
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
+        private void cancel_Click(object sender, EventArgs e) {
+            this.DialogResult = DialogResult.Cancel;
             this.Close();
         }
 
-        private void button3_Click(object sender, EventArgs e)
-        {
+        private void Button3_Click(object sender, EventArgs e) {
             this.Close();
         }
 
-        private void DodajPrzystanekDoTrasy_Load(object sender, EventArgs e)
-        {
+        private void DodajPrzystanekDoTrasy_Load(object sender, EventArgs e) {
 
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
+        private void Dodaj_Click(object sender, EventArgs e) {
+            przystanek = new Models.routeElementModel(this.stopName.Text, this.cityName.Text, this.arrivalTime.Text);
+            this.DialogResult = DialogResult.OK;
+            this.Close();
         }
 
-        private void dodaj_Click(object sender, EventArgs e) {
-
+        public Models.routeElementModel GetStop {
+            get { return przystanek; }
         }
+
     }
 }

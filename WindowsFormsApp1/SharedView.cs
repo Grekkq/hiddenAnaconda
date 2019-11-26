@@ -43,7 +43,6 @@ namespace hiddenAnaconda {
                 String newcontent = content.Split(separator, 2, StringSplitOptions.RemoveEmptyEntries)[1].TrimStart();
                 newcontent = (index + ") ").PadRight(11, ' ') + newcontent;
                 replacmentData.Add(newcontent);
-                MessageBox.Show(content + "\n" + newcontent);
                 index++;
             }
             listBox.Items.Clear();
