@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
 
-namespace WindowsFormsApp1.Widoki_Bielecki
+namespace WindowsFormsApp1.Views
 {
     public partial class WypelnianieCzasuRealizacjiKursu : Form
     {

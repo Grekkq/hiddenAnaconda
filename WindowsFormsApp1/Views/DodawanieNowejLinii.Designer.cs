@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApp1.Widoki_Bielecki
+﻿namespace WindowsFormsApp1.Views
 {
 
     partial class DodawanieNowejLinii

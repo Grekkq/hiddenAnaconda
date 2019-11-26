@@ -11,7 +11,7 @@ namespace WindowsFormsApp1 {
         static void Main() {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Widoki_Wilk.WybórEkranu());
+            Application.Run(new Views.WybórEkranu());
 
         }
     }

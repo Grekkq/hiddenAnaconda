@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WindowsFormsApp1.Widoki_Zagoła {
+namespace WindowsFormsApp1.Views {
     public partial class DodawanieTrasy : Form {
         // funkcje wspólne dla widoków
         SharedView sharedView = new SharedView();
@@ -91,7 +91,7 @@ namespace WindowsFormsApp1.Widoki_Zagoła {
 
         private void addButton_Click(object sender, EventArgs e)
         {
-            Widoki_Bielecki.DodajPrzystanekDoTrasy form = new Widoki_Bielecki.DodajPrzystanekDoTrasy();
+            Views.DodajPrzystanekDoTrasy form = new Views.DodajPrzystanekDoTrasy();
             form.Show();
         }
     }

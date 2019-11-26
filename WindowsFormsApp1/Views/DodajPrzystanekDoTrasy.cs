@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WindowsFormsApp1.Widoki_Bielecki
+namespace WindowsFormsApp1.Views
 {
     public partial class DodajPrzystanekDoTrasy : Form
     {
@@ -67,6 +67,10 @@ namespace WindowsFormsApp1.Widoki_Bielecki
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
+
+        }
+
+        private void dodaj_Click(object sender, EventArgs e) {
 
         }
     }

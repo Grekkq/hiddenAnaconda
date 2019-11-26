@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApp1.Widoki_Wilk
+﻿namespace WindowsFormsApp1.Views
 {
     partial class DodawanieKierowcy
     {

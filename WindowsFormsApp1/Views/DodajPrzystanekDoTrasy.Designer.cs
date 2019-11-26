@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApp1.Widoki_Bielecki
+﻿namespace WindowsFormsApp1.Views
 {
     partial class DodajPrzystanekDoTrasy
     {
@@ -70,6 +70,7 @@
             this.dodaj.TabIndex = 10;
             this.dodaj.Text = "Dodaj";
             this.dodaj.UseVisualStyleBackColor = true;
+            this.dodaj.Click += new System.EventHandler(this.dodaj_Click);
             // 
             // anuluj
             // 

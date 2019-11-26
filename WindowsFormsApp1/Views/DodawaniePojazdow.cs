@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WindowsFormsApp1.Widoki_Mastaliński
+namespace WindowsFormsApp1.Views
 {
     public partial class DodawaniePojazdow : Form
     {
