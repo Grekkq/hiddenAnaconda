@@ -20,6 +20,15 @@ namespace hiddenAnaconda.Views {
             InitializeComponent();
         }
 
+        // funkcje wspólne dla widoków
+        SharedView sharedView = new SharedView();
+
+        // wyłączenie fokusu na pola tekstowe przy uruchomieniu formularza
+        private void turnoffFocus(object sender, EventArgs e)
+        {
+            this.ActiveControl = null;
+        }
+
         private void powrot_Click(object sender, EventArgs e) {
             this.Close();
         }
@@ -39,12 +48,24 @@ namespace hiddenAnaconda.Views {
             this.Close();
         }
 
-        private void hover_exitbutton(object sender, EventArgs e) {
-            exit.BackColor = Color.FromArgb(218, 83, 44);
+        private void hover_exitbutton(object sender, EventArgs e)
+        {
+            sharedView.hover_exitbutton(exit);
         }
 
-        private void leave_exitbutton(object sender, EventArgs e) {
-            exit.BackColor = Color.FromArgb(0, 99, 183);
+        private void leave_exitbutton(object sender, EventArgs e)
+        {
+            sharedView.leave_exitbutton(exit);
+        }
+
+        private void leave_helpbutton(object sender, EventArgs e)
+        {
+            sharedView.leave_exitbutton(help);
+        }
+
+        private void hover_helpbutton(object sender, EventArgs e)
+        {
+            sharedView.leave_exitbutton(help);
         }
 
         private void move_window(object sender, MouseEventArgs e) {
@@ -55,6 +76,11 @@ namespace hiddenAnaconda.Views {
         }
 
         private void DodawanieKierowcy_Load(object sender, EventArgs e) {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
 
         }
     }

@@ -29,6 +29,18 @@ namespace hiddenAnaconda {
             exit.BackColor = Color.FromArgb(218, 83, 44);
         }
 
+        // zmiana koloru ?'a po najechaniu
+        public void hover_helpbutton(Button help)
+        {
+            help.BackColor = Color.FromArgb(0, 99, 183);
+        }
+        // zmiana koloru ?'a po zjechaniu
+
+        public void leave_helpbutton(Button help)
+        {
+            help.BackColor = Color.FromArgb(0, 99, 183);
+        }
+
         // zmiana koloru X'a po zjechaniu
         public void leave_exitbutton(Button exit) {
             exit.BackColor = Color.FromArgb(0, 99, 183);

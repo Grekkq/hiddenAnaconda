@@ -282,6 +282,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "DodawanieTrasy";
             this.Text = "Formularz tworzenia trasy";
+            this.Load += new System.EventHandler(this.DodawanieTrasy_Load);
             this.Enter += new System.EventHandler(this.turnoff_focus);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.move_window);
             this.tableLayoutPanel2.ResumeLayout(false);

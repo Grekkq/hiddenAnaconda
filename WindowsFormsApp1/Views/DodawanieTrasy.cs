@@ -105,5 +105,10 @@ namespace hiddenAnaconda.Views {
                     InnerForm.GetStop.putInListBox(this.mainListBox);
                 }
         }
+
+        private void DodawanieTrasy_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

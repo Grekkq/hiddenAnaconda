@@ -29,6 +29,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DodawaniePojazdow));
             this.label1 = new System.Windows.Forms.Label();
             this.exit = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -52,9 +53,12 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.help = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -62,7 +66,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label1.ForeColor = System.Drawing.SystemColors.Window;
-            this.label1.Location = new System.Drawing.Point(12, 5);
+            this.label1.Location = new System.Drawing.Point(28, 4);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(283, 21);
             this.label1.TabIndex = 6;
@@ -76,13 +80,13 @@
             this.exit.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.exit.FlatAppearance.BorderSize = 0;
             this.exit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.exit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.exit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.exit.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.exit.Location = new System.Drawing.Point(568, -2);
+            this.exit.Location = new System.Drawing.Point(566, 0);
             this.exit.Name = "exit";
-            this.exit.Size = new System.Drawing.Size(48, 28);
+            this.exit.Size = new System.Drawing.Size(44, 30);
             this.exit.TabIndex = 7;
-            this.exit.Text = "x";
+            this.exit.Text = "X";
             this.exit.UseVisualStyleBackColor = false;
             this.exit.Click += new System.EventHandler(this.close_on_click);
             this.exit.MouseEnter += new System.EventHandler(this.hover_exitbutton);
@@ -312,19 +316,48 @@
             this.label3.TabIndex = 1;
             this.label3.Text = " \r\n      Tworzenie nowego pojazdu";
             // 
+            // help
+            // 
+            this.help.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.help.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.help.FlatAppearance.BorderSize = 0;
+            this.help.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.help.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.help.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.help.Location = new System.Drawing.Point(522, 0);
+            this.help.Name = "help";
+            this.help.Size = new System.Drawing.Size(44, 30);
+            this.help.TabIndex = 49;
+            this.help.Text = "?";
+            this.help.UseVisualStyleBackColor = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::hiddenAnaconda.Properties.Resources.icon;
+            this.pictureBox1.Location = new System.Drawing.Point(4, 4);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 50;
+            this.pictureBox1.TabStop = false;
+            // 
             // DodawaniePojazdow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(99)))), ((int)(((byte)(183)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(610, 407);
+            this.ClientSize = new System.Drawing.Size(610, 410);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.help);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.exit);
             this.Controls.Add(this.label1);
             this.ForeColor = System.Drawing.SystemColors.MenuText;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "DodawaniePojazdow";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Kreator Dodawanie Pojazdu";
             this.Activated += new System.EventHandler(this.turnoffFocus);
             this.Load += new System.EventHandler(this.DodawaniePojazdow_Load);
@@ -335,6 +368,7 @@
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -364,5 +398,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button help;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

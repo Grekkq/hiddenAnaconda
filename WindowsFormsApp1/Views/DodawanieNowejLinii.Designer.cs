@@ -29,6 +29,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DodawanieNowejLinii));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -41,8 +42,11 @@
             this.label4 = new System.Windows.Forms.Label();
             this.exit = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.help = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -50,12 +54,11 @@
             this.label1.BackColor = System.Drawing.SystemColors.Window;
             this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Location = new System.Drawing.Point(-1, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(608, 68);
             this.label1.TabIndex = 1;
             this.label1.Text = " \r\n      Tworzenie nowej lini";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -80,9 +83,8 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(2, 31);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(606, 374);
+            this.panel1.Size = new System.Drawing.Size(606, 377);
             this.panel1.TabIndex = 3;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // groupBox1
             // 
@@ -119,9 +121,9 @@
             // 
             // cancel
             // 
-            this.cancel.Location = new System.Drawing.Point(20, 336);
+            this.cancel.Location = new System.Drawing.Point(20, 325);
             this.cancel.Name = "cancel";
-            this.cancel.Size = new System.Drawing.Size(90, 28);
+            this.cancel.Size = new System.Drawing.Size(80, 40);
             this.cancel.TabIndex = 9;
             this.cancel.Text = "Anuluj";
             this.cancel.UseVisualStyleBackColor = true;
@@ -129,9 +131,9 @@
             // 
             // create
             // 
-            this.create.Location = new System.Drawing.Point(496, 336);
+            this.create.Location = new System.Drawing.Point(510, 325);
             this.create.Name = "create";
-            this.create.Size = new System.Drawing.Size(90, 28);
+            this.create.Size = new System.Drawing.Size(80, 40);
             this.create.TabIndex = 8;
             this.create.Text = "Utwórz";
             this.create.UseVisualStyleBackColor = true;
@@ -143,7 +145,7 @@
             this.line_name.Location = new System.Drawing.Point(20, 96);
             this.line_name.MaxLength = 4;
             this.line_name.Name = "line_name";
-            this.line_name.Size = new System.Drawing.Size(109, 20);
+            this.line_name.Size = new System.Drawing.Size(110, 20);
             this.line_name.TabIndex = 4;
             this.line_name.TextChanged += new System.EventHandler(this.nazwa_linii_TextChanged);
             // 
@@ -163,13 +165,13 @@
             this.exit.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.exit.FlatAppearance.BorderSize = 0;
             this.exit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.exit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.exit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.exit.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.exit.Location = new System.Drawing.Point(560, 0);
+            this.exit.Location = new System.Drawing.Point(566, 0);
             this.exit.Name = "exit";
-            this.exit.Size = new System.Drawing.Size(48, 28);
+            this.exit.Size = new System.Drawing.Size(44, 30);
             this.exit.TabIndex = 4;
-            this.exit.Text = "x";
+            this.exit.Text = "X";
             this.exit.UseVisualStyleBackColor = false;
             this.exit.Click += new System.EventHandler(this.close_on_click);
             this.exit.MouseEnter += new System.EventHandler(this.hover_exitbutton);
@@ -180,12 +182,37 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label3.ForeColor = System.Drawing.SystemColors.Window;
-            this.label3.Location = new System.Drawing.Point(8, 4);
+            this.label3.Location = new System.Drawing.Point(28, 4);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(234, 21);
             this.label3.TabIndex = 5;
             this.label3.Text = "Formularz tworzenia nowej linii";
             this.label3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.move_window);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::hiddenAnaconda.Properties.Resources.icon;
+            this.pictureBox1.Location = new System.Drawing.Point(4, 4);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 47;
+            this.pictureBox1.TabStop = false;
+            // 
+            // help
+            // 
+            this.help.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.help.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.help.FlatAppearance.BorderSize = 0;
+            this.help.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.help.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.help.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.help.Location = new System.Drawing.Point(522, 0);
+            this.help.Name = "help";
+            this.help.Size = new System.Drawing.Size(44, 30);
+            this.help.TabIndex = 48;
+            this.help.Text = "?";
+            this.help.UseVisualStyleBackColor = false;
             // 
             // DodawanieNowejLinii
             // 
@@ -193,13 +220,17 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(99)))), ((int)(((byte)(183)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(610, 407);
+            this.ClientSize = new System.Drawing.Size(610, 410);
+            this.Controls.Add(this.help);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.exit);
             this.Controls.Add(this.panel1);
             this.ForeColor = System.Drawing.SystemColors.MenuText;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "DodawanieNowejLinii";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Kreator dodawania nowej linii";
             this.Activated += new System.EventHandler(this.turnoffFocus);
             this.Load += new System.EventHandler(this.DodawanieNowejLinii_Load);
@@ -208,6 +239,7 @@
             this.panel1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -227,5 +259,7 @@
         private System.Windows.Forms.RadioButton no;
         private System.Windows.Forms.RadioButton yes;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button help;
     }
 }

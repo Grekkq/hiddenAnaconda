@@ -27,6 +27,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DodajPrzystanekDoTrasy));
             this.panel1 = new System.Windows.Forms.Panel();
             this.dodaj = new System.Windows.Forms.Button();
             this.anuluj = new System.Windows.Forms.Button();
@@ -56,14 +57,14 @@
             this.panel1.Controls.Add(this.stopName);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label4);
-            this.panel1.Location = new System.Drawing.Point(2, 31);
+            this.panel1.Location = new System.Drawing.Point(2, 32);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(313, 216);
+            this.panel1.Size = new System.Drawing.Size(351, 226);
             this.panel1.TabIndex = 6;
             // 
             // dodaj
             // 
-            this.dodaj.Location = new System.Drawing.Point(213, 182);
+            this.dodaj.Location = new System.Drawing.Point(251, 188);
             this.dodaj.Name = "dodaj";
             this.dodaj.Size = new System.Drawing.Size(90, 28);
             this.dodaj.TabIndex = 10;
@@ -73,7 +74,7 @@
             // 
             // anuluj
             // 
-            this.anuluj.Location = new System.Drawing.Point(10, 182);
+            this.anuluj.Location = new System.Drawing.Point(10, 188);
             this.anuluj.Name = "anuluj";
             this.anuluj.Size = new System.Drawing.Size(90, 28);
             this.anuluj.TabIndex = 10;
@@ -105,7 +106,7 @@
             this.arrivalTime.Location = new System.Drawing.Point(10, 130);
             this.arrivalTime.MaxLength = 10;
             this.arrivalTime.Name = "arrivalTime";
-            this.arrivalTime.Size = new System.Drawing.Size(109, 20);
+            this.arrivalTime.Size = new System.Drawing.Size(110, 20);
             this.arrivalTime.TabIndex = 4;
             // 
             // cityName
@@ -114,13 +115,13 @@
             this.cityName.Location = new System.Drawing.Point(10, 80);
             this.cityName.MaxLength = 4;
             this.cityName.Name = "cityName";
-            this.cityName.Size = new System.Drawing.Size(109, 20);
+            this.cityName.Size = new System.Drawing.Size(110, 20);
             this.cityName.TabIndex = 4;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(7, 114);
+            this.label6.Location = new System.Drawing.Point(10, 114);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(102, 13);
             this.label6.TabIndex = 3;
@@ -132,13 +133,13 @@
             this.stopName.Location = new System.Drawing.Point(10, 31);
             this.stopName.MaxLength = 4;
             this.stopName.Name = "stopName";
-            this.stopName.Size = new System.Drawing.Size(109, 20);
+            this.stopName.Size = new System.Drawing.Size(110, 20);
             this.stopName.TabIndex = 4;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(7, 64);
+            this.label5.Location = new System.Drawing.Point(10, 64);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(70, 13);
             this.label5.TabIndex = 3;
@@ -158,7 +159,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label3.ForeColor = System.Drawing.SystemColors.Window;
-            this.label3.Location = new System.Drawing.Point(8, 4);
+            this.label3.Location = new System.Drawing.Point(2, 4);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(198, 21);
             this.label3.TabIndex = 8;
@@ -172,13 +173,13 @@
             this.exit.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.exit.FlatAppearance.BorderSize = 0;
             this.exit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.exit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.exit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.exit.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.exit.Location = new System.Drawing.Point(267, 1);
+            this.exit.Location = new System.Drawing.Point(311, 0);
             this.exit.Name = "exit";
-            this.exit.Size = new System.Drawing.Size(48, 28);
+            this.exit.Size = new System.Drawing.Size(44, 30);
             this.exit.TabIndex = 9;
-            this.exit.Text = "x";
+            this.exit.Text = "X";
             this.exit.UseVisualStyleBackColor = false;
             this.exit.Click += new System.EventHandler(this.Close_on_click);
             this.exit.MouseEnter += new System.EventHandler(this.hover_exitbutton);
@@ -189,11 +190,12 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(99)))), ((int)(((byte)(183)))));
-            this.ClientSize = new System.Drawing.Size(317, 249);
+            this.ClientSize = new System.Drawing.Size(355, 260);
             this.Controls.Add(this.exit);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "DodajPrzystanekDoTrasy";
             this.Text = "DodajPrzystanekDoTrasy";
             this.Activated += new System.EventHandler(this.TurnoffFocus);
