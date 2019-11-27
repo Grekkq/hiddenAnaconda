@@ -17,7 +17,7 @@ namespace hiddenAnaconda {
         public static extern bool ReleaseCapture();
 
         // przesuwanie okna
-        public void moveWindow(object sender, MouseEventArgs e, IntPtr Handle) {                             
+        public void moveWindow(object sender, MouseEventArgs e, IntPtr Handle) {
             if (e.Button == MouseButtons.Left) {
                 ReleaseCapture();
                 SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
@@ -36,18 +36,15 @@ namespace hiddenAnaconda {
 
         public void fixIndex(ListBox listBox) {
             int index = 1;
-            List<String> replacmentData = new List<String>();
+            //List<String> replacmentData = new List<String>();
+            List<Models.routeElementModel> busStops = new List<Models.routeElementModel>();
             foreach (object item in listBox.Items) {
-                string content = (string) item;
-                String[] separator = { ") " };
-                String newcontent = content.Split(separator, 2, StringSplitOptions.RemoveEmptyEntries)[1].TrimStart();
-                newcontent = (index + ") ").PadRight(11, ' ') + newcontent;
-                replacmentData.Add(newcontent);
+                busStops.Add(new Models.routeElementModel((string) item));
                 index++;
             }
             listBox.Items.Clear();
-            foreach (object item in replacmentData) {
-                listBox.Items.Add(item);
+            foreach (Models.routeElementModel busStop in busStops) {
+                busStop.putInListBox(listBox);
             }
         }
     }

@@ -201,20 +201,20 @@
             // mainListBox
             // 
             this.mainListBox.AllowDrop = true;
-            this.mainListBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.mainListBox.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.mainListBox.FormattingEnabled = true;
-            this.mainListBox.ItemHeight = 20;
+            this.mainListBox.ItemHeight = 18;
             this.mainListBox.Items.AddRange(new object[] {
-            "1)              Gliwice, Plac Piastów                          7:15",
-            "2)              Zabrze, Plac Kroczka                          8:00",
-            "3)              Zabrze, Rokietnica                              8:30"});
+            "1)   Gliwice, Plac Piastów            07:15",
+            "2)   Zabrze, Plac Kroczkaa            08:00",
+            "3)   Zabrze, Rokietnica               08:30"});
             this.mainListBox.Location = new System.Drawing.Point(68, 89);
             this.mainListBox.Name = "mainListBox";
-            this.mainListBox.Size = new System.Drawing.Size(460, 164);
+            this.mainListBox.Size = new System.Drawing.Size(460, 148);
             this.mainListBox.TabIndex = 23;
             this.mainListBox.DragDrop += new System.Windows.Forms.DragEventHandler(this.mainListBox_DragDrop);
             this.mainListBox.DragOver += new System.Windows.Forms.DragEventHandler(this.mainListBox_DragOver);
-            this.mainListBox.DoubleClick += new System.EventHandler(this.mainListBox_DoubleClick);
+            this.mainListBox.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.mainListBox_MouseDoubleClick);
             this.mainListBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.mainListBox_MouseDown);
             // 
             // deleteButton

@@ -103,7 +103,7 @@
             // 
             this.arrivalTime.HideSelection = false;
             this.arrivalTime.Location = new System.Drawing.Point(10, 130);
-            this.arrivalTime.MaxLength = 4;
+            this.arrivalTime.MaxLength = 10;
             this.arrivalTime.Name = "arrivalTime";
             this.arrivalTime.Size = new System.Drawing.Size(109, 20);
             this.arrivalTime.TabIndex = 4;

@@ -14,7 +14,14 @@ namespace hiddenAnaconda.Views {
             InitializeComponent();
         }
 
-        Models.routeElementModel przystanek;
+        public DodajPrzystanekDoTrasy(Models.routeElementModel busStop) {
+            InitializeComponent();
+            this.stopName.Text = busStop.Name;
+            this.cityName.Text = busStop.City;
+            this.arrivalTime.Text = busStop.ArrivalTime;
+        }
+
+        Models.routeElementModel busStop;
         SharedView sharedView = new SharedView();
 
         private void move_window(object sender, MouseEventArgs e) {
@@ -52,13 +59,13 @@ namespace hiddenAnaconda.Views {
         }
 
         private void Dodaj_Click(object sender, EventArgs e) {
-            przystanek = new Models.routeElementModel(this.stopName.Text, this.cityName.Text, this.arrivalTime.Text);
+            busStop = new Models.routeElementModel(this.stopName.Text, this.cityName.Text, this.arrivalTime.Text);
             this.DialogResult = DialogResult.OK;
             this.Close();
         }
 
         public Models.routeElementModel GetStop {
-            get { return przystanek; }
+            get { return busStop; }
         }
 
     }

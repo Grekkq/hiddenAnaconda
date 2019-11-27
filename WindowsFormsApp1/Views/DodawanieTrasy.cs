@@ -48,7 +48,11 @@ namespace hiddenAnaconda.Views {
         private void mainListBox_MouseDown(object sender, MouseEventArgs e) {
             if (this.mainListBox.SelectedItem == null)
                 return;
-            this.mainListBox.DoDragDrop(this.mainListBox.SelectedItem, DragDropEffects.Move);
+            // nie ruszać jak się usunie if'a to nigdy nie wejdzie do doubleclick 
+            // https://stackoverflow.com/questions/8531949/listbox-mousedown-and-doubleclick
+            if (e.Button == MouseButtons.Left && e.Clicks == 1) {
+                this.mainListBox.DoDragDrop(this.mainListBox.SelectedItem, DragDropEffects.Move);
+            }
         }
 
         private void mainListBox_DragOver(object sender, DragEventArgs e) {
@@ -75,8 +79,14 @@ namespace hiddenAnaconda.Views {
             mainListBox.Items.Clear();
         }
 
-        private void mainListBox_DoubleClick(object sender, EventArgs e) {
-            ;
+        private void mainListBox_MouseDoubleClick(object sender, MouseEventArgs e) {
+            int index = this.mainListBox.SelectedIndex;
+            using (Views.DodajPrzystanekDoTrasy InnerForm = new Views.DodajPrzystanekDoTrasy(new Models.routeElementModel(this.mainListBox.SelectedItem.ToString())))
+            //using (Views.DodajPrzystanekDoTrasy InnerForm = new Views.DodajPrzystanekDoTrasy())
+                if (InnerForm.ShowDialog() == DialogResult.OK) {
+                    this.mainListBox.Items.RemoveAt(index);
+                    InnerForm.GetStop.putInListBoxAt(this.mainListBox, index);
+                }
         }
 
         private void deleteButton_Click(object sender, EventArgs e) {
@@ -91,16 +101,10 @@ namespace hiddenAnaconda.Views {
         
         //TODO dorobić odpowiednią liczbę spacji przy godzinie 
         private void addButton_Click(object sender, EventArgs e) {
-            Models.routeElementModel przystanek;
             using (Views.DodajPrzystanekDoTrasy InnerForm = new Views.DodajPrzystanekDoTrasy())
                 if (InnerForm.ShowDialog() == DialogResult.OK) {
-                    przystanek = InnerForm.GetStop;
-                    Console.WriteLine($"Miasto: {przystanek.City}");
-                    string toAdd = "1) " + przystanek.City + ", " + przystanek.Name + "    " + przystanek.ArrivalTime;
-                    this.mainListBox.Items.Add(toAdd);
-                    sharedView.fixIndex(this.mainListBox);
+                    InnerForm.GetStop.putInListBox(this.mainListBox);
                 }
         }
-
     }
 }
