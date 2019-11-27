@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Security.Cryptography;
+using hiddenAnaconda.sqlStuff;
 
 namespace hiddenAnaconda.Views {
     public partial class Login : Form {
@@ -38,6 +39,13 @@ namespace hiddenAnaconda.Views {
             foreach (byte b in hash)
                 sb.AppendFormat("{0:x2}", b);
             return sb.ToString();
+        }
+
+        private void LoginButton_Click(object sender, EventArgs e) {
+            DbConnectionManager dbConnection = new DbConnectionManager();
+            string usrLogin = loginTextBox.Text.ToString();
+            var hash = dbConnection.GetUserHash(usrLogin);
+            MessageBox.Show(hash);
         }
     }
 }

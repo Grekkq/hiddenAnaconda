@@ -30,6 +30,7 @@
             this.HashLabel = new System.Windows.Forms.Label();
             this.hashTextBox = new System.Windows.Forms.TextBox();
             this.createButton = new System.Windows.Forms.Button();
+            this.LoginButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // loginTextBox
@@ -90,11 +91,22 @@
             this.createButton.UseVisualStyleBackColor = true;
             this.createButton.Click += new System.EventHandler(this.createButton_Click);
             // 
+            // LoginButton
+            // 
+            this.LoginButton.Location = new System.Drawing.Point(556, 295);
+            this.LoginButton.Name = "LoginButton";
+            this.LoginButton.Size = new System.Drawing.Size(75, 23);
+            this.LoginButton.TabIndex = 7;
+            this.LoginButton.Text = "login";
+            this.LoginButton.UseVisualStyleBackColor = true;
+            this.LoginButton.Click += new System.EventHandler(this.LoginButton_Click);
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.LoginButton);
             this.Controls.Add(this.createButton);
             this.Controls.Add(this.HashLabel);
             this.Controls.Add(this.hashTextBox);
@@ -118,5 +130,6 @@
         private System.Windows.Forms.Label HashLabel;
         private System.Windows.Forms.TextBox hashTextBox;
         private System.Windows.Forms.Button createButton;
+        private System.Windows.Forms.Button LoginButton;
     }
 }
