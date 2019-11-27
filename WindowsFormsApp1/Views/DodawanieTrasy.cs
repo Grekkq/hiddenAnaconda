@@ -27,8 +27,7 @@ namespace hiddenAnaconda.Views {
             sharedView.leave_exitbutton(this.exit);
         }
 
-        private void turnoff_focus(object sender, EventArgs e)  //wyłączenie fokusu na pola tekstowe przy uruchomieniu formularza
-        {
+        private void turnoff_focus(object sender, EventArgs e) {  //wyłączenie fokusu na pola tekstowe przy uruchomieniu 
             this.ActiveControl = null;
         }
 
@@ -80,9 +79,11 @@ namespace hiddenAnaconda.Views {
         }
 
         private void mainListBox_MouseDoubleClick(object sender, MouseEventArgs e) {
+            if (this.mainListBox.SelectedItem == null)
+                return;
             int index = this.mainListBox.SelectedIndex;
-            using (Views.DodajPrzystanekDoTrasy InnerForm = new Views.DodajPrzystanekDoTrasy(new Models.routeElementModel(this.mainListBox.SelectedItem.ToString())))
-            //using (Views.DodajPrzystanekDoTrasy InnerForm = new Views.DodajPrzystanekDoTrasy())
+            using (Views.DodajPrzystanekDoTrasy InnerForm =
+                new Views.DodajPrzystanekDoTrasy(new Models.routeElementModel(this.mainListBox.SelectedItem.ToString())))
                 if (InnerForm.ShowDialog() == DialogResult.OK) {
                     this.mainListBox.Items.RemoveAt(index);
                     InnerForm.GetStop.putInListBoxAt(this.mainListBox, index);
@@ -94,12 +95,10 @@ namespace hiddenAnaconda.Views {
                 MessageBox.Show("Musisz najpierw zanzaczyć który element chcesz usunąć.");
             else {
                 this.mainListBox.Items.RemoveAt(this.mainListBox.SelectedIndex);
-                // Napraw indexy
                 sharedView.fixIndex(this.mainListBox);
             }
         }
-        
-        //TODO dorobić odpowiednią liczbę spacji przy godzinie 
+
         private void addButton_Click(object sender, EventArgs e) {
             using (Views.DodajPrzystanekDoTrasy InnerForm = new Views.DodajPrzystanekDoTrasy())
                 if (InnerForm.ShowDialog() == DialogResult.OK) {

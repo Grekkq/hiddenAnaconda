@@ -42,7 +42,7 @@ namespace hiddenAnaconda.Models {
 
         // Add new record in ListBox at index
         public void putInListBoxAt(ListBox listBox, int index) {
-            string newcontent = (index + ") ").PadRight(5, ' ') + City + ", " + Name;
+            string newcontent = (index+1 + ") ").PadRight(5, ' ') + City + ", " + Name;
             newcontent = newcontent.PadRight(38, ' ') + ArrivalTime;
             listBox.Items.Insert(index, newcontent);
         }
