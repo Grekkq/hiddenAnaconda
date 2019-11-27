@@ -33,6 +33,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.no = new System.Windows.Forms.RadioButton();
             this.yes = new System.Windows.Forms.RadioButton();
@@ -42,9 +43,10 @@
             this.label4 = new System.Windows.Forms.Label();
             this.exit = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.help = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -74,6 +76,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.panel1.Controls.Add(this.pictureBox2);
             this.panel1.Controls.Add(this.groupBox1);
             this.panel1.Controls.Add(this.cancel);
             this.panel1.Controls.Add(this.create);
@@ -86,16 +89,28 @@
             this.panel1.Size = new System.Drawing.Size(606, 377);
             this.panel1.TabIndex = 3;
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.White;
+            this.pictureBox2.Image = global::hiddenAnaconda.Properties.Resources.line;
+            this.pictureBox2.Location = new System.Drawing.Point(520, 5);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(83, 60);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 11;
+            this.pictureBox2.TabStop = false;
+            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.no);
             this.groupBox1.Controls.Add(this.yes);
-            this.groupBox1.Location = new System.Drawing.Point(20, 139);
+            this.groupBox1.Location = new System.Drawing.Point(19, 140);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(245, 80);
             this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Czy tworzona linia będzie kursować w pętli?";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // no
             // 
@@ -131,7 +146,7 @@
             // 
             // create
             // 
-            this.create.Location = new System.Drawing.Point(510, 325);
+            this.create.Location = new System.Drawing.Point(506, 325);
             this.create.Name = "create";
             this.create.Size = new System.Drawing.Size(80, 40);
             this.create.TabIndex = 8;
@@ -142,7 +157,7 @@
             // line_name
             // 
             this.line_name.HideSelection = false;
-            this.line_name.Location = new System.Drawing.Point(20, 96);
+            this.line_name.Location = new System.Drawing.Point(19, 106);
             this.line_name.MaxLength = 4;
             this.line_name.Name = "line_name";
             this.line_name.Size = new System.Drawing.Size(110, 20);
@@ -152,7 +167,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(17, 80);
+            this.label4.Location = new System.Drawing.Point(16, 90);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(136, 13);
             this.label4.TabIndex = 3;
@@ -189,16 +204,6 @@
             this.label3.Text = "Formularz tworzenia nowej linii";
             this.label3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.move_window);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::hiddenAnaconda.Properties.Resources.icon;
-            this.pictureBox1.Location = new System.Drawing.Point(4, 4);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(24, 24);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 47;
-            this.pictureBox1.TabStop = false;
-            // 
             // help
             // 
             this.help.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
@@ -213,6 +218,16 @@
             this.help.TabIndex = 48;
             this.help.Text = "?";
             this.help.UseVisualStyleBackColor = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::hiddenAnaconda.Properties.Resources.icon;
+            this.pictureBox1.Location = new System.Drawing.Point(4, 4);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 47;
+            this.pictureBox1.TabStop = false;
             // 
             // DodawanieNowejLinii
             // 
@@ -237,6 +252,7 @@
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.move_window);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -261,5 +277,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button help;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }

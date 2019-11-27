@@ -197,6 +197,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "DodajPrzystanekDoTrasy";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "DodajPrzystanekDoTrasy";
             this.Activated += new System.EventHandler(this.TurnoffFocus);
             this.Load += new System.EventHandler(this.DodajPrzystanekDoTrasy_Load);

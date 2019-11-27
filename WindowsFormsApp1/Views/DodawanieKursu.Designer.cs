@@ -46,15 +46,18 @@
             this.label4 = new System.Windows.Forms.Label();
             this.exit = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.help = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.panel1.Controls.Add(this.pictureBox2);
             this.panel1.Controls.Add(this.label9);
             this.panel1.Controls.Add(this.date_name);
             this.panel1.Controls.Add(this.label8);
@@ -80,7 +83,7 @@
             this.label9.AutoSize = true;
             this.label9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label9.Location = new System.Drawing.Point(135, 201);
+            this.label9.Location = new System.Drawing.Point(134, 260);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(226, 13);
             this.label9.TabIndex = 20;
@@ -89,27 +92,29 @@
             // date_name
             // 
             this.date_name.HideSelection = false;
-            this.date_name.Location = new System.Drawing.Point(20, 198);
+            this.date_name.Location = new System.Drawing.Point(19, 257);
             this.date_name.MaxLength = 4;
             this.date_name.Name = "date_name";
             this.date_name.Size = new System.Drawing.Size(109, 20);
             this.date_name.TabIndex = 19;
+            this.date_name.TextChanged += new System.EventHandler(this.date_name_TextChanged);
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(18, 182);
+            this.label8.Location = new System.Drawing.Point(16, 240);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(134, 13);
+            this.label8.Size = new System.Drawing.Size(153, 13);
             this.label8.TabIndex = 18;
-            this.label8.Text = "Podaj  date nowego kursu:";
+            this.label8.Text = "Podaj  datę rozpoczęcia kursu:";
+            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label6.Location = new System.Drawing.Point(135, 150);
+            this.label6.Location = new System.Drawing.Point(134, 209);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(213, 13);
             this.label6.TabIndex = 17;
@@ -118,7 +123,7 @@
             // line_choose
             // 
             this.line_choose.FormattingEnabled = true;
-            this.line_choose.Location = new System.Drawing.Point(20, 96);
+            this.line_choose.Location = new System.Drawing.Point(19, 106);
             this.line_choose.Name = "line_choose";
             this.line_choose.Size = new System.Drawing.Size(130, 21);
             this.line_choose.TabIndex = 15;
@@ -126,38 +131,42 @@
             // c_number
             // 
             this.c_number.HideSelection = false;
-            this.c_number.Location = new System.Drawing.Point(20, 251);
+            this.c_number.Location = new System.Drawing.Point(19, 156);
             this.c_number.MaxLength = 4;
             this.c_number.Name = "c_number";
             this.c_number.Size = new System.Drawing.Size(109, 20);
             this.c_number.TabIndex = 14;
+            this.c_number.TextChanged += new System.EventHandler(this.c_number_TextChanged);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(17, 235);
+            this.label5.Location = new System.Drawing.Point(16, 140);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(136, 13);
+            this.label5.Size = new System.Drawing.Size(98, 13);
             this.label5.TabIndex = 13;
-            this.label5.Text = "Podaj numer nowego kursu";
+            this.label5.Text = "Podaj numer kursu:";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // hour_name
             // 
             this.hour_name.HideSelection = false;
-            this.hour_name.Location = new System.Drawing.Point(20, 147);
+            this.hour_name.Location = new System.Drawing.Point(19, 206);
             this.hour_name.MaxLength = 4;
             this.hour_name.Name = "hour_name";
             this.hour_name.Size = new System.Drawing.Size(109, 20);
             this.hour_name.TabIndex = 12;
+            this.hour_name.TextChanged += new System.EventHandler(this.hour_name_TextChanged);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(18, 131);
+            this.label3.Location = new System.Drawing.Point(16, 190);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(150, 13);
+            this.label3.Size = new System.Drawing.Size(205, 13);
             this.label3.TabIndex = 11;
-            this.label3.Text = "Podaj  godzine nowego kursu:";
+            this.label3.Text = "Podaj  godzinę pierwszego odjazdu kursu:";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // cancel
             // 
@@ -171,7 +180,7 @@
             // 
             // create
             // 
-            this.create.Location = new System.Drawing.Point(510, 325);
+            this.create.Location = new System.Drawing.Point(506, 325);
             this.create.Name = "create";
             this.create.Size = new System.Drawing.Size(80, 40);
             this.create.TabIndex = 8;
@@ -205,11 +214,11 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(17, 80);
+            this.label4.Location = new System.Drawing.Point(16, 90);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(66, 13);
+            this.label4.Size = new System.Drawing.Size(69, 13);
             this.label4.TabIndex = 3;
-            this.label4.Text = "Wybierz linie";
+            this.label4.Text = "Wybierz linię:";
             // 
             // exit
             // 
@@ -241,16 +250,6 @@
             this.label7.TabIndex = 23;
             this.label7.Text = "Formularz tworzenia nowego kursu";
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::hiddenAnaconda.Properties.Resources.icon;
-            this.pictureBox1.Location = new System.Drawing.Point(4, 4);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(24, 24);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 47;
-            this.pictureBox1.TabStop = false;
-            // 
             // help
             // 
             this.help.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
@@ -266,14 +265,35 @@
             this.help.Text = "?";
             this.help.UseVisualStyleBackColor = false;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::hiddenAnaconda.Properties.Resources.icon;
+            this.pictureBox1.Location = new System.Drawing.Point(4, 4);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 49;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.White;
+            this.pictureBox2.Image = global::hiddenAnaconda.Properties.Resources.course;
+            this.pictureBox2.Location = new System.Drawing.Point(537, 5);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(66, 54);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 21;
+            this.pictureBox2.TabStop = false;
+            // 
             // DodawanieKursu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(99)))), ((int)(((byte)(183)))));
             this.ClientSize = new System.Drawing.Size(610, 410);
-            this.Controls.Add(this.help);
             this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.help);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.exit);
             this.Controls.Add(this.panel1);
@@ -289,6 +309,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -313,7 +334,8 @@
         private System.Windows.Forms.TextBox date_name;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button help;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }

@@ -128,5 +128,11 @@ namespace hiddenAnaconda.Views
         {
 
         }
+
+        private void ZmianaStatusu_Click(object sender, EventArgs e)
+        {
+            Views.ZmianaStatusu form = new Views.ZmianaStatusu();
+            form.Show();
+        }
     }
 }
