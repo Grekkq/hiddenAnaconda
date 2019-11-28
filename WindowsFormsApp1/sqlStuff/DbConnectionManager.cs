@@ -13,6 +13,10 @@ namespace hiddenAnaconda.sqlStuff {
         SqlConnection connection;
         SqlCommand command;
 
+        private void ErrorMsg() {
+            MessageBox.Show("Coś poszło nie tak.\nSpróbuj jeszcze raz :(");
+        }
+
         public DbConnectionManager() {
             connection = new SqlConnection();
             connection.ConnectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=hiddenAnacondaDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
@@ -35,11 +39,27 @@ namespace hiddenAnaconda.sqlStuff {
                     }
                 }
             } catch {
-                MessageBox.Show("Coś poszło nie tak :(");
+                ErrorMsg();
             } finally {
                 connection.Close();
             }
             return hash;
+        }
+
+        public void CreateUser(string login, string hash) {
+            try {
+                command.CommandText = "INSERT INTO [dbo].[Security] ([Login], [Hash], [czyAktywny]) VALUES (@login, @hash, @czyAktywny)";
+                command.Parameters.Add("login", SqlDbType.VarChar).Value = login;
+                command.Parameters.Add("hash", SqlDbType.VarChar).Value = hash;
+                command.Parameters.Add("czyAktywny", SqlDbType.Bit).Value = true;
+
+                connection.Open();
+                command.ExecuteNonQuery();
+            } catch {
+                ErrorMsg();
+            } finally {
+                connection.Close();
+            }
         }
     }
 }

@@ -18,7 +18,11 @@ namespace hiddenAnaconda.Views {
 
         private void createButton_Click(object sender, EventArgs e) {
             string salt = generateSalt();
-            hashTextBox.Text = SHA1(SHA1(passTextBox+salt));
+            string hash = SHA1(SHA1(passTextBox + salt));
+            string hashToDb = salt + hash;
+            DbConnectionManager dbConnection = new DbConnectionManager();
+            dbConnection.CreateUser(this.loginTextBox.Text, hashToDb);
+            MessageBox.Show("Utworzono użytkownika");
         }
 
         private string generateSalt() {
@@ -42,10 +46,15 @@ namespace hiddenAnaconda.Views {
         }
 
         private void LoginButton_Click(object sender, EventArgs e) {
-            DbConnectionManager dbConnection = new DbConnectionManager();
             string usrLogin = loginTextBox.Text.ToString();
-            var hash = dbConnection.GetUserHash(usrLogin);
-            MessageBox.Show(hash);
+            DbConnectionManager dbConnection = new DbConnectionManager();
+            string hash = dbConnection.GetUserHash(usrLogin);
+            string salt = hash.Substring(0,32);
+            string dupa = salt + SHA1(SHA1(passTextBox + salt));
+            if (hash.Equals(dupa))
+                MessageBox.Show("Udało się zalogować :D");
+            else
+                MessageBox.Show("Błędna nazwa użytkownika lub hasło");
         }
     }
 }
