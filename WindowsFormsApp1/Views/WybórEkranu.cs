@@ -49,50 +49,66 @@ namespace hiddenAnaconda.Views
 
         private void Linia_Click(object sender, EventArgs e)
         {
-            Views.DodawanieNowejLinii form = new Views.DodawanieNowejLinii();
-            form.Show();
+            using (Views.DodawanieNowejLinii InnerForm = new Views.DodawanieNowejLinii()) {
+                if (InnerForm.ShowDialog() == DialogResult.OK) {
+                }
+            };
         }
 
         private void Trasa_Click(object sender, EventArgs e)
         {
-            Views.DodawanieTrasy form = new Views.DodawanieTrasy();
-            form.Show();
+            using (Views.DodawanieTrasy InnerForm = new Views.DodawanieTrasy()) {
+                if (InnerForm.ShowDialog() == DialogResult.OK) {
+                }
+            };
         }
 
         private void Przystanek_Click(object sender, EventArgs e)
         {
-            Views.DodawaniePrzystanku form = new Views.DodawaniePrzystanku();
-            form.Show();
+            using (Views.DodawaniePrzystanku InnerForm = new Views.DodawaniePrzystanku()) {
+                if (InnerForm.ShowDialog() == DialogResult.OK) {
+                }
+            };
         }
 
         private void Pojazd_Click(object sender, EventArgs e)
         {
-            Views.DodawaniePojazdow form = new Views.DodawaniePojazdow();
-            form.Show();
+            using (Views.DodawaniePojazdow InnerForm = new Views.DodawaniePojazdow()) {
+                if (InnerForm.ShowDialog() == DialogResult.OK) {
+                }
+            };
         }
 
         private void Kierowca_Click(object sender, EventArgs e)
         {
-            Views.DodawanieKierowcy form = new Views.DodawanieKierowcy();
-            form.Show();
+            using (Views.DodawanieKierowcy InnerForm = new Views.DodawanieKierowcy()) {
+                if (InnerForm.ShowDialog() == DialogResult.OK) {
+                }
+            };
         }
 
         private void Kurs_Click(object sender, EventArgs e)
         {
-            Views.DodawanieKursu form = new Views.DodawanieKursu();
-            form.Show();
+            using (Views.DodawanieKursu InnerForm = new Views.DodawanieKursu()) {
+                if (InnerForm.ShowDialog() == DialogResult.OK) {
+                }
+            };
         }
 
         private void Przypisanie_Click(object sender, EventArgs e)
         {
-            planowanieRealizacjiKursu form = new planowanieRealizacjiKursu();
-            form.Show();
+            using (Views.planowanieRealizacjiKursu InnerForm = new Views.planowanieRealizacjiKursu()) {
+                if (InnerForm.ShowDialog() == DialogResult.OK) {
+                }
+            };
         }
 
         private void Czas_Click(object sender, EventArgs e)
         {
-            Views.WypelnianieCzasuRealizacjiKursu form = new Views.WypelnianieCzasuRealizacjiKursu();
-            form.Show();
+            using (Views.WypelnianieCzasuRealizacjiKursu InnerForm = new Views.WypelnianieCzasuRealizacjiKursu()) {
+                if (InnerForm.ShowDialog() == DialogResult.OK) {
+                }
+            };
         }
 
         private void WybórEkranu_Load(object sender, EventArgs e)
@@ -131,14 +147,18 @@ namespace hiddenAnaconda.Views
 
         private void ZmianaStatusu_Click(object sender, EventArgs e)
         {
-            Views.ZmianaStatusu form = new Views.ZmianaStatusu();
-            form.Show();
+            using (Views.ZmianaStatusu InnerForm = new Views.ZmianaStatusu()) {
+                if (InnerForm.ShowDialog() == DialogResult.OK) {
+                }
+            };
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Views.DodawanieDniSwiatecznych form = new Views.DodawanieDniSwiatecznych();
-            form.Show();
+            using (Views.DodawanieDniWolnych InnerForm = new Views.DodawanieDniWolnych()) {
+                if (InnerForm.ShowDialog() == DialogResult.OK) {
+                }
+            };
         }
     }
 }

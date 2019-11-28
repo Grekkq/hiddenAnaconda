@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DodawanieKierowcy));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.powrot = new System.Windows.Forms.Button();
             this.Reset = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
@@ -47,10 +48,9 @@
             this.label3 = new System.Windows.Forms.Label();
             this.help = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -76,6 +76,17 @@
             this.panel1.TabIndex = 4;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.White;
+            this.pictureBox2.Image = global::hiddenAnaconda.Properties.Resources.driver1;
+            this.pictureBox2.Location = new System.Drawing.Point(537, 5);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(66, 54);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 46;
+            this.pictureBox2.TabStop = false;
+            // 
             // powrot
             // 
             this.powrot.Location = new System.Drawing.Point(20, 325);
@@ -83,7 +94,7 @@
             this.powrot.Name = "powrot";
             this.powrot.Size = new System.Drawing.Size(80, 40);
             this.powrot.TabIndex = 45;
-            this.powrot.Text = "Powrót";
+            this.powrot.Text = "Anuluj";
             this.powrot.UseVisualStyleBackColor = true;
             this.powrot.Click += new System.EventHandler(this.powrot_Click);
             // 
@@ -138,7 +149,7 @@
             // 
             // DriverBirthDate
             // 
-            this.DriverBirthDate.Location = new System.Drawing.Point(20, 202);
+            this.DriverBirthDate.Location = new System.Drawing.Point(18, 210);
             this.DriverBirthDate.Margin = new System.Windows.Forms.Padding(2);
             this.DriverBirthDate.Name = "DriverBirthDate";
             this.DriverBirthDate.Size = new System.Drawing.Size(201, 20);
@@ -147,7 +158,7 @@
             // 
             // DriverPesel
             // 
-            this.DriverPesel.Location = new System.Drawing.Point(20, 255);
+            this.DriverPesel.Location = new System.Drawing.Point(19, 260);
             this.DriverPesel.Margin = new System.Windows.Forms.Padding(2);
             this.DriverPesel.MaxLength = 11;
             this.DriverPesel.Name = "DriverPesel";
@@ -158,7 +169,7 @@
             // 
             // DriverLastName
             // 
-            this.DriverLastName.Location = new System.Drawing.Point(21, 151);
+            this.DriverLastName.Location = new System.Drawing.Point(19, 160);
             this.DriverLastName.Margin = new System.Windows.Forms.Padding(2);
             this.DriverLastName.Name = "DriverLastName";
             this.DriverLastName.Size = new System.Drawing.Size(200, 20);
@@ -168,7 +179,7 @@
             // 
             // DriverFirstName
             // 
-            this.DriverFirstName.Location = new System.Drawing.Point(20, 96);
+            this.DriverFirstName.Location = new System.Drawing.Point(19, 110);
             this.DriverFirstName.Margin = new System.Windows.Forms.Padding(2);
             this.DriverFirstName.Name = "DriverFirstName";
             this.DriverFirstName.Size = new System.Drawing.Size(200, 20);
@@ -183,7 +194,7 @@
             this.Zapisz.Name = "Zapisz";
             this.Zapisz.Size = new System.Drawing.Size(80, 40);
             this.Zapisz.TabIndex = 35;
-            this.Zapisz.Text = "Utwórz";
+            this.Zapisz.Text = "Dodaj";
             this.Zapisz.UseVisualStyleBackColor = true;
             this.Zapisz.Click += new System.EventHandler(this.Zapisz_Click);
             // 
@@ -193,10 +204,10 @@
             this.label2.BackColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(29, 33);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(402, 13);
+            this.label2.Size = new System.Drawing.Size(397, 13);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Aby dodać nowego kierowcę wypełnij poniższy formularz, a następnie kliknij utwórz" +
-    ".";
+            this.label2.Text = "Aby dodać nowego kierowcę wypełnij poniższy formularz, a następnie kliknij dodaj." +
+    "";
             // 
             // label1
             // 
@@ -267,17 +278,6 @@
             this.pictureBox1.TabIndex = 48;
             this.pictureBox1.TabStop = false;
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.Color.White;
-            this.pictureBox2.Image = global::hiddenAnaconda.Properties.Resources.driver1;
-            this.pictureBox2.Location = new System.Drawing.Point(537, 5);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(66, 54);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 46;
-            this.pictureBox2.TabStop = false;
-            // 
             // DodawanieKierowcy
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -300,8 +300,8 @@
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.move_window);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
