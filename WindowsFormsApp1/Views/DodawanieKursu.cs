@@ -72,5 +72,35 @@ namespace hiddenAnaconda.Views {
         private void DodawanieKursu_Load(object sender, EventArgs e) {
 
         }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void c_number_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void date_name_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void hour_name_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
