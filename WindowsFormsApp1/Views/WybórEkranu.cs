@@ -134,5 +134,11 @@ namespace hiddenAnaconda.Views
             Views.ZmianaStatusu form = new Views.ZmianaStatusu();
             form.Show();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Views.DodawanieDniSwiatecznych form = new Views.DodawanieDniSwiatecznych();
+            form.Show();
+        }
     }
 }

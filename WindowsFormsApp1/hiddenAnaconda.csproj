@@ -66,6 +66,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Views\DodawanieDniSwiatecznych.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\DodawanieDniSwiatecznych.Designer.cs">
+      <DependentUpon>DodawanieDniSwiatecznych.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\planowanieRealizacjiKursu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -143,6 +149,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\DodawanieDniSwiatecznych.resx">
+      <DependentUpon>DodawanieDniSwiatecznych.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\planowanieRealizacjiKursu.resx">
       <DependentUpon>planowanieRealizacjiKursu.cs</DependentUpon>

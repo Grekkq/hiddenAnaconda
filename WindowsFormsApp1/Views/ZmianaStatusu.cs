@@ -68,13 +68,20 @@ namespace hiddenAnaconda.Views
         private void kierowca_CheckedChanged(object sender, EventArgs e)
         {
             if (kierowca.Checked == true) {
+
                 kierowcaSelectionLabel.Visible = true;
                 kierowcaSelectionComboBox.Visible = true;
                 pojazdSelectionLabel.Visible = false;
                 pojazdSelectionComboBox.Visible = false;
+
                 radioButton1.Visible = false;
                 radioButton2.Visible = false;
                 radio_pojazd.Visible = false;
+
+                radio_pracownik.Visible = false;
+                radioButton3.Visible = false;
+                radioButton4.Visible = false;
+                radioButton5.Visible = false;
             }
         }
 
@@ -82,26 +89,36 @@ namespace hiddenAnaconda.Views
         {
             if (pojazd.Checked == true) {
                 kierowcaSelectionLabel.Visible = false;
+                kierowcaSelectionComboBox.SelectedIndex = -1;
                 kierowcaSelectionComboBox.Visible = false;
 
                 pojazdSelectionLabel.Visible = true;
+                pojazdSelectionComboBox.SelectedIndex = -1;
                 pojazdSelectionComboBox.Visible = true;
 
+                radioButton1.Visible = false;
+                radioButton2.Visible = false;
+                radio_pojazd.Visible = false;
+
+                radio_pracownik.Visible = false;
                 radioButton3.Visible = false;
                 radioButton4.Visible = false;
                 radioButton5.Visible = false;
-                radio_pracownik.Visible = false;
-                pojazdSelectionComboBox.SelectedValue = null;
-              
             }
         }
 
         private void pojazdSelectionComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //czyszczenie wcześniej zaznaczonych opcji
+            radioButton1.Checked = false;
+            radioButton2.Checked = false;
+
+            //wyświetlanie radio dla pojazdu
             radio_pojazd.Visible = true;
             radioButton1.Visible = true;
             radioButton2.Visible = true;
 
+            //wyłaczenia radio dla pracownika
             radio_pracownik.Visible = false;
             radioButton3.Visible = false;
             radioButton4.Visible = false;
@@ -110,14 +127,31 @@ namespace hiddenAnaconda.Views
 
         private void kierowcaSelectionComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //czyszczenie wcześniej zaznaczonych opcji
+            radioButton3.Checked = false; 
+            radioButton4.Checked = false;
+            radioButton5.Visible = false;
+
+            //wyświetlanie radio dla pracownika
             radio_pracownik.Visible = true;
             radioButton3.Visible = true;
             radioButton4.Visible = true;
             radioButton5.Visible = true;
 
+            //wyłączenie radio dla pojazdu
             radioButton1.Visible = false;
             radioButton2.Visible = false;
             radio_pojazd.Visible = false;
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ZmianaStatusu_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
