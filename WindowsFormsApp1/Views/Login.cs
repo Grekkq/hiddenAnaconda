@@ -17,11 +17,12 @@ namespace hiddenAnaconda.Views {
         }
 
         private void createButton_Click(object sender, EventArgs e) {
+            string usrLogin = loginTextBox.Text.ToString();
+            string usrPassword = passTextBox.Text;
             string salt = generateSalt();
-            string hash = SHA1(SHA1(passTextBox + salt));
-            string hashToDb = salt + hash;
+            string hashToDb = GetSaltedHashedPassword(usrPassword, salt);
             DbConnectionManager dbConnection = new DbConnectionManager();
-            dbConnection.CreateUser(this.loginTextBox.Text, hashToDb);
+            dbConnection.CreateUser(usrLogin, hashToDb);
             MessageBox.Show("Utworzono użytkownika");
         }
 
@@ -32,6 +33,21 @@ namespace hiddenAnaconda.Views {
             foreach (byte b in salt)
                 sb.AppendFormat("{0:x2}", b);
             return sb.ToString();
+        }
+
+        
+
+        private void LoginButton_Click(object sender, EventArgs e) {
+            string usrLogin = loginTextBox.Text.ToString();
+            string usrPassword = passTextBox.Text;
+            DbConnectionManager dbConnection = new DbConnectionManager();
+            string hash = dbConnection.GetUserHash(usrLogin);
+            //delete dbConnection;
+            string salt = hash.Substring(0,32);
+            if (hash.Equals(GetSaltedHashedPassword(usrPassword, salt)))
+                MessageBox.Show("Udało się zalogować :D");
+            else
+                MessageBox.Show("Błędna nazwa użytkownika lub hasło");
         }
 
         private string SHA1(string input) {
@@ -45,16 +61,8 @@ namespace hiddenAnaconda.Views {
             return sb.ToString();
         }
 
-        private void LoginButton_Click(object sender, EventArgs e) {
-            string usrLogin = loginTextBox.Text.ToString();
-            DbConnectionManager dbConnection = new DbConnectionManager();
-            string hash = dbConnection.GetUserHash(usrLogin);
-            string salt = hash.Substring(0,32);
-            string dupa = salt + SHA1(SHA1(passTextBox + salt));
-            if (hash.Equals(dupa))
-                MessageBox.Show("Udało się zalogować :D");
-            else
-                MessageBox.Show("Błędna nazwa użytkownika lub hasło");
+        private string GetSaltedHashedPassword(string password, string salt) {
+            return salt + SHA1(SHA1(password + salt));
         }
     }
 }
