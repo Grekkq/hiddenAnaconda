@@ -110,5 +110,10 @@ namespace hiddenAnaconda.Views {
         {
 
         }
+
+        private void mainListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

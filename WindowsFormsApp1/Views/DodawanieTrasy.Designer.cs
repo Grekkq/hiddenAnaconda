@@ -212,6 +212,7 @@
             this.mainListBox.Name = "mainListBox";
             this.mainListBox.Size = new System.Drawing.Size(460, 148);
             this.mainListBox.TabIndex = 23;
+            this.mainListBox.SelectedIndexChanged += new System.EventHandler(this.mainListBox_SelectedIndexChanged);
             this.mainListBox.DragDrop += new System.Windows.Forms.DragEventHandler(this.mainListBox_DragDrop);
             this.mainListBox.DragOver += new System.Windows.Forms.DragEventHandler(this.mainListBox_DragOver);
             this.mainListBox.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.mainListBox_MouseDoubleClick);

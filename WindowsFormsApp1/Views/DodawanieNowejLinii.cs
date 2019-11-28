@@ -42,7 +42,12 @@ namespace hiddenAnaconda.Views {
             this.Close();
         }
 
-        private void nazwa_linii_TextChanged(object sender, EventArgs e) {
+        private void line_name_TextChanged(object sender, KeyPressEventArgs e) {
+           
+                if (char.IsDigit(e.KeyChar) || e.KeyChar == (char)Keys.Back)
+                    base.OnKeyPress(e);
+                else
+                    e.Handled = true;
 
         }
 

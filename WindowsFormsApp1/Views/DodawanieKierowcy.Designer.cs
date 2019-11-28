@@ -36,10 +36,10 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.DriverBirthDate = new System.Windows.Forms.TextBox();
+            this.DriverPesel = new System.Windows.Forms.TextBox();
+            this.DriverLastName = new System.Windows.Forms.TextBox();
+            this.DriverFirstName = new System.Windows.Forms.TextBox();
             this.Zapisz = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -60,10 +60,10 @@
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.label7);
-            this.panel1.Controls.Add(this.textBox4);
-            this.panel1.Controls.Add(this.textBox3);
-            this.panel1.Controls.Add(this.textBox2);
-            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.DriverBirthDate);
+            this.panel1.Controls.Add(this.DriverPesel);
+            this.panel1.Controls.Add(this.DriverLastName);
+            this.panel1.Controls.Add(this.DriverFirstName);
             this.panel1.Controls.Add(this.Zapisz);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
@@ -71,6 +71,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(606, 377);
             this.panel1.TabIndex = 4;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // powrot
             // 
@@ -132,37 +133,45 @@
             this.label7.Text = "Imię:";
             this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
-            // textBox4
+            // DriverBirthDate
             // 
-            this.textBox4.Location = new System.Drawing.Point(20, 202);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(201, 20);
-            this.textBox4.TabIndex = 39;
+            this.DriverBirthDate.Location = new System.Drawing.Point(20, 202);
+            this.DriverBirthDate.Margin = new System.Windows.Forms.Padding(2);
+            this.DriverBirthDate.Name = "DriverBirthDate";
+            this.DriverBirthDate.Size = new System.Drawing.Size(201, 20);
+            this.DriverBirthDate.TabIndex = 39;
+            this.DriverBirthDate.TextChanged += new System.EventHandler(this.DriverBirthDate_TextChanged);
             // 
-            // textBox3
+            // DriverPesel
             // 
-            this.textBox3.Location = new System.Drawing.Point(20, 255);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(200, 20);
-            this.textBox3.TabIndex = 38;
+            this.DriverPesel.Location = new System.Drawing.Point(20, 255);
+            this.DriverPesel.Margin = new System.Windows.Forms.Padding(2);
+            this.DriverPesel.MaxLength = 11;
+            this.DriverPesel.Name = "DriverPesel";
+            this.DriverPesel.Size = new System.Drawing.Size(200, 20);
+            this.DriverPesel.TabIndex = 38;
+            this.DriverPesel.TextChanged += new System.EventHandler(this.DriverPesel_TextChanged);
+            this.DriverPesel.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DriverPesel_TextChanged);
             // 
-            // textBox2
+            // DriverLastName
             // 
-            this.textBox2.Location = new System.Drawing.Point(21, 151);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(200, 20);
-            this.textBox2.TabIndex = 37;
+            this.DriverLastName.Location = new System.Drawing.Point(21, 151);
+            this.DriverLastName.Margin = new System.Windows.Forms.Padding(2);
+            this.DriverLastName.Name = "DriverLastName";
+            this.DriverLastName.Size = new System.Drawing.Size(200, 20);
+            this.DriverLastName.TabIndex = 37;
+            this.DriverLastName.TextChanged += new System.EventHandler(this.DriverLastName_TextChanged);
+            this.DriverLastName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DriverName_TextChanged);
             // 
-            // textBox1
+            // DriverFirstName
             // 
-            this.textBox1.Location = new System.Drawing.Point(20, 96);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(200, 20);
-            this.textBox1.TabIndex = 36;
+            this.DriverFirstName.Location = new System.Drawing.Point(20, 96);
+            this.DriverFirstName.Margin = new System.Windows.Forms.Padding(2);
+            this.DriverFirstName.Name = "DriverFirstName";
+            this.DriverFirstName.Size = new System.Drawing.Size(200, 20);
+            this.DriverFirstName.TabIndex = 36;
+            this.DriverFirstName.TextChanged += new System.EventHandler(this.DriverFirstName_TextChanged);
+            this.DriverFirstName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DriverName_TextChanged);
             // 
             // Zapisz
             // 
@@ -296,10 +305,10 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox DriverBirthDate;
+        private System.Windows.Forms.TextBox DriverPesel;
+        private System.Windows.Forms.TextBox DriverLastName;
+        private System.Windows.Forms.TextBox DriverFirstName;
         private System.Windows.Forms.Button Zapisz;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button help;

@@ -34,10 +34,10 @@ namespace hiddenAnaconda.Views {
         }
 
         private void Reset_Click(object sender, EventArgs e) {
-            textBox1.ResetText();
-            textBox2.ResetText();
-            textBox3.ResetText();
-            textBox4.ResetText();
+            DriverFirstName.ResetText();
+            DriverLastName.ResetText();
+            DriverPesel.ResetText();
+            DriverBirthDate.ResetText();
         }
 
         private void Zapisz_Click(object sender, EventArgs e) {
@@ -80,6 +80,49 @@ namespace hiddenAnaconda.Views {
         }
 
         private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DriverName_TextChanged(object sender, KeyPressEventArgs e)
+        {
+
+            e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back);
+
+        }
+
+        private void DriverFirstName_TextChanged(object sender, EventArgs e)
+        {
+            DriverFirstName.Text = System.Threading.Thread.CurrentThread.CurrentCulture.TextInfo.ToTitleCase(this.DriverFirstName.Text);
+            DriverFirstName.Select(DriverFirstName.Text.Length, 0);
+        }
+
+        private void DriverLastName_TextChanged(object sender, EventArgs e)
+        {
+            DriverLastName.Text = System.Threading.Thread.CurrentThread.CurrentCulture.TextInfo.ToTitleCase(this.DriverLastName.Text);
+            DriverLastName.Select(DriverLastName.Text.Length, 0);
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void DriverBirthDate_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DriverPesel_TextChanged(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsDigit(e.KeyChar) || e.KeyChar == (char)Keys.Back)
+                base.OnKeyPress(e);
+            else
+                e.Handled = true;
+
+        }
+
+        private void DriverPesel_TextChanged(object sender, EventArgs e)
         {
 
         }

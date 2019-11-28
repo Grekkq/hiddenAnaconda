@@ -104,19 +104,23 @@
             // 
             this.arrivalTime.HideSelection = false;
             this.arrivalTime.Location = new System.Drawing.Point(10, 130);
-            this.arrivalTime.MaxLength = 10;
+            this.arrivalTime.MaxLength = 5;
             this.arrivalTime.Name = "arrivalTime";
             this.arrivalTime.Size = new System.Drawing.Size(110, 20);
             this.arrivalTime.TabIndex = 4;
+            this.arrivalTime.TextChanged += new System.EventHandler(this.arrivalTime_TextChanged);
+            this.arrivalTime.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.arrivalTime_TextChanged);
             // 
             // cityName
             // 
             this.cityName.HideSelection = false;
             this.cityName.Location = new System.Drawing.Point(10, 80);
-            this.cityName.MaxLength = 4;
+            this.cityName.MaxLength = 15;
             this.cityName.Name = "cityName";
             this.cityName.Size = new System.Drawing.Size(110, 20);
             this.cityName.TabIndex = 4;
+            this.cityName.TextChanged += new System.EventHandler(this.cityName_TextChanged);
+            this.cityName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cityName_TextChanged);
             // 
             // label6
             // 
@@ -131,10 +135,11 @@
             // 
             this.stopName.HideSelection = false;
             this.stopName.Location = new System.Drawing.Point(10, 31);
-            this.stopName.MaxLength = 4;
+            this.stopName.MaxLength = 15;
             this.stopName.Name = "stopName";
             this.stopName.Size = new System.Drawing.Size(110, 20);
             this.stopName.TabIndex = 4;
+            this.stopName.TextChanged += new System.EventHandler(this.stopName_TextChanged);
             // 
             // label5
             // 

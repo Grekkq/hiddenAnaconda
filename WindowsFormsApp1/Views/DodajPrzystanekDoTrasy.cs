@@ -68,5 +68,45 @@ namespace hiddenAnaconda.Views {
             get { return busStop; }
         }
 
+        private void arrivalTime_TextChanged(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsDigit(e.KeyChar) || e.KeyChar == (char)Keys.Back || (e.KeyChar == ':') || (e.KeyChar == '.'))
+                base.OnKeyPress(e);
+            else
+                e.Handled = true;
+
+            // pozwala na tylko jeden przecinek w słowie
+            if ((e.KeyChar == '.' && (sender as TextBox).Text.Contains('.')) || (e.KeyChar == ':' && (sender as TextBox).Text.Contains(':')) || (e.KeyChar == '.' && (sender as TextBox).Text.Contains(':')) || (e.KeyChar == ':' && (sender as TextBox).Text.Contains('.')))
+                e.Handled = true;
+
+            // nie pozwala na przecinek na początku
+            if ((e.KeyChar == '.' && arrivalTime.SelectionStart == 0) || (e.KeyChar == ':' && arrivalTime.SelectionStart == 0))
+                e.Handled = true;
+
+        }
+
+        private void cityName_TextChanged(object sender, KeyPressEventArgs e)
+        {
+           
+              e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back);
+            
+        }
+
+        private void cityName_TextChanged(object sender, EventArgs e)
+        {
+            cityName.Text = System.Threading.Thread.CurrentThread.CurrentCulture.TextInfo.ToTitleCase(this.cityName.Text);
+            cityName.Select(cityName.Text.Length, 0);
+        }
+
+        private void stopName_TextChanged(object sender, EventArgs e)
+        {
+            stopName.Text = System.Threading.Thread.CurrentThread.CurrentCulture.TextInfo.ToTitleCase(this.stopName.Text);
+            stopName.Select(stopName.Text.Length, 0);
+        }
+
+        private void arrivalTime_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
