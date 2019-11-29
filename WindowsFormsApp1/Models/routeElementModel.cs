@@ -10,7 +10,7 @@ namespace hiddenAnaconda.Models {
         public string Name { get => _name; set => _name = value; }
         public string City { get => _city; set => _city = value; }
         public string ArrivalTime {
-            get { return _timeSpan.ToString(); }
+            get { return _timeSpan.ToString("hh':'mm"); }
             set { _timeSpan = TimeSpan.Parse(value); }
         }
 
