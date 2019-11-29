@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      Microsoft SQL Server 2012                    */
-/* Created on:     29.11.2019 09:58:45                          */
+/* Created on:     29.11.2019 15:10:49                          */
 /*==============================================================*/
 
 
@@ -27,9 +27,9 @@ go
 
 if exists (select 1
    from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
-   where r.fkeyid = object_id('kurs') and o.name = 'FK_KURS_D_K2K_DNI_KURS')
+   where r.fkeyid = object_id('kurs') and o.name = 'FK_KURS_REFERENCE_TRASA')
 alter table kurs
-   drop constraint FK_KURS_D_K2K_DNI_KURS
+   drop constraint FK_KURS_REFERENCE_TRASA
 go
 
 if exists (select 1
@@ -141,15 +141,6 @@ if exists (select 1
            where  id = object_id('kierowca')
             and   type = 'U')
    drop table kierowca
-go
-
-if exists (select 1
-            from  sysindexes
-           where  id    = object_id('kurs')
-            and   name  = 'd_k2k_FK'
-            and   indid > 0
-            and   indid < 255)
-   drop index kurs.d_k2k_FK
 go
 
 if exists (select 1
@@ -279,8 +270,6 @@ go
 create table czas_odjazdu (
    id_czasu_odjazdu     int                  not null,
    id_trasy             int                  not null,
-   id_linii             int                  not null,
-   id_przystanku        int                  not null,
    czas_odjazdu         datetime             not null,
    constraint PK_CZAS_ODJAZDU primary key nonclustered (id_czasu_odjazdu)
 )
@@ -290,9 +279,7 @@ go
 /* Index: t2cz_o_FK                                             */
 /*==============================================================*/
 create index t2cz_o_FK on czas_odjazdu (
-id_trasy ASC,
-id_linii ASC,
-id_przystanku ASC
+id_trasy ASC
 )
 go
 
@@ -301,6 +288,7 @@ go
 /*==============================================================*/
 create table czas_realizacji (
    id_czasu_realizacji  int                  not null,
+   faktyczny_czas_odjazdu datetime             not null,
    id_czasu_odjazdu     int                  not null,
    id_realizacji_kursu  int                  not null,
    constraint PK_CZAS_REALIZACJI primary key nonclustered (id_czasu_realizacji)
@@ -354,9 +342,10 @@ go
 create table kurs (
    id_kursu             int                  not null,
    id_linii             int                  not null,
-   id_dni_kursowania    int                  not null,
    id_czasu_odjazdu     int                  not null,
-   kolejnosc            int                  not null,
+   id_trasy             int                  not null,
+   ktory_kurs_danego_dnia int                  not null,
+   rodzaj_kursu         int                  not null,
    constraint PK_KURS primary key nonclustered (id_kursu)
 )
 go
@@ -374,14 +363,6 @@ go
 /*==============================================================*/
 create index k2cz_o_FK on kurs (
 id_czasu_odjazdu ASC
-)
-go
-
-/*==============================================================*/
-/* Index: d_k2k_FK                                              */
-/*==============================================================*/
-create index d_k2k_FK on kurs (
-id_dni_kursowania ASC
 )
 go
 
@@ -487,8 +468,9 @@ create table trasa (
    id_trasy             int                  not null,
    id_linii             int                  not null,
    id_przystanku        int                  not null,
-   kolejnosc            int                  not null,
-   constraint PK_TRASA primary key nonclustered (id_trasy, id_linii, id_przystanku)
+   kolejnosc_przystankow int                  not null,
+   nr_trasy             int                  not null,
+   constraint PK_TRASA primary key nonclustered (id_trasy)
 )
 go
 
@@ -509,8 +491,8 @@ id_linii ASC
 go
 
 alter table czas_odjazdu
-   add constraint FK_CZAS_ODJ_T2CZ_O_TRASA foreign key (id_trasy, id_linii, id_przystanku)
-      references trasa (id_trasy, id_linii, id_przystanku)
+   add constraint FK_CZAS_ODJ_T2CZ_O_TRASA foreign key (id_trasy)
+      references trasa (id_trasy)
 go
 
 alter table czas_realizacji
@@ -524,8 +506,8 @@ alter table czas_realizacji
 go
 
 alter table kurs
-   add constraint FK_KURS_D_K2K_DNI_KURS foreign key (id_dni_kursowania)
-      references dni_kursowania (id_dni_kursowania)
+   add constraint FK_KURS_REFERENCE_TRASA foreign key (id_trasy)
+      references trasa (id_trasy)
 go
 
 alter table kurs
