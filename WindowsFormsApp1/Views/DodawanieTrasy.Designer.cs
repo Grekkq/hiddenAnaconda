@@ -31,14 +31,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DodawanieTrasy));
             this.helpLabel = new System.Windows.Forms.Label();
             this.lineSelectionComboBox = new System.Windows.Forms.ComboBox();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.cancel = new System.Windows.Forms.Button();
             this.create = new System.Windows.Forms.Button();
             this.lineSelectionLabel = new System.Windows.Forms.Label();
             this.bgPanel = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.helpLabel2 = new System.Windows.Forms.Label();
             this.clearButton = new System.Windows.Forms.Button();
             this.mainListBox = new System.Windows.Forms.ListBox();
@@ -49,12 +46,13 @@
             this.help = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.tableLayoutPanel2.SuspendLayout();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.bgPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // helpLabel
@@ -80,62 +78,6 @@
             this.lineSelectionComboBox.Name = "lineSelectionComboBox";
             this.lineSelectionComboBox.Size = new System.Drawing.Size(131, 21);
             this.lineSelectionComboBox.TabIndex = 9;
-            // 
-            // tableLayoutPanel2
-            // 
-            this.tableLayoutPanel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.tableLayoutPanel2.ColumnCount = 3;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.63158F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 87.36842F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 83F));
-            this.tableLayoutPanel2.Controls.Add(this.label5, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.label3, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.label4, 1, 0);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(65, 129);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 1;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(463, 27);
-            this.tableLayoutPanel2.TabIndex = 15;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.Silver;
-            this.label5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label5.Location = new System.Drawing.Point(51, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(326, 27);
-            this.label5.TabIndex = 7;
-            this.label5.Text = "Godzina";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Silver;
-            this.label3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label3.Location = new System.Drawing.Point(3, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(42, 27);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Nr.";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Silver;
-            this.label4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label4.Location = new System.Drawing.Point(383, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(77, 27);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Lokalizacja";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // cancel
             // 
@@ -171,6 +113,9 @@
             // bgPanel
             // 
             this.bgPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.bgPanel.Controls.Add(this.label2);
+            this.bgPanel.Controls.Add(this.label6);
+            this.bgPanel.Controls.Add(this.label1);
             this.bgPanel.Controls.Add(this.pictureBox2);
             this.bgPanel.Controls.Add(this.helpLabel2);
             this.bgPanel.Controls.Add(this.clearButton);
@@ -181,12 +126,22 @@
             this.bgPanel.Controls.Add(this.lineSelectionLabel);
             this.bgPanel.Controls.Add(this.create);
             this.bgPanel.Controls.Add(this.cancel);
-            this.bgPanel.Controls.Add(this.tableLayoutPanel2);
             this.bgPanel.Controls.Add(this.lineSelectionComboBox);
             this.bgPanel.Location = new System.Drawing.Point(2, 31);
             this.bgPanel.Name = "bgPanel";
             this.bgPanel.Size = new System.Drawing.Size(606, 377);
             this.bgPanel.TabIndex = 19;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.White;
+            this.pictureBox2.Image = global::hiddenAnaconda.Properties.Resources.route;
+            this.pictureBox2.Location = new System.Drawing.Point(497, 3);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(106, 63);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 26;
+            this.pictureBox2.TabStop = false;
             // 
             // helpLabel2
             // 
@@ -219,9 +174,9 @@
             "1)   Gliwice, Plac Piastów            07:15",
             "2)   Zabrze, Plac Kroczkaa            08:00",
             "3)   Zabrze, Rokietnica               08:30"});
-            this.mainListBox.Location = new System.Drawing.Point(68, 155);
+            this.mainListBox.Location = new System.Drawing.Point(65, 155);
             this.mainListBox.Name = "mainListBox";
-            this.mainListBox.Size = new System.Drawing.Size(460, 148);
+            this.mainListBox.Size = new System.Drawing.Size(468, 148);
             this.mainListBox.TabIndex = 23;
             this.mainListBox.SelectedIndexChanged += new System.EventHandler(this.mainListBox_SelectedIndexChanged);
             this.mainListBox.DragDrop += new System.Windows.Forms.DragEventHandler(this.mainListBox_DragDrop);
@@ -315,16 +270,42 @@
             this.pictureBox3.TabIndex = 50;
             this.pictureBox3.TabStop = false;
             // 
-            // pictureBox2
+            // label1
             // 
-            this.pictureBox2.BackColor = System.Drawing.Color.White;
-            this.pictureBox2.Image = global::hiddenAnaconda.Properties.Resources.route;
-            this.pictureBox2.Location = new System.Drawing.Point(497, 3);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(106, 63);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 26;
-            this.pictureBox2.TabStop = false;
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Silver;
+            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label1.Location = new System.Drawing.Point(65, 132);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(43, 22);
+            this.label1.TabIndex = 27;
+            this.label1.Text = "  Nr. ";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Silver;
+            this.label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label2.Location = new System.Drawing.Point(105, 132);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(313, 22);
+            this.label2.TabIndex = 27;
+            this.label2.Text = "                              Lokalizacja                          ";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Silver;
+            this.label6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label6.Location = new System.Drawing.Point(418, 132);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(115, 22);
+            this.label6.TabIndex = 27;
+            this.label6.Text = "      Godzina     ";
             // 
             // DodawanieTrasy
             // 
@@ -346,13 +327,11 @@
             this.Load += new System.EventHandler(this.DodawanieTrasy_Load);
             this.Enter += new System.EventHandler(this.turnoff_focus);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.move_window);
-            this.tableLayoutPanel2.ResumeLayout(false);
-            this.tableLayoutPanel2.PerformLayout();
             this.bgPanel.ResumeLayout(false);
             this.bgPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -361,10 +340,8 @@
         #endregion
         private System.Windows.Forms.Label helpLabel;
         private System.Windows.Forms.ComboBox lineSelectionComboBox;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Button cancel;
         private System.Windows.Forms.Button create;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lineSelectionLabel;
         private System.Windows.Forms.Panel bgPanel;
         private System.Windows.Forms.Button exit;
@@ -374,11 +351,12 @@
         private System.Windows.Forms.ListBox mainListBox;
         private System.Windows.Forms.Button clearButton;
         private System.Windows.Forms.Label helpLabel2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button help;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label1;
     }
 }
