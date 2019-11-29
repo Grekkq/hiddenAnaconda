@@ -7,9 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 
 namespace hiddenAnaconda.Views {
     public partial class DodawanieKierowcy : Form {
+        bool ErrorIsOn = false;
         public const int WM_NCLBUTTONDOWN = 0xA1;                                               // stałe do funkcji przesuwania okna
         public const int HT_CAPTION = 0x2;                                                      //
         [System.Runtime.InteropServices.DllImport("user32.dll")]                                // importowanie funkcji do przesuwania okna
@@ -41,6 +43,7 @@ namespace hiddenAnaconda.Views {
         }
 
         private void Zapisz_Click(object sender, EventArgs e) {
+            if (ErrorIsOn == false)
             MessageBox.Show("Zapisano Kierowcę");
         }
 
@@ -125,6 +128,30 @@ namespace hiddenAnaconda.Views {
         private void DriverPesel_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void DriverBirthDate_Validating(object sender, CancelEventArgs e)
+        {
+           
+            {
+                Regex r = new Regex(@"((0?[13578]|10|12)(-|\/)((0[0-9])|([12])([0-9]?)|(3[01]?))(-|\/)((\d{4})|(\d{2}))|(0?[2469]|11)(-|\/)((0[0-9])|([12])([0-9]?)|(3[0]?))(-|\/)((\d{4}|\d{2})))");
+
+                if (string.IsNullOrEmpty(DriverBirthDate.Text))
+                {
+                    errorProvider1.SetError(DriverBirthDate, "Nie wpisano daty!");
+                    ErrorIsOn = true;
+                }
+                else if (!r.IsMatch(DriverBirthDate.Text))
+                {
+                    errorProvider1.SetError(DriverBirthDate, "Niepoprawnie wpisana data");
+                    ErrorIsOn = true;
+                }
+                else
+                {
+                    errorProvider1.SetError(DriverBirthDate, null);
+                    ErrorIsOn = false;
+                }
+            }
         }
     }
 }

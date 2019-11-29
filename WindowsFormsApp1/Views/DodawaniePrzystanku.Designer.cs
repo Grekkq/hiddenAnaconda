@@ -31,15 +31,15 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DodawaniePrzystanku));
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.p_nazwa = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.no = new System.Windows.Forms.RadioButton();
             this.yes = new System.Windows.Forms.RadioButton();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.p_miasto = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.p_adres = new System.Windows.Forms.TextBox();
             this.create = new System.Windows.Forms.Button();
             this.cancel = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -76,12 +76,13 @@
             this.label1.TabIndex = 3;
             this.label1.Text = " \r\n      Tworzenie nowego przystanku";
             // 
-            // textBox1
+            // p_nazwa
             // 
-            this.textBox1.Location = new System.Drawing.Point(19, 106);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(140, 20);
-            this.textBox1.TabIndex = 5;
+            this.p_nazwa.Location = new System.Drawing.Point(19, 106);
+            this.p_nazwa.MaxLength = 15;
+            this.p_nazwa.Name = "p_nazwa";
+            this.p_nazwa.Size = new System.Drawing.Size(140, 20);
+            this.p_nazwa.TabIndex = 5;
             // 
             // groupBox1
             // 
@@ -129,12 +130,14 @@
             this.label3.Text = "Podaj nazwę przystanku:";
             this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
-            // textBox2
+            // p_miasto
             // 
-            this.textBox2.Location = new System.Drawing.Point(19, 156);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(142, 20);
-            this.textBox2.TabIndex = 14;
+            this.p_miasto.Location = new System.Drawing.Point(19, 156);
+            this.p_miasto.Name = "p_miasto";
+            this.p_miasto.Size = new System.Drawing.Size(142, 20);
+            this.p_miasto.TabIndex = 14;
+            this.p_miasto.TextChanged += new System.EventHandler(this.p_miasto_TextChanged);
+            this.p_miasto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.p_miasto_TextChanged);
             // 
             // label5
             // 
@@ -156,12 +159,13 @@
             this.label6.TabIndex = 16;
             this.label6.Text = "Podaj adres:";
             // 
-            // textBox3
+            // p_adres
             // 
-            this.textBox3.Location = new System.Drawing.Point(19, 206);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(142, 20);
-            this.textBox3.TabIndex = 17;
+            this.p_adres.Location = new System.Drawing.Point(19, 206);
+            this.p_adres.Name = "p_adres";
+            this.p_adres.Size = new System.Drawing.Size(142, 20);
+            this.p_adres.TabIndex = 25;
+            this.p_adres.TextChanged += new System.EventHandler(this.p_adres_TextChanged);
             // 
             // create
             // 
@@ -193,13 +197,13 @@
             this.panel1.Controls.Add(this.create);
             this.panel1.Controls.Add(this.cancel);
             this.panel1.Controls.Add(this.groupBox1);
-            this.panel1.Controls.Add(this.textBox3);
+            this.panel1.Controls.Add(this.p_adres);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.textBox1);
-            this.panel1.Controls.Add(this.textBox2);
+            this.panel1.Controls.Add(this.p_nazwa);
+            this.panel1.Controls.Add(this.p_miasto);
             this.panel1.Location = new System.Drawing.Point(2, 31);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(606, 377);
@@ -305,15 +309,15 @@
 
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox p_nazwa;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.RadioButton no;
         private System.Windows.Forms.RadioButton yes;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox p_miasto;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox p_adres;
         private System.Windows.Forms.Button create;
         private System.Windows.Forms.Button cancel;
         private System.Windows.Forms.Panel panel1;

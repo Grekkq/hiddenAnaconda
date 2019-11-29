@@ -77,5 +77,15 @@ namespace hiddenAnaconda.Views {
         {
 
         }
+
+        private void line_name_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void line_name_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }

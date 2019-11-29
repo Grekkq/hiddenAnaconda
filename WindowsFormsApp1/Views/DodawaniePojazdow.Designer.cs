@@ -172,6 +172,8 @@
             this.year_number.Name = "year_number";
             this.year_number.Size = new System.Drawing.Size(167, 20);
             this.year_number.TabIndex = 18;
+            this.year_number.TextChanged += new System.EventHandler(this.year_number_TextChanged);
+            this.year_number.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.year_number_TextChanged);
             // 
             // label8
             // 
@@ -184,12 +186,15 @@
             // 
             // vin_number
             // 
+            this.vin_number.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.vin_number.HideSelection = false;
             this.vin_number.Location = new System.Drawing.Point(20, 213);
-            this.vin_number.MaxLength = 4;
+            this.vin_number.MaxLength = 17;
             this.vin_number.Name = "vin_number";
             this.vin_number.Size = new System.Drawing.Size(167, 20);
             this.vin_number.TabIndex = 16;
+            this.vin_number.TextChanged += new System.EventHandler(this.vin_number_TextChanged);
+            this.vin_number.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.vin_number_TextChanged);
             // 
             // label7
             // 
@@ -202,12 +207,15 @@
             // 
             // plate_numer
             // 
+            this.plate_numer.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.plate_numer.HideSelection = false;
             this.plate_numer.Location = new System.Drawing.Point(20, 174);
-            this.plate_numer.MaxLength = 4;
+            this.plate_numer.MaxLength = 7;
             this.plate_numer.Name = "plate_numer";
             this.plate_numer.Size = new System.Drawing.Size(167, 20);
             this.plate_numer.TabIndex = 14;
+            this.plate_numer.TextChanged += new System.EventHandler(this.plate_numer_TextChanged);
+            this.plate_numer.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.plate_number_TextChanged);
             // 
             // label6
             // 
@@ -222,10 +230,12 @@
             // 
             this.model_name.HideSelection = false;
             this.model_name.Location = new System.Drawing.Point(19, 135);
-            this.model_name.MaxLength = 4;
+            this.model_name.MaxLength = 15;
             this.model_name.Name = "model_name";
             this.model_name.Size = new System.Drawing.Size(168, 20);
             this.model_name.TabIndex = 12;
+            this.model_name.TextChanged += new System.EventHandler(this.model_name_TextChanged);
+            this.model_name.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.model_name_TextChanged);
             // 
             // label5
             // 
@@ -294,11 +304,12 @@
             // 
             this.mark_name.HideSelection = false;
             this.mark_name.Location = new System.Drawing.Point(20, 96);
-            this.mark_name.MaxLength = 4;
+            this.mark_name.MaxLength = 15;
             this.mark_name.Name = "mark_name";
             this.mark_name.Size = new System.Drawing.Size(167, 20);
             this.mark_name.TabIndex = 4;
             this.mark_name.TextChanged += new System.EventHandler(this.mark_name_TextChanged);
+            this.mark_name.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mark_name_TextChanged);
             // 
             // label4
             // 

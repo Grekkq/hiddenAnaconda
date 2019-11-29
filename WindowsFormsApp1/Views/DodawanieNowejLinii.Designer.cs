@@ -162,6 +162,7 @@
             this.line_name.Name = "line_name";
             this.line_name.Size = new System.Drawing.Size(110, 20);
             this.line_name.TabIndex = 4;
+            this.line_name.TextChanged += new System.EventHandler(this.line_name_TextChanged_1);
             this.line_name.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.line_name_TextChanged);
             // 
             // label4

@@ -27,6 +27,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DodajPrzystanekDoTrasy));
             this.panel1 = new System.Windows.Forms.Panel();
             this.dodaj = new System.Windows.Forms.Button();
@@ -41,7 +42,9 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.exit = new System.Windows.Forms.Button();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -110,6 +113,7 @@
             this.arrivalTime.TabIndex = 4;
             this.arrivalTime.TextChanged += new System.EventHandler(this.arrivalTime_TextChanged);
             this.arrivalTime.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.arrivalTime_TextChanged);
+            this.arrivalTime.Validating += new System.ComponentModel.CancelEventHandler(this.arrivalTime_Validating);
             // 
             // cityName
             // 
@@ -190,6 +194,11 @@
             this.exit.MouseEnter += new System.EventHandler(this.hover_exitbutton);
             this.exit.MouseLeave += new System.EventHandler(this.leave_exitbutton);
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.errorProvider1.ContainerControl = this;
+            // 
             // DodajPrzystanekDoTrasy
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -209,6 +218,7 @@
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.move_window);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -228,5 +238,6 @@
         private System.Windows.Forms.Button dodaj;
         private System.Windows.Forms.Button anuluj;
         private System.Windows.Forms.Button exit;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

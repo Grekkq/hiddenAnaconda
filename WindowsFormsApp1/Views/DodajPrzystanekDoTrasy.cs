@@ -7,14 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 
 namespace hiddenAnaconda.Views {
-    public partial class DodajPrzystanekDoTrasy : Form {
-        public DodajPrzystanekDoTrasy() {
+    public partial class DodajPrzystanekDoTrasy : Form
+    {
+        bool ErrorIsOn = false;
+        public DodajPrzystanekDoTrasy()
+        {
             InitializeComponent();
         }
 
-        public DodajPrzystanekDoTrasy(Models.routeElementModel busStop) {
+        public DodajPrzystanekDoTrasy(Models.routeElementModel busStop)
+        {
             InitializeComponent();
             this.stopName.Text = busStop.Name;
             this.cityName.Text = busStop.City;
@@ -24,47 +29,59 @@ namespace hiddenAnaconda.Views {
         Models.routeElementModel busStop;
         SharedView sharedView = new SharedView();
 
-        private void move_window(object sender, MouseEventArgs e) {
+        private void move_window(object sender, MouseEventArgs e)
+        {
             sharedView.moveWindow(sender, e, Handle);
         }
 
-        private void hover_exitbutton(object sender, EventArgs e) {
+        private void hover_exitbutton(object sender, EventArgs e)
+        {
             sharedView.hover_exitbutton(exit);
         }
 
-        private void leave_exitbutton(object sender, EventArgs e) {
+        private void leave_exitbutton(object sender, EventArgs e)
+        {
             sharedView.leave_exitbutton(exit);
         }
 
         // wyłączenie fokusu na pola tekstowe przy uruchomieniu formularza
-        private void TurnoffFocus(object sender, EventArgs e) {
+        private void TurnoffFocus(object sender, EventArgs e)
+        {
             this.ActiveControl = null;
         }
 
-        private void Close_on_click(object sender, EventArgs e) {
+        private void Close_on_click(object sender, EventArgs e)
+        {
             this.Close();
         }
 
-        private void cancel_Click(object sender, EventArgs e) {
+        private void cancel_Click(object sender, EventArgs e)
+        {
             this.DialogResult = DialogResult.Cancel;
             this.Close();
         }
 
-        private void Button3_Click(object sender, EventArgs e) {
+        private void Button3_Click(object sender, EventArgs e)
+        {
             this.Close();
         }
 
-        private void DodajPrzystanekDoTrasy_Load(object sender, EventArgs e) {
+        private void DodajPrzystanekDoTrasy_Load(object sender, EventArgs e)
+        {
 
         }
 
-        private void Dodaj_Click(object sender, EventArgs e) {
-            busStop = new Models.routeElementModel(this.stopName.Text, this.cityName.Text, this.arrivalTime.Text);
-            this.DialogResult = DialogResult.OK;
-            this.Close();
+        private void Dodaj_Click(object sender, EventArgs e)
+        {   if (ErrorIsOn == false)
+            {
+                busStop = new Models.routeElementModel(this.stopName.Text, this.cityName.Text, this.arrivalTime.Text);
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
         }
 
-        public Models.routeElementModel GetStop {
+        public Models.routeElementModel GetStop
+        {
             get { return busStop; }
         }
 
@@ -87,9 +104,11 @@ namespace hiddenAnaconda.Views {
 
         private void cityName_TextChanged(object sender, KeyPressEventArgs e)
         {
-           
-              e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back);
-            
+            if (char.IsLetter(e.KeyChar) || (e.KeyChar == ' ') || e.KeyChar == (char)Keys.Back)
+                base.OnKeyPress(e);
+            else
+                e.Handled = true;
+
         }
 
         private void cityName_TextChanged(object sender, EventArgs e)
@@ -107,6 +126,26 @@ namespace hiddenAnaconda.Views {
         private void arrivalTime_TextChanged(object sender, EventArgs e)
         {
 
+        }
+        private void arrivalTime_Validating(object sender, CancelEventArgs e)
+        {
+            Regex r = new Regex(@"^(?:0?[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$");
+
+            if (string.IsNullOrEmpty(arrivalTime.Text))
+            {
+                errorProvider1.SetError(arrivalTime, "Nie wpisano godziny!");
+                ErrorIsOn = true;
+            }
+            else if (!r.IsMatch(arrivalTime.Text))
+            {
+                errorProvider1.SetError(arrivalTime, "Niepoprawnie wpisana godzina");
+                ErrorIsOn = true;
+            }
+            else
+            {
+                errorProvider1.SetError(arrivalTime, null);
+                ErrorIsOn = false;
+            }
         }
     }
 }

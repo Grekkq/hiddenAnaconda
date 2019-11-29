@@ -28,8 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DodawanieKursu));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label9 = new System.Windows.Forms.Label();
             this.date_name = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -48,10 +50,13 @@
             this.label7 = new System.Windows.Forms.Label();
             this.help = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider2 = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -78,26 +83,39 @@
             this.panel1.TabIndex = 4;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.White;
+            this.pictureBox2.Image = global::hiddenAnaconda.Properties.Resources.course;
+            this.pictureBox2.Location = new System.Drawing.Point(537, 5);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(66, 54);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 21;
+            this.pictureBox2.TabStop = false;
+            // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label9.Location = new System.Drawing.Point(134, 260);
+            this.label9.Location = new System.Drawing.Point(170, 260);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(226, 13);
             this.label9.TabIndex = 20;
-            this.label9.Text = "Akceptowany format daty - DD:MM:RR";
+            this.label9.Text = "Akceptowany format daty - DD.MM.RR";
+            this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
             // date_name
             // 
             this.date_name.HideSelection = false;
             this.date_name.Location = new System.Drawing.Point(19, 257);
-            this.date_name.MaxLength = 4;
+            this.date_name.MaxLength = 10;
             this.date_name.Name = "date_name";
             this.date_name.Size = new System.Drawing.Size(109, 20);
             this.date_name.TabIndex = 19;
             this.date_name.TextChanged += new System.EventHandler(this.date_name_TextChanged);
+            this.date_name.Validating += new System.ComponentModel.CancelEventHandler(this.date_name_Validating);
             // 
             // label8
             // 
@@ -114,7 +132,7 @@
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label6.Location = new System.Drawing.Point(134, 209);
+            this.label6.Location = new System.Drawing.Point(170, 209);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(213, 13);
             this.label6.TabIndex = 17;
@@ -137,6 +155,7 @@
             this.c_number.Size = new System.Drawing.Size(109, 20);
             this.c_number.TabIndex = 14;
             this.c_number.TextChanged += new System.EventHandler(this.c_number_TextChanged);
+            this.c_number.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.c_number_TextChanged);
             // 
             // label5
             // 
@@ -152,11 +171,12 @@
             // 
             this.hour_name.HideSelection = false;
             this.hour_name.Location = new System.Drawing.Point(19, 206);
-            this.hour_name.MaxLength = 4;
+            this.hour_name.MaxLength = 5;
             this.hour_name.Name = "hour_name";
             this.hour_name.Size = new System.Drawing.Size(109, 20);
             this.hour_name.TabIndex = 12;
             this.hour_name.TextChanged += new System.EventHandler(this.hour_name_TextChanged);
+            this.hour_name.Validating += new System.ComponentModel.CancelEventHandler(this.hour_name_Validating);
             // 
             // label3
             // 
@@ -275,16 +295,15 @@
             this.pictureBox1.TabIndex = 49;
             this.pictureBox1.TabStop = false;
             // 
-            // pictureBox2
+            // errorProvider1
             // 
-            this.pictureBox2.BackColor = System.Drawing.Color.White;
-            this.pictureBox2.Image = global::hiddenAnaconda.Properties.Resources.course;
-            this.pictureBox2.Location = new System.Drawing.Point(537, 5);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(66, 54);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 21;
-            this.pictureBox2.TabStop = false;
+            this.errorProvider1.BlinkRate = 0;
+            this.errorProvider1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.errorProvider1.ContainerControl = this;
+            // 
+            // errorProvider2
+            // 
+            this.errorProvider2.ContainerControl = this;
             // 
             // DodawanieKursu
             // 
@@ -308,8 +327,10 @@
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.move_window);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -337,5 +358,7 @@
         private System.Windows.Forms.Button help;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.ErrorProvider errorProvider2;
     }
 }

@@ -38,13 +38,13 @@ namespace hiddenAnaconda.Views {
 
         private void create_Click(object sender, EventArgs e) {
             {
-                if ((yes.Checked == false && no.Checked == false) && (string.IsNullOrEmpty(textBox1.Text)) && (string.IsNullOrEmpty(textBox2.Text)) && (string.IsNullOrEmpty(textBox3.Text))) {
+                if ((yes.Checked == false && no.Checked == false) && (string.IsNullOrEmpty(p_nazwa.Text)) && (string.IsNullOrEmpty(p_miasto.Text)) && (string.IsNullOrEmpty(p_adres.Text))) {
                     MessageBox.Show("Nie wypełniono formularza", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                } else if ((string.IsNullOrEmpty(textBox1.Text))) {
+                } else if ((string.IsNullOrEmpty(p_nazwa.Text))) {
                     MessageBox.Show("Niewypełniono pola: Nazwa.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                } else if ((string.IsNullOrEmpty(textBox2.Text))) {
+                } else if ((string.IsNullOrEmpty(p_miasto.Text))) {
                     MessageBox.Show("Niewypełniono pola: Miasto.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                } else if ((string.IsNullOrEmpty(textBox3.Text))) {
+                } else if ((string.IsNullOrEmpty(p_adres.Text))) {
                     MessageBox.Show("Niewypełniono pola: Adres.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 } else if (yes.Checked == false && no.Checked == false) {
                     MessageBox.Show("Nie zaznaczono odpowiedz na pytanie.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -68,6 +68,26 @@ namespace hiddenAnaconda.Views {
         }
 
         private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void p_miasto_TextChanged(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsLetter(e.KeyChar) || (e.KeyChar == ' ') || e.KeyChar == (char)Keys.Back)
+                base.OnKeyPress(e);
+            else
+                e.Handled = true;
+        }
+
+            private void p_miasto_TextChanged(object sender, EventArgs e)
+        {
+
+            p_miasto.Text = System.Threading.Thread.CurrentThread.CurrentCulture.TextInfo.ToTitleCase(this.p_miasto.Text);
+            p_miasto.Select(p_miasto.Text.Length, 0);
+           
+        }
+
+        private void p_adres_TextChanged(object sender, EventArgs e)
         {
 
         }
