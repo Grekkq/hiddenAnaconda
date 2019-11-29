@@ -35,6 +35,9 @@
             this.create = new System.Windows.Forms.Button();
             this.lineSelectionLabel = new System.Windows.Forms.Label();
             this.bgPanel = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.helpLabel2 = new System.Windows.Forms.Label();
             this.clearButton = new System.Windows.Forms.Button();
@@ -46,9 +49,6 @@
             this.help = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.bgPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -131,6 +131,43 @@
             this.bgPanel.Name = "bgPanel";
             this.bgPanel.Size = new System.Drawing.Size(606, 377);
             this.bgPanel.TabIndex = 19;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Silver;
+            this.label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label2.Location = new System.Drawing.Point(105, 133);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(313, 22);
+            this.label2.TabIndex = 27;
+            this.label2.Text = "                              Lokalizacja                          ";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Silver;
+            this.label6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label6.Location = new System.Drawing.Point(418, 133);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(115, 22);
+            this.label6.TabIndex = 27;
+            this.label6.Text = "      Godzina     ";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Silver;
+            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label1.Location = new System.Drawing.Point(65, 133);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(43, 22);
+            this.label1.TabIndex = 27;
+            this.label1.Text = "  Nr. ";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // pictureBox2
             // 
@@ -269,43 +306,6 @@
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox3.TabIndex = 50;
             this.pictureBox3.TabStop = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Silver;
-            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.Location = new System.Drawing.Point(65, 132);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(43, 22);
-            this.label1.TabIndex = 27;
-            this.label1.Text = "  Nr. ";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Silver;
-            this.label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label2.Location = new System.Drawing.Point(105, 132);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(313, 22);
-            this.label2.TabIndex = 27;
-            this.label2.Text = "                              Lokalizacja                          ";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.Silver;
-            this.label6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label6.Location = new System.Drawing.Point(418, 132);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(115, 22);
-            this.label6.TabIndex = 27;
-            this.label6.Text = "      Godzina     ";
             // 
             // DodawanieTrasy
             // 
