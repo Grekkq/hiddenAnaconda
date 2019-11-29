@@ -66,11 +66,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Views\DodawanieDniSwiatecznych.cs">
+    <Compile Include="Views\DodawanieDniWolnych.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\DodawanieDniSwiatecznych.Designer.cs">
-      <DependentUpon>DodawanieDniSwiatecznych.cs</DependentUpon>
+    <Compile Include="Views\DodawanieDniWolnych.Designer.cs">
+      <DependentUpon>DodawanieDniWolnych.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\planowanieRealizacjiKursu.cs">
       <SubType>Form</SubType>
@@ -150,8 +150,8 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\DodawanieDniSwiatecznych.resx">
-      <DependentUpon>DodawanieDniSwiatecznych.cs</DependentUpon>
+    <EmbeddedResource Include="Views\DodawanieDniWolnych.resx">
+      <DependentUpon>DodawanieDniWolnych.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\planowanieRealizacjiKursu.resx">
       <DependentUpon>planowanieRealizacjiKursu.cs</DependentUpon>
@@ -255,6 +255,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\driver1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\icon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
