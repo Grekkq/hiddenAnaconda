@@ -115,7 +115,7 @@
             // 
             // label4
             // 
-            this.label4.Location = new System.Drawing.Point(16, 182);
+            this.label4.Location = new System.Drawing.Point(16, 190);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(212, 18);
@@ -124,7 +124,7 @@
             // 
             // label5
             // 
-            this.label5.Location = new System.Drawing.Point(16, 235);
+            this.label5.Location = new System.Drawing.Point(16, 240);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(212, 18);
@@ -133,7 +133,7 @@
             // 
             // label6
             // 
-            this.label6.Location = new System.Drawing.Point(18, 131);
+            this.label6.Location = new System.Drawing.Point(17, 140);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(212, 18);
@@ -142,7 +142,7 @@
             // 
             // label7
             // 
-            this.label7.Location = new System.Drawing.Point(16, 76);
+            this.label7.Location = new System.Drawing.Point(16, 90);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(212, 18);
@@ -174,7 +174,7 @@
             // 
             // DriverLastName
             // 
-            this.DriverLastName.Location = new System.Drawing.Point(19, 160);
+            this.DriverLastName.Location = new System.Drawing.Point(18, 160);
             this.DriverLastName.Margin = new System.Windows.Forms.Padding(2);
             this.DriverLastName.Name = "DriverLastName";
             this.DriverLastName.Size = new System.Drawing.Size(200, 20);
@@ -184,7 +184,7 @@
             // 
             // DriverFirstName
             // 
-            this.DriverFirstName.Location = new System.Drawing.Point(19, 110);
+            this.DriverFirstName.Location = new System.Drawing.Point(18, 109);
             this.DriverFirstName.Margin = new System.Windows.Forms.Padding(2);
             this.DriverFirstName.Name = "DriverFirstName";
             this.DriverFirstName.Size = new System.Drawing.Size(200, 20);
