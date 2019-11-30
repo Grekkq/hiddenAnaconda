@@ -160,7 +160,7 @@ namespace hiddenAnaconda.Views
             Models.TimeTable timeTable = new Models.TimeTable();
             DateTime date = DateTime.Parse("29.11.2020");
             date = date.AddHours(2);
-            timeTable.GetTimeTable(101, "Skalka", date);
+            timeTable.GetTimeTable(101, "Skalka", date, 1);
             //timeTable.GetAllBusStops(164);
         }
     }

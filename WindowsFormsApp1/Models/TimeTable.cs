@@ -13,27 +13,33 @@ namespace hiddenAnaconda.Models {
         }
 
         // wyciaga id trasy tylko dla weekendu albo normalnego tygodnia 
-        private List<int> GetTrasasAtDay(DateTime date, int linia) {
+        private List<int> GetTrasasNumberAtDay(DateTime date, int linia) {
             var data = from k in dc.kurs
                        from d in dc.dni_kursowanias
+                       from t in dc.trasas
                        where k.id_linii == linia && (d.od_dnia <= date && d.do_dnia >= date) && k.rodzaj_kursu == d.rodzaj_kursu
-                       //where k.id_linii == linia && k.rodzaj_kursu == d.rodzaj_kursu
-                       select k.id_trasy;
+                       && t.id_trasy == k.id_trasy
+                       select t.nr_trasy;
             List<int> list = new List<int>();
             foreach (var item in data)
                 list.Add(item);
             return list;
         }
 
-        public void GetTimeTable(int linia, string przystanek, DateTime date) {
-            int[] trasyDnia = GetTrasasAtDay(date, linia).ToArray();
-            var cos = from t in dc.trasas
-                      where trasyDnia.Contains(t.id_trasy)
-                      select t;
+        public void GetTimeTable(int linia, string przystanek, DateTime date, int kierunek) {
+            var petla = from l in dc.linias
+                        where l.id_linii == linia
+                        select l.czy_zapetla;
+            int[] trasyDnia;
+            if (petla.First() == true)
+                trasyDnia = GetTrasasNumberAtDay(date, linia).Where(x => x % 2 == kierunek).ToArray();
+            else
+                trasyDnia = GetTrasasNumberAtDay(date, linia).ToArray();
+
             var data = from t in dc.trasas
                        from p in dc.przystaneks
                        from c in dc.czas_odjazdus
-                       where trasyDnia.Contains(t.id_trasy) && p.id_przystanku == t.id_przystanku && c.id_trasy == t.id_trasy
+                       where trasyDnia.Contains(t.nr_trasy) && p.id_przystanku == t.id_przystanku && c.id_trasy == t.id_trasy
                        && t.id_linii == linia && p.nazwa == przystanek
                        select c;
             foreach (var item in data) {
