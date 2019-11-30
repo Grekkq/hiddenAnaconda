@@ -78,6 +78,12 @@
     <Compile Include="Views\DodawanieDniWolnych.Designer.cs">
       <DependentUpon>DodawanieDniWolnych.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\EkranLogowania.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\EkranLogowania.Designer.cs">
+      <DependentUpon>EkranLogowania.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\planowanieRealizacjiKursu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -158,6 +164,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\DodawanieDniWolnych.resx">
       <DependentUpon>DodawanieDniWolnych.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\EkranLogowania.resx">
+      <DependentUpon>EkranLogowania.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\planowanieRealizacjiKursu.resx">
       <DependentUpon>planowanieRealizacjiKursu.cs</DependentUpon>
@@ -272,6 +281,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\icon.ico" />
+    <None Include="Resources\user.png" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
