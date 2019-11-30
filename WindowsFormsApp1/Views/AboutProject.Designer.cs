@@ -103,9 +103,9 @@
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.Image = global::hiddenAnaconda.Properties.Resources.drivingbus;
-            this.pictureBox1.Location = new System.Drawing.Point(237, 126);
+            this.pictureBox1.Location = new System.Drawing.Point(237, 124);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(136, 110);
+            this.pictureBox1.Size = new System.Drawing.Size(136, 131);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
