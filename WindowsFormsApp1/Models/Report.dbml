@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="hiddenAnacondaDB" Class="ReportDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=hiddenAnacondaDB;Integrated Security=True" SettingsObjectName="hiddenAnaconda.Properties.Settings" SettingsPropertyName="hiddenAnacondaDBConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.czas_odjazdu" Member="czas_odjazdus">
+    <Type Name="czas_odjazdu">
+      <Column Name="id_czasu_odjazdu" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="id_trasy" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="czas_odjazdu" Member="czas_odjazdu1" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="czas_odjazdu_czas_realizacji" Member="czas_realizacjis" ThisKey="id_czasu_odjazdu" OtherKey="id_czasu_odjazdu" Type="czas_realizacji" />
+      <Association Name="czas_odjazdu_kur" Member="kurs" ThisKey="id_czasu_odjazdu" OtherKey="id_czasu_odjazdu" Type="kur" />
+      <Association Name="trasa_czas_odjazdu" Member="trasa" ThisKey="id_trasy" OtherKey="id_trasy" Type="trasa" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.czas_realizacji" Member="czas_realizacjis">
+    <Type Name="czas_realizacji">
+      <Column Name="id_czasu_realizacji" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="faktyczny_czas_odjazdu" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="id_czasu_odjazdu" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="id_realizacji_kursu" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="czas_odjazdu_czas_realizacji" Member="czas_odjazdu" ThisKey="id_czasu_odjazdu" OtherKey="id_czasu_odjazdu" Type="czas_odjazdu" IsForeignKey="true" />
+      <Association Name="realizacja_kursu_czas_realizacji" Member="realizacja_kursu" ThisKey="id_realizacji_kursu" OtherKey="id_realizacji_kursu" Type="realizacja_kursu" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.dni_kursowania" Member="dni_kursowanias">
+    <Type Name="dni_kursowania">
+      <Column Name="id_dni_kursowania" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="od_dnia" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="do_dnia" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="rodzaj_kursu" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.kierowca" Member="kierowcas">
+    <Type Name="kierowca">
+      <Column Name="id_kierowcy" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="imie" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="nazwisko" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="czy_pracuje" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="PESEL" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Association Name="kierowca_realizacja_kursu" Member="realizacja_kursus" ThisKey="id_kierowcy" OtherKey="id_przypisanego_kierowcy" Type="realizacja_kursu" />
+      <Association Name="kierowca_realizacja_kursu1" Member="realizacja_kursus1" ThisKey="id_kierowcy" OtherKey="id_wykonujacego_kierowcy" Type="realizacja_kursu" />
+    </Type>
+  </Table>
+  <Table Name="dbo.kurs" Member="kurs">
+    <Type Name="kur">
+      <Column Name="id_kursu" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="id_linii" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="id_czasu_odjazdu" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="id_trasy" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ktory_kurs_danego_dnia" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="rodzaj_kursu" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="kur_realizacja_kursu" Member="realizacja_kursus" ThisKey="id_kursu" OtherKey="id_kursu" Type="realizacja_kursu" />
+      <Association Name="czas_odjazdu_kur" Member="czas_odjazdu" ThisKey="id_czasu_odjazdu" OtherKey="id_czasu_odjazdu" Type="czas_odjazdu" IsForeignKey="true" />
+      <Association Name="linia_kur" Member="linia" ThisKey="id_linii" OtherKey="id_linii" Type="linia" IsForeignKey="true" />
+      <Association Name="trasa_kur" Member="trasa" ThisKey="id_trasy" OtherKey="id_trasy" Type="trasa" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.linia" Member="linias">
+    <Type Name="linia">
+      <Column Name="id_linii" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="czy_zapetla" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="linia_kur" Member="kurs" ThisKey="id_linii" OtherKey="id_linii" Type="kur" />
+      <Association Name="linia_trasa" Member="trasas" ThisKey="id_linii" OtherKey="id_linii" Type="trasa" />
+    </Type>
+  </Table>
+  <Table Name="dbo.logowanie" Member="logowanies">
+    <Type Name="logowanie">
+      <Column Name="id_uzytkownika" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="login" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="hasz" Type="System.String" DbType="VarChar(72) NOT NULL" CanBeNull="false" />
+      <Column Name="poziom_uprawnien" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="czy_aktywny" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.pojazd" Member="pojazds">
+    <Type Name="pojazd">
+      <Column Name="id_pojazdu" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="nr_rejestracyjny" Type="System.String" DbType="VarChar(7) NOT NULL" CanBeNull="false" />
+      <Column Name="model" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="marka" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="czy_niskopodlogowy" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="czy_sprawny" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="pojazd_realizacja_kursu" Member="realizacja_kursus" ThisKey="id_pojazdu" OtherKey="id_pojazdu" Type="realizacja_kursu" />
+    </Type>
+  </Table>
+  <Table Name="dbo.przystanek" Member="przystaneks">
+    <Type Name="przystanek">
+      <Column Name="id_przystanku" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="nazwa" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="miasto" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="czy_jednokierunkowy" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="przystanek_trasa" Member="trasas" ThisKey="id_przystanku" OtherKey="id_przystanku" Type="trasa" />
+    </Type>
+  </Table>
+  <Table Name="dbo.realizacja_kursu" Member="realizacja_kursus">
+    <Type Name="realizacja_kursu">
+      <Column Name="id_realizacji_kursu" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="id_przypisanego_kierowcy" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="id_wykonujacego_kierowcy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="id_pojazdu" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="id_kursu" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="data_realizacji" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="realizacja_kursu_czas_realizacji" Member="czas_realizacjis" ThisKey="id_realizacji_kursu" OtherKey="id_realizacji_kursu" Type="czas_realizacji" />
+      <Association Name="kur_realizacja_kursu" Member="kur" ThisKey="id_kursu" OtherKey="id_kursu" Type="kur" IsForeignKey="true" />
+      <Association Name="kierowca_realizacja_kursu" Member="kierowca" ThisKey="id_przypisanego_kierowcy" OtherKey="id_kierowcy" Type="kierowca" IsForeignKey="true" />
+      <Association Name="pojazd_realizacja_kursu" Member="pojazd" ThisKey="id_pojazdu" OtherKey="id_pojazdu" Type="pojazd" IsForeignKey="true" />
+      <Association Name="kierowca_realizacja_kursu1" Member="kierowca1" ThisKey="id_wykonujacego_kierowcy" OtherKey="id_kierowcy" Type="kierowca" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.trasa" Member="trasas">
+    <Type Name="trasa">
+      <Column Name="id_trasy" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="id_linii" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="id_przystanku" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="kolejnosc_przystankow" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="nr_trasy" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="trasa_czas_odjazdu" Member="czas_odjazdus" ThisKey="id_trasy" OtherKey="id_trasy" Type="czas_odjazdu" />
+      <Association Name="trasa_kur" Member="kurs" ThisKey="id_trasy" OtherKey="id_trasy" Type="kur" />
+      <Association Name="przystanek_trasa" Member="przystanek" ThisKey="id_przystanku" OtherKey="id_przystanku" Type="przystanek" IsForeignKey="true" />
+      <Association Name="linia_trasa" Member="linia" ThisKey="id_linii" OtherKey="id_linii" Type="linia" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

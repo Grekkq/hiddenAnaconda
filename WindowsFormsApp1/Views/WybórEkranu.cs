@@ -140,11 +140,6 @@ namespace hiddenAnaconda.Views
             this.Close();
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void ZmianaStatusu_Click(object sender, EventArgs e)
         {
             using (Views.ZmianaStatusu InnerForm = new Views.ZmianaStatusu()) {
@@ -159,6 +154,14 @@ namespace hiddenAnaconda.Views
                 if (InnerForm.ShowDialog() == DialogResult.OK) {
                 }
             };
+        }
+
+        private void RaportButton_Click(object sender, EventArgs e) {
+            Models.TimeTable timeTable = new Models.TimeTable();
+            DateTime date = DateTime.Parse("29.11.2020");
+            date = date.AddHours(2);
+            timeTable.GetTimeTable(101, "Skalka", date);
+            //timeTable.GetAllBusStops(164);
         }
     }
 }
