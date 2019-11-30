@@ -58,6 +58,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\login.cs" />
     <Compile Include="Models\Report.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
