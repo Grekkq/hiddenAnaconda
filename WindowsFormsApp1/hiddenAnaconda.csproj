@@ -72,6 +72,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Views\AboutProject.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\AboutProject.Designer.cs">
+      <DependentUpon>AboutProject.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\DodawanieDniWolnych.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -161,6 +167,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\AboutProject.resx">
+      <DependentUpon>AboutProject.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\DodawanieDniWolnych.resx">
       <DependentUpon>DodawanieDniWolnych.cs</DependentUpon>
@@ -280,6 +289,10 @@
     <None Include="Resources\driver1.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\rainbow1.jpg" />
+    <None Include="Resources\rainbow.jpg" />
+    <None Include="Resources\drivingbus.gif" />
+    <None Include="Resources\fireworks.gif" />
     <Content Include="Resources\icon.ico" />
     <None Include="Resources\user.png" />
   </ItemGroup>
