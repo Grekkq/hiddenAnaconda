@@ -25,7 +25,10 @@ namespace hiddenAnaconda.Models {
         }
 
         public bool loginUser(string login, string password) {
-
+            string hash = GetHashFromDb(login);
+            string salt = hash.Substring(0,32);
+            if (hash.Equals(GetSaltedHashedPassword(password, salt)))
+                return true;
             return false;
         }
 
@@ -51,6 +54,21 @@ namespace hiddenAnaconda.Models {
 
         private string GetSaltedHashedPassword(string password, string salt) {
             return salt + SHA1(SHA1(password + salt));
+        }
+
+        private string GetHashFromDb(string login) {
+            ReportDataContext dc = new ReportDataContext();
+            var data = from l in dc.logowanies
+                       where l.login == login
+                       select l.hasz;
+            string hash = "";
+            foreach (var item in data)
+                hash = item;
+            if (hash.Length == 0) {
+                MessageBox.Show("Nie istnieje taki użytkownik!");
+                return null;
+            }
+            return hash;
         }
     }
 }
