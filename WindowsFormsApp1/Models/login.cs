@@ -20,8 +20,17 @@ namespace hiddenAnaconda.Models {
             ReportDataContext dc = new ReportDataContext();
             dc.logowanies.InsertOnSubmit(user);
             dc.SubmitChanges();
-            // TODO: sprawdzenie czy się utworzył
-            MessageBox.Show("Utworzono użytkownika: " + login);
+            if (chceckIfUserExist(login))
+                MessageBox.Show("Utworzono użytkownika: " + login);
+            else
+                MessageBox.Show("Spróbuj jeszcze raz.", "Wystąpił błąd!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private bool chceckIfUserExist(string login) {
+            ReportDataContext dc = new ReportDataContext();
+            if (dc.logowanies.Any(u => u.login == login))
+                return true;
+            return false;
         }
 
         public bool loginUser(string login, string password) {
