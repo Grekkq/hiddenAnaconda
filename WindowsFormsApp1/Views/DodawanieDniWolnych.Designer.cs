@@ -129,7 +129,6 @@
             this.label5.Size = new System.Drawing.Size(119, 13);
             this.label5.TabIndex = 47;
             this.label5.Text = "Wybierz datę końcową:";
-            this.label5.Click += new System.EventHandler(this.label4_Click);
             // 
             // label6
             // 
@@ -139,7 +138,6 @@
             this.label6.Size = new System.Drawing.Size(220, 13);
             this.label6.TabIndex = 47;
             this.label6.Text = "Istniejące wpisy dni wolnych w bazie danych:";
-            this.label6.Click += new System.EventHandler(this.label4_Click);
             // 
             // label4
             // 
@@ -149,7 +147,6 @@
             this.label4.Size = new System.Drawing.Size(133, 13);
             this.label4.TabIndex = 47;
             this.label4.Text = "Wybierz datę początkową:";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // dateTimeEnd
             // 

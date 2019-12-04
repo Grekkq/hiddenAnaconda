@@ -58,7 +58,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\login.cs" />
+    <Compile Include="Models\DayType.cs" />
+    <Compile Include="Models\Login.cs" />
+    <Compile Include="Models\Report.cs">
+      <DependentUpon>Report.dbml</DependentUpon>
+    </Compile>
     <Compile Include="Models\Report.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

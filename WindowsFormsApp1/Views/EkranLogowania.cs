@@ -106,14 +106,15 @@ namespace hiddenAnaconda.Views
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string login = textBox1.Text;
+            string username = textBox1.Text;
             string password = textBox2.Text;
-            if (login == " Nazwa użytkownika") {
+            if (username == " Nazwa użytkownika") {
                 MessageBox.Show("Nie podano nazwy użytkownika.", "Błąd logowania", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             } else if (password == " Hasło") {
                 MessageBox.Show("Nie podano hasła.", "Błąd logowania", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             } else {
-                var result = new Models.login().loginUser(login, password);
+                Models.Login login = new Models.Login();
+                var result = login.loginUser(username, password);
                 if (result) {
                     MessageBox.Show("Pomyślnie zalogowano.", "Sukces", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Hide();

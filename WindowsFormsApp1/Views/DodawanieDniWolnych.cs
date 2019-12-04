@@ -61,13 +61,6 @@ namespace hiddenAnaconda.Views
             this.Close();
         }
 
-
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void dateTimeStart_ValueChanged(object sender, EventArgs e)
         {
             if (dateTimeStart.Value < DateTime.Today) {
@@ -78,11 +71,15 @@ namespace hiddenAnaconda.Views
 
         private void Aktualizuj_Click(object sender, EventArgs e)
         {
+            var startDate = dateTimeStart.Value.Date;
+            var endDate = dateTimeEnd.Value.Date;
             if ( dateTimeEnd.Value.Date < dateTimeStart.Value.Date) {
                 MessageBox.Show("Data początkowa nie może być późniejsza niż data końcowa.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             } else if (dateTimeEnd.Value.Date < dateTimeStart.Value.Date) {
                 MessageBox.Show("Data końcowa nie może być wcześniejsza niż data początkowa.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             } else {
+                Models.DayType dayType = new Models.DayType();
+                dayType.addDate(0, startDate, endDate);
                 const string message = "Pomyślnie utworzono termin";
                 const string caption = "Sukces";
                 var result = MessageBox.Show(message, caption, MessageBoxButtons.OK, MessageBoxIcon.Information);

@@ -7,7 +7,13 @@ using System.Security.Cryptography;
 using System.Windows.Forms;
 
 namespace hiddenAnaconda.Models {
-    class login {
+    class Login {
+
+        ReportDataContext dc;
+
+        public Login() {
+            dc = new ReportDataContext();
+        }
 
         public void createUser(string login, string password) {
             string salt = generateSalt();
@@ -17,7 +23,6 @@ namespace hiddenAnaconda.Models {
             user.hasz = hashToDb;
             user.poziom_uprawnien = 0; // TODO: zdecydowanie jak ustalamy poziomy uprawnień
             user.czy_aktywny = true;
-            ReportDataContext dc = new ReportDataContext();
             try {
                 dc.logowanies.InsertOnSubmit(user);
                 dc.SubmitChanges();
@@ -32,7 +37,6 @@ namespace hiddenAnaconda.Models {
         }
 
         private bool chceckIfUserExist(string login) {
-            ReportDataContext dc = new ReportDataContext();
             if (dc.logowanies.Any(u => u.login == login))
                 return true;
             return false;
@@ -71,7 +75,6 @@ namespace hiddenAnaconda.Models {
         }
 
         private string GetHashFromDb(string login) {
-            ReportDataContext dc = new ReportDataContext();
             logowanie data;
             try {
                 data = dc.logowanies.Single(l => l.login == login);
