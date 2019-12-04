@@ -75,6 +75,8 @@ namespace hiddenAnaconda.Views
             var endDate = dateTimeEnd.Value.Date;
             if ( dateTimeEnd.Value.Date < dateTimeStart.Value.Date) {
                 MessageBox.Show("Data początkowa nie może być późniejsza niż data końcowa.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }else if(string.IsNullOrEmpty(type.Text) && type.SelectedIndex == -1) {
+                MessageBox.Show("Nie wprowadzono rodzaju okresu.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else {
                 Models.DayType dayType = new Models.DayType();
