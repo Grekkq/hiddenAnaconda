@@ -15,15 +15,20 @@ namespace hiddenAnaconda.Models {
             logowanie user = new logowanie();
             user.login = login;
             user.hasz = hashToDb;
-            user.poziom_uprawnien = 0; // do dopracowania
+            user.poziom_uprawnien = 0; // TODO: zdecydowanie jak ustalamy poziomy uprawnień
             user.czy_aktywny = true;
             ReportDataContext dc = new ReportDataContext();
-            dc.logowanies.InsertOnSubmit(user);
-            dc.SubmitChanges();
+            try {
+                dc.logowanies.InsertOnSubmit(user);
+                dc.SubmitChanges();
+            } catch {
+                MessageBox.Show("Spróbuj jeszcze raz.", "Wystąpił błąd przy tworzeniu użytkownika!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             if (chceckIfUserExist(login))
                 MessageBox.Show("Utworzono użytkownika: " + login);
             else
-                MessageBox.Show("Spróbuj jeszcze raz.", "Wystąpił błąd!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Spróbuj jeszcze raz.", "Wystąpił błąd przy sprawdzeniu czy użytkownik istnieje!", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private bool chceckIfUserExist(string login) {
@@ -67,17 +72,14 @@ namespace hiddenAnaconda.Models {
 
         private string GetHashFromDb(string login) {
             ReportDataContext dc = new ReportDataContext();
-            var data = from l in dc.logowanies
-                       where l.login == login
-                       select l.hasz;
-            string hash = "";
-            foreach (var item in data)
-                hash = item;
-            if (hash.Length == 0) {
-                MessageBox.Show("Nie istnieje taki użytkownik!");
+            logowanie data;
+            try {
+                data = dc.logowanies.Single(l => l.login == login);
+            } catch {
+                MessageBox.Show("Nie istnieje taki użytkownik!", "Wystąpił błąd!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return null;
             }
-            return hash;
+            return data.hasz;
         }
     }
 }
