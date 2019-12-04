@@ -50,7 +50,6 @@ namespace hiddenAnaconda.Views
             textBox2_SetText();
             textBox2.PasswordChar=' ';
             textBox1_SetText();
-            //new Models.Login().createUser("asd", "asd");
         }
 
         protected void textBox2_SetText()

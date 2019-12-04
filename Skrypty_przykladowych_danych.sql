@@ -1,6 +1,9 @@
-﻿--Dane dla dni kursowania
-INSERT INTO [dbo].[dni_kursowania] ([id_dni_kursowania], [od_dnia], [do_dnia], [rodzaj_kursu]) VALUES (1, N'2020-11-25 00:00:00', N'2020-11-29 00:00:00', 0)
-INSERT INTO [dbo].[dni_kursowania] ([id_dni_kursowania], [od_dnia], [do_dnia], [rodzaj_kursu]) VALUES (2, N'2020-11-30 00:00:00', N'2020-12-01 00:00:00', 1)
+﻿--Dane dla logowania (admin,admin)
+INSERT INTO [dbo].[logowanie] ([id_uzytkownika], [login], [hasz], [poziom_uprawnien], [czy_aktywny]) VALUES (0, N'admin', N'3282a9ae9846b0c75f0faeb65905c28910a1dbd36d672437177c8a7b61a101c1d0722908', 1, 'TRUE')
+
+--Dane dla dni kursowania
+INSERT INTO [dbo].[dni_kursowania] ([id_dni_kursowania], [od_dnia], [do_dnia], [rodzaj_kursu]) VALUES (1, N'2020-11-25 00:00:00', N'2020-11-29 23:59:59', N'roboczy')
+INSERT INTO [dbo].[dni_kursowania] ([id_dni_kursowania], [od_dnia], [do_dnia], [rodzaj_kursu]) VALUES (2, N'2020-11-30 00:00:00', N'2020-12-01 23:59:59', N'świąteczny')
 -- Dane dla kierowcow
 INSERT INTO [dbo].[kierowca] ([id_kierowcy], [imie], [nazwisko], [czy_pracuje], [PESEL]) VALUES (1, N'Ryszard', N'Dobry', 1, 88111102744)
 INSERT INTO [dbo].[kierowca] ([id_kierowcy], [imie], [nazwisko], [czy_pracuje], [PESEL]) VALUES (2, N'Tomasz', N'Lepszy', 1, 87101208222)
