@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static hiddenAnaconda.Constants;
 
 namespace hiddenAnaconda.Views
 {
@@ -72,21 +73,25 @@ namespace hiddenAnaconda.Views
         private void Aktualizuj_Click(object sender, EventArgs e)
         {
             var startDate = dateTimeStart.Value.Date;
-            var endDate = dateTimeEnd.Value.Date;
-            if ( dateTimeEnd.Value.Date < dateTimeStart.Value.Date) {
+            var endDate = dateTimeEnd.Value.Date.AddSeconds(NumberOfSecondSInDay-1);
+            var dayKind = type.Text;
+            if ( endDate < startDate) {
                 MessageBox.Show("Data początkowa nie może być późniejsza niż data końcowa.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }else if(string.IsNullOrEmpty(type.Text) && type.SelectedIndex == -1) {
+            }else if(string.IsNullOrEmpty(dayKind) && type.SelectedIndex == -1) {
                 MessageBox.Show("Nie wprowadzono rodzaju okresu.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else {
                 Models.DayType dayType = new Models.DayType();
-                dayType.addDate(0, startDate, endDate);
-                const string message = "Pomyślnie utworzono termin";
-                const string caption = "Sukces";
-                var result = MessageBox.Show(message, caption, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                if (result == DialogResult.OK) {
-                    this.Close();
+                if (dayType.addDate(dayKind, startDate, endDate)) {
+                    if (MessageBox.Show("Pomyślnie utworzono termin.", "Sukces!", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK) {
+                        this.Close();
+                    }
+                } else {
+                    if (MessageBox.Show("Nie udało utworzyć.\nSpróbuj ponownie.", "Błąd!", MessageBoxButtons.OK, MessageBoxIcon.Error) == DialogResult.OK) {
+                        this.Close();
+                    }
                 }
+                
             }
         }
 

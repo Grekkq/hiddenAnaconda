@@ -17,7 +17,7 @@ namespace hiddenAnaconda.Models {
             var data = from k in dc.kurs
                        from d in dc.dni_kursowanias
                        from t in dc.trasas
-                       where k.id_linii == linia && (d.od_dnia <= date && d.do_dnia >= date) && k.rodzaj_kursu == d.rodzaj_kursu
+                       where k.id_linii == linia && (d.od_dnia <= date && d.do_dnia >= date) && k.rodzaj_kursu.Equals(d.rodzaj_kursu)
                        && t.id_trasy == k.id_trasy
                        select t.nr_trasy;
             List<int> list = new List<int>();

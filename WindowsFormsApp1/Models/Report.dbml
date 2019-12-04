@@ -25,7 +25,7 @@
       <Column Name="id_dni_kursowania" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="od_dnia" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Column Name="do_dnia" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Column Name="rodzaj_kursu" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="rodzaj_kursu" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
   <Table Name="dbo.kierowca" Member="kierowcas">

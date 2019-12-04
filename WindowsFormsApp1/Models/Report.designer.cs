@@ -619,7 +619,7 @@ namespace hiddenAnaconda.Models
 		
 		private System.DateTime _do_dnia;
 		
-		private int _rodzaj_kursu;
+		private string _rodzaj_kursu;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -631,7 +631,7 @@ namespace hiddenAnaconda.Models
     partial void Onod_dniaChanged();
     partial void Ondo_dniaChanging(System.DateTime value);
     partial void Ondo_dniaChanged();
-    partial void Onrodzaj_kursuChanging(int value);
+    partial void Onrodzaj_kursuChanging(string value);
     partial void Onrodzaj_kursuChanged();
     #endregion
 		
@@ -700,8 +700,8 @@ namespace hiddenAnaconda.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_rodzaj_kursu", DbType="Int NOT NULL")]
-		public int rodzaj_kursu
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_rodzaj_kursu", DbType="VarChar(30) NOT NULL", CanBeNull=false)]
+		public string rodzaj_kursu
 		{
 			get
 			{

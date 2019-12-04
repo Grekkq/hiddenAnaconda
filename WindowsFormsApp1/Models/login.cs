@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Security.Cryptography;
 using System.Windows.Forms;
+using System.Diagnostics;
 
 namespace hiddenAnaconda.Models {
     class Login {
@@ -42,8 +43,10 @@ namespace hiddenAnaconda.Models {
             return false;
         }
 
-        public bool loginUser(string login, string password) {
+        public bool LoginUser(string login, string password) {
             string hash = GetHashFromDb(login);
+            if (hash.Equals("0"))
+                return false;
             string salt = hash.Substring(0,32);
             if (hash.Equals(GetSaltedHashedPassword(password, salt)))
                 return true;
@@ -74,13 +77,14 @@ namespace hiddenAnaconda.Models {
             return salt + SHA1(SHA1(password + salt));
         }
 
+        // Return hash from DB if login not found return 0
         private string GetHashFromDb(string login) {
             logowanie data;
             try {
                 data = dc.logowanies.Single(l => l.login == login);
             } catch {
-                MessageBox.Show("Nie istnieje taki użytkownik!", "Wystąpił błąd!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return null;
+                Debug.Print("Failed to get hash from database for login: {0}", (object)login);
+                return "0";
             }
             return data.hasz;
         }

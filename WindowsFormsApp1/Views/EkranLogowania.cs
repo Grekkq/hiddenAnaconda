@@ -115,15 +115,14 @@ namespace hiddenAnaconda.Views
                 MessageBox.Show("Nie podano hasła.", "Błąd logowania", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             } else {
                 Models.Login login = new Models.Login();
-                var result = login.loginUser(username, password);
-                if (result) {
+                if (login.LoginUser(username, password)) {
                     MessageBox.Show("Pomyślnie zalogowano.", "Sukces", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Hide();
                     Form sistema = new WybórEkranu();
                     sistema.ShowDialog();
                     this.Close();
                 } else {
-                    MessageBox.Show("Niepoprawna nazwa użytkownika lub hasło!", ":(", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Niepoprawna nazwa użytkownika lub hasło!", ":(", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
                 

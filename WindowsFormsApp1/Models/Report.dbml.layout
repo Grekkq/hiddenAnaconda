@@ -68,84 +68,84 @@
         <elementListCompartment Id="5cce3c1d-8aa4-4b6c-8d5d-9cd0d0887cb5" absoluteBounds="3.515, 3.835, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(7.5 : 9.03929768880208); (9.125 : 9.03929768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(7.5 : 9.03929768880208); (9.125 : 9.03929768880208)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/ReportDataContext/czas_odjazdu/czas_odjazdu_czas_realizacji" />
       <nodes>
         <classShapeMoniker Id="4dac4a32-ac22-4960-8a81-656f0c725c88" />
         <classShapeMoniker Id="89220c5c-68bf-4cf5-a10d-3356cee16815" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(7.09375 : 8.625); (7.09375 : 5.4631982421875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(7.09375 : 8.625); (7.09375 : 5.4631982421875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/ReportDataContext/czas_odjazdu/czas_odjazdu_kur" />
       <nodes>
         <classShapeMoniker Id="4dac4a32-ac22-4960-8a81-656f0c725c88" />
         <classShapeMoniker Id="5827ee93-ba7a-4d42-98d2-46551175c304" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(6.4375 : 6.75); (6.4375 : 5.4631982421875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(6.4375 : 6.75); (6.4375 : 5.4631982421875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/ReportDataContext/linia/linia_kur" />
       <nodes>
         <classShapeMoniker Id="b214ce6e-11d9-4fa3-8225-ec8f9a54a253" />
         <classShapeMoniker Id="5827ee93-ba7a-4d42-98d2-46551175c304" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(10.0625 : 5.4631982421875); (10.0625 : 7.875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(10.0625 : 5.4631982421875); (10.0625 : 7.875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/ReportDataContext/realizacja_kursu/realizacja_kursu_czas_realizacji" />
       <nodes>
         <classShapeMoniker Id="6f0a07c1-b007-46f6-933e-610fa30bf1f2" />
         <classShapeMoniker Id="89220c5c-68bf-4cf5-a10d-3356cee16815" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(8.25 : 4.48159912109375); (9 : 4.48159912109375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(8.25 : 4.48159912109375); (9 : 4.48159912109375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/ReportDataContext/kur/kur_realizacja_kursu" />
       <nodes>
         <classShapeMoniker Id="5827ee93-ba7a-4d42-98d2-46551175c304" />
         <classShapeMoniker Id="6f0a07c1-b007-46f6-933e-610fa30bf1f2" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(12 : 4.32294840494792); (11 : 4.32294840494792)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(12 : 4.32294840494792); (11 : 4.32294840494792)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/ReportDataContext/kierowca/kierowca_realizacja_kursu" />
       <nodes>
         <classShapeMoniker Id="b135229d-2adf-4273-842b-1aba34c9dc93" />
         <classShapeMoniker Id="6f0a07c1-b007-46f6-933e-610fa30bf1f2" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(10 : 2.9631982421875); (10 : 3.5)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(10 : 2.9631982421875); (10 : 3.5)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/ReportDataContext/pojazd/pojazd_realizacja_kursu" />
       <nodes>
         <classShapeMoniker Id="f200619f-5907-4715-9a99-2fd9015b53ff" />
         <classShapeMoniker Id="6f0a07c1-b007-46f6-933e-610fa30bf1f2" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(12 : 3.84897420247396); (11 : 3.84897420247396)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(12 : 3.84897420247396); (11 : 3.84897420247396)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/ReportDataContext/kierowca/kierowca_realizacja_kursu1" />
       <nodes>
         <classShapeMoniker Id="b135229d-2adf-4273-842b-1aba34c9dc93" />
         <classShapeMoniker Id="6f0a07c1-b007-46f6-933e-610fa30bf1f2" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(4.03125 : 5.14589680989583); (4.03125 : 9.31814697265625); (5.5 : 9.31814697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(4.03125 : 5.14589680989583); (4.03125 : 9.31814697265625); (5.5 : 9.31814697265625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/ReportDataContext/trasa/trasa_czas_odjazdu" />
       <nodes>
         <classShapeMoniker Id="ea8b26b2-3ac2-4546-a044-7890daa954b8" />
         <classShapeMoniker Id="4dac4a32-ac22-4960-8a81-656f0c725c88" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.5 : 4.32294840494792); (6.25 : 4.32294840494792)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(5.5 : 4.32294840494792); (6.25 : 4.32294840494792)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/ReportDataContext/trasa/trasa_kur" />
       <nodes>
         <classShapeMoniker Id="ea8b26b2-3ac2-4546-a044-7890daa954b8" />
         <classShapeMoniker Id="5827ee93-ba7a-4d42-98d2-46551175c304" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 1.53929768880208); (4.5 : 1.53929768880208); (4.5 : 3.375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.75 : 1.53929768880208); (4.5 : 1.53929768880208); (4.5 : 3.375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/ReportDataContext/przystanek/przystanek_trasa" />
       <nodes>
         <classShapeMoniker Id="8c25bf46-4808-4b48-a436-17f943b5e63e" />
         <classShapeMoniker Id="ea8b26b2-3ac2-4546-a044-7890daa954b8" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.0625 : 6.75); (5.0625 : 5.14589680989583)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(5.0625 : 6.75); (5.0625 : 5.14589680989583)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/ReportDataContext/linia/linia_trasa" />
       <nodes>
         <classShapeMoniker Id="b214ce6e-11d9-4fa3-8225-ec8f9a54a253" />
