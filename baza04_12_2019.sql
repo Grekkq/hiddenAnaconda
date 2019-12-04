@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      Microsoft SQL Server 2012                    */
-/* Created on:     29.11.2019 15:10:49                          */
+/* Created on:     04.12.2019 12:21:00                          */
 /*==============================================================*/
 
 
@@ -318,7 +318,7 @@ create table dni_kursowania (
    id_dni_kursowania    int                  not null,
    od_dnia              datetime             not null,
    do_dnia              datetime             not null,
-   rodzaj_kursu         int                  not null,
+   rodzaj_kursu         varchar(30)          not null,
    constraint PK_DNI_KURSOWANIA primary key nonclustered (id_dni_kursowania)
 )
 go
@@ -345,7 +345,7 @@ create table kurs (
    id_czasu_odjazdu     int                  not null,
    id_trasy             int                  not null,
    ktory_kurs_danego_dnia int                  not null,
-   rodzaj_kursu         int                  not null,
+   rodzaj_kursu         varchar(30)          not null,
    constraint PK_KURS primary key nonclustered (id_kursu)
 )
 go

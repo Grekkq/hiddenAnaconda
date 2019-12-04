@@ -53,7 +53,7 @@ namespace hiddenAnaconda.Views
 
         private void DodawanieDniSwiatecznych_Load(object sender, EventArgs e)
         {
-           
+            type.MaxLength = 30;
         }
 
         private void powrot_Click(object sender, EventArgs e)
@@ -75,7 +75,8 @@ namespace hiddenAnaconda.Views
             var endDate = dateTimeEnd.Value.Date;
             if ( dateTimeEnd.Value.Date < dateTimeStart.Value.Date) {
                 MessageBox.Show("Data początkowa nie może być późniejsza niż data końcowa.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            } else {
+            }
+            else {
                 Models.DayType dayType = new Models.DayType();
                 dayType.addDate(0, startDate, endDate);
                 const string message = "Pomyślnie utworzono termin";
@@ -104,6 +105,9 @@ namespace hiddenAnaconda.Views
         {
             dateTimeStart.Value = DateTime.Today;
             dateTimeEnd.Value = DateTime.Today;
+            type.Text = "";
+            type.SelectedIndex = -1;
         }
     }
-}
+
+    }
