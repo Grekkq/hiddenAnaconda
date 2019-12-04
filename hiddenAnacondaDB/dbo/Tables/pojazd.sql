@@ -22,8 +22,11 @@
 /*==============================================================*/
 /* Table: pojazd                                                */
 /*==============================================================*/
+/*==============================================================*/
+/* Table: pojazd                                                */
+/*==============================================================*/
 create table pojazd (
-   id_pojazdu           int                  not null,
+   id_pojazdu           int                  identity,
    nr_rejestracyjny     varchar(7)           not null,
    model                varchar(20)          not null,
    marka                varchar(20)          not null,

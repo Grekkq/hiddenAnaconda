@@ -22,8 +22,11 @@
 /*==============================================================*/
 /* Table: kierowca                                              */
 /*==============================================================*/
+/*==============================================================*/
+/* Table: kierowca                                              */
+/*==============================================================*/
 create table kierowca (
-   id_kierowcy          int                  not null,
+   id_kierowcy          int                  identity,
    imie                 varchar(30)          not null,
    nazwisko             varchar(30)          not null,
    czy_pracuje          bit                  not null,

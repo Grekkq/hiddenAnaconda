@@ -22,8 +22,11 @@
 /*==============================================================*/
 /* Table: przystanek                                            */
 /*==============================================================*/
+/*==============================================================*/
+/* Table: przystanek                                            */
+/*==============================================================*/
 create table przystanek (
-   id_przystanku        int                  not null,
+   id_przystanku        int                  identity,
    nazwa                varchar(30)          not null,
    miasto               varchar(30)          not null,
    czy_jednokierunkowy  bit                  not null,

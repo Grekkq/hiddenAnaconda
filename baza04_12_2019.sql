@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      Microsoft SQL Server 2012                    */
-/* Created on:     04.12.2019 12:21:00                          */
+/* Created on:     04.12.2019 15:56:41                          */
 /*==============================================================*/
 
 
@@ -268,7 +268,7 @@ go
 /* Table: czas_odjazdu                                          */
 /*==============================================================*/
 create table czas_odjazdu (
-   id_czasu_odjazdu     int                  not null,
+   id_czasu_odjazdu     int                  identity,
    id_trasy             int                  not null,
    czas_odjazdu         datetime             not null,
    constraint PK_CZAS_ODJAZDU primary key nonclustered (id_czasu_odjazdu)
@@ -287,7 +287,7 @@ go
 /* Table: czas_realizacji                                       */
 /*==============================================================*/
 create table czas_realizacji (
-   id_czasu_realizacji  int                  not null,
+   id_czasu_realizacji  int                  identity,
    faktyczny_czas_odjazdu datetime             not null,
    id_czasu_odjazdu     int                  not null,
    id_realizacji_kursu  int                  not null,
@@ -315,7 +315,7 @@ go
 /* Table: dni_kursowania                                        */
 /*==============================================================*/
 create table dni_kursowania (
-   id_dni_kursowania    int                  not null,
+   id_dni_kursowania    int                  identity,
    od_dnia              datetime             not null,
    do_dnia              datetime             not null,
    rodzaj_kursu         varchar(30)          not null,
@@ -327,7 +327,7 @@ go
 /* Table: kierowca                                              */
 /*==============================================================*/
 create table kierowca (
-   id_kierowcy          int                  not null,
+   id_kierowcy          int                  identity,
    imie                 varchar(30)          not null,
    nazwisko             varchar(30)          not null,
    czy_pracuje          bit                  not null,
@@ -340,7 +340,7 @@ go
 /* Table: kurs                                                  */
 /*==============================================================*/
 create table kurs (
-   id_kursu             int                  not null,
+   id_kursu             int                  identity,
    id_linii             int                  not null,
    id_czasu_odjazdu     int                  not null,
    id_trasy             int                  not null,
@@ -370,7 +370,7 @@ go
 /* Table: linia                                                 */
 /*==============================================================*/
 create table linia (
-   id_linii             int                  not null,
+   id_linii             int                  identity,
    czy_zapetla          bit                  not null,
    constraint PK_LINIA primary key nonclustered (id_linii)
 )
@@ -380,7 +380,7 @@ go
 /* Table: logowanie                                             */
 /*==============================================================*/
 create table logowanie (
-   id_uzytkownika       int                  not null,
+   id_uzytkownika       int                  identity,
    login                varchar(20)          not null,
    hasz                 varchar(72)          not null,
    poziom_uprawnien     int                  not null,
@@ -393,7 +393,7 @@ go
 /* Table: pojazd                                                */
 /*==============================================================*/
 create table pojazd (
-   id_pojazdu           int                  not null,
+   id_pojazdu           int                  identity,
    nr_rejestracyjny     varchar(7)           not null,
    model                varchar(20)          not null,
    marka                varchar(20)          not null,
@@ -407,7 +407,7 @@ go
 /* Table: przystanek                                            */
 /*==============================================================*/
 create table przystanek (
-   id_przystanku        int                  not null,
+   id_przystanku        int                  identity,
    nazwa                varchar(30)          not null,
    miasto               varchar(30)          not null,
    czy_jednokierunkowy  bit                  not null,
@@ -419,7 +419,7 @@ go
 /* Table: realizacja_kursu                                      */
 /*==============================================================*/
 create table realizacja_kursu (
-   id_realizacji_kursu  int                  not null,
+   id_realizacji_kursu  int                  identity,
    id_przypisanego_kierowcy int                  not null,
    id_wykonujacego_kierowcy int                  null,
    id_pojazdu           int                  not null,
@@ -465,7 +465,7 @@ go
 /* Table: trasa                                                 */
 /*==============================================================*/
 create table trasa (
-   id_trasy             int                  not null,
+   id_trasy             int                  identity,
    id_linii             int                  not null,
    id_przystanku        int                  not null,
    kolejnosc_przystankow int                  not null,

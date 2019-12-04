@@ -13,8 +13,11 @@
 /*==============================================================*/
 /* Table: logowanie                                             */
 /*==============================================================*/
+/*==============================================================*/
+/* Table: logowanie                                             */
+/*==============================================================*/
 create table logowanie (
-   id_uzytkownika       int                  not null,
+   id_uzytkownika       int                  identity,
    login                varchar(20)          not null,
    hasz                 varchar(72)          not null,
    poziom_uprawnien     int                  not null,
