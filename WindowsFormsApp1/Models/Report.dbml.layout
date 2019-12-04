@@ -14,12 +14,6 @@
         <elementListCompartment Id="70262a34-acd6-435c-ada3-5f453fcb6fad" absoluteBounds="9.14, 8.335, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="1ee55324-21b5-409c-bfc4-a8acaf5c17f2" absoluteBounds="0.75, 7, 2, 1.5785953776041666">
-      <DataClassMoniker Name="/ReportDataContext/dni_kursowania" />
-      <nestedChildShapes>
-        <elementListCompartment Id="8550226f-40db-4d92-a890-9c73f1885cab" absoluteBounds="0.765, 7.46, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
     <classShape Id="b135229d-2adf-4273-842b-1aba34c9dc93" absoluteBounds="12, 3.375, 2, 1.7708968098958344">
       <DataClassMoniker Name="/ReportDataContext/kierowca" />
       <nestedChildShapes>
@@ -89,7 +83,7 @@
         <classShapeMoniker Id="5827ee93-ba7a-4d42-98d2-46551175c304" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(10.0625 : 5.4631982421875); (10.0625 : 7.875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(10.59375 : 5.4631982421875); (10.59375 : 7.875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/ReportDataContext/realizacja_kursu/realizacja_kursu_czas_realizacji" />
       <nodes>
         <classShapeMoniker Id="6f0a07c1-b007-46f6-933e-610fa30bf1f2" />
@@ -138,7 +132,7 @@
         <classShapeMoniker Id="5827ee93-ba7a-4d42-98d2-46551175c304" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 1.53929768880208); (4.5 : 1.53929768880208); (4.5 : 3.375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(1.75 : 2.32859537760417); (1.75 : 4.26044840494792); (3.5 : 4.26044840494792)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/ReportDataContext/przystanek/przystanek_trasa" />
       <nodes>
         <classShapeMoniker Id="8c25bf46-4808-4b48-a436-17f943b5e63e" />
@@ -152,5 +146,11 @@
         <classShapeMoniker Id="ea8b26b2-3ac2-4546-a044-7890daa954b8" />
       </nodes>
     </associationConnector>
+    <classShape Id="d15a8d10-f8ba-4355-b901-bf0f85fa9d94" absoluteBounds="0.75, 6, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/ReportDataContext/dni_kursowania" />
+      <nestedChildShapes>
+        <elementListCompartment Id="324c3974-23cf-4371-83d1-90f23e366b79" absoluteBounds="0.76500000000000057, 6.46, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
   </nestedChildShapes>
 </ordesignerObjectsDiagram>

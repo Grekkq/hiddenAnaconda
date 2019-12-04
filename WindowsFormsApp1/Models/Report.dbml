@@ -20,14 +20,6 @@
       <Association Name="realizacja_kursu_czas_realizacji" Member="realizacja_kursu" ThisKey="id_realizacji_kursu" OtherKey="id_realizacji_kursu" Type="realizacja_kursu" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.dni_kursowania" Member="dni_kursowanias">
-    <Type Name="dni_kursowania">
-      <Column Name="id_dni_kursowania" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="od_dnia" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Column Name="do_dnia" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Column Name="rodzaj_kursu" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
-    </Type>
-  </Table>
   <Table Name="dbo.kierowca" Member="kierowcas">
     <Type Name="kierowca">
       <Column Name="id_kierowcy" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -116,6 +108,14 @@
       <Association Name="trasa_kur" Member="kurs" ThisKey="id_trasy" OtherKey="id_trasy" Type="kur" />
       <Association Name="przystanek_trasa" Member="przystanek" ThisKey="id_przystanku" OtherKey="id_przystanku" Type="przystanek" IsForeignKey="true" />
       <Association Name="linia_trasa" Member="linia" ThisKey="id_linii" OtherKey="id_linii" Type="linia" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.dni_kursowania" Member="dni_kursowanias">
+    <Type Name="dni_kursowania">
+      <Column Name="id_dni_kursowania" AutoSync="Never" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="od_dnia" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="do_dnia" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="rodzaj_kursu" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
 </Database>

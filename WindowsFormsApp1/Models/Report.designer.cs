@@ -36,9 +36,6 @@ namespace hiddenAnaconda.Models
     partial void Insertczas_realizacji(czas_realizacji instance);
     partial void Updateczas_realizacji(czas_realizacji instance);
     partial void Deleteczas_realizacji(czas_realizacji instance);
-    partial void Insertdni_kursowania(dni_kursowania instance);
-    partial void Updatedni_kursowania(dni_kursowania instance);
-    partial void Deletedni_kursowania(dni_kursowania instance);
     partial void Insertkierowca(kierowca instance);
     partial void Updatekierowca(kierowca instance);
     partial void Deletekierowca(kierowca instance);
@@ -63,6 +60,9 @@ namespace hiddenAnaconda.Models
     partial void Inserttrasa(trasa instance);
     partial void Updatetrasa(trasa instance);
     partial void Deletetrasa(trasa instance);
+    partial void Insertdni_kursowania(dni_kursowania instance);
+    partial void Updatedni_kursowania(dni_kursowania instance);
+    partial void Deletedni_kursowania(dni_kursowania instance);
     #endregion
 		
 		public ReportDataContext() : 
@@ -108,14 +108,6 @@ namespace hiddenAnaconda.Models
 			get
 			{
 				return this.GetTable<czas_realizacji>();
-			}
-		}
-		
-		public System.Data.Linq.Table<dni_kursowania> dni_kursowanias
-		{
-			get
-			{
-				return this.GetTable<dni_kursowania>();
 			}
 		}
 		
@@ -180,6 +172,14 @@ namespace hiddenAnaconda.Models
 			get
 			{
 				return this.GetTable<trasa>();
+			}
+		}
+		
+		public System.Data.Linq.Table<dni_kursowania> dni_kursowanias
+		{
+			get
+			{
+				return this.GetTable<dni_kursowania>();
 			}
 		}
 	}
@@ -582,140 +582,6 @@ namespace hiddenAnaconda.Models
 						this._id_realizacji_kursu = default(int);
 					}
 					this.SendPropertyChanged("realizacja_kursu");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.dni_kursowania")]
-	public partial class dni_kursowania : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _id_dni_kursowania;
-		
-		private System.DateTime _od_dnia;
-		
-		private System.DateTime _do_dnia;
-		
-		private string _rodzaj_kursu;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void Onid_dni_kursowaniaChanging(int value);
-    partial void Onid_dni_kursowaniaChanged();
-    partial void Onod_dniaChanging(System.DateTime value);
-    partial void Onod_dniaChanged();
-    partial void Ondo_dniaChanging(System.DateTime value);
-    partial void Ondo_dniaChanged();
-    partial void Onrodzaj_kursuChanging(string value);
-    partial void Onrodzaj_kursuChanged();
-    #endregion
-		
-		public dni_kursowania()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_dni_kursowania", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int id_dni_kursowania
-		{
-			get
-			{
-				return this._id_dni_kursowania;
-			}
-			set
-			{
-				if ((this._id_dni_kursowania != value))
-				{
-					this.Onid_dni_kursowaniaChanging(value);
-					this.SendPropertyChanging();
-					this._id_dni_kursowania = value;
-					this.SendPropertyChanged("id_dni_kursowania");
-					this.Onid_dni_kursowaniaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_od_dnia", DbType="DateTime NOT NULL")]
-		public System.DateTime od_dnia
-		{
-			get
-			{
-				return this._od_dnia;
-			}
-			set
-			{
-				if ((this._od_dnia != value))
-				{
-					this.Onod_dniaChanging(value);
-					this.SendPropertyChanging();
-					this._od_dnia = value;
-					this.SendPropertyChanged("od_dnia");
-					this.Onod_dniaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_do_dnia", DbType="DateTime NOT NULL")]
-		public System.DateTime do_dnia
-		{
-			get
-			{
-				return this._do_dnia;
-			}
-			set
-			{
-				if ((this._do_dnia != value))
-				{
-					this.Ondo_dniaChanging(value);
-					this.SendPropertyChanging();
-					this._do_dnia = value;
-					this.SendPropertyChanged("do_dnia");
-					this.Ondo_dniaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_rodzaj_kursu", DbType="VarChar(30) NOT NULL", CanBeNull=false)]
-		public string rodzaj_kursu
-		{
-			get
-			{
-				return this._rodzaj_kursu;
-			}
-			set
-			{
-				if ((this._rodzaj_kursu != value))
-				{
-					this.Onrodzaj_kursuChanging(value);
-					this.SendPropertyChanging();
-					this._rodzaj_kursu = value;
-					this.SendPropertyChanged("rodzaj_kursu");
-					this.Onrodzaj_kursuChanged();
 				}
 			}
 		}
@@ -2627,6 +2493,140 @@ namespace hiddenAnaconda.Models
 		{
 			this.SendPropertyChanging();
 			entity.trasa = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.dni_kursowania")]
+	public partial class dni_kursowania : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _id_dni_kursowania;
+		
+		private System.DateTime _od_dnia;
+		
+		private System.DateTime _do_dnia;
+		
+		private string _rodzaj_kursu;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Onid_dni_kursowaniaChanging(int value);
+    partial void Onid_dni_kursowaniaChanged();
+    partial void Onod_dniaChanging(System.DateTime value);
+    partial void Onod_dniaChanged();
+    partial void Ondo_dniaChanging(System.DateTime value);
+    partial void Ondo_dniaChanged();
+    partial void Onrodzaj_kursuChanging(string value);
+    partial void Onrodzaj_kursuChanged();
+    #endregion
+		
+		public dni_kursowania()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_dni_kursowania", DbType="Int NOT NULL", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id_dni_kursowania
+		{
+			get
+			{
+				return this._id_dni_kursowania;
+			}
+			set
+			{
+				if ((this._id_dni_kursowania != value))
+				{
+					this.Onid_dni_kursowaniaChanging(value);
+					this.SendPropertyChanging();
+					this._id_dni_kursowania = value;
+					this.SendPropertyChanged("id_dni_kursowania");
+					this.Onid_dni_kursowaniaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_od_dnia", DbType="DateTime NOT NULL")]
+		public System.DateTime od_dnia
+		{
+			get
+			{
+				return this._od_dnia;
+			}
+			set
+			{
+				if ((this._od_dnia != value))
+				{
+					this.Onod_dniaChanging(value);
+					this.SendPropertyChanging();
+					this._od_dnia = value;
+					this.SendPropertyChanged("od_dnia");
+					this.Onod_dniaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_do_dnia", DbType="DateTime NOT NULL")]
+		public System.DateTime do_dnia
+		{
+			get
+			{
+				return this._do_dnia;
+			}
+			set
+			{
+				if ((this._do_dnia != value))
+				{
+					this.Ondo_dniaChanging(value);
+					this.SendPropertyChanging();
+					this._do_dnia = value;
+					this.SendPropertyChanged("do_dnia");
+					this.Ondo_dniaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_rodzaj_kursu", DbType="VarChar(30) NOT NULL", CanBeNull=false)]
+		public string rodzaj_kursu
+		{
+			get
+			{
+				return this._rodzaj_kursu;
+			}
+			set
+			{
+				if ((this._rodzaj_kursu != value))
+				{
+					this.Onrodzaj_kursuChanging(value);
+					this.SendPropertyChanging();
+					this._rodzaj_kursu = value;
+					this.SendPropertyChanged("rodzaj_kursu");
+					this.Onrodzaj_kursuChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
 		}
 	}
 }

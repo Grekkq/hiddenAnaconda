@@ -23,8 +23,8 @@ namespace hiddenAnaconda.Models {
             try {
                 dc.dni_kursowanias.InsertOnSubmit(dni);
                 dc.SubmitChanges();
-            } catch {
-                Debug.Print("Nie udało się dodać recordu z kursem: {0}, od dnia: {1}, do dnia: {2}\n", (object)type, start, end);
+            } catch(Exception e) {
+                Debug.Print("{3}\nNie udało się dodać recordu z kursem: {0}, od dnia: {1}, do dnia: {2}\n", (object)type, start, end, e);
                 return false;
             }
             Debug.Print("Udało się dodać record z kursem: {0}, od dnia: {1}, do dnia: {2}\n", (object) type, start, end);
