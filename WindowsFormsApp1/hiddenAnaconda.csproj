@@ -103,12 +103,6 @@
       <DependentUpon>planowanieRealizacjiKursu.cs</DependentUpon>
     </Compile>
     <Compile Include="SharedView.cs" />
-    <Compile Include="SqlDatabaseSetup.cs" />
-    <Compile Include="SqlServerUnitTest1.cs">
-      <SubType>Designer</SubType>
-    </Compile>
-    <Compile Include="TestClassAttribute.cs" />
-    <Compile Include="TestContext.cs" />
     <Compile Include="Views\DodajPrzystanekDoTrasy.cs">
       <SubType>Form</SubType>
     </Compile>
