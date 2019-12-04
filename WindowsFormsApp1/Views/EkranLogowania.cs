@@ -50,6 +50,7 @@ namespace hiddenAnaconda.Views
             textBox2_SetText();
             textBox2.PasswordChar=' ';
             textBox1_SetText();
+            new Models.Login().createUser("asd", "asd");
         }
 
         protected void textBox2_SetText()
@@ -144,6 +145,11 @@ namespace hiddenAnaconda.Views
         }
 
         private void pictureBox3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
         {
 
         }

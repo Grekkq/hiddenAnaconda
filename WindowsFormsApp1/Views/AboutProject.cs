@@ -44,5 +44,10 @@ namespace hiddenAnaconda.Views
         {
             this.Close();
         }
+
+        private void AboutProject_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

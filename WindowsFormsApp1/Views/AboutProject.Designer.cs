@@ -160,6 +160,8 @@
             this.Name = "AboutProject";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "AboutProject";
+            this.Activated += new System.EventHandler(this.turnoffFocus);
+            this.Load += new System.EventHandler(this.AboutProject_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.move_window);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
