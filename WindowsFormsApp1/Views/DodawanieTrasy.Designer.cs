@@ -77,7 +77,7 @@
             this.lineSelectionComboBox.Location = new System.Drawing.Point(19, 96);
             this.lineSelectionComboBox.Name = "lineSelectionComboBox";
             this.lineSelectionComboBox.Size = new System.Drawing.Size(131, 21);
-            this.lineSelectionComboBox.TabIndex = 9;
+            this.lineSelectionComboBox.TabIndex = 0;
             // 
             // cancel
             // 
@@ -85,7 +85,7 @@
             this.cancel.Location = new System.Drawing.Point(10, 325);
             this.cancel.Name = "cancel";
             this.cancel.Size = new System.Drawing.Size(80, 40);
-            this.cancel.TabIndex = 16;
+            this.cancel.TabIndex = 6;
             this.cancel.Text = "Anuluj";
             this.cancel.UseVisualStyleBackColor = false;
             this.cancel.Click += new System.EventHandler(this.cancel_Click);
@@ -96,7 +96,7 @@
             this.create.Location = new System.Drawing.Point(506, 325);
             this.create.Name = "create";
             this.create.Size = new System.Drawing.Size(80, 40);
-            this.create.TabIndex = 17;
+            this.create.TabIndex = 3;
             this.create.Text = "Utwórz";
             this.create.UseVisualStyleBackColor = false;
             // 
@@ -130,7 +130,7 @@
             this.bgPanel.Location = new System.Drawing.Point(2, 31);
             this.bgPanel.Name = "bgPanel";
             this.bgPanel.Size = new System.Drawing.Size(606, 377);
-            this.bgPanel.TabIndex = 19;
+            this.bgPanel.TabIndex = 0;
             // 
             // label2
             // 
@@ -196,7 +196,7 @@
             this.clearButton.Location = new System.Drawing.Point(105, 325);
             this.clearButton.Name = "clearButton";
             this.clearButton.Size = new System.Drawing.Size(80, 40);
-            this.clearButton.TabIndex = 24;
+            this.clearButton.TabIndex = 5;
             this.clearButton.Text = "Wyczyść";
             this.clearButton.UseVisualStyleBackColor = true;
             this.clearButton.Click += new System.EventHandler(this.clearButton_Click);
@@ -214,7 +214,7 @@
             this.mainListBox.Location = new System.Drawing.Point(65, 155);
             this.mainListBox.Name = "mainListBox";
             this.mainListBox.Size = new System.Drawing.Size(468, 148);
-            this.mainListBox.TabIndex = 23;
+            this.mainListBox.TabIndex = 1;
             this.mainListBox.SelectedIndexChanged += new System.EventHandler(this.mainListBox_SelectedIndexChanged);
             this.mainListBox.DragDrop += new System.Windows.Forms.DragEventHandler(this.mainListBox_DragDrop);
             this.mainListBox.DragOver += new System.Windows.Forms.DragEventHandler(this.mainListBox_DragOver);
@@ -226,7 +226,7 @@
             this.deleteButton.Location = new System.Drawing.Point(200, 325);
             this.deleteButton.Name = "deleteButton";
             this.deleteButton.Size = new System.Drawing.Size(80, 40);
-            this.deleteButton.TabIndex = 20;
+            this.deleteButton.TabIndex = 4;
             this.deleteButton.Text = "Usuń";
             this.deleteButton.UseVisualStyleBackColor = true;
             this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
@@ -236,7 +236,7 @@
             this.addButton.Location = new System.Drawing.Point(411, 325);
             this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(80, 40);
-            this.addButton.TabIndex = 20;
+            this.addButton.TabIndex = 2;
             this.addButton.Text = "Dodaj";
             this.addButton.UseVisualStyleBackColor = true;
             this.addButton.Click += new System.EventHandler(this.addButton_Click);
@@ -253,7 +253,7 @@
             this.exit.Location = new System.Drawing.Point(566, 0);
             this.exit.Name = "exit";
             this.exit.Size = new System.Drawing.Size(44, 30);
-            this.exit.TabIndex = 20;
+            this.exit.TabIndex = 2;
             this.exit.Text = "X";
             this.exit.UseVisualStyleBackColor = false;
             this.exit.Click += new System.EventHandler(this.exit_Click);
@@ -283,7 +283,7 @@
             this.help.Location = new System.Drawing.Point(522, 0);
             this.help.Name = "help";
             this.help.Size = new System.Drawing.Size(44, 30);
-            this.help.TabIndex = 48;
+            this.help.TabIndex = 1;
             this.help.Text = "?";
             this.help.UseVisualStyleBackColor = false;
             // 

@@ -29,6 +29,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DodawaniePojazdow));
             this.label1 = new System.Windows.Forms.Label();
             this.exit = new System.Windows.Forms.Button();
@@ -56,11 +57,13 @@
             this.label3 = new System.Windows.Forms.Label();
             this.help = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -87,7 +90,7 @@
             this.exit.Location = new System.Drawing.Point(566, 0);
             this.exit.Name = "exit";
             this.exit.Size = new System.Drawing.Size(44, 30);
-            this.exit.TabIndex = 7;
+            this.exit.TabIndex = 2;
             this.exit.Text = "X";
             this.exit.UseVisualStyleBackColor = false;
             this.exit.Click += new System.EventHandler(this.close_on_click);
@@ -117,7 +120,7 @@
             this.panel1.Location = new System.Drawing.Point(2, 31);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(606, 377);
-            this.panel1.TabIndex = 8;
+            this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // pictureBox2
@@ -138,7 +141,7 @@
             this.groupBox2.Location = new System.Drawing.Point(341, 169);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(245, 80);
-            this.groupBox2.TabIndex = 19;
+            this.groupBox2.TabIndex = 6;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Czy tworzony pojazd jest dostępny?";
             // 
@@ -148,7 +151,7 @@
             this.no1.Location = new System.Drawing.Point(92, 32);
             this.no1.Name = "no1";
             this.no1.Size = new System.Drawing.Size(41, 17);
-            this.no1.TabIndex = 7;
+            this.no1.TabIndex = 1;
             this.no1.TabStop = true;
             this.no1.Text = "Nie";
             this.no1.UseVisualStyleBackColor = true;
@@ -159,7 +162,7 @@
             this.yes2.Location = new System.Drawing.Point(31, 32);
             this.yes2.Name = "yes2";
             this.yes2.Size = new System.Drawing.Size(44, 17);
-            this.yes2.TabIndex = 6;
+            this.yes2.TabIndex = 0;
             this.yes2.TabStop = true;
             this.yes2.Text = "Tak";
             this.yes2.UseVisualStyleBackColor = true;
@@ -171,9 +174,10 @@
             this.year_number.MaxLength = 4;
             this.year_number.Name = "year_number";
             this.year_number.Size = new System.Drawing.Size(167, 20);
-            this.year_number.TabIndex = 18;
+            this.year_number.TabIndex = 4;
             this.year_number.TextChanged += new System.EventHandler(this.year_number_TextChanged);
             this.year_number.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.year_number_TextChanged);
+            this.year_number.Validating += new System.ComponentModel.CancelEventHandler(this.year_number_Validating);
             // 
             // label8
             // 
@@ -192,9 +196,10 @@
             this.vin_number.MaxLength = 17;
             this.vin_number.Name = "vin_number";
             this.vin_number.Size = new System.Drawing.Size(167, 20);
-            this.vin_number.TabIndex = 16;
+            this.vin_number.TabIndex = 3;
             this.vin_number.TextChanged += new System.EventHandler(this.vin_number_TextChanged);
             this.vin_number.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.vin_number_TextChanged);
+            this.vin_number.Validating += new System.ComponentModel.CancelEventHandler(this.vin_number_Validating);
             // 
             // label7
             // 
@@ -213,9 +218,10 @@
             this.plate_numer.MaxLength = 7;
             this.plate_numer.Name = "plate_numer";
             this.plate_numer.Size = new System.Drawing.Size(167, 20);
-            this.plate_numer.TabIndex = 14;
+            this.plate_numer.TabIndex = 2;
             this.plate_numer.TextChanged += new System.EventHandler(this.plate_numer_TextChanged);
             this.plate_numer.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.plate_number_TextChanged);
+            this.plate_numer.Validating += new System.ComponentModel.CancelEventHandler(this.plate_numer_Validating);
             // 
             // label6
             // 
@@ -233,9 +239,10 @@
             this.model_name.MaxLength = 15;
             this.model_name.Name = "model_name";
             this.model_name.Size = new System.Drawing.Size(168, 20);
-            this.model_name.TabIndex = 12;
+            this.model_name.TabIndex = 1;
             this.model_name.TextChanged += new System.EventHandler(this.model_name_TextChanged);
             this.model_name.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.model_name_TextChanged);
+            this.model_name.Validating += new System.ComponentModel.CancelEventHandler(this.model_name_Validating);
             // 
             // label5
             // 
@@ -253,7 +260,7 @@
             this.groupBox1.Location = new System.Drawing.Point(341, 80);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(245, 80);
-            this.groupBox1.TabIndex = 10;
+            this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Czy tworzony pojazd jest niskopodłogowy?";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
@@ -264,7 +271,7 @@
             this.no.Location = new System.Drawing.Point(92, 32);
             this.no.Name = "no";
             this.no.Size = new System.Drawing.Size(41, 17);
-            this.no.TabIndex = 7;
+            this.no.TabIndex = 1;
             this.no.TabStop = true;
             this.no.Text = "Nie";
             this.no.UseVisualStyleBackColor = true;
@@ -275,7 +282,7 @@
             this.yes.Location = new System.Drawing.Point(31, 32);
             this.yes.Name = "yes";
             this.yes.Size = new System.Drawing.Size(44, 17);
-            this.yes.TabIndex = 6;
+            this.yes.TabIndex = 0;
             this.yes.TabStop = true;
             this.yes.Text = "Tak";
             this.yes.UseVisualStyleBackColor = true;
@@ -285,7 +292,7 @@
             this.cancel.Location = new System.Drawing.Point(20, 325);
             this.cancel.Name = "cancel";
             this.cancel.Size = new System.Drawing.Size(80, 40);
-            this.cancel.TabIndex = 9;
+            this.cancel.TabIndex = 8;
             this.cancel.Text = "Anuluj";
             this.cancel.UseVisualStyleBackColor = true;
             this.cancel.Click += new System.EventHandler(this.close_on_click);
@@ -295,7 +302,7 @@
             this.create.Location = new System.Drawing.Point(506, 325);
             this.create.Name = "create";
             this.create.Size = new System.Drawing.Size(80, 40);
-            this.create.TabIndex = 8;
+            this.create.TabIndex = 7;
             this.create.Text = "Utwórz";
             this.create.UseVisualStyleBackColor = true;
             this.create.Click += new System.EventHandler(this.create_Click);
@@ -307,9 +314,10 @@
             this.mark_name.MaxLength = 15;
             this.mark_name.Name = "mark_name";
             this.mark_name.Size = new System.Drawing.Size(167, 20);
-            this.mark_name.TabIndex = 4;
+            this.mark_name.TabIndex = 0;
             this.mark_name.TextChanged += new System.EventHandler(this.mark_name_TextChanged);
             this.mark_name.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mark_name_TextChanged);
+            this.mark_name.Validating += new System.ComponentModel.CancelEventHandler(this.mark_name_Validating);
             // 
             // label4
             // 
@@ -352,7 +360,7 @@
             this.help.Location = new System.Drawing.Point(522, 0);
             this.help.Name = "help";
             this.help.Size = new System.Drawing.Size(44, 30);
-            this.help.TabIndex = 49;
+            this.help.TabIndex = 1;
             this.help.Text = "?";
             this.help.UseVisualStyleBackColor = false;
             // 
@@ -365,6 +373,11 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 50;
             this.pictureBox1.TabStop = false;
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.errorProvider1.ContainerControl = this;
             // 
             // DodawaniePojazdow
             // 
@@ -395,6 +408,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -427,5 +441,6 @@
         private System.Windows.Forms.Button help;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

@@ -10,6 +10,7 @@ using System.Windows.Forms;
 
 namespace hiddenAnaconda.Views {
     public partial class DodawaniePrzystanku : Form {
+        bool ErrorIsOn = false;
         // funkcje wspólne dla widoków
         SharedView sharedView = new SharedView();
 
@@ -36,26 +37,32 @@ namespace hiddenAnaconda.Views {
             InitializeComponent();
         }
 
-        private void create_Click(object sender, EventArgs e) {
+        private void create_Click(object sender, EventArgs e) 
             {
-                if ((yes.Checked == false && no.Checked == false) && (string.IsNullOrEmpty(p_nazwa.Text)) && (string.IsNullOrEmpty(p_miasto.Text)) && (string.IsNullOrEmpty(p_adres.Text))) {
-                    MessageBox.Show("Nie wypełniono formularza", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                } else if ((string.IsNullOrEmpty(p_nazwa.Text))) {
-                    MessageBox.Show("Niewypełniono pola: Nazwa.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                } else if ((string.IsNullOrEmpty(p_miasto.Text))) {
-                    MessageBox.Show("Niewypełniono pola: Miasto.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                } else if ((string.IsNullOrEmpty(p_adres.Text))) {
-                    MessageBox.Show("Niewypełniono pola: Adres.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                } else if (yes.Checked == false && no.Checked == false) {
+                 if (yes.Checked == false && no.Checked == false) {
                     MessageBox.Show("Nie zaznaczono odpowiedz na pytanie.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                } else {
+                p_miasto.Focus();
+                p_adres.Focus();
+                p_nazwa.Focus();
+            }
+             else if ((!string.IsNullOrEmpty(p_adres.Text) && !string.IsNullOrEmpty(p_nazwa.Text) && !string.IsNullOrEmpty(p_miasto.Text) && ErrorIsOn == false))
+            {
+                if (MessageBox.Show("Na pewno chcesz dodać kurs?", "Dodanie kursu", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
                     const string message = "Pomyślnie utworzono nowy przystanek.";
                     const string caption = "Sukces";
                     var result = MessageBox.Show(message, caption, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    if (result == DialogResult.OK) {
+                    if (result == DialogResult.OK)
+                    {
                         this.Close();
                     }
                 }
+            }
+            else
+            {
+                p_miasto.Focus();
+                p_adres.Focus();
+                p_nazwa.Focus();
             }
         }
 
@@ -90,6 +97,50 @@ namespace hiddenAnaconda.Views {
         private void p_adres_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void p_nazwa_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+        private void p_nazwa_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(p_nazwa.Text))
+            {
+                errorProvider1.SetError(p_nazwa, "Nie wpisano nazwy");
+                ErrorIsOn = true;
+            }
+            else
+            {
+                errorProvider1.SetError(p_nazwa, null);
+                ErrorIsOn = false;
+            }
+        }
+        private void p_miasto_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(p_miasto.Text))
+            {
+                errorProvider1.SetError(p_miasto, "Nie wpisano miasta");
+                ErrorIsOn = true;
+            }
+            else
+            {
+                errorProvider1.SetError(p_miasto, null);
+                ErrorIsOn = false;
+            }
+        }
+        private void p_adres_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(p_adres.Text))
+            {
+                errorProvider1.SetError(p_adres, "Nie wpisano adresu");
+                ErrorIsOn = true;
+            }
+            else
+            {
+                errorProvider1.SetError(p_adres, null);
+                ErrorIsOn = false;
+            }
         }
     }
 }

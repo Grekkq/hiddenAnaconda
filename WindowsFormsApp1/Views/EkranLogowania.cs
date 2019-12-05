@@ -106,5 +106,18 @@ namespace hiddenAnaconda.Views {
             }
 
         }
+        private void textBox2_loginButtonClick(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                button1.PerformClick();
+            }
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

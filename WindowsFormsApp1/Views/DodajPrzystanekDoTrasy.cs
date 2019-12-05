@@ -72,12 +72,24 @@ namespace hiddenAnaconda.Views {
         }
 
         private void Dodaj_Click(object sender, EventArgs e)
-        {   if (ErrorIsOn == false)
+        {
+            if ((!string.IsNullOrEmpty(arrivalTime.Text) && !string.IsNullOrEmpty(stopName.Text) && !string.IsNullOrEmpty(cityName.Text) && ErrorIsOn == false))
             {
-                busStop = new Models.routeElementModel(this.stopName.Text, this.cityName.Text, this.arrivalTime.Text);
-                this.DialogResult = DialogResult.OK;
-                this.Close();
+                if (MessageBox.Show("Na pewno chcesz dodać przystanek?", "Dodanie przystanku", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    busStop = new Models.routeElementModel(this.stopName.Text, this.cityName.Text, this.arrivalTime.Text);
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
+                }
             }
+            else
+            {
+                arrivalTime.Focus();
+                cityName.Focus();
+                stopName.Focus();
+            }
+
+            
         }
 
         public Models.routeElementModel GetStop
@@ -116,13 +128,38 @@ namespace hiddenAnaconda.Views {
             cityName.Text = System.Threading.Thread.CurrentThread.CurrentCulture.TextInfo.ToTitleCase(this.cityName.Text);
             cityName.Select(cityName.Text.Length, 0);
         }
+        private void cityName_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(cityName.Text))
+            {
+                errorProvider1.SetError(cityName, "Nie wpisano miasta");
+                ErrorIsOn = true;
+            }
+            else
+            {
+                errorProvider1.SetError(cityName, null);
+                ErrorIsOn = false;
+            }
+        }
 
         private void stopName_TextChanged(object sender, EventArgs e)
         {
             stopName.Text = System.Threading.Thread.CurrentThread.CurrentCulture.TextInfo.ToTitleCase(this.stopName.Text);
             stopName.Select(stopName.Text.Length, 0);
         }
-
+        private void stopName_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(stopName.Text))
+            {
+                errorProvider1.SetError(stopName, "Nie wpisano nazwy");
+                ErrorIsOn = true;
+            }
+            else
+            {
+                errorProvider1.SetError(stopName, null);
+                ErrorIsOn = false;
+            }
+        }
         private void arrivalTime_TextChanged(object sender, EventArgs e)
         {
 

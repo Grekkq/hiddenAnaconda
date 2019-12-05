@@ -80,7 +80,7 @@
             this.panel1.Location = new System.Drawing.Point(2, 31);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(606, 377);
-            this.panel1.TabIndex = 4;
+            this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // pictureBox2
@@ -101,9 +101,9 @@
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label9.Location = new System.Drawing.Point(170, 260);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(226, 13);
+            this.label9.Size = new System.Drawing.Size(248, 13);
             this.label9.TabIndex = 20;
-            this.label9.Text = "Akceptowany format daty - DD.MM.RR";
+            this.label9.Text = "Akceptowany format daty - DD/MM/RRRR";
             this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
             // date_name
@@ -113,7 +113,7 @@
             this.date_name.MaxLength = 10;
             this.date_name.Name = "date_name";
             this.date_name.Size = new System.Drawing.Size(109, 20);
-            this.date_name.TabIndex = 19;
+            this.date_name.TabIndex = 3;
             this.date_name.TextChanged += new System.EventHandler(this.date_name_TextChanged);
             this.date_name.Validating += new System.ComponentModel.CancelEventHandler(this.date_name_Validating);
             // 
@@ -144,7 +144,9 @@
             this.line_choose.Location = new System.Drawing.Point(19, 106);
             this.line_choose.Name = "line_choose";
             this.line_choose.Size = new System.Drawing.Size(130, 21);
-            this.line_choose.TabIndex = 15;
+            this.line_choose.TabIndex = 0;
+            this.line_choose.SelectedIndexChanged += new System.EventHandler(this.line_choose_SelectedIndexChanged);
+            this.line_choose.Validating += new System.ComponentModel.CancelEventHandler(this.line_choose_Validating);
             // 
             // c_number
             // 
@@ -153,9 +155,10 @@
             this.c_number.MaxLength = 4;
             this.c_number.Name = "c_number";
             this.c_number.Size = new System.Drawing.Size(109, 20);
-            this.c_number.TabIndex = 14;
+            this.c_number.TabIndex = 1;
             this.c_number.TextChanged += new System.EventHandler(this.c_number_TextChanged);
             this.c_number.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.c_number_TextChanged);
+            this.c_number.Validating += new System.ComponentModel.CancelEventHandler(this.c_number_Validating);
             // 
             // label5
             // 
@@ -174,7 +177,7 @@
             this.hour_name.MaxLength = 5;
             this.hour_name.Name = "hour_name";
             this.hour_name.Size = new System.Drawing.Size(109, 20);
-            this.hour_name.TabIndex = 12;
+            this.hour_name.TabIndex = 2;
             this.hour_name.TextChanged += new System.EventHandler(this.hour_name_TextChanged);
             this.hour_name.Validating += new System.ComponentModel.CancelEventHandler(this.hour_name_Validating);
             // 
@@ -193,7 +196,7 @@
             this.cancel.Location = new System.Drawing.Point(20, 325);
             this.cancel.Name = "cancel";
             this.cancel.Size = new System.Drawing.Size(80, 40);
-            this.cancel.TabIndex = 9;
+            this.cancel.TabIndex = 5;
             this.cancel.Text = "Anuluj";
             this.cancel.UseVisualStyleBackColor = true;
             this.cancel.Click += new System.EventHandler(this.close_on_click);
@@ -203,7 +206,7 @@
             this.create.Location = new System.Drawing.Point(506, 325);
             this.create.Name = "create";
             this.create.Size = new System.Drawing.Size(80, 40);
-            this.create.TabIndex = 8;
+            this.create.TabIndex = 4;
             this.create.Text = "Utwórz";
             this.create.UseVisualStyleBackColor = true;
             this.create.Click += new System.EventHandler(this.create_Click);
@@ -252,7 +255,7 @@
             this.exit.Location = new System.Drawing.Point(566, 0);
             this.exit.Name = "exit";
             this.exit.Size = new System.Drawing.Size(44, 30);
-            this.exit.TabIndex = 21;
+            this.exit.TabIndex = 2;
             this.exit.Text = "X";
             this.exit.UseVisualStyleBackColor = false;
             this.exit.Click += new System.EventHandler(this.close_on_click);
@@ -281,7 +284,7 @@
             this.help.Location = new System.Drawing.Point(522, 0);
             this.help.Name = "help";
             this.help.Size = new System.Drawing.Size(44, 30);
-            this.help.TabIndex = 48;
+            this.help.TabIndex = 1;
             this.help.Text = "?";
             this.help.UseVisualStyleBackColor = false;
             // 
@@ -303,6 +306,7 @@
             // 
             // errorProvider2
             // 
+            this.errorProvider2.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.errorProvider2.ContainerControl = this;
             // 
             // DodawanieKursu

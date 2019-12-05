@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DodawaniePrzystanku));
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -48,10 +49,12 @@
             this.label7 = new System.Windows.Forms.Label();
             this.help = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -82,7 +85,9 @@
             this.p_nazwa.MaxLength = 15;
             this.p_nazwa.Name = "p_nazwa";
             this.p_nazwa.Size = new System.Drawing.Size(140, 20);
-            this.p_nazwa.TabIndex = 5;
+            this.p_nazwa.TabIndex = 0;
+            this.p_nazwa.TextChanged += new System.EventHandler(this.p_nazwa_TextChanged);
+            this.p_nazwa.Validating += new System.ComponentModel.CancelEventHandler(this.p_nazwa_Validating);
             // 
             // groupBox1
             // 
@@ -93,7 +98,7 @@
             this.groupBox1.Location = new System.Drawing.Point(341, 90);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(245, 80);
-            this.groupBox1.TabIndex = 11;
+            this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Czy utworzony przystanek jest pojedynczy?";
             // 
@@ -103,7 +108,7 @@
             this.no.Location = new System.Drawing.Point(143, 31);
             this.no.Name = "no";
             this.no.Size = new System.Drawing.Size(41, 17);
-            this.no.TabIndex = 7;
+            this.no.TabIndex = 1;
             this.no.TabStop = true;
             this.no.Text = "Nie";
             this.no.UseVisualStyleBackColor = true;
@@ -114,7 +119,7 @@
             this.yes.Location = new System.Drawing.Point(52, 31);
             this.yes.Name = "yes";
             this.yes.Size = new System.Drawing.Size(44, 17);
-            this.yes.TabIndex = 6;
+            this.yes.TabIndex = 0;
             this.yes.TabStop = true;
             this.yes.Text = "Tak";
             this.yes.UseVisualStyleBackColor = true;
@@ -135,9 +140,10 @@
             this.p_miasto.Location = new System.Drawing.Point(19, 156);
             this.p_miasto.Name = "p_miasto";
             this.p_miasto.Size = new System.Drawing.Size(142, 20);
-            this.p_miasto.TabIndex = 14;
+            this.p_miasto.TabIndex = 1;
             this.p_miasto.TextChanged += new System.EventHandler(this.p_miasto_TextChanged);
             this.p_miasto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.p_miasto_TextChanged);
+            this.p_miasto.Validating += new System.ComponentModel.CancelEventHandler(this.p_miasto_Validating);
             // 
             // label5
             // 
@@ -164,8 +170,9 @@
             this.p_adres.Location = new System.Drawing.Point(19, 206);
             this.p_adres.Name = "p_adres";
             this.p_adres.Size = new System.Drawing.Size(142, 20);
-            this.p_adres.TabIndex = 25;
+            this.p_adres.TabIndex = 2;
             this.p_adres.TextChanged += new System.EventHandler(this.p_adres_TextChanged);
+            this.p_adres.Validating += new System.ComponentModel.CancelEventHandler(this.p_adres_Validating);
             // 
             // create
             // 
@@ -173,7 +180,7 @@
             this.create.Location = new System.Drawing.Point(506, 325);
             this.create.Name = "create";
             this.create.Size = new System.Drawing.Size(80, 40);
-            this.create.TabIndex = 18;
+            this.create.TabIndex = 4;
             this.create.Text = "Utwórz";
             this.create.UseVisualStyleBackColor = false;
             this.create.Click += new System.EventHandler(this.create_Click);
@@ -184,7 +191,7 @@
             this.cancel.Location = new System.Drawing.Point(20, 325);
             this.cancel.Name = "cancel";
             this.cancel.Size = new System.Drawing.Size(80, 40);
-            this.cancel.TabIndex = 19;
+            this.cancel.TabIndex = 5;
             this.cancel.Text = "Anuluj";
             this.cancel.UseVisualStyleBackColor = false;
             this.cancel.Click += new System.EventHandler(this.cancel_Click);
@@ -207,7 +214,7 @@
             this.panel1.Location = new System.Drawing.Point(2, 31);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(606, 377);
-            this.panel1.TabIndex = 20;
+            this.panel1.TabIndex = 0;
             // 
             // pictureBox2
             // 
@@ -232,7 +239,7 @@
             this.exit.Location = new System.Drawing.Point(566, 0);
             this.exit.Name = "exit";
             this.exit.Size = new System.Drawing.Size(44, 30);
-            this.exit.TabIndex = 21;
+            this.exit.TabIndex = 2;
             this.exit.Text = "X";
             this.exit.UseVisualStyleBackColor = false;
             this.exit.Click += new System.EventHandler(this.exit_Click);
@@ -262,7 +269,7 @@
             this.help.Location = new System.Drawing.Point(522, 0);
             this.help.Name = "help";
             this.help.Size = new System.Drawing.Size(44, 30);
-            this.help.TabIndex = 49;
+            this.help.TabIndex = 1;
             this.help.Text = "?";
             this.help.UseVisualStyleBackColor = false;
             // 
@@ -275,6 +282,11 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 50;
             this.pictureBox1.TabStop = false;
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.errorProvider1.ContainerControl = this;
             // 
             // DodawaniePrzystanku
             // 
@@ -300,6 +312,7 @@
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -326,5 +339,6 @@
         private System.Windows.Forms.Button help;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

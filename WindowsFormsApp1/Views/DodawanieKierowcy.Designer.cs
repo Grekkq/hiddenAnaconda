@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DodawanieKierowcy));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label9 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.powrot = new System.Windows.Forms.Button();
             this.Reset = new System.Windows.Forms.Button();
@@ -50,15 +51,18 @@
             this.help = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider2 = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.panel1.Controls.Add(this.label9);
             this.panel1.Controls.Add(this.pictureBox2);
             this.panel1.Controls.Add(this.powrot);
             this.panel1.Controls.Add(this.Reset);
@@ -76,8 +80,19 @@
             this.panel1.Location = new System.Drawing.Point(2, 31);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(606, 377);
-            this.panel1.TabIndex = 4;
+            this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label9.Location = new System.Drawing.Point(243, 213);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(248, 13);
+            this.label9.TabIndex = 47;
+            this.label9.Text = "Akceptowany format daty - DD/MM/RRRR";
             // 
             // pictureBox2
             // 
@@ -96,7 +111,7 @@
             this.powrot.Margin = new System.Windows.Forms.Padding(2);
             this.powrot.Name = "powrot";
             this.powrot.Size = new System.Drawing.Size(80, 40);
-            this.powrot.TabIndex = 45;
+            this.powrot.TabIndex = 6;
             this.powrot.Text = "Anuluj";
             this.powrot.UseVisualStyleBackColor = true;
             this.powrot.Click += new System.EventHandler(this.powrot_Click);
@@ -108,7 +123,7 @@
             this.Reset.Margin = new System.Windows.Forms.Padding(2);
             this.Reset.Name = "Reset";
             this.Reset.Size = new System.Drawing.Size(80, 40);
-            this.Reset.TabIndex = 44;
+            this.Reset.TabIndex = 5;
             this.Reset.Text = "Reset";
             this.Reset.UseVisualStyleBackColor = true;
             this.Reset.Click += new System.EventHandler(this.Reset_Click);
@@ -157,7 +172,7 @@
             this.DriverBirthDate.MaxLength = 10;
             this.DriverBirthDate.Name = "DriverBirthDate";
             this.DriverBirthDate.Size = new System.Drawing.Size(201, 20);
-            this.DriverBirthDate.TabIndex = 39;
+            this.DriverBirthDate.TabIndex = 2;
             this.DriverBirthDate.TextChanged += new System.EventHandler(this.DriverBirthDate_TextChanged);
             this.DriverBirthDate.Validating += new System.ComponentModel.CancelEventHandler(this.DriverBirthDate_Validating);
             // 
@@ -168,9 +183,10 @@
             this.DriverPesel.MaxLength = 11;
             this.DriverPesel.Name = "DriverPesel";
             this.DriverPesel.Size = new System.Drawing.Size(200, 20);
-            this.DriverPesel.TabIndex = 38;
+            this.DriverPesel.TabIndex = 3;
             this.DriverPesel.TextChanged += new System.EventHandler(this.DriverPesel_TextChanged);
             this.DriverPesel.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DriverPesel_TextChanged);
+            this.DriverPesel.Validating += new System.ComponentModel.CancelEventHandler(this.DriverPesel_Validating);
             // 
             // DriverLastName
             // 
@@ -178,9 +194,10 @@
             this.DriverLastName.Margin = new System.Windows.Forms.Padding(2);
             this.DriverLastName.Name = "DriverLastName";
             this.DriverLastName.Size = new System.Drawing.Size(200, 20);
-            this.DriverLastName.TabIndex = 37;
+            this.DriverLastName.TabIndex = 1;
             this.DriverLastName.TextChanged += new System.EventHandler(this.DriverLastName_TextChanged);
             this.DriverLastName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DriverName_TextChanged);
+            this.DriverLastName.Validating += new System.ComponentModel.CancelEventHandler(this.DriverLastName_Validating);
             // 
             // DriverFirstName
             // 
@@ -188,9 +205,10 @@
             this.DriverFirstName.Margin = new System.Windows.Forms.Padding(2);
             this.DriverFirstName.Name = "DriverFirstName";
             this.DriverFirstName.Size = new System.Drawing.Size(200, 20);
-            this.DriverFirstName.TabIndex = 36;
+            this.DriverFirstName.TabIndex = 0;
             this.DriverFirstName.TextChanged += new System.EventHandler(this.DriverFirstName_TextChanged);
             this.DriverFirstName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DriverName_TextChanged);
+            this.DriverFirstName.Validating += new System.ComponentModel.CancelEventHandler(this.DriverFirstName_Validating);
             // 
             // Zapisz
             // 
@@ -198,7 +216,7 @@
             this.Zapisz.Margin = new System.Windows.Forms.Padding(2);
             this.Zapisz.Name = "Zapisz";
             this.Zapisz.Size = new System.Drawing.Size(80, 40);
-            this.Zapisz.TabIndex = 35;
+            this.Zapisz.TabIndex = 4;
             this.Zapisz.Text = "Dodaj";
             this.Zapisz.UseVisualStyleBackColor = true;
             this.Zapisz.Click += new System.EventHandler(this.Zapisz_Click);
@@ -237,7 +255,7 @@
             this.exit.Location = new System.Drawing.Point(566, 0);
             this.exit.Name = "exit";
             this.exit.Size = new System.Drawing.Size(44, 30);
-            this.exit.TabIndex = 5;
+            this.exit.TabIndex = 2;
             this.exit.Text = "X";
             this.exit.UseVisualStyleBackColor = false;
             this.exit.Click += new System.EventHandler(this.exit_Click);
@@ -267,7 +285,7 @@
             this.help.Location = new System.Drawing.Point(522, 0);
             this.help.Name = "help";
             this.help.Size = new System.Drawing.Size(44, 30);
-            this.help.TabIndex = 47;
+            this.help.TabIndex = 1;
             this.help.Text = "?";
             this.help.UseVisualStyleBackColor = false;
             this.help.MouseEnter += new System.EventHandler(this.hover_helpbutton);
@@ -287,6 +305,10 @@
             // 
             this.errorProvider1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.errorProvider1.ContainerControl = this;
+            // 
+            // errorProvider2
+            // 
+            this.errorProvider2.ContainerControl = this;
             // 
             // DodawanieKierowcy
             // 
@@ -313,6 +335,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -340,5 +363,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ErrorProvider errorProvider2;
     }
 }

@@ -12,7 +12,7 @@ namespace hiddenAnaconda.Views
 {
     public partial class DodawaniePojazdow : Form
     {
-
+        bool ErrorIsOn = false;
         SharedView sharedView = new SharedView();
         private void move_window(object sender, MouseEventArgs e)
         {
@@ -58,44 +58,61 @@ namespace hiddenAnaconda.Views
             mark_name.Text = System.Threading.Thread.CurrentThread.CurrentCulture.TextInfo.ToTitleCase(this.mark_name.Text);
             mark_name.Select(mark_name.Text.Length, 0);
         }
-        private void create_Click(object sender, EventArgs e)
+        private void mark_name_Validating(object sender, CancelEventArgs e)
         {
-            if ((string.IsNullOrEmpty(mark_name.Text)))
+            if (string.IsNullOrEmpty(mark_name.Text))
             {
-                MessageBox.Show("Nie wypełniono pola marka", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            else if ((string.IsNullOrEmpty(model_name.Text)))
-            {
-                MessageBox.Show("Nie wypełniono pola model.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            else if ((string.IsNullOrEmpty(plate_numer.Text)))
-            {
-                MessageBox.Show("Nie wypełniono pola numer rejestracyjny pojazdu.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            else if ((string.IsNullOrEmpty(vin_number.Text)))
-            {
-                MessageBox.Show("Nie wypełniono pola numer VIN pojazdu.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            else if ((string.IsNullOrEmpty(year_number.Text)))
-            {
-                MessageBox.Show("Nie wypełniono pola rok produkcji pojazdu.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            else if (yes.Checked == false && no.Checked == false)
-            {
-                MessageBox.Show("Nie zaznaczono odpowiedz na pytanie.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            else if (yes2.Checked == false && no1.Checked == false)
-            {
-                MessageBox.Show("Nie zaznaczono odpowiedz na pytanie.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                errorProvider1.SetError(mark_name, "Nie wpisano marki");
+                ErrorIsOn = true;
             }
             else
             {
-                const string message = "Pomyślnie utworzono nowy pojazd";
-                const string caption = "Sukces";
-                var result = MessageBox.Show(message, caption, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                if (result == DialogResult.OK)
+                errorProvider1.SetError(mark_name, null);
+                ErrorIsOn = false;
+            }
+        }
+        private void create_Click(object sender, EventArgs e)
+        {
+
+            if (yes.Checked == false && no.Checked == false)
+            {
+                MessageBox.Show("Nie zaznaczono odpowiedz na pytanie.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                model_name.Focus();
+                vin_number.Focus();
+                plate_numer.Focus();
+                year_number.Focus();
+                mark_name.Focus();
+            }
+             else if (yes2.Checked == false && no1.Checked == false)
+            {
+                MessageBox.Show("Nie zaznaczono odpowiedz na pytanie.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                model_name.Focus();
+                vin_number.Focus();
+                plate_numer.Focus();
+                year_number.Focus();
+                mark_name.Focus();
+            }
+             if ((!string.IsNullOrEmpty(vin_number.Text) && !string.IsNullOrEmpty(plate_numer.Text) && !string.IsNullOrEmpty(model_name.Text) && ErrorIsOn == false && !string.IsNullOrEmpty(year_number.Text)))
+            {
+                if (MessageBox.Show("Na pewno chcesz dodać kurs?", "Dodanie kursu", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    this.Close();
+
+                    const string message = "Pomyślnie utworzono nowy pojazd";
+                    const string caption = "Sukces";
+                    var result = MessageBox.Show(message, caption, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (result == DialogResult.OK)
+                    {
+                        this.Close();
+                    }
+                    else
+                    {
+                        model_name.Focus();
+                        vin_number.Focus();
+                        plate_numer.Focus();
+                        year_number.Focus();
+                        mark_name.Focus();
+
+                    }
                 }
             }
         }
@@ -128,6 +145,20 @@ namespace hiddenAnaconda.Views
 
         }
 
+        private void vin_number_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(vin_number.Text))
+            {
+                errorProvider1.SetError(vin_number, "Nie pisano VIN");
+                ErrorIsOn = true;
+            }
+            else
+            {
+                errorProvider1.SetError(vin_number, null);
+                ErrorIsOn = false;
+            }
+        }
+
         private void plate_number_TextChanged(object sender, KeyPressEventArgs e)
         {
             if (char.IsLetterOrDigit(e.KeyChar) || e.KeyChar == (char)Keys.Back)
@@ -150,11 +181,38 @@ namespace hiddenAnaconda.Views
             model_name.Select(model_name.Text.Length, 0);
         }
 
+        private void model_name_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(model_name.Text))
+            {
+                errorProvider1.SetError(model_name, "Nie wpisano modelu");
+                ErrorIsOn = true;
+            }
+            else
+            {
+                errorProvider1.SetError(model_name, null);
+                ErrorIsOn = false;
+            }
+        }
+
         private void plate_numer_TextChanged(object sender, EventArgs e)
         {
 
         }
 
+        private void plate_numer_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(plate_numer.Text))
+            {
+                errorProvider1.SetError(plate_numer, "Nie wpisano rejestracji");
+                ErrorIsOn = true;
+            }
+            else
+            {
+                errorProvider1.SetError(plate_numer, null);
+                ErrorIsOn = false;
+            }
+        }
         private void year_number_TextChanged(object sender, KeyPressEventArgs e)
         {
             if (char.IsDigit(e.KeyChar) || e.KeyChar == (char)Keys.Back)
@@ -166,6 +224,19 @@ namespace hiddenAnaconda.Views
         private void year_number_TextChanged(object sender, EventArgs e)
         {
 
+        }
+        private void year_number_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(year_number.Text))
+            {
+                errorProvider1.SetError(year_number, "Nie wpisano roku");
+                ErrorIsOn = true;
+            }
+            else
+            {
+                errorProvider1.SetError(year_number, null);
+                ErrorIsOn = false;
+            }
         }
     }
 }

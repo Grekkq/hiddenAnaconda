@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WypelnianieCzasuRealizacjiKursu));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.driver = new System.Windows.Forms.ComboBox();
             this.alertpic = new System.Windows.Forms.PictureBox();
             this.alert = new System.Windows.Forms.Label();
@@ -50,12 +51,11 @@
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.help = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.alertpic)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabela)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -77,7 +77,18 @@
             this.panel1.Location = new System.Drawing.Point(2, 31);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(606, 377);
-            this.panel1.TabIndex = 6;
+            this.panel1.TabIndex = 0;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.White;
+            this.pictureBox2.Image = global::hiddenAnaconda.Properties.Resources.time;
+            this.pictureBox2.Location = new System.Drawing.Point(503, 3);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(100, 60);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 28;
+            this.pictureBox2.TabStop = false;
             // 
             // driver
             // 
@@ -90,7 +101,7 @@
             this.driver.Location = new System.Drawing.Point(19, 256);
             this.driver.Name = "driver";
             this.driver.Size = new System.Drawing.Size(121, 21);
-            this.driver.TabIndex = 19;
+            this.driver.TabIndex = 2;
             // 
             // alertpic
             // 
@@ -126,7 +137,7 @@
             this.tabela.Location = new System.Drawing.Point(304, 96);
             this.tabela.Name = "tabela";
             this.tabela.Size = new System.Drawing.Size(245, 172);
-            this.tabela.TabIndex = 16;
+            this.tabela.TabIndex = 3;
             this.tabela.Visible = false;
             // 
             // Przystanek
@@ -145,7 +156,7 @@
             this.label6.Location = new System.Drawing.Point(17, 177);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(0, 13);
-            this.label6.TabIndex = 13;
+            this.label6.TabIndex = 1;
             // 
             // label5
             // 
@@ -177,7 +188,7 @@
             this.kurs.Name = "kurs";
             this.kurs.Size = new System.Drawing.Size(127, 119);
             this.kurs.Sorted = true;
-            this.kurs.TabIndex = 10;
+            this.kurs.TabIndex = 0;
             this.kurs.SelectedIndexChanged += new System.EventHandler(this.kurs_SelectedIndexChanged);
             this.kurs.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ComboBox1_KeyPress);
             // 
@@ -186,7 +197,7 @@
             this.cancel.Location = new System.Drawing.Point(20, 325);
             this.cancel.Name = "cancel";
             this.cancel.Size = new System.Drawing.Size(80, 40);
-            this.cancel.TabIndex = 9;
+            this.cancel.TabIndex = 5;
             this.cancel.Text = "Anuluj";
             this.cancel.UseVisualStyleBackColor = true;
             this.cancel.Click += new System.EventHandler(this.close_on_click);
@@ -196,7 +207,7 @@
             this.create.Location = new System.Drawing.Point(506, 325);
             this.create.Name = "create";
             this.create.Size = new System.Drawing.Size(80, 40);
-            this.create.TabIndex = 8;
+            this.create.TabIndex = 4;
             this.create.Text = "Przypisz";
             this.create.UseVisualStyleBackColor = true;
             this.create.Click += new System.EventHandler(this.assign_Click);
@@ -257,7 +268,7 @@
             this.exit.Location = new System.Drawing.Point(566, 0);
             this.exit.Name = "exit";
             this.exit.Size = new System.Drawing.Size(44, 30);
-            this.exit.TabIndex = 7;
+            this.exit.TabIndex = 2;
             this.exit.Text = "X";
             this.exit.UseVisualStyleBackColor = false;
             this.exit.Click += new System.EventHandler(this.close_on_click);
@@ -281,7 +292,7 @@
             this.help.Location = new System.Drawing.Point(522, 0);
             this.help.Name = "help";
             this.help.Size = new System.Drawing.Size(44, 30);
-            this.help.TabIndex = 49;
+            this.help.TabIndex = 1;
             this.help.Text = "?";
             this.help.UseVisualStyleBackColor = false;
             // 
@@ -294,17 +305,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 50;
             this.pictureBox1.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.Color.White;
-            this.pictureBox2.Image = global::hiddenAnaconda.Properties.Resources.time;
-            this.pictureBox2.Location = new System.Drawing.Point(503, 3);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(100, 60);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 28;
-            this.pictureBox2.TabStop = false;
             // 
             // WypelnianieCzasuRealizacjiKursu
             // 
@@ -326,10 +326,10 @@
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.move_window);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.alertpic)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabela)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

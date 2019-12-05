@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace hiddenAnaconda.Views {
     public partial class DodawanieNowejLinii : Form {
-
+        bool ErrorIsOn = false;
         // funkcje wspólne dla widoków
         SharedView sharedView = new SharedView(); 
 
@@ -53,20 +53,35 @@ namespace hiddenAnaconda.Views {
 
         // walidacja pól i zamknięcie okna
         private void create_Click(object sender, EventArgs e) {
-            if ((yes.Checked == false && no.Checked == false) && (string.IsNullOrEmpty(line_name.Text))) {
-                MessageBox.Show("Nie wypełniono formularza", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            } else if (string.IsNullOrEmpty(line_name.Text)) {
-                MessageBox.Show("Nieprawidłowa nazwa linii.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            } else if (yes.Checked == false && no.Checked == false) {
+
+            if (yes.Checked == false && no.Checked == false)
+            {
                 MessageBox.Show("Nie zaznaczono odpowiedz na pytanie.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            } else {
-                const string message = "Pomyślnie utworzono nową linie";
-                const string caption = "Sukces";
-                var result = MessageBox.Show(message, caption, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                if (result == DialogResult.OK) {
-                    this.Close();
-                }
             }
+
+           else if ((!string.IsNullOrEmpty(line_name.Text) && !string.IsNullOrEmpty(groupBox1.Text) && ErrorIsOn == false))
+            {
+                
+                if (MessageBox.Show("Na pewno chcesz dodać nową linię?", "Dodanie linii", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+
+                
+                        const string message = "Pomyślnie utworzono nową linie";
+                        const string caption = "Sukces";
+                        var result = MessageBox.Show(message, caption, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        if (result == DialogResult.OK)
+                        {
+                            this.Close();
+                        }
+                    }
+                
+                else
+                {
+                    line_name.Focus();
+                    groupBox1.Focus();
+                }
+
+            } 
         }
 
         private void DodawanieNowejLinii_Load(object sender, EventArgs e) {
@@ -86,6 +101,32 @@ namespace hiddenAnaconda.Views {
         private void line_name_TextChanged_1(object sender, EventArgs e)
         {
 
+        }
+        private void line_name_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(line_name.Text))
+            {
+                errorProvider1.SetError(line_name, "Nie wpisano linii");
+                ErrorIsOn = true;
+            }
+            else
+            {
+                errorProvider1.SetError(line_name, null);
+                ErrorIsOn = false;
+            }
+        }
+        private void groupBox1_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(line_name.Text))
+            {
+                errorProvider1.SetError(groupBox1, "Nie wybrano odpowiedzi");
+                ErrorIsOn = true;
+            }
+            else
+            {
+                errorProvider1.SetError(groupBox1, null);
+                ErrorIsOn = false;
+            }
         }
     }
 }

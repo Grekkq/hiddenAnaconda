@@ -29,6 +29,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DodawanieNowejLinii));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -45,10 +46,12 @@
             this.label3 = new System.Windows.Forms.Label();
             this.help = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -87,7 +90,7 @@
             this.panel1.Location = new System.Drawing.Point(2, 31);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(606, 377);
-            this.panel1.TabIndex = 3;
+            this.panel1.TabIndex = 0;
             // 
             // pictureBox2
             // 
@@ -107,10 +110,11 @@
             this.groupBox1.Location = new System.Drawing.Point(19, 140);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(245, 80);
-            this.groupBox1.TabIndex = 10;
+            this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Czy tworzona linia będzie kursować w pętli?";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            this.groupBox1.Validating += new System.ComponentModel.CancelEventHandler(this.groupBox1_Validating);
             // 
             // no
             // 
@@ -118,7 +122,7 @@
             this.no.Location = new System.Drawing.Point(92, 32);
             this.no.Name = "no";
             this.no.Size = new System.Drawing.Size(44, 17);
-            this.no.TabIndex = 7;
+            this.no.TabIndex = 1;
             this.no.TabStop = true;
             this.no.Text = "Nie ";
             this.no.UseVisualStyleBackColor = true;
@@ -129,7 +133,7 @@
             this.yes.Location = new System.Drawing.Point(31, 32);
             this.yes.Name = "yes";
             this.yes.Size = new System.Drawing.Size(44, 17);
-            this.yes.TabIndex = 6;
+            this.yes.TabIndex = 0;
             this.yes.TabStop = true;
             this.yes.Text = "Tak";
             this.yes.UseVisualStyleBackColor = true;
@@ -139,7 +143,7 @@
             this.cancel.Location = new System.Drawing.Point(20, 325);
             this.cancel.Name = "cancel";
             this.cancel.Size = new System.Drawing.Size(80, 40);
-            this.cancel.TabIndex = 9;
+            this.cancel.TabIndex = 3;
             this.cancel.Text = "Anuluj";
             this.cancel.UseVisualStyleBackColor = true;
             this.cancel.Click += new System.EventHandler(this.close_on_click);
@@ -149,7 +153,7 @@
             this.create.Location = new System.Drawing.Point(506, 325);
             this.create.Name = "create";
             this.create.Size = new System.Drawing.Size(80, 40);
-            this.create.TabIndex = 8;
+            this.create.TabIndex = 2;
             this.create.Text = "Utwórz";
             this.create.UseVisualStyleBackColor = true;
             this.create.Click += new System.EventHandler(this.create_Click);
@@ -161,9 +165,10 @@
             this.line_name.MaxLength = 4;
             this.line_name.Name = "line_name";
             this.line_name.Size = new System.Drawing.Size(110, 20);
-            this.line_name.TabIndex = 4;
+            this.line_name.TabIndex = 0;
             this.line_name.TextChanged += new System.EventHandler(this.line_name_TextChanged_1);
             this.line_name.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.line_name_TextChanged);
+            this.line_name.Validating += new System.ComponentModel.CancelEventHandler(this.line_name_Validating);
             // 
             // label4
             // 
@@ -186,7 +191,7 @@
             this.exit.Location = new System.Drawing.Point(566, 0);
             this.exit.Name = "exit";
             this.exit.Size = new System.Drawing.Size(44, 30);
-            this.exit.TabIndex = 4;
+            this.exit.TabIndex = 2;
             this.exit.Text = "X";
             this.exit.UseVisualStyleBackColor = false;
             this.exit.Click += new System.EventHandler(this.close_on_click);
@@ -216,7 +221,7 @@
             this.help.Location = new System.Drawing.Point(522, 0);
             this.help.Name = "help";
             this.help.Size = new System.Drawing.Size(44, 30);
-            this.help.TabIndex = 48;
+            this.help.TabIndex = 1;
             this.help.Text = "?";
             this.help.UseVisualStyleBackColor = false;
             // 
@@ -229,6 +234,11 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 47;
             this.pictureBox1.TabStop = false;
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.errorProvider1.ContainerControl = this;
             // 
             // DodawanieNowejLinii
             // 
@@ -257,6 +267,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -279,5 +290,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button help;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

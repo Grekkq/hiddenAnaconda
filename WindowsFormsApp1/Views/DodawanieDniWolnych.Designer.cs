@@ -64,7 +64,7 @@
             this.help.Location = new System.Drawing.Point(520, 1);
             this.help.Name = "help";
             this.help.Size = new System.Drawing.Size(44, 30);
-            this.help.TabIndex = 57;
+            this.help.TabIndex = 1;
             this.help.Text = "?";
             this.help.UseVisualStyleBackColor = false;
             // 
@@ -87,7 +87,7 @@
             this.panel1.Location = new System.Drawing.Point(2, 32);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(606, 377);
-            this.panel1.TabIndex = 54;
+            this.panel1.TabIndex = 0;
             // 
             // type
             // 
@@ -100,7 +100,7 @@
             this.type.Location = new System.Drawing.Point(19, 206);
             this.type.Name = "type";
             this.type.Size = new System.Drawing.Size(200, 66);
-            this.type.TabIndex = 62;
+            this.type.TabIndex = 2;
             // 
             // label7
             // 
@@ -134,7 +134,7 @@
             this.dataGridView.RowHeadersWidth = 45;
             this.dataGridView.ShowEditingIcon = false;
             this.dataGridView.Size = new System.Drawing.Size(246, 200);
-            this.dataGridView.TabIndex = 48;
+            this.dataGridView.TabIndex = 3;
             this.dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // label5
@@ -169,7 +169,7 @@
             this.dateTimeEnd.Location = new System.Drawing.Point(19, 156);
             this.dateTimeEnd.Name = "dateTimeEnd";
             this.dateTimeEnd.Size = new System.Drawing.Size(200, 20);
-            this.dateTimeEnd.TabIndex = 46;
+            this.dateTimeEnd.TabIndex = 1;
             this.dateTimeEnd.ValueChanged += new System.EventHandler(this.dateTimeEnd_ValueChanged);
             // 
             // dateTimeStart
@@ -177,7 +177,7 @@
             this.dateTimeStart.Location = new System.Drawing.Point(19, 106);
             this.dateTimeStart.Name = "dateTimeStart";
             this.dateTimeStart.Size = new System.Drawing.Size(200, 20);
-            this.dateTimeStart.TabIndex = 46;
+            this.dateTimeStart.TabIndex = 0;
             this.dateTimeStart.ValueChanged += new System.EventHandler(this.dateTimeStart_ValueChanged);
             // 
             // powrot
@@ -186,7 +186,7 @@
             this.powrot.Margin = new System.Windows.Forms.Padding(2);
             this.powrot.Name = "powrot";
             this.powrot.Size = new System.Drawing.Size(80, 40);
-            this.powrot.TabIndex = 45;
+            this.powrot.TabIndex = 5;
             this.powrot.Text = "Anuluj";
             this.powrot.UseVisualStyleBackColor = true;
             this.powrot.Click += new System.EventHandler(this.powrot_Click);
@@ -197,7 +197,7 @@
             this.Aktualizuj.Margin = new System.Windows.Forms.Padding(2);
             this.Aktualizuj.Name = "Aktualizuj";
             this.Aktualizuj.Size = new System.Drawing.Size(80, 40);
-            this.Aktualizuj.TabIndex = 35;
+            this.Aktualizuj.TabIndex = 4;
             this.Aktualizuj.Text = "Dodaj";
             this.Aktualizuj.UseVisualStyleBackColor = true;
             this.Aktualizuj.Click += new System.EventHandler(this.Aktualizuj_Click);
@@ -247,7 +247,7 @@
             this.exit.Location = new System.Drawing.Point(565, 1);
             this.exit.Name = "exit";
             this.exit.Size = new System.Drawing.Size(44, 30);
-            this.exit.TabIndex = 55;
+            this.exit.TabIndex = 2;
             this.exit.Text = "X";
             this.exit.UseVisualStyleBackColor = false;
             this.exit.Click += new System.EventHandler(this.exit_Click);

@@ -104,7 +104,7 @@
             this.panel1.Location = new System.Drawing.Point(2, 31);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(606, 377);
-            this.panel1.TabIndex = 6;
+            this.panel1.TabIndex = 0;
             // 
             // pictureBox2
             // 
@@ -136,7 +136,7 @@
             this.pojazdSelectionComboBox.Location = new System.Drawing.Point(19, 264);
             this.pojazdSelectionComboBox.Name = "pojazdSelectionComboBox";
             this.pojazdSelectionComboBox.Size = new System.Drawing.Size(121, 21);
-            this.pojazdSelectionComboBox.TabIndex = 18;
+            this.pojazdSelectionComboBox.TabIndex = 3;
             // 
             // pojazdSelectionLabel
             // 
@@ -157,7 +157,7 @@
             this.kierowcaSelectionComboBox.Location = new System.Drawing.Point(19, 212);
             this.kierowcaSelectionComboBox.Name = "kierowcaSelectionComboBox";
             this.kierowcaSelectionComboBox.Size = new System.Drawing.Size(121, 21);
-            this.kierowcaSelectionComboBox.TabIndex = 16;
+            this.kierowcaSelectionComboBox.TabIndex = 2;
             // 
             // kierowcaSelectionLabel
             // 
@@ -172,7 +172,7 @@
             // 
             this.dataKursuPicker.Location = new System.Drawing.Point(317, 116);
             this.dataKursuPicker.Name = "dataKursuPicker";
-            this.dataKursuPicker.TabIndex = 14;
+            this.dataKursuPicker.TabIndex = 4;
             // 
             // kursSelectionComboBox
             // 
@@ -185,7 +185,7 @@
             this.kursSelectionComboBox.Location = new System.Drawing.Point(19, 160);
             this.kursSelectionComboBox.Name = "kursSelectionComboBox";
             this.kursSelectionComboBox.Size = new System.Drawing.Size(121, 21);
-            this.kursSelectionComboBox.TabIndex = 12;
+            this.kursSelectionComboBox.TabIndex = 1;
             this.kursSelectionComboBox.SelectedIndexChanged += new System.EventHandler(this.KursSelectionComboBox_SelectedIndexChanged);
             // 
             // kursSelectionLabel
@@ -207,7 +207,7 @@
             this.liniaSelectionComboBox.Location = new System.Drawing.Point(19, 106);
             this.liniaSelectionComboBox.Name = "liniaSelectionComboBox";
             this.liniaSelectionComboBox.Size = new System.Drawing.Size(121, 21);
-            this.liniaSelectionComboBox.TabIndex = 10;
+            this.liniaSelectionComboBox.TabIndex = 0;
             this.liniaSelectionComboBox.SelectedIndexChanged += new System.EventHandler(this.LiniaSelectionComboBox_SelectedIndexChanged);
             // 
             // cancel
@@ -215,7 +215,7 @@
             this.cancel.Location = new System.Drawing.Point(20, 325);
             this.cancel.Name = "cancel";
             this.cancel.Size = new System.Drawing.Size(80, 40);
-            this.cancel.TabIndex = 9;
+            this.cancel.TabIndex = 6;
             this.cancel.Text = "Anuluj";
             this.cancel.UseVisualStyleBackColor = true;
             this.cancel.Click += new System.EventHandler(this.Cancel_Click);
@@ -225,7 +225,7 @@
             this.save.Location = new System.Drawing.Point(506, 325);
             this.save.Name = "save";
             this.save.Size = new System.Drawing.Size(80, 40);
-            this.save.TabIndex = 8;
+            this.save.TabIndex = 5;
             this.save.Text = "Przypisz";
             this.save.UseVisualStyleBackColor = true;
             this.save.Click += new System.EventHandler(this.Save_Click);
@@ -251,7 +251,7 @@
             this.exit.Location = new System.Drawing.Point(566, 0);
             this.exit.Name = "exit";
             this.exit.Size = new System.Drawing.Size(44, 30);
-            this.exit.TabIndex = 7;
+            this.exit.TabIndex = 2;
             this.exit.Text = "X";
             this.exit.UseVisualStyleBackColor = false;
             this.exit.Click += new System.EventHandler(this.Exit_Click);
@@ -269,7 +269,7 @@
             this.help.Location = new System.Drawing.Point(522, 0);
             this.help.Name = "help";
             this.help.Size = new System.Drawing.Size(44, 30);
-            this.help.TabIndex = 52;
+            this.help.TabIndex = 1;
             this.help.Text = "?";
             this.help.UseVisualStyleBackColor = false;
             // 

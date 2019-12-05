@@ -40,8 +40,9 @@
             this.arrivalTime = new System.Windows.Forms.TextBox();
             this.create = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.anuluj = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.dodaj = new System.Windows.Forms.Button();
+            this.anuluj = new System.Windows.Forms.Button();
             this.cancel = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -64,7 +65,7 @@
             this.exit.Location = new System.Drawing.Point(311, 0);
             this.exit.Name = "exit";
             this.exit.Size = new System.Drawing.Size(44, 30);
-            this.exit.TabIndex = 9;
+            this.exit.TabIndex = 1;
             this.exit.Text = "X";
             this.exit.UseVisualStyleBackColor = false;
             this.exit.Click += new System.EventHandler(this.Close_on_click);
@@ -78,19 +79,20 @@
             this.label3.ForeColor = System.Drawing.SystemColors.Window;
             this.label3.Location = new System.Drawing.Point(2, 4);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(198, 21);
-            this.label3.TabIndex = 8;
-            this.label3.Text = "Dodaj przystanek do trasy";
+            this.label3.Size = new System.Drawing.Size(202, 21);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Dodaj przystanek do kursu";
             this.label3.Click += new System.EventHandler(this.label3_Click);
             this.label3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.move_window);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(7, 15);
+            this.label4.Enabled = false;
+            this.label4.Location = new System.Drawing.Point(10, 15);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(125, 13);
-            this.label4.TabIndex = 3;
+            this.label4.TabIndex = 0;
             this.label4.Text = "Podaj nazwę przystanku:";
             this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
@@ -100,7 +102,7 @@
             this.label5.Location = new System.Drawing.Point(10, 64);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(70, 13);
-            this.label5.TabIndex = 3;
+            this.label5.TabIndex = 1;
             this.label5.Text = "Podaj miasto:";
             this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
@@ -111,8 +113,9 @@
             this.stopName.MaxLength = 15;
             this.stopName.Name = "stopName";
             this.stopName.Size = new System.Drawing.Size(110, 20);
-            this.stopName.TabIndex = 4;
+            this.stopName.TabIndex = 0;
             this.stopName.TextChanged += new System.EventHandler(this.stopName_TextChanged);
+            this.stopName.Validating += new System.ComponentModel.CancelEventHandler(this.stopName_Validating);
             // 
             // label6
             // 
@@ -120,7 +123,7 @@
             this.label6.Location = new System.Drawing.Point(10, 114);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(102, 13);
-            this.label6.TabIndex = 3;
+            this.label6.TabIndex = 2;
             this.label6.Text = "Podaj czas odjazdu:";
             this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
@@ -131,9 +134,10 @@
             this.cityName.MaxLength = 15;
             this.cityName.Name = "cityName";
             this.cityName.Size = new System.Drawing.Size(110, 20);
-            this.cityName.TabIndex = 4;
+            this.cityName.TabIndex = 1;
             this.cityName.TextChanged += new System.EventHandler(this.cityName_TextChanged);
             this.cityName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cityName_TextChanged);
+            this.cityName.Validating += new System.ComponentModel.CancelEventHandler(this.cityName_Validating);
             // 
             // arrivalTime
             // 
@@ -142,7 +146,7 @@
             this.arrivalTime.MaxLength = 5;
             this.arrivalTime.Name = "arrivalTime";
             this.arrivalTime.Size = new System.Drawing.Size(110, 20);
-            this.arrivalTime.TabIndex = 4;
+            this.arrivalTime.TabIndex = 2;
             this.arrivalTime.TextChanged += new System.EventHandler(this.arrivalTime_TextChanged);
             this.arrivalTime.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.arrivalTime_TextChanged);
             this.arrivalTime.Validating += new System.ComponentModel.CancelEventHandler(this.arrivalTime_Validating);
@@ -160,6 +164,8 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.dodaj);
             this.panel1.Controls.Add(this.anuluj);
             this.panel1.Controls.Add(this.cancel);
@@ -169,32 +175,42 @@
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.stopName);
             this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.label4);
             this.panel1.Location = new System.Drawing.Point(2, 32);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(351, 226);
-            this.panel1.TabIndex = 6;
+            this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
-            // anuluj
+            // label1
             // 
-            this.anuluj.Location = new System.Drawing.Point(10, 188);
-            this.anuluj.Name = "anuluj";
-            this.anuluj.Size = new System.Drawing.Size(90, 28);
-            this.anuluj.TabIndex = 10;
-            this.anuluj.Text = "Anuluj";
-            this.anuluj.UseVisualStyleBackColor = true;
-            this.anuluj.Click += new System.EventHandler(this.cancel_Click);
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label1.Location = new System.Drawing.Point(128, 133);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(213, 13);
+            this.label1.TabIndex = 18;
+            this.label1.Text = "Akceptowany format czasu - GG:MM";
             // 
             // dodaj
             // 
             this.dodaj.Location = new System.Drawing.Point(251, 188);
             this.dodaj.Name = "dodaj";
             this.dodaj.Size = new System.Drawing.Size(90, 28);
-            this.dodaj.TabIndex = 10;
+            this.dodaj.TabIndex = 3;
             this.dodaj.Text = "Dodaj";
             this.dodaj.UseVisualStyleBackColor = true;
             this.dodaj.Click += new System.EventHandler(this.Dodaj_Click);
+            // 
+            // anuluj
+            // 
+            this.anuluj.Location = new System.Drawing.Point(10, 188);
+            this.anuluj.Name = "anuluj";
+            this.anuluj.Size = new System.Drawing.Size(90, 28);
+            this.anuluj.TabIndex = 4;
+            this.anuluj.Text = "Anuluj";
+            this.anuluj.UseVisualStyleBackColor = true;
+            this.anuluj.Click += new System.EventHandler(this.cancel_Click);
             // 
             // cancel
             // 
@@ -247,5 +263,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label1;
     }
 }

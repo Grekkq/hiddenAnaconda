@@ -64,32 +64,27 @@ namespace hiddenAnaconda.Views
 
         private void create_Click(object sender, EventArgs e)
         {
-            if ((string.IsNullOrEmpty(line_choose.Text)))
+            if ((!string.IsNullOrEmpty(c_number.Text) && !string.IsNullOrEmpty(hour_name.Text) && !string.IsNullOrEmpty(date_name.Text) && ErrorIsOn == false && !string.IsNullOrEmpty(line_choose.Text) && ErrorIsOn2 == false))
             {
-                MessageBox.Show("Nie wybrano numeru lini", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                if (MessageBox.Show("Na pewno chcesz dodać kurs?", "Dodanie kursu", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    const string message = "Pomyślnie utworzono nowy kurs";
+                    const string caption = "Sukces";
+                    var result = MessageBox.Show(message, caption, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (result == DialogResult.OK)
+                    {
+                        this.Close();
+                    }
+                }
             }
-            else if (string.IsNullOrEmpty(date_name.Text) || (ErrorIsOn2 == true))
-            {
-                MessageBox.Show("Nie wprowadzono nowej daty.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            else if (string.IsNullOrEmpty(c_number.Text))
-            {
-                MessageBox.Show("Nie wprowadzono numeru kursu.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            else if (string.IsNullOrEmpty(hour_name.Text) ||  (ErrorIsOn == true))
-            {
-                MessageBox.Show("Nie wprowadzono poprawnie godziny.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-          
             else
             {
-                const string message = "Pomyślnie utworzono nowy pojazd";
-                const string caption = "Sukces";
-                var result = MessageBox.Show(message, caption, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                if (result == DialogResult.OK)
-                {
-                    this.Close();
-                }
+                c_number.Focus();
+                hour_name.Focus();
+                date_name.Focus();
+                line_choose.Focus();
+            
+          
             }
         }
 
@@ -120,6 +115,20 @@ namespace hiddenAnaconda.Views
         private void c_number_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void c_number_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(c_number.Text))
+            {
+                errorProvider1.SetError(c_number, "Nie wpisano numeru kursu");
+                ErrorIsOn = true;
+            }
+            else
+            {
+                errorProvider1.SetError(c_number, null);
+                ErrorIsOn = false;
+            }
         }
 
         private void date_name_TextChanged(object sender, EventArgs e)
@@ -181,6 +190,25 @@ namespace hiddenAnaconda.Views
             {
                 errorProvider2.SetError(date_name, null);
                 ErrorIsOn2 = false;
+            }
+        }
+
+        private void line_choose_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void line_choose_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(line_choose.Text))
+            {
+                errorProvider1.SetError(line_choose, "Nie wybrano linii");
+                ErrorIsOn = true;
+            }
+            else
+            {
+                errorProvider1.SetError(line_choose, null);
+                ErrorIsOn = false;
             }
         }
 

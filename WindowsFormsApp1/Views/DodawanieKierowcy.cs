@@ -11,7 +11,7 @@ using System.Text.RegularExpressions;
 
 namespace hiddenAnaconda.Views {
     public partial class DodawanieKierowcy : Form {
-        bool ErrorIsOn = false;
+        bool ErrorIsOn = true;
         public const int WM_NCLBUTTONDOWN = 0xA1;                                               // stałe do funkcji przesuwania okna
         public const int HT_CAPTION = 0x2;                                                      //
         [System.Runtime.InteropServices.DllImport("user32.dll")]                                // importowanie funkcji do przesuwania okna
@@ -43,8 +43,19 @@ namespace hiddenAnaconda.Views {
         }
 
         private void Zapisz_Click(object sender, EventArgs e) {
-            if (ErrorIsOn == false)
-            MessageBox.Show("Zapisano Kierowcę");
+            if ((!string.IsNullOrEmpty(DriverLastName.Text) && !string.IsNullOrEmpty(DriverFirstName.Text) && !string.IsNullOrEmpty(DriverBirthDate.Text) && !string.IsNullOrEmpty(DriverPesel.Text)) && ErrorIsOn==false)
+            {
+                if (MessageBox.Show("Na pewno chcesz zapisać dane kierowcy?", "Zapis Kierowcy", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    MessageBox.Show("Zapisano Kierowcę");
+               
+            }
+            else
+            { 
+                DriverLastName.Focus();
+                DriverPesel.Focus();
+                DriverBirthDate.Focus();
+                DriverFirstName.Focus();
+            }
         }
 
         private void exit_Click(object sender, EventArgs e) {
@@ -100,12 +111,39 @@ namespace hiddenAnaconda.Views {
             DriverFirstName.Select(DriverFirstName.Text.Length, 0);
         }
 
+        private void DriverFirstName_Validating(object sender, CancelEventArgs e)
+        {
+           if (string.IsNullOrEmpty(DriverFirstName.Text))
+            {
+                errorProvider1.SetError(DriverFirstName, "Nie wpisano imienia");
+                ErrorIsOn = true;
+            }
+            else
+            {
+                errorProvider1.SetError(DriverFirstName, null);
+                ErrorIsOn = false;
+            }
+        }
+
         private void DriverLastName_TextChanged(object sender, EventArgs e)
         {
             DriverLastName.Text = System.Threading.Thread.CurrentThread.CurrentCulture.TextInfo.ToTitleCase(this.DriverLastName.Text);
             DriverLastName.Select(DriverLastName.Text.Length, 0);
         }
 
+        private void DriverLastName_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(DriverLastName.Text))
+            {
+                errorProvider1.SetError(DriverLastName, "Nie wpisano nazwiska");
+                ErrorIsOn = true;
+            }
+            else
+            {
+                errorProvider1.SetError(DriverLastName, null);
+                ErrorIsOn = false;
+            }
+        }
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
@@ -129,7 +167,25 @@ namespace hiddenAnaconda.Views {
         {
 
         }
+        private void DriverPesel_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(DriverPesel.Text))
+            {
+                errorProvider1.SetError(DriverPesel, "Nie wpisano PESEL");
+                ErrorIsOn = true;
+            }
+            else if (DriverPesel.TextLength<11)
+            {
 
+                errorProvider1.SetError(DriverPesel, "Niepoprawnie wpisany PESEL");
+                ErrorIsOn = true;
+            }
+            else
+            {
+                errorProvider1.SetError(DriverPesel, null);
+                ErrorIsOn = false;
+            }
+        }
         private void DriverBirthDate_Validating(object sender, CancelEventArgs e)
         {
            
@@ -138,7 +194,7 @@ namespace hiddenAnaconda.Views {
 
                 if (string.IsNullOrEmpty(DriverBirthDate.Text))
                 {
-                    errorProvider1.SetError(DriverBirthDate, "Nie wpisano daty!");
+                    errorProvider1.SetError(DriverBirthDate, "Nie wpisano daty");
                     ErrorIsOn = true;
                 }
                 else if (!r.IsMatch(DriverBirthDate.Text))
