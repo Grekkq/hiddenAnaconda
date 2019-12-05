@@ -42,11 +42,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="IronPdf, Version=2019.8.9.21868, Culture=neutral, PublicKeyToken=94e1c31412563c75, processorArchitecture=MSIL">
+      <HintPath>..\packages\IronPdf.2019.8.9\lib\net40\IronPdf.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Linq" />
     <Reference Include="System.DirectoryServices" />
     <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -59,6 +63,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Constants.cs" />
+    <Compile Include="Models\CreatingUsers.cs" />
     <Compile Include="Models\DayType.cs" />
     <Compile Include="Models\Login.cs" />
     <Compile Include="Models\Report.cs">
@@ -89,6 +94,12 @@
     </Compile>
     <Compile Include="Views\DodawanieDniWolnych.Designer.cs">
       <DependentUpon>DodawanieDniWolnych.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DodawanieUzytkownikow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\DodawanieUzytkownikow.Designer.cs">
+      <DependentUpon>DodawanieUzytkownikow.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\EkranLogowania.cs">
       <SubType>Form</SubType>
@@ -174,6 +185,9 @@
     <EmbeddedResource Include="Views\DodawanieDniWolnych.resx">
       <DependentUpon>DodawanieDniWolnych.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\DodawanieUzytkownikow.resx">
+      <DependentUpon>DodawanieUzytkownikow.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\EkranLogowania.resx">
       <DependentUpon>EkranLogowania.cs</DependentUpon>
     </EmbeddedResource>
@@ -218,6 +232,7 @@
     <None Include="Models\Report.dbml.layout">
       <DependentUpon>Report.dbml</DependentUpon>
     </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -44,6 +44,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.help = new System.Windows.Forms.Button();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -52,6 +53,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.RaportButton);
             this.panel1.Controls.Add(this.pictureBox2);
             this.panel1.Controls.Add(this.create);
@@ -292,6 +294,17 @@
             this.pictureBox3.TabIndex = 48;
             this.pictureBox3.TabStop = false;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(441, 79);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(128, 40);
+            this.button1.TabIndex = 29;
+            this.button1.Text = "Tworzenie użytkowników";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // WybórEkranu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -343,5 +356,6 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button ZmianaStatusu;
         private System.Windows.Forms.Button RaportButton;
+        private System.Windows.Forms.Button button1;
     }
 }

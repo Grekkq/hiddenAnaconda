@@ -39,6 +39,9 @@ namespace hiddenAnaconda.Views {
             textBox2_SetText();
             textBox1_SetText();
             this.ActiveControl = this.textBox1;
+            exit.TabStop = false;
+            help.TabStop = false;
+            button3.TabStop = false;
         }
 
         protected void textBox2_SetText() {
@@ -106,6 +109,11 @@ namespace hiddenAnaconda.Views {
             }
 
         }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
         private void textBox2_loginButtonClick(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -114,8 +122,15 @@ namespace hiddenAnaconda.Views {
             }
 
         }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
+        private void CheckEnter(object sender, System.Windows.Forms.KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)13)
+            {
+                button1_Click(this, new EventArgs());
+            }
+        }
+    }
+    private void textBox2_TextChanged(object sender, EventArgs e)
         {
 
         }
