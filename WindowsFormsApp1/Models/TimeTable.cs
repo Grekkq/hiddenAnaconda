@@ -1,6 +1,8 @@
-﻿using System;
+﻿using IronPdf;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,22 +22,12 @@ namespace hiddenAnaconda.Models {
 
         // wyciaga id trasy tylko dla weekendu albo normalnego tygodnia 
         private List<int> GetTrasasNumberAtDay(DateTime date, int linia) {
-            var data2 = from k in dc.kurs
-                        from t in dc.trasas
-                        where k.id_linii == linia && k.rodzaj_kursu.Equals(CheckDayTypeAtDate(date)) && t.id_trasy == k.id_trasy
-                        select t.nr_trasy;
-
-            CheckDayTypeAtDate(date);
-
             var data = from k in dc.kurs
-                       from d in dc.dni_kursowanias
                        from t in dc.trasas
-                       where k.id_linii == linia && (d.od_dnia <= date && d.do_dnia >= date) && k.rodzaj_kursu.Equals(d.rodzaj_kursu)
-                       && t.id_trasy == k.id_trasy
+                       where k.id_linii == linia &&
+                       k.rodzaj_kursu.Equals(CheckDayTypeAtDate(date)) &&
+                       t.id_trasy == k.id_trasy
                        select t.nr_trasy;
-
-            if (data == data2)
-                Debug.Print("Udało się!");
 
             List<int> list = new List<int>();
             foreach (var item in data)
@@ -80,5 +72,10 @@ namespace hiddenAnaconda.Models {
             }
         }
 
+        public void SaveToPdf(string content) {
+            var htmlToPdf = new HtmlToPdf();
+            var pdf = htmlToPdf.RenderHtmlAsPdf(content);
+            pdf.SaveAs(Path.Combine(Directory.GetCurrentDirectory(), "Report" + ".pdf"));
+        }
     }
 }
