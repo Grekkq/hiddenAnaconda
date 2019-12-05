@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace hiddenAnaconda {
     public static class Constants {
-        public const int NumberOfSecondSInDay = 86400; 
+        public const int NumberOfSecondSInDay = 86400;
+        public const string DateFormat = "yyy.MM.dd";
     }
 }
