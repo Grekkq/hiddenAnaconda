@@ -34,7 +34,6 @@
             this.type = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.reset = new System.Windows.Forms.Button();
             this.dataGridView = new System.Windows.Forms.DataGridView();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -75,7 +74,6 @@
             this.panel1.Controls.Add(this.type);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.pictureBox2);
-            this.panel1.Controls.Add(this.reset);
             this.panel1.Controls.Add(this.dataGridView);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label6);
@@ -123,16 +121,6 @@
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 59;
             this.pictureBox2.TabStop = false;
-            // 
-            // reset
-            // 
-            this.reset.Location = new System.Drawing.Point(121, 325);
-            this.reset.Name = "reset";
-            this.reset.Size = new System.Drawing.Size(80, 40);
-            this.reset.TabIndex = 49;
-            this.reset.Text = "Reset";
-            this.reset.UseVisualStyleBackColor = true;
-            this.reset.Click += new System.EventHandler(this.reset_Click);
             // 
             // dataGridView
             // 
@@ -322,7 +310,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DataGridView dataGridView;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button reset;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox type;
