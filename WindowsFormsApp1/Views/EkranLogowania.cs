@@ -130,9 +130,4 @@ namespace hiddenAnaconda.Views {
             }
         }
     }
-    private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-    }
 }
