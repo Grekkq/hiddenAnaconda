@@ -25,7 +25,7 @@ namespace hiddenAnaconda.Models {
                         where k.id_linii == linia && k.rodzaj_kursu.Equals(CheckDayTypeAtDate(date)) && t.id_trasy == k.id_trasy
                         select t.nr_trasy;
 
-
+            CheckDayTypeAtDate(date);
 
             var data = from k in dc.kurs
                        from d in dc.dni_kursowanias

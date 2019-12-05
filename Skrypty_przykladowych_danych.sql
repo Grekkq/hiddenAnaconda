@@ -126,11 +126,11 @@ SET IDENTITY_INSERT [dbo].[czas_odjazdu] OFF
 
 -- Dane dla kursu
 SET IDENTITY_INSERT [dbo].[kurs] ON
-INSERT INTO [dbo].[kurs] ([id_kursu], [id_linii], [id_czasu_odjazdu], [id_trasy], [ktory_kurs_danego_dnia], [rodzaj_kursu]) VALUES (0, 101, 0, 0, 0, 0)
-INSERT INTO [dbo].[kurs] ([id_kursu], [id_linii], [id_czasu_odjazdu], [id_trasy], [ktory_kurs_danego_dnia], [rodzaj_kursu]) VALUES (1, 164, 6, 6, 0, 0)
-INSERT INTO [dbo].[kurs] ([id_kursu], [id_linii], [id_czasu_odjazdu], [id_trasy], [ktory_kurs_danego_dnia], [rodzaj_kursu]) VALUES (2, 164, 13, 13, 1, 0)
-INSERT INTO [dbo].[kurs] ([id_kursu], [id_linii], [id_czasu_odjazdu], [id_trasy], [ktory_kurs_danego_dnia], [rodzaj_kursu]) VALUES (3, 101, 25, 25, 1, 0)
-INSERT INTO [dbo].[kurs] ([id_kursu], [id_linii], [id_czasu_odjazdu], [id_trasy], [ktory_kurs_danego_dnia], [rodzaj_kursu]) VALUES (4, 551, 20, 20, 0, 1)
+INSERT INTO [dbo].[kurs] ([id_kursu], [id_linii], [id_czasu_odjazdu], [id_trasy], [ktory_kurs_danego_dnia], [rodzaj_kursu]) VALUES (0, 101, 0, 0, 0, N'roboczy')
+INSERT INTO [dbo].[kurs] ([id_kursu], [id_linii], [id_czasu_odjazdu], [id_trasy], [ktory_kurs_danego_dnia], [rodzaj_kursu]) VALUES (1, 164, 6, 6, 0, N'roboczy')
+INSERT INTO [dbo].[kurs] ([id_kursu], [id_linii], [id_czasu_odjazdu], [id_trasy], [ktory_kurs_danego_dnia], [rodzaj_kursu]) VALUES (2, 164, 13, 13, 1, N'roboczy')
+INSERT INTO [dbo].[kurs] ([id_kursu], [id_linii], [id_czasu_odjazdu], [id_trasy], [ktory_kurs_danego_dnia], [rodzaj_kursu]) VALUES (3, 101, 25, 25, 1, N'roboczy')
+INSERT INTO [dbo].[kurs] ([id_kursu], [id_linii], [id_czasu_odjazdu], [id_trasy], [ktory_kurs_danego_dnia], [rodzaj_kursu]) VALUES (4, 551, 20, 20, 0, N'wolny')
 SET IDENTITY_INSERT [dbo].[kurs] OFF
 
 --Dane dla realizacji kursu
