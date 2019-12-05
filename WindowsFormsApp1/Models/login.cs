@@ -48,8 +48,10 @@ namespace hiddenAnaconda.Models {
             if (hash.Equals("0"))
                 return false;
             string salt = hash.Substring(0,32);
-            if (hash.Equals(GetSaltedHashedPassword(password, salt)))
+            if (hash.Equals(GetSaltedHashedPassword(password, salt))) {
+                Debug.Print("Successfully loged in user: {0}", login);
                 return true;
+            }
             return false;
         }
 

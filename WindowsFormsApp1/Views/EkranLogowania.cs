@@ -96,7 +96,6 @@ namespace hiddenAnaconda.Views {
             } else {
                 Models.Login login = new Models.Login();
                 if (login.LoginUser(username, password)) {
-                    MessageBox.Show("Pomyślnie zalogowano.", "Sukces", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Hide();
                     Form sistema = new WybórEkranu();
                     sistema.ShowDialog();

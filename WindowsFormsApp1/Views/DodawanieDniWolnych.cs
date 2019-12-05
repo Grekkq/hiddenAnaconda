@@ -45,6 +45,10 @@ namespace hiddenAnaconda.Views {
 
         private void DodawanieDniSwiatecznych_Load(object sender, EventArgs e) {
             type.MaxLength = 30;
+            ReloadDataInDataGrid();
+        }
+
+        private void ReloadDataInDataGrid() {
             this.dataGridView.Rows.Clear();
             this.dataGridView.Refresh();
             this.dataGridView.ReadOnly = true;
@@ -79,13 +83,17 @@ namespace hiddenAnaconda.Views {
             } else if (string.IsNullOrEmpty(dayKind) && type.SelectedIndex == -1) {
                 MessageBox.Show("Nie wprowadzono rodzaju okresu.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             } else {
-                var result = MessageBox.Show("", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                var result = MessageBox.Show
+                    ("Czy na pewno chcesz dodać dzień " + dayKind + " od dnia: " + startDate.Date + " do dnia: " + endDate.Date + "?",
+                    "Czy na pewno?",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.Yes) {
                     Models.DayType dayType = new Models.DayType();
                     if (!dayType.addDate(dayKind, startDate, endDate)) {
                         MessageBox.Show("Nie udało dodać dnia.\nSpróbuj ponownie.", "Błąd!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
+                    ReloadDataInDataGrid();
                 }
 
             }
