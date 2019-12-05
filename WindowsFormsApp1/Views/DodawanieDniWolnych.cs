@@ -55,6 +55,18 @@ namespace hiddenAnaconda.Views
         private void DodawanieDniSwiatecznych_Load(object sender, EventArgs e)
         {
             type.MaxLength = 30;
+            this.dataGridView.Rows.Clear();
+            this.dataGridView.Refresh();
+            this.dataGridView.ReadOnly = true;
+            Models.DayType dayType = new Models.DayType();
+            this.dataGridView.DataSource = dayType.selectDataForDataGrid().Select(d => new { d.rodzaj_kursu, d.od_dnia, d.do_dnia.Date });
+            this.dataGridView.Columns[0].HeaderText = "Typ Dnia";
+            this.dataGridView.Columns[1].HeaderText = "Od Dnia";
+            this.dataGridView.Columns[2].HeaderText = "Do Dnia";
+            this.dataGridView.RowHeadersVisible = false;
+            this.dataGridView.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridView.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.dataGridView.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
         }
 
         private void powrot_Click(object sender, EventArgs e)
