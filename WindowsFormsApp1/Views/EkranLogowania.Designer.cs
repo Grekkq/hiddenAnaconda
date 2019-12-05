@@ -293,7 +293,6 @@
             this.Name = "EkranLogowania";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "EkranLogowania";
-            this.Activated += new System.EventHandler(this.turnoffFocus);
             this.Load += new System.EventHandler(this.EkranLogowania_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
