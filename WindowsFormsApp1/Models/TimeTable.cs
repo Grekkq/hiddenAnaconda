@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,14 +13,30 @@ namespace hiddenAnaconda.Models {
             dc = new Models.ReportDataContext();
         }
 
+        private string CheckDayTypeAtDate(DateTime date) {
+            var result = dc.dni_kursowanias.Where(dni => dni.od_dnia <= date & dni.do_dnia >= date);
+            return result.First().rodzaj_kursu;
+        }
+
         // wyciaga id trasy tylko dla weekendu albo normalnego tygodnia 
         private List<int> GetTrasasNumberAtDay(DateTime date, int linia) {
+            var data2 = from k in dc.kurs
+                        from t in dc.trasas
+                        where k.id_linii == linia && k.rodzaj_kursu.Equals(CheckDayTypeAtDate(date)) && t.id_trasy == k.id_trasy
+                        select t.nr_trasy;
+
+
+
             var data = from k in dc.kurs
                        from d in dc.dni_kursowanias
                        from t in dc.trasas
                        where k.id_linii == linia && (d.od_dnia <= date && d.do_dnia >= date) && k.rodzaj_kursu.Equals(d.rodzaj_kursu)
                        && t.id_trasy == k.id_trasy
                        select t.nr_trasy;
+
+            if (data == data2)
+                Debug.Print("Udało się!");
+
             List<int> list = new List<int>();
             foreach (var item in data)
                 list.Add(item);

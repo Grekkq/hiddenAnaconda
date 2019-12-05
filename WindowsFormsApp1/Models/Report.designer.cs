@@ -33,9 +33,15 @@ namespace hiddenAnaconda.Models
     partial void Insertczas_odjazdu(czas_odjazdu instance);
     partial void Updateczas_odjazdu(czas_odjazdu instance);
     partial void Deleteczas_odjazdu(czas_odjazdu instance);
+    partial void Inserttrasa(trasa instance);
+    partial void Updatetrasa(trasa instance);
+    partial void Deletetrasa(trasa instance);
     partial void Insertczas_realizacji(czas_realizacji instance);
     partial void Updateczas_realizacji(czas_realizacji instance);
     partial void Deleteczas_realizacji(czas_realizacji instance);
+    partial void Insertdni_kursowania(dni_kursowania instance);
+    partial void Updatedni_kursowania(dni_kursowania instance);
+    partial void Deletedni_kursowania(dni_kursowania instance);
     partial void Insertkierowca(kierowca instance);
     partial void Updatekierowca(kierowca instance);
     partial void Deletekierowca(kierowca instance);
@@ -57,12 +63,6 @@ namespace hiddenAnaconda.Models
     partial void Insertrealizacja_kursu(realizacja_kursu instance);
     partial void Updaterealizacja_kursu(realizacja_kursu instance);
     partial void Deleterealizacja_kursu(realizacja_kursu instance);
-    partial void Inserttrasa(trasa instance);
-    partial void Updatetrasa(trasa instance);
-    partial void Deletetrasa(trasa instance);
-    partial void Insertdni_kursowania(dni_kursowania instance);
-    partial void Updatedni_kursowania(dni_kursowania instance);
-    partial void Deletedni_kursowania(dni_kursowania instance);
     #endregion
 		
 		public ReportDataContext() : 
@@ -103,11 +103,27 @@ namespace hiddenAnaconda.Models
 			}
 		}
 		
+		public System.Data.Linq.Table<trasa> trasas
+		{
+			get
+			{
+				return this.GetTable<trasa>();
+			}
+		}
+		
 		public System.Data.Linq.Table<czas_realizacji> czas_realizacjis
 		{
 			get
 			{
 				return this.GetTable<czas_realizacji>();
+			}
+		}
+		
+		public System.Data.Linq.Table<dni_kursowania> dni_kursowanias
+		{
+			get
+			{
+				return this.GetTable<dni_kursowania>();
 			}
 		}
 		
@@ -166,22 +182,6 @@ namespace hiddenAnaconda.Models
 				return this.GetTable<realizacja_kursu>();
 			}
 		}
-		
-		public System.Data.Linq.Table<trasa> trasas
-		{
-			get
-			{
-				return this.GetTable<trasa>();
-			}
-		}
-		
-		public System.Data.Linq.Table<dni_kursowania> dni_kursowanias
-		{
-			get
-			{
-				return this.GetTable<dni_kursowania>();
-			}
-		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.czas_odjazdu")]
@@ -222,7 +222,7 @@ namespace hiddenAnaconda.Models
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_czasu_odjazdu", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_czasu_odjazdu", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
 		public int id_czasu_odjazdu
 		{
 			get
@@ -391,6 +391,302 @@ namespace hiddenAnaconda.Models
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.trasa")]
+	public partial class trasa : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _id_trasy;
+		
+		private int _id_linii;
+		
+		private int _id_przystanku;
+		
+		private int _kolejnosc_przystankow;
+		
+		private int _nr_trasy;
+		
+		private EntitySet<czas_odjazdu> _czas_odjazdus;
+		
+		private EntitySet<kur> _kurs;
+		
+		private EntityRef<linia> _linia;
+		
+		private EntityRef<przystanek> _przystanek;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Onid_trasyChanging(int value);
+    partial void Onid_trasyChanged();
+    partial void Onid_liniiChanging(int value);
+    partial void Onid_liniiChanged();
+    partial void Onid_przystankuChanging(int value);
+    partial void Onid_przystankuChanged();
+    partial void Onkolejnosc_przystankowChanging(int value);
+    partial void Onkolejnosc_przystankowChanged();
+    partial void Onnr_trasyChanging(int value);
+    partial void Onnr_trasyChanged();
+    #endregion
+		
+		public trasa()
+		{
+			this._czas_odjazdus = new EntitySet<czas_odjazdu>(new Action<czas_odjazdu>(this.attach_czas_odjazdus), new Action<czas_odjazdu>(this.detach_czas_odjazdus));
+			this._kurs = new EntitySet<kur>(new Action<kur>(this.attach_kurs), new Action<kur>(this.detach_kurs));
+			this._linia = default(EntityRef<linia>);
+			this._przystanek = default(EntityRef<przystanek>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_trasy", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id_trasy
+		{
+			get
+			{
+				return this._id_trasy;
+			}
+			set
+			{
+				if ((this._id_trasy != value))
+				{
+					this.Onid_trasyChanging(value);
+					this.SendPropertyChanging();
+					this._id_trasy = value;
+					this.SendPropertyChanged("id_trasy");
+					this.Onid_trasyChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_linii", DbType="Int NOT NULL")]
+		public int id_linii
+		{
+			get
+			{
+				return this._id_linii;
+			}
+			set
+			{
+				if ((this._id_linii != value))
+				{
+					if (this._linia.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onid_liniiChanging(value);
+					this.SendPropertyChanging();
+					this._id_linii = value;
+					this.SendPropertyChanged("id_linii");
+					this.Onid_liniiChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_przystanku", DbType="Int NOT NULL")]
+		public int id_przystanku
+		{
+			get
+			{
+				return this._id_przystanku;
+			}
+			set
+			{
+				if ((this._id_przystanku != value))
+				{
+					if (this._przystanek.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onid_przystankuChanging(value);
+					this.SendPropertyChanging();
+					this._id_przystanku = value;
+					this.SendPropertyChanged("id_przystanku");
+					this.Onid_przystankuChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_kolejnosc_przystankow", DbType="Int NOT NULL")]
+		public int kolejnosc_przystankow
+		{
+			get
+			{
+				return this._kolejnosc_przystankow;
+			}
+			set
+			{
+				if ((this._kolejnosc_przystankow != value))
+				{
+					this.Onkolejnosc_przystankowChanging(value);
+					this.SendPropertyChanging();
+					this._kolejnosc_przystankow = value;
+					this.SendPropertyChanged("kolejnosc_przystankow");
+					this.Onkolejnosc_przystankowChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nr_trasy", DbType="Int NOT NULL")]
+		public int nr_trasy
+		{
+			get
+			{
+				return this._nr_trasy;
+			}
+			set
+			{
+				if ((this._nr_trasy != value))
+				{
+					this.Onnr_trasyChanging(value);
+					this.SendPropertyChanging();
+					this._nr_trasy = value;
+					this.SendPropertyChanged("nr_trasy");
+					this.Onnr_trasyChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="trasa_czas_odjazdu", Storage="_czas_odjazdus", ThisKey="id_trasy", OtherKey="id_trasy")]
+		public EntitySet<czas_odjazdu> czas_odjazdus
+		{
+			get
+			{
+				return this._czas_odjazdus;
+			}
+			set
+			{
+				this._czas_odjazdus.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="trasa_kur", Storage="_kurs", ThisKey="id_trasy", OtherKey="id_trasy")]
+		public EntitySet<kur> kurs
+		{
+			get
+			{
+				return this._kurs;
+			}
+			set
+			{
+				this._kurs.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="linia_trasa", Storage="_linia", ThisKey="id_linii", OtherKey="id_linii", IsForeignKey=true)]
+		public linia linia
+		{
+			get
+			{
+				return this._linia.Entity;
+			}
+			set
+			{
+				linia previousValue = this._linia.Entity;
+				if (((previousValue != value) 
+							|| (this._linia.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._linia.Entity = null;
+						previousValue.trasas.Remove(this);
+					}
+					this._linia.Entity = value;
+					if ((value != null))
+					{
+						value.trasas.Add(this);
+						this._id_linii = value.id_linii;
+					}
+					else
+					{
+						this._id_linii = default(int);
+					}
+					this.SendPropertyChanged("linia");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="przystanek_trasa", Storage="_przystanek", ThisKey="id_przystanku", OtherKey="id_przystanku", IsForeignKey=true)]
+		public przystanek przystanek
+		{
+			get
+			{
+				return this._przystanek.Entity;
+			}
+			set
+			{
+				przystanek previousValue = this._przystanek.Entity;
+				if (((previousValue != value) 
+							|| (this._przystanek.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._przystanek.Entity = null;
+						previousValue.trasas.Remove(this);
+					}
+					this._przystanek.Entity = value;
+					if ((value != null))
+					{
+						value.trasas.Add(this);
+						this._id_przystanku = value.id_przystanku;
+					}
+					else
+					{
+						this._id_przystanku = default(int);
+					}
+					this.SendPropertyChanged("przystanek");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_czas_odjazdus(czas_odjazdu entity)
+		{
+			this.SendPropertyChanging();
+			entity.trasa = this;
+		}
+		
+		private void detach_czas_odjazdus(czas_odjazdu entity)
+		{
+			this.SendPropertyChanging();
+			entity.trasa = null;
+		}
+		
+		private void attach_kurs(kur entity)
+		{
+			this.SendPropertyChanging();
+			entity.trasa = this;
+		}
+		
+		private void detach_kurs(kur entity)
+		{
+			this.SendPropertyChanging();
+			entity.trasa = null;
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.czas_realizacji")]
 	public partial class czas_realizacji : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -430,7 +726,7 @@ namespace hiddenAnaconda.Models
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_czasu_realizacji", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_czasu_realizacji", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
 		public int id_czasu_realizacji
 		{
 			get
@@ -607,6 +903,140 @@ namespace hiddenAnaconda.Models
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.dni_kursowania")]
+	public partial class dni_kursowania : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _id_dni_kursowania;
+		
+		private System.DateTime _od_dnia;
+		
+		private System.DateTime _do_dnia;
+		
+		private string _rodzaj_kursu;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Onid_dni_kursowaniaChanging(int value);
+    partial void Onid_dni_kursowaniaChanged();
+    partial void Onod_dniaChanging(System.DateTime value);
+    partial void Onod_dniaChanged();
+    partial void Ondo_dniaChanging(System.DateTime value);
+    partial void Ondo_dniaChanged();
+    partial void Onrodzaj_kursuChanging(string value);
+    partial void Onrodzaj_kursuChanged();
+    #endregion
+		
+		public dni_kursowania()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_dni_kursowania", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id_dni_kursowania
+		{
+			get
+			{
+				return this._id_dni_kursowania;
+			}
+			set
+			{
+				if ((this._id_dni_kursowania != value))
+				{
+					this.Onid_dni_kursowaniaChanging(value);
+					this.SendPropertyChanging();
+					this._id_dni_kursowania = value;
+					this.SendPropertyChanged("id_dni_kursowania");
+					this.Onid_dni_kursowaniaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_od_dnia", DbType="DateTime NOT NULL")]
+		public System.DateTime od_dnia
+		{
+			get
+			{
+				return this._od_dnia;
+			}
+			set
+			{
+				if ((this._od_dnia != value))
+				{
+					this.Onod_dniaChanging(value);
+					this.SendPropertyChanging();
+					this._od_dnia = value;
+					this.SendPropertyChanged("od_dnia");
+					this.Onod_dniaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_do_dnia", DbType="DateTime NOT NULL")]
+		public System.DateTime do_dnia
+		{
+			get
+			{
+				return this._do_dnia;
+			}
+			set
+			{
+				if ((this._do_dnia != value))
+				{
+					this.Ondo_dniaChanging(value);
+					this.SendPropertyChanging();
+					this._do_dnia = value;
+					this.SendPropertyChanged("do_dnia");
+					this.Ondo_dniaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_rodzaj_kursu", DbType="NVarChar(30) NOT NULL", CanBeNull=false)]
+		public string rodzaj_kursu
+		{
+			get
+			{
+				return this._rodzaj_kursu;
+			}
+			set
+			{
+				if ((this._rodzaj_kursu != value))
+				{
+					this.Onrodzaj_kursuChanging(value);
+					this.SendPropertyChanging();
+					this._rodzaj_kursu = value;
+					this.SendPropertyChanged("rodzaj_kursu");
+					this.Onrodzaj_kursuChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.kierowca")]
 	public partial class kierowca : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -650,7 +1080,7 @@ namespace hiddenAnaconda.Models
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_kierowcy", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_kierowcy", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
 		public int id_kierowcy
 		{
 			get
@@ -670,7 +1100,7 @@ namespace hiddenAnaconda.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_imie", DbType="VarChar(30) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_imie", DbType="NVarChar(30) NOT NULL", CanBeNull=false)]
 		public string imie
 		{
 			get
@@ -690,7 +1120,7 @@ namespace hiddenAnaconda.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nazwisko", DbType="VarChar(30) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nazwisko", DbType="NVarChar(30) NOT NULL", CanBeNull=false)]
 		public string nazwisko
 		{
 			get
@@ -837,15 +1267,15 @@ namespace hiddenAnaconda.Models
 		
 		private int _ktory_kurs_danego_dnia;
 		
-		private int _rodzaj_kursu;
+		private string _rodzaj_kursu;
 		
 		private EntitySet<realizacja_kursu> _realizacja_kursus;
 		
 		private EntityRef<czas_odjazdu> _czas_odjazdu;
 		
-		private EntityRef<linia> _linia;
-		
 		private EntityRef<trasa> _trasa;
+		
+		private EntityRef<linia> _linia;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -861,7 +1291,7 @@ namespace hiddenAnaconda.Models
     partial void Onid_trasyChanged();
     partial void Onktory_kurs_danego_dniaChanging(int value);
     partial void Onktory_kurs_danego_dniaChanged();
-    partial void Onrodzaj_kursuChanging(int value);
+    partial void Onrodzaj_kursuChanging(string value);
     partial void Onrodzaj_kursuChanged();
     #endregion
 		
@@ -869,12 +1299,12 @@ namespace hiddenAnaconda.Models
 		{
 			this._realizacja_kursus = new EntitySet<realizacja_kursu>(new Action<realizacja_kursu>(this.attach_realizacja_kursus), new Action<realizacja_kursu>(this.detach_realizacja_kursus));
 			this._czas_odjazdu = default(EntityRef<czas_odjazdu>);
-			this._linia = default(EntityRef<linia>);
 			this._trasa = default(EntityRef<trasa>);
+			this._linia = default(EntityRef<linia>);
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_kursu", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_kursu", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
 		public int id_kursu
 		{
 			get
@@ -986,8 +1416,8 @@ namespace hiddenAnaconda.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_rodzaj_kursu", DbType="Int NOT NULL")]
-		public int rodzaj_kursu
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_rodzaj_kursu", DbType="NVarChar(30) NOT NULL", CanBeNull=false)]
+		public string rodzaj_kursu
 		{
 			get
 			{
@@ -1053,40 +1483,6 @@ namespace hiddenAnaconda.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="linia_kur", Storage="_linia", ThisKey="id_linii", OtherKey="id_linii", IsForeignKey=true)]
-		public linia linia
-		{
-			get
-			{
-				return this._linia.Entity;
-			}
-			set
-			{
-				linia previousValue = this._linia.Entity;
-				if (((previousValue != value) 
-							|| (this._linia.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._linia.Entity = null;
-						previousValue.kurs.Remove(this);
-					}
-					this._linia.Entity = value;
-					if ((value != null))
-					{
-						value.kurs.Add(this);
-						this._id_linii = value.id_linii;
-					}
-					else
-					{
-						this._id_linii = default(int);
-					}
-					this.SendPropertyChanged("linia");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="trasa_kur", Storage="_trasa", ThisKey="id_trasy", OtherKey="id_trasy", IsForeignKey=true)]
 		public trasa trasa
 		{
@@ -1117,6 +1513,40 @@ namespace hiddenAnaconda.Models
 						this._id_trasy = default(int);
 					}
 					this.SendPropertyChanged("trasa");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="linia_kur", Storage="_linia", ThisKey="id_linii", OtherKey="id_linii", IsForeignKey=true)]
+		public linia linia
+		{
+			get
+			{
+				return this._linia.Entity;
+			}
+			set
+			{
+				linia previousValue = this._linia.Entity;
+				if (((previousValue != value) 
+							|| (this._linia.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._linia.Entity = null;
+						previousValue.kurs.Remove(this);
+					}
+					this._linia.Entity = value;
+					if ((value != null))
+					{
+						value.kurs.Add(this);
+						this._id_linii = value.id_linii;
+					}
+					else
+					{
+						this._id_linii = default(int);
+					}
+					this.SendPropertyChanged("linia");
 				}
 			}
 		}
@@ -1164,9 +1594,9 @@ namespace hiddenAnaconda.Models
 		
 		private bool _czy_zapetla;
 		
-		private EntitySet<kur> _kurs;
-		
 		private EntitySet<trasa> _trasas;
+		
+		private EntitySet<kur> _kurs;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -1180,12 +1610,12 @@ namespace hiddenAnaconda.Models
 		
 		public linia()
 		{
-			this._kurs = new EntitySet<kur>(new Action<kur>(this.attach_kurs), new Action<kur>(this.detach_kurs));
 			this._trasas = new EntitySet<trasa>(new Action<trasa>(this.attach_trasas), new Action<trasa>(this.detach_trasas));
+			this._kurs = new EntitySet<kur>(new Action<kur>(this.attach_kurs), new Action<kur>(this.detach_kurs));
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_linii", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_linii", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
 		public int id_linii
 		{
 			get
@@ -1225,19 +1655,6 @@ namespace hiddenAnaconda.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="linia_kur", Storage="_kurs", ThisKey="id_linii", OtherKey="id_linii")]
-		public EntitySet<kur> kurs
-		{
-			get
-			{
-				return this._kurs;
-			}
-			set
-			{
-				this._kurs.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="linia_trasa", Storage="_trasas", ThisKey="id_linii", OtherKey="id_linii")]
 		public EntitySet<trasa> trasas
 		{
@@ -1248,6 +1665,19 @@ namespace hiddenAnaconda.Models
 			set
 			{
 				this._trasas.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="linia_kur", Storage="_kurs", ThisKey="id_linii", OtherKey="id_linii")]
+		public EntitySet<kur> kurs
+		{
+			get
+			{
+				return this._kurs;
+			}
+			set
+			{
+				this._kurs.Assign(value);
 			}
 		}
 		
@@ -1271,18 +1701,6 @@ namespace hiddenAnaconda.Models
 			}
 		}
 		
-		private void attach_kurs(kur entity)
-		{
-			this.SendPropertyChanging();
-			entity.linia = this;
-		}
-		
-		private void detach_kurs(kur entity)
-		{
-			this.SendPropertyChanging();
-			entity.linia = null;
-		}
-		
 		private void attach_trasas(trasa entity)
 		{
 			this.SendPropertyChanging();
@@ -1290,6 +1708,18 @@ namespace hiddenAnaconda.Models
 		}
 		
 		private void detach_trasas(trasa entity)
+		{
+			this.SendPropertyChanging();
+			entity.linia = null;
+		}
+		
+		private void attach_kurs(kur entity)
+		{
+			this.SendPropertyChanging();
+			entity.linia = this;
+		}
+		
+		private void detach_kurs(kur entity)
 		{
 			this.SendPropertyChanging();
 			entity.linia = null;
@@ -1333,7 +1763,7 @@ namespace hiddenAnaconda.Models
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_uzytkownika", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_uzytkownika", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
 		public int id_uzytkownika
 		{
 			get
@@ -1353,7 +1783,7 @@ namespace hiddenAnaconda.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_login", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_login", DbType="NVarChar(20) NOT NULL", CanBeNull=false)]
 		public string login
 		{
 			get
@@ -1373,7 +1803,7 @@ namespace hiddenAnaconda.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_hasz", DbType="VarChar(72) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_hasz", DbType="NVarChar(72) NOT NULL", CanBeNull=false)]
 		public string hasz
 		{
 			get
@@ -1498,7 +1928,7 @@ namespace hiddenAnaconda.Models
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_pojazdu", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_pojazdu", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
 		public int id_pojazdu
 		{
 			get
@@ -1518,7 +1948,7 @@ namespace hiddenAnaconda.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nr_rejestracyjny", DbType="VarChar(7) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nr_rejestracyjny", DbType="NVarChar(7) NOT NULL", CanBeNull=false)]
 		public string nr_rejestracyjny
 		{
 			get
@@ -1538,7 +1968,7 @@ namespace hiddenAnaconda.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_model", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_model", DbType="NVarChar(20) NOT NULL", CanBeNull=false)]
 		public string model
 		{
 			get
@@ -1558,7 +1988,7 @@ namespace hiddenAnaconda.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_marka", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_marka", DbType="NVarChar(20) NOT NULL", CanBeNull=false)]
 		public string marka
 		{
 			get
@@ -1700,7 +2130,7 @@ namespace hiddenAnaconda.Models
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_przystanku", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_przystanku", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
 		public int id_przystanku
 		{
 			get
@@ -1720,7 +2150,7 @@ namespace hiddenAnaconda.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nazwa", DbType="VarChar(30) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nazwa", DbType="NVarChar(30) NOT NULL", CanBeNull=false)]
 		public string nazwa
 		{
 			get
@@ -1740,7 +2170,7 @@ namespace hiddenAnaconda.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_miasto", DbType="VarChar(30) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_miasto", DbType="NVarChar(30) NOT NULL", CanBeNull=false)]
 		public string miasto
 		{
 			get
@@ -1882,7 +2312,7 @@ namespace hiddenAnaconda.Models
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_realizacji_kursu", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_realizacji_kursu", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
 		public int id_realizacji_kursu
 		{
 			get
@@ -2197,436 +2627,6 @@ namespace hiddenAnaconda.Models
 		{
 			this.SendPropertyChanging();
 			entity.realizacja_kursu = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.trasa")]
-	public partial class trasa : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _id_trasy;
-		
-		private int _id_linii;
-		
-		private int _id_przystanku;
-		
-		private int _kolejnosc_przystankow;
-		
-		private int _nr_trasy;
-		
-		private EntitySet<czas_odjazdu> _czas_odjazdus;
-		
-		private EntitySet<kur> _kurs;
-		
-		private EntityRef<przystanek> _przystanek;
-		
-		private EntityRef<linia> _linia;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void Onid_trasyChanging(int value);
-    partial void Onid_trasyChanged();
-    partial void Onid_liniiChanging(int value);
-    partial void Onid_liniiChanged();
-    partial void Onid_przystankuChanging(int value);
-    partial void Onid_przystankuChanged();
-    partial void Onkolejnosc_przystankowChanging(int value);
-    partial void Onkolejnosc_przystankowChanged();
-    partial void Onnr_trasyChanging(int value);
-    partial void Onnr_trasyChanged();
-    #endregion
-		
-		public trasa()
-		{
-			this._czas_odjazdus = new EntitySet<czas_odjazdu>(new Action<czas_odjazdu>(this.attach_czas_odjazdus), new Action<czas_odjazdu>(this.detach_czas_odjazdus));
-			this._kurs = new EntitySet<kur>(new Action<kur>(this.attach_kurs), new Action<kur>(this.detach_kurs));
-			this._przystanek = default(EntityRef<przystanek>);
-			this._linia = default(EntityRef<linia>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_trasy", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int id_trasy
-		{
-			get
-			{
-				return this._id_trasy;
-			}
-			set
-			{
-				if ((this._id_trasy != value))
-				{
-					this.Onid_trasyChanging(value);
-					this.SendPropertyChanging();
-					this._id_trasy = value;
-					this.SendPropertyChanged("id_trasy");
-					this.Onid_trasyChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_linii", DbType="Int NOT NULL")]
-		public int id_linii
-		{
-			get
-			{
-				return this._id_linii;
-			}
-			set
-			{
-				if ((this._id_linii != value))
-				{
-					if (this._linia.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.Onid_liniiChanging(value);
-					this.SendPropertyChanging();
-					this._id_linii = value;
-					this.SendPropertyChanged("id_linii");
-					this.Onid_liniiChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_przystanku", DbType="Int NOT NULL")]
-		public int id_przystanku
-		{
-			get
-			{
-				return this._id_przystanku;
-			}
-			set
-			{
-				if ((this._id_przystanku != value))
-				{
-					if (this._przystanek.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.Onid_przystankuChanging(value);
-					this.SendPropertyChanging();
-					this._id_przystanku = value;
-					this.SendPropertyChanged("id_przystanku");
-					this.Onid_przystankuChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_kolejnosc_przystankow", DbType="Int NOT NULL")]
-		public int kolejnosc_przystankow
-		{
-			get
-			{
-				return this._kolejnosc_przystankow;
-			}
-			set
-			{
-				if ((this._kolejnosc_przystankow != value))
-				{
-					this.Onkolejnosc_przystankowChanging(value);
-					this.SendPropertyChanging();
-					this._kolejnosc_przystankow = value;
-					this.SendPropertyChanged("kolejnosc_przystankow");
-					this.Onkolejnosc_przystankowChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nr_trasy", DbType="Int NOT NULL")]
-		public int nr_trasy
-		{
-			get
-			{
-				return this._nr_trasy;
-			}
-			set
-			{
-				if ((this._nr_trasy != value))
-				{
-					this.Onnr_trasyChanging(value);
-					this.SendPropertyChanging();
-					this._nr_trasy = value;
-					this.SendPropertyChanged("nr_trasy");
-					this.Onnr_trasyChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="trasa_czas_odjazdu", Storage="_czas_odjazdus", ThisKey="id_trasy", OtherKey="id_trasy")]
-		public EntitySet<czas_odjazdu> czas_odjazdus
-		{
-			get
-			{
-				return this._czas_odjazdus;
-			}
-			set
-			{
-				this._czas_odjazdus.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="trasa_kur", Storage="_kurs", ThisKey="id_trasy", OtherKey="id_trasy")]
-		public EntitySet<kur> kurs
-		{
-			get
-			{
-				return this._kurs;
-			}
-			set
-			{
-				this._kurs.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="przystanek_trasa", Storage="_przystanek", ThisKey="id_przystanku", OtherKey="id_przystanku", IsForeignKey=true)]
-		public przystanek przystanek
-		{
-			get
-			{
-				return this._przystanek.Entity;
-			}
-			set
-			{
-				przystanek previousValue = this._przystanek.Entity;
-				if (((previousValue != value) 
-							|| (this._przystanek.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._przystanek.Entity = null;
-						previousValue.trasas.Remove(this);
-					}
-					this._przystanek.Entity = value;
-					if ((value != null))
-					{
-						value.trasas.Add(this);
-						this._id_przystanku = value.id_przystanku;
-					}
-					else
-					{
-						this._id_przystanku = default(int);
-					}
-					this.SendPropertyChanged("przystanek");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="linia_trasa", Storage="_linia", ThisKey="id_linii", OtherKey="id_linii", IsForeignKey=true)]
-		public linia linia
-		{
-			get
-			{
-				return this._linia.Entity;
-			}
-			set
-			{
-				linia previousValue = this._linia.Entity;
-				if (((previousValue != value) 
-							|| (this._linia.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._linia.Entity = null;
-						previousValue.trasas.Remove(this);
-					}
-					this._linia.Entity = value;
-					if ((value != null))
-					{
-						value.trasas.Add(this);
-						this._id_linii = value.id_linii;
-					}
-					else
-					{
-						this._id_linii = default(int);
-					}
-					this.SendPropertyChanged("linia");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_czas_odjazdus(czas_odjazdu entity)
-		{
-			this.SendPropertyChanging();
-			entity.trasa = this;
-		}
-		
-		private void detach_czas_odjazdus(czas_odjazdu entity)
-		{
-			this.SendPropertyChanging();
-			entity.trasa = null;
-		}
-		
-		private void attach_kurs(kur entity)
-		{
-			this.SendPropertyChanging();
-			entity.trasa = this;
-		}
-		
-		private void detach_kurs(kur entity)
-		{
-			this.SendPropertyChanging();
-			entity.trasa = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.dni_kursowania")]
-	public partial class dni_kursowania : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _id_dni_kursowania;
-		
-		private System.DateTime _od_dnia;
-		
-		private System.DateTime _do_dnia;
-		
-		private string _rodzaj_kursu;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void Onid_dni_kursowaniaChanging(int value);
-    partial void Onid_dni_kursowaniaChanged();
-    partial void Onod_dniaChanging(System.DateTime value);
-    partial void Onod_dniaChanged();
-    partial void Ondo_dniaChanging(System.DateTime value);
-    partial void Ondo_dniaChanged();
-    partial void Onrodzaj_kursuChanging(string value);
-    partial void Onrodzaj_kursuChanged();
-    #endregion
-		
-		public dni_kursowania()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_dni_kursowania", DbType="Int NOT NULL", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int id_dni_kursowania
-		{
-			get
-			{
-				return this._id_dni_kursowania;
-			}
-			set
-			{
-				if ((this._id_dni_kursowania != value))
-				{
-					this.Onid_dni_kursowaniaChanging(value);
-					this.SendPropertyChanging();
-					this._id_dni_kursowania = value;
-					this.SendPropertyChanged("id_dni_kursowania");
-					this.Onid_dni_kursowaniaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_od_dnia", DbType="DateTime NOT NULL")]
-		public System.DateTime od_dnia
-		{
-			get
-			{
-				return this._od_dnia;
-			}
-			set
-			{
-				if ((this._od_dnia != value))
-				{
-					this.Onod_dniaChanging(value);
-					this.SendPropertyChanging();
-					this._od_dnia = value;
-					this.SendPropertyChanged("od_dnia");
-					this.Onod_dniaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_do_dnia", DbType="DateTime NOT NULL")]
-		public System.DateTime do_dnia
-		{
-			get
-			{
-				return this._do_dnia;
-			}
-			set
-			{
-				if ((this._do_dnia != value))
-				{
-					this.Ondo_dniaChanging(value);
-					this.SendPropertyChanging();
-					this._do_dnia = value;
-					this.SendPropertyChanged("do_dnia");
-					this.Ondo_dniaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_rodzaj_kursu", DbType="VarChar(30) NOT NULL", CanBeNull=false)]
-		public string rodzaj_kursu
-		{
-			get
-			{
-				return this._rodzaj_kursu;
-			}
-			set
-			{
-				if ((this._rodzaj_kursu != value))
-				{
-					this.Onrodzaj_kursuChanging(value);
-					this.SendPropertyChanging();
-					this._rodzaj_kursu = value;
-					this.SendPropertyChanged("rodzaj_kursu");
-					this.Onrodzaj_kursuChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
 		}
 	}
 }
