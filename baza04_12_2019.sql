@@ -318,7 +318,7 @@ create table dni_kursowania (
    id_dni_kursowania    int                  identity,
    od_dnia              datetime             not null,
    do_dnia              datetime             not null,
-   rodzaj_kursu         varchar(30)          collate POLISH_CI_AS not null,
+   rodzaj_kursu         nvarchar(30)          collate POLISH_CI_AS not null,
    constraint PK_DNI_KURSOWANIA primary key nonclustered (id_dni_kursowania)
 )
 go
@@ -328,8 +328,8 @@ go
 /*==============================================================*/
 create table kierowca (
    id_kierowcy          int                  identity,
-   imie                 varchar(30)          collate POLISH_CI_AS not null,
-   nazwisko             varchar(30)          collate POLISH_CI_AS not null,
+   imie                 nvarchar(30)          collate POLISH_CI_AS not null,
+   nazwisko             nvarchar(30)          collate POLISH_CI_AS not null,
    czy_pracuje          bit                  not null,
    PESEL                bigint               not null,
    constraint PK_KIEROWCA primary key nonclustered (id_kierowcy)
@@ -345,7 +345,7 @@ create table kurs (
    id_czasu_odjazdu     int                  not null,
    id_trasy             int                  not null,
    ktory_kurs_danego_dnia int                  not null,
-   rodzaj_kursu         varchar(30)          not null,
+   rodzaj_kursu         nvarchar(30)         collate POLISH_CI_AS not null,
    constraint PK_KURS primary key nonclustered (id_kursu)
 )
 go
@@ -381,8 +381,8 @@ go
 /*==============================================================*/
 create table logowanie (
    id_uzytkownika       int                  identity,
-   login                varchar(20)          collate POLISH_CI_AS not null,
-   hasz                 varchar(72)          not null,
+   login                nvarchar(20)          collate POLISH_CI_AS not null,
+   hasz                 nvarchar(72)          collate POLISH_CI_AS not null,
    poziom_uprawnien     int                  not null,
    czy_aktywny          bit                  not null,
    constraint PK_LOGOWANIE primary key (id_uzytkownika)
@@ -394,9 +394,9 @@ go
 /*==============================================================*/
 create table pojazd (
    id_pojazdu           int                  identity,
-   nr_rejestracyjny     varchar(7)           not null,
-   model                varchar(20)          not null,
-   marka                varchar(20)          not null,
+   nr_rejestracyjny     nvarchar(7)           collate POLISH_CI_AS not null,
+   model                nvarchar(20)          collate POLISH_CI_AS not null,
+   marka                nvarchar(20)          collate POLISH_CI_AS not null,
    czy_niskopodlogowy   bit                  not null,
    czy_sprawny          bit                  not null,
    constraint PK_POJAZD primary key nonclustered (id_pojazdu)
@@ -408,8 +408,8 @@ go
 /*==============================================================*/
 create table przystanek (
    id_przystanku        int                  identity,
-   nazwa                varchar(30)          collate POLISH_CI_AS not null,
-   miasto               varchar(30)          collate POLISH_CI_AS not null,
+   nazwa                nvarchar(30)          collate POLISH_CI_AS not null,
+   miasto               nvarchar(30)          collate POLISH_CI_AS not null,
    czy_jednokierunkowy  bit                  not null,
    constraint PK_PRZYSTANEK primary key nonclustered (id_przystanku)
 )

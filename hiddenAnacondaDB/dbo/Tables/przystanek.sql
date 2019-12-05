@@ -43,10 +43,13 @@
 /*==============================================================*/
 /* Table: przystanek                                            */
 /*==============================================================*/
+/*==============================================================*/
+/* Table: przystanek                                            */
+/*==============================================================*/
 create table przystanek (
    id_przystanku        int                  identity,
-   nazwa                varchar(30)          collate POLISH_CI_AS not null,
-   miasto               varchar(30)          collate POLISH_CI_AS not null,
+   nazwa                nvarchar(30)          collate POLISH_CI_AS not null,
+   miasto               nvarchar(30)          collate POLISH_CI_AS not null,
    czy_jednokierunkowy  bit                  not null,
    constraint PK_PRZYSTANEK primary key nonclustered (id_przystanku)
 )
