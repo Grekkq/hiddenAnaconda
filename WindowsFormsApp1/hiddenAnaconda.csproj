@@ -94,6 +94,12 @@
     <Compile Include="Views\DodawanieDniWolnych.Designer.cs">
       <DependentUpon>DodawanieDniWolnych.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\DodawanieUzytkownikow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\DodawanieUzytkownikow.Designer.cs">
+      <DependentUpon>DodawanieUzytkownikow.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\EkranLogowania.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -177,6 +183,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\DodawanieDniWolnych.resx">
       <DependentUpon>DodawanieDniWolnych.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\DodawanieUzytkownikow.resx">
+      <DependentUpon>DodawanieUzytkownikow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\EkranLogowania.resx">
       <DependentUpon>EkranLogowania.cs</DependentUpon>
