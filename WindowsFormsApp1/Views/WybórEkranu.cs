@@ -163,5 +163,13 @@ namespace hiddenAnaconda.Views
             timeTable.GetTimeTable(101, "Skalka", date, 1);
             //timeTable.GetAllBusStops(164);
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            using (Views.DodawanieUzytkownikow InnerForm = new Views.DodawanieUzytkownikow()) {
+                if (InnerForm.ShowDialog() == DialogResult.OK) {
+                }
+            };
+        }
     }
 }
