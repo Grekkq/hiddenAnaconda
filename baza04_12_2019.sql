@@ -2,7 +2,7 @@
 /* DBMS name:      Microsoft SQL Server 2012                    */
 /* Created on:     04.12.2019 15:56:41                          */
 /*==============================================================*/
-
+ALTER DATABASE hiddenAnacondaDB COLLATE POLISH_CI_AS;
 
 if exists (select 1
    from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
@@ -318,7 +318,7 @@ create table dni_kursowania (
    id_dni_kursowania    int                  identity,
    od_dnia              datetime             not null,
    do_dnia              datetime             not null,
-   rodzaj_kursu         varchar(30)          not null,
+   rodzaj_kursu         varchar(30)          collate POLISH_CI_AS not null,
    constraint PK_DNI_KURSOWANIA primary key nonclustered (id_dni_kursowania)
 )
 go
@@ -328,8 +328,8 @@ go
 /*==============================================================*/
 create table kierowca (
    id_kierowcy          int                  identity,
-   imie                 varchar(30)          not null,
-   nazwisko             varchar(30)          not null,
+   imie                 varchar(30)          collate POLISH_CI_AS not null,
+   nazwisko             varchar(30)          collate POLISH_CI_AS not null,
    czy_pracuje          bit                  not null,
    PESEL                bigint               not null,
    constraint PK_KIEROWCA primary key nonclustered (id_kierowcy)
@@ -381,7 +381,7 @@ go
 /*==============================================================*/
 create table logowanie (
    id_uzytkownika       int                  identity,
-   login                varchar(20)          not null,
+   login                varchar(20)          collate POLISH_CI_AS not null,
    hasz                 varchar(72)          not null,
    poziom_uprawnien     int                  not null,
    czy_aktywny          bit                  not null,
@@ -408,8 +408,8 @@ go
 /*==============================================================*/
 create table przystanek (
    id_przystanku        int                  identity,
-   nazwa                varchar(30)          not null,
-   miasto               varchar(30)          not null,
+   nazwa                varchar(30)          collate POLISH_CI_AS not null,
+   miasto               varchar(30)          collate POLISH_CI_AS not null,
    czy_jednokierunkowy  bit                  not null,
    constraint PK_PRZYSTANEK primary key nonclustered (id_przystanku)
 )
