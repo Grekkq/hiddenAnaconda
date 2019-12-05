@@ -56,7 +56,7 @@ namespace hiddenAnaconda.Views {
             if (textBox2.ForeColor == Color.Black)
                 return;
             textBox2.Text = "";
-            textBox2.PasswordChar = '*';
+            textBox2.PasswordChar = '⚫';
             textBox2.ForeColor = Color.Black;
         }
 
