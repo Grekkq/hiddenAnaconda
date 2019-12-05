@@ -310,6 +310,7 @@
             this.Name = "DodawanieUzytkownikow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DodawanieUzytkownikow";
+            this.Load += new System.EventHandler(this.DodawanieUzytkownikow_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.move_window);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();

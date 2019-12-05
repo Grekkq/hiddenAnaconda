@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using hiddenAnaconda.Models;
 
 namespace hiddenAnaconda.Views
 {
@@ -90,10 +92,18 @@ namespace hiddenAnaconda.Views
             if (ErrorIsOn == true) {
                 MessageBox.Show("Podano niepoprawne dane!", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             } else {
-                
+                CreatingUsers creating = new CreatingUsers();
+                if (creating.isUserExitst(username.Text)) {
+                    MessageBox.Show("Podany user istnieje");
+                } else {
+                    Login login = new Login();
+                    login.createUser(username.Text, password.Text,Constants.TranslatePermissionLevel(permissions_level.Text));
+                }
             }
                 
         }
+
+        
 
         private void cancel_Click(object sender, EventArgs e)
         {
@@ -103,6 +113,15 @@ namespace hiddenAnaconda.Views
         private void exit_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void DodawanieUzytkownikow_Load(object sender, EventArgs e)
+        {
+            this.permissions_level.Items.Clear();
+            this.permissions_level.Items.Add(Constants.AdminPermission);
+            this.permissions_level.Items.Add(Constants.RoutePlannerPermission);
+            this.permissions_level.Items.Add(Constants.MenagerPermission);
+            this.permissions_level.Items.Add(Constants.DriverPermission);
         }
     }
 }

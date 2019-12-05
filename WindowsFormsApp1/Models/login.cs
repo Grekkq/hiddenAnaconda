@@ -16,13 +16,13 @@ namespace hiddenAnaconda.Models {
             dc = new ReportDataContext();
         }
 
-        public void createUser(string login, string password) {
+        public void createUser(string login, string password, int permission_level) {
             string salt = generateSalt();
             string hashToDb = GetSaltedHashedPassword(password, salt);
             logowanie user = new logowanie();
             user.login = login;
             user.hasz = hashToDb;
-            user.poziom_uprawnien = 0; // TODO: zdecydowanie jak ustalamy poziomy uprawnień
+            user.poziom_uprawnien = permission_level;
             user.czy_aktywny = true;
             try {
                 dc.logowanies.InsertOnSubmit(user);
