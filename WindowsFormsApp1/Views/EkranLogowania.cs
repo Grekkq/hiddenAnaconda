@@ -31,14 +31,14 @@ namespace hiddenAnaconda.Views {
         }
 
         private void EkranLogowania_Load(object sender, EventArgs e) {
-            this.ActiveControl = this.textBox1;
             this.textBox2.Enter += new EventHandler(textBox2_Enter);
             this.textBox2.Leave += new EventHandler(textBox2_Leave);
             this.textBox1.Enter += new EventHandler(textBox1_Enter);
             this.textBox1.Leave += new EventHandler(textBox1_Leave);
-            textBox2_SetText();
             textBox2.PasswordChar = ' ';
+            textBox2_SetText();
             textBox1_SetText();
+            this.ActiveControl = this.textBox1;
         }
 
         protected void textBox2_SetText() {
@@ -56,7 +56,7 @@ namespace hiddenAnaconda.Views {
             if (textBox2.ForeColor == Color.Black)
                 return;
             textBox2.Text = "";
-            textBox2.PasswordChar = '*';
+            textBox2.PasswordChar = '⚫';
             textBox2.ForeColor = Color.Black;
         }
 

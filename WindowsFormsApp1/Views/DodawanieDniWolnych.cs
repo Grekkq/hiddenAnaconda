@@ -84,7 +84,7 @@ namespace hiddenAnaconda.Views {
                 MessageBox.Show("Nie wprowadzono rodzaju okresu.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             } else {
                 var result = MessageBox.Show
-                    ("Czy na pewno chcesz dodać dzień " + dayKind + " od dnia: " + startDate.Date + " do dnia: " + endDate.Date + "?",
+                    ("Czy na pewno chcesz dodać dzień " + dayKind + " od dnia: " + startDate.ToString(DateFormat) + " do dnia: " + endDate.ToString(DateFormat) + "?",
                     "Czy na pewno?",
                     MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.Yes) {
