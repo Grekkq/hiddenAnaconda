@@ -62,7 +62,7 @@ namespace hiddenAnaconda.Models {
         // Get every stop for one line no matter what
         public List<StopInOrder> GetAllBusStops(int linia) {
             var data = from p in dc.przystaneks
-                       from t in dc.trasas
+                       from t in dc.trasas 
                        where t.id_linii == linia && p.id_przystanku == t.id_przystanku
                        orderby t.nr_trasy, t.kolejnosc_przystankow
                        select new {
@@ -71,6 +71,7 @@ namespace hiddenAnaconda.Models {
                            t.nr_trasy,
                            t.kolejnosc_przystankow,
                        };
+
             List<Models.StopInOrder> stopList = new List<StopInOrder>();
             Debug.Print("List all stops for line number: {0}", linia);
             foreach (var item in data) {
@@ -99,6 +100,7 @@ namespace hiddenAnaconda.Models {
                     lineName.Add(item.id_linii);
             }
 
+            List<string> stops = new List<string>();
             List<int> idTrasyDlaLinii = new List<int>();
             StringBuilder sb = new StringBuilder();
 
@@ -108,9 +110,15 @@ namespace hiddenAnaconda.Models {
                 sb.Append(singleLine);
                 sb.Append("</b><br/>");
                 // lista przystnaków niezależnie od dnia...
-                foreach (var stop in GetAllBusStops(singleLine).Where()) {
-                    sb.Append(stop.stopName);
-                    sb.Append(", ");
+                stops.Clear();
+                foreach (var stop in GetAllBusStops(singleLine)) {
+                    if (!stops.Contains(stop.cityName + stop.stopName)) {
+                        stops.Add(stop.cityName + stop.stopName);
+                        sb.Append(stop.cityName);
+                        sb.Append(", ");
+                        sb.Append(stop.stopName);
+                        sb.Append("&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp");
+                    }
                 }
 
                 idTrasyDlaLinii.Clear();
