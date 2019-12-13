@@ -63,6 +63,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Constants.cs" />
+    <Compile Include="Models\AddingDrivers.cs" />
     <Compile Include="Models\CreatingUsers.cs" />
     <Compile Include="Models\DayType.cs" />
     <Compile Include="Models\Login.cs" />
