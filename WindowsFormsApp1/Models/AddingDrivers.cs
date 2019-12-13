@@ -21,6 +21,7 @@ namespace hiddenAnaconda.Models {
             driver.nazwisko = surname;
             driver.czy_pracuje = true;
             driver.PESEL = pesel;
+
             if (chceckIfDriverExitst(pesel)) {
                 MessageBox.Show("Kierowca o podanym numerze PESEL istnieje już w bazie.", "Błąd!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
@@ -29,10 +30,10 @@ namespace hiddenAnaconda.Models {
                     dc.kierowcas.InsertOnSubmit(driver);
                     dc.SubmitChanges();
                 } catch {
-                    MessageBox.Show("Nie udało się dodać nowego kierowcy. Spróbuj ponownie", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Nie udało się utworzyć kierowcy. Spróbuj ponownie.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
                 }
-                MessageBox.Show("Pomyślnie dodano nowego kierowcę.", "Sukces", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Pomyślnie utworzono nowego kierowcę.", "Sukces", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return true;
             }
         } 
