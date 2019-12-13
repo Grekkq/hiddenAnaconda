@@ -50,21 +50,6 @@ namespace hiddenAnaconda.Views
 
         private void Leave_exitbutton(object sender, EventArgs e) => sharedView.leave_exitbutton(exit);
 
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBox2_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void radioButton2_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void kierowca_CheckedChanged(object sender, EventArgs e)
         {
             if (kierowca.Checked == true) {
@@ -137,16 +122,6 @@ namespace hiddenAnaconda.Views
             radioButton1.Visible = false;
             radioButton2.Visible = false;
             radio_pojazd.Visible = false;
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ZmianaStatusu_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void Aktualizuj_Click(object sender, EventArgs e)

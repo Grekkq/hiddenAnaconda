@@ -47,7 +47,7 @@
             this.pojazdSelectionLabel = new System.Windows.Forms.Label();
             this.kierowcaSelectionComboBox = new System.Windows.Forms.ComboBox();
             this.kierowcaSelectionLabel = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.ObjectRadio = new System.Windows.Forms.GroupBox();
             this.pojazd = new System.Windows.Forms.RadioButton();
             this.kierowca = new System.Windows.Forms.RadioButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -55,7 +55,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.radio_pracownik.SuspendLayout();
             this.radio_pojazd.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.ObjectRadio.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -122,7 +122,6 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Aby zmienić status pracownika bądź kierowcy wypełnij formularz, a następnie klikn" +
     "ij aktualizuj.";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label1
             // 
@@ -160,7 +159,7 @@
             this.panel1.Controls.Add(this.pojazdSelectionLabel);
             this.panel1.Controls.Add(this.kierowcaSelectionComboBox);
             this.panel1.Controls.Add(this.kierowcaSelectionLabel);
-            this.panel1.Controls.Add(this.groupBox1);
+            this.panel1.Controls.Add(this.ObjectRadio);
             this.panel1.Controls.Add(this.powrot);
             this.panel1.Controls.Add(this.Aktualizuj);
             this.panel1.Controls.Add(this.label2);
@@ -228,7 +227,6 @@
             this.radio_pojazd.TabStop = false;
             this.radio_pojazd.Text = "Zmień status";
             this.radio_pojazd.Visible = false;
-            this.radio_pojazd.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
             // radioButton1
             // 
@@ -253,7 +251,6 @@
             this.radioButton2.Text = "niesprawny";
             this.radioButton2.UseVisualStyleBackColor = true;
             this.radioButton2.Visible = false;
-            this.radioButton2.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
             // 
             // pojazdSelectionComboBox
             // 
@@ -303,17 +300,16 @@
             this.kierowcaSelectionLabel.Text = "Wybierz kierowcę:";
             this.kierowcaSelectionLabel.Visible = false;
             // 
-            // groupBox1
+            // ObjectRadio
             // 
-            this.groupBox1.Controls.Add(this.pojazd);
-            this.groupBox1.Controls.Add(this.kierowca);
-            this.groupBox1.Location = new System.Drawing.Point(16, 90);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(245, 80);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Zmiana statusu dotyczy:";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            this.ObjectRadio.Controls.Add(this.pojazd);
+            this.ObjectRadio.Controls.Add(this.kierowca);
+            this.ObjectRadio.Location = new System.Drawing.Point(16, 90);
+            this.ObjectRadio.Name = "ObjectRadio";
+            this.ObjectRadio.Size = new System.Drawing.Size(245, 80);
+            this.ObjectRadio.TabIndex = 0;
+            this.ObjectRadio.TabStop = false;
+            this.ObjectRadio.Text = "Zmiana statusu dotyczy:";
             // 
             // pojazd
             // 
@@ -366,7 +362,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ZmianaStatusu";
             this.Activated += new System.EventHandler(this.turnoffFocus);
-            this.Load += new System.EventHandler(this.ZmianaStatusu_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.move_window);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -375,8 +370,8 @@
             this.radio_pracownik.PerformLayout();
             this.radio_pojazd.ResumeLayout(false);
             this.radio_pojazd.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.ObjectRadio.ResumeLayout(false);
+            this.ObjectRadio.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -394,7 +389,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button help;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox ObjectRadio;
         private System.Windows.Forms.RadioButton pojazd;
         private System.Windows.Forms.RadioButton kierowca;
         private System.Windows.Forms.GroupBox radio_pojazd;
