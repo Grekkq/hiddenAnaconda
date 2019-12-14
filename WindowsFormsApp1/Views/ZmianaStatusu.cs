@@ -81,6 +81,9 @@ namespace hiddenAnaconda.Views {
                 radio_pracownik.Visible = false;
                 radioButton3.Visible = false;
                 radioButton4.Visible = false;
+
+                // wczytanie danych do listy pojazdów
+                statusChange.LoadDataToVehicleComboBox(this.pojazdSelectionComboBox);
             }
         }
 
@@ -132,6 +135,10 @@ namespace hiddenAnaconda.Views {
                 string obiekt = "";
                 if (pojazd.Checked == true) {
                     obiekt = "pojazdu";
+                    if (radioButton1.Checked == true)
+                        statusChange.ChangeVehicleStatus(pojazdSelectionComboBox.Text, true);
+                    else
+                        statusChange.ChangeVehicleStatus(pojazdSelectionComboBox.Text, false);
                 } else {
                     obiekt = "kierowcy";
                     if (radioButton4.Checked == true)

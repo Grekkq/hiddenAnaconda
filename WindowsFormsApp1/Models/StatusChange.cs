@@ -9,9 +9,11 @@ namespace hiddenAnaconda.Models {
     class StatusChange {
         ReportDataContext dc;
         private List<String> drivers;
+        private List<String> vehicles;
         public StatusChange() {
             dc = new ReportDataContext();
             drivers = new List<string>();
+            vehicles = new List<string>();
         }
 
         // jakoś wybierać żeby dane wczytywać tylko raz i po zmianie?
@@ -33,6 +35,29 @@ namespace hiddenAnaconda.Models {
             int driverId = Int32.Parse(driver.Split('.')[0]);
             var update = dc.kierowcas.Single(k => k.id_kierowcy == driverId);
             update.czy_pracuje = status;
+            dc.SubmitChanges();
+            return true;
+        }
+
+        // jakoś wybierać żeby dane wczytywać tylko raz i po zmianie?
+        public void LoadDataToVehicleComboBox(ComboBox comboBox) {
+            comboBox.Items.Clear();
+            if (vehicles.Count() == 0)
+                GetVehicleData();
+            foreach (var vehicle in vehicles)
+                comboBox.Items.Add(vehicle);
+        }
+
+        private void GetVehicleData() {
+            foreach (var item in dc.pojazds.Select(p => new { p.id_pojazdu, p.marka, p.model, p.czy_sprawny, p.nr_rejestracyjny })) {
+                vehicles.Add(item.id_pojazdu + ". " + item.marka + " " + item.model + " " + item.nr_rejestracyjny + ", " + (item.czy_sprawny ? "sprawny" : "nie sprawny"));
+            }
+        }
+
+        public bool ChangeVehicleStatus(string vehicle, bool status) {
+            int vehicleId = Int32.Parse(vehicle.Split('.')[0]);
+            var update = dc.pojazds.Single(p => p.id_pojazdu == vehicleId);
+            update.czy_sprawny = status;
             dc.SubmitChanges();
             return true;
         }
