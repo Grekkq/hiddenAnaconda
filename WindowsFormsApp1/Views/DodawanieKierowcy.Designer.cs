@@ -31,15 +31,12 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DodawanieKierowcy));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label9 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.powrot = new System.Windows.Forms.Button();
             this.Reset = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.DriverBirthDate = new System.Windows.Forms.TextBox();
             this.DriverPesel = new System.Windows.Forms.TextBox();
             this.DriverLastName = new System.Windows.Forms.TextBox();
             this.DriverFirstName = new System.Windows.Forms.TextBox();
@@ -62,15 +59,12 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.panel1.Controls.Add(this.label9);
             this.panel1.Controls.Add(this.pictureBox2);
             this.panel1.Controls.Add(this.powrot);
             this.panel1.Controls.Add(this.Reset);
-            this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.label7);
-            this.panel1.Controls.Add(this.DriverBirthDate);
             this.panel1.Controls.Add(this.DriverPesel);
             this.panel1.Controls.Add(this.DriverLastName);
             this.panel1.Controls.Add(this.DriverFirstName);
@@ -81,18 +75,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(606, 377);
             this.panel1.TabIndex = 0;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label9.Location = new System.Drawing.Point(243, 213);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(248, 13);
-            this.label9.TabIndex = 47;
-            this.label9.Text = "Akceptowany format daty - DD/MM/RRRR";
             // 
             // pictureBox2
             // 
@@ -128,18 +110,9 @@
             this.Reset.UseVisualStyleBackColor = true;
             this.Reset.Click += new System.EventHandler(this.Reset_Click);
             // 
-            // label4
-            // 
-            this.label4.Location = new System.Drawing.Point(16, 190);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(212, 18);
-            this.label4.TabIndex = 43;
-            this.label4.Text = "Data urodzenia:";
-            // 
             // label5
             // 
-            this.label5.Location = new System.Drawing.Point(16, 240);
+            this.label5.Location = new System.Drawing.Point(16, 190);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(212, 18);
@@ -163,28 +136,15 @@
             this.label7.Size = new System.Drawing.Size(212, 18);
             this.label7.TabIndex = 40;
             this.label7.Text = "Imię:";
-            this.label7.Click += new System.EventHandler(this.label7_Click);
-            // 
-            // DriverBirthDate
-            // 
-            this.DriverBirthDate.Location = new System.Drawing.Point(18, 210);
-            this.DriverBirthDate.Margin = new System.Windows.Forms.Padding(2);
-            this.DriverBirthDate.MaxLength = 10;
-            this.DriverBirthDate.Name = "DriverBirthDate";
-            this.DriverBirthDate.Size = new System.Drawing.Size(201, 20);
-            this.DriverBirthDate.TabIndex = 2;
-            this.DriverBirthDate.TextChanged += new System.EventHandler(this.DriverBirthDate_TextChanged);
-            this.DriverBirthDate.Validating += new System.ComponentModel.CancelEventHandler(this.DriverBirthDate_Validating);
             // 
             // DriverPesel
             // 
-            this.DriverPesel.Location = new System.Drawing.Point(19, 260);
+            this.DriverPesel.Location = new System.Drawing.Point(18, 210);
             this.DriverPesel.Margin = new System.Windows.Forms.Padding(2);
             this.DriverPesel.MaxLength = 11;
             this.DriverPesel.Name = "DriverPesel";
             this.DriverPesel.Size = new System.Drawing.Size(200, 20);
-            this.DriverPesel.TabIndex = 3;
-            this.DriverPesel.TextChanged += new System.EventHandler(this.DriverPesel_TextChanged);
+            this.DriverPesel.TabIndex = 2;
             this.DriverPesel.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DriverPesel_TextChanged);
             this.DriverPesel.Validating += new System.ComponentModel.CancelEventHandler(this.DriverPesel_Validating);
             // 
@@ -328,7 +288,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dodawanie Kierowcy";
             this.Activated += new System.EventHandler(this.turnoffFocus);
-            this.Load += new System.EventHandler(this.DodawanieKierowcy_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.move_window);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -350,11 +309,9 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button powrot;
         private System.Windows.Forms.Button Reset;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox DriverBirthDate;
         private System.Windows.Forms.TextBox DriverPesel;
         private System.Windows.Forms.TextBox DriverLastName;
         private System.Windows.Forms.TextBox DriverFirstName;
@@ -363,7 +320,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.ErrorProvider errorProvider1;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ErrorProvider errorProvider2;
     }
 }
