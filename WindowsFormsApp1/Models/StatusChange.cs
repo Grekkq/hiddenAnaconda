@@ -28,5 +28,13 @@ namespace hiddenAnaconda.Models {
                 drivers.Add(item.id_kierowcy + ". " + item.nazwisko + " " + item.imie + ", " + (item.czy_pracuje ? "pracuje" : "nie pracuje"));
             }
         }
+
+        public bool ChangeDriverStatus(string driver, bool status) {
+            int driverId = Int32.Parse(driver.Split('.')[0]);
+            var update = dc.kierowcas.Single(k => k.id_kierowcy == driverId);
+            update.czy_pracuje = status;
+            dc.SubmitChanges();
+            return true;
+        }
     }
 }
