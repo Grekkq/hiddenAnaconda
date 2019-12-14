@@ -53,7 +53,7 @@ namespace hiddenAnaconda.Views
         private void kierowca_CheckedChanged(object sender, EventArgs e)
         {
             if (kierowca.Checked == true) {
-
+                // dynamiczne wyświetlanie
                 kierowcaSelectionLabel.Visible = true;
                 kierowcaSelectionComboBox.Visible = true;
                 pojazdSelectionLabel.Visible = false;
@@ -66,6 +66,10 @@ namespace hiddenAnaconda.Views
                 radio_pracownik.Visible = false;
                 radioButton3.Visible = false;
                 radioButton4.Visible = false;
+
+                // wczytanie danych do listy kierowców
+                Models.StatusChange statusChange = new Models.StatusChange();
+                statusChange.LoadDataToDriverComboBox(this.kierowcaSelectionComboBox);
             }
         }
 
