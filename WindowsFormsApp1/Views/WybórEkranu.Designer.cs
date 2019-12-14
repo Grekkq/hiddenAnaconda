@@ -27,7 +27,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.RaportButton = new System.Windows.Forms.Button();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.create = new System.Windows.Forms.Button();
             this.Czas = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -44,19 +43,20 @@
             this.exit = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.help = new System.Windows.Forms.Button();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -83,7 +83,7 @@
             this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(130, 30);
-            this.button1.TabIndex = 29;
+            this.button1.TabIndex = 9;
             this.button1.Text = "tworzenie użytkowników";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -93,28 +93,17 @@
             this.RaportButton.Location = new System.Drawing.Point(25, 73);
             this.RaportButton.Name = "RaportButton";
             this.RaportButton.Size = new System.Drawing.Size(130, 30);
-            this.RaportButton.TabIndex = 10;
+            this.RaportButton.TabIndex = 8;
             this.RaportButton.Text = "raport";
             this.RaportButton.UseVisualStyleBackColor = true;
             this.RaportButton.Click += new System.EventHandler(this.RaportButton_Click);
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.Color.White;
-            this.pictureBox2.Image = global::hiddenAnaconda.Properties.Resources.manage;
-            this.pictureBox2.Location = new System.Drawing.Point(537, 3);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(69, 60);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 27;
-            this.pictureBox2.TabStop = false;
             // 
             // create
             // 
             this.create.Location = new System.Drawing.Point(20, 325);
             this.create.Name = "create";
             this.create.Size = new System.Drawing.Size(80, 40);
-            this.create.TabIndex = 11;
+            this.create.TabIndex = 14;
             this.create.Text = "Zakończ";
             this.create.UseVisualStyleBackColor = true;
             this.create.Click += new System.EventHandler(this.create_Click);
@@ -125,7 +114,7 @@
             this.Czas.Margin = new System.Windows.Forms.Padding(2);
             this.Czas.Name = "Czas";
             this.Czas.Size = new System.Drawing.Size(130, 30);
-            this.Czas.TabIndex = 7;
+            this.Czas.TabIndex = 6;
             this.Czas.Text = "czasy realizacji kursu";
             this.Czas.UseVisualStyleBackColor = true;
             this.Czas.Click += new System.EventHandler(this.Czas_Click);
@@ -157,7 +146,7 @@
             this.Przypisanie.Margin = new System.Windows.Forms.Padding(2);
             this.Przypisanie.Name = "Przypisanie";
             this.Przypisanie.Size = new System.Drawing.Size(130, 30);
-            this.Przypisanie.TabIndex = 5;
+            this.Przypisanie.TabIndex = 7;
             this.Przypisanie.Text = "przypisanie do kursu";
             this.Przypisanie.UseVisualStyleBackColor = true;
             this.Przypisanie.Click += new System.EventHandler(this.Przypisanie_Click);
@@ -168,7 +157,7 @@
             this.Kurs.Margin = new System.Windows.Forms.Padding(2);
             this.Kurs.Name = "Kurs";
             this.Kurs.Size = new System.Drawing.Size(130, 30);
-            this.Kurs.TabIndex = 3;
+            this.Kurs.TabIndex = 4;
             this.Kurs.Text = "kursu";
             this.Kurs.UseVisualStyleBackColor = true;
             this.Kurs.Click += new System.EventHandler(this.Kurs_Click);
@@ -179,7 +168,7 @@
             this.Kierowca.Margin = new System.Windows.Forms.Padding(2);
             this.Kierowca.Name = "Kierowca";
             this.Kierowca.Size = new System.Drawing.Size(130, 30);
-            this.Kierowca.TabIndex = 1;
+            this.Kierowca.TabIndex = 10;
             this.Kierowca.Text = "dodawanie kierowców";
             this.Kierowca.UseVisualStyleBackColor = true;
             this.Kierowca.Click += new System.EventHandler(this.Kierowca_Click);
@@ -190,7 +179,7 @@
             this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(130, 30);
-            this.button2.TabIndex = 9;
+            this.button2.TabIndex = 5;
             this.button2.Text = "terminów kursowania";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
@@ -201,7 +190,7 @@
             this.ZmianaStatusu.Margin = new System.Windows.Forms.Padding(2);
             this.ZmianaStatusu.Name = "ZmianaStatusu";
             this.ZmianaStatusu.Size = new System.Drawing.Size(130, 30);
-            this.ZmianaStatusu.TabIndex = 8;
+            this.ZmianaStatusu.TabIndex = 11;
             this.ZmianaStatusu.Text = "zmiana statusu";
             this.ZmianaStatusu.UseVisualStyleBackColor = true;
             this.ZmianaStatusu.Click += new System.EventHandler(this.ZmianaStatusu_Click);
@@ -212,7 +201,7 @@
             this.Pojazd.Margin = new System.Windows.Forms.Padding(2);
             this.Pojazd.Name = "Pojazd";
             this.Pojazd.Size = new System.Drawing.Size(130, 30);
-            this.Pojazd.TabIndex = 6;
+            this.Pojazd.TabIndex = 0;
             this.Pojazd.Text = "pojazdu";
             this.Pojazd.UseVisualStyleBackColor = true;
             this.Pojazd.Click += new System.EventHandler(this.Pojazd_Click);
@@ -223,7 +212,7 @@
             this.Przystanek.Margin = new System.Windows.Forms.Padding(2);
             this.Przystanek.Name = "Przystanek";
             this.Przystanek.Size = new System.Drawing.Size(130, 30);
-            this.Przystanek.TabIndex = 4;
+            this.Przystanek.TabIndex = 1;
             this.Przystanek.Text = "przystanku";
             this.Przystanek.UseVisualStyleBackColor = true;
             this.Przystanek.Click += new System.EventHandler(this.Przystanek_Click);
@@ -234,7 +223,7 @@
             this.Trasa.Margin = new System.Windows.Forms.Padding(2);
             this.Trasa.Name = "Trasa";
             this.Trasa.Size = new System.Drawing.Size(130, 30);
-            this.Trasa.TabIndex = 2;
+            this.Trasa.TabIndex = 3;
             this.Trasa.Text = "trasy";
             this.Trasa.UseVisualStyleBackColor = true;
             this.Trasa.Click += new System.EventHandler(this.Trasa_Click);
@@ -245,7 +234,7 @@
             this.Linia.Margin = new System.Windows.Forms.Padding(2);
             this.Linia.Name = "Linia";
             this.Linia.Size = new System.Drawing.Size(130, 30);
-            this.Linia.TabIndex = 0;
+            this.Linia.TabIndex = 2;
             this.Linia.Text = "linii";
             this.Linia.UseVisualStyleBackColor = true;
             this.Linia.Click += new System.EventHandler(this.Linia_Click);
@@ -262,7 +251,8 @@
             this.exit.Location = new System.Drawing.Point(566, 0);
             this.exit.Name = "exit";
             this.exit.Size = new System.Drawing.Size(44, 30);
-            this.exit.TabIndex = 2;
+            this.exit.TabIndex = 0;
+            this.exit.TabStop = false;
             this.exit.Text = "X";
             this.exit.UseVisualStyleBackColor = false;
             this.exit.Click += new System.EventHandler(this.exit_Click);
@@ -292,21 +282,12 @@
             this.help.Location = new System.Drawing.Point(522, 0);
             this.help.Name = "help";
             this.help.Size = new System.Drawing.Size(44, 30);
-            this.help.TabIndex = 1;
+            this.help.TabIndex = 0;
+            this.help.TabStop = false;
             this.help.Text = "?";
             this.help.UseVisualStyleBackColor = false;
             this.help.MouseEnter += new System.EventHandler(this.hover_helpbutton);
             this.help.MouseLeave += new System.EventHandler(this.leave_helpbutton);
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = global::hiddenAnaconda.Properties.Resources.icon;
-            this.pictureBox3.Location = new System.Drawing.Point(4, 4);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(24, 24);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox3.TabIndex = 48;
-            this.pictureBox3.TabStop = false;
             // 
             // panel2
             // 
@@ -371,6 +352,27 @@
             this.label6.Text = "Administracja";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::hiddenAnaconda.Properties.Resources.icon;
+            this.pictureBox3.Location = new System.Drawing.Point(4, 4);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.TabIndex = 48;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.White;
+            this.pictureBox2.Image = global::hiddenAnaconda.Properties.Resources.manage;
+            this.pictureBox2.Location = new System.Drawing.Point(537, 3);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(69, 60);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 27;
+            this.pictureBox2.TabStop = false;
+            // 
             // WybórEkranu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -393,11 +395,11 @@
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.move_window);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

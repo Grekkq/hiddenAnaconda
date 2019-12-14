@@ -395,8 +395,10 @@ go
 create table pojazd (
    id_pojazdu           int                  identity,
    nr_rejestracyjny     nvarchar(7)           collate POLISH_CI_AS not null,
+   nr_VIN                nvarchar(17)          collate POLISH_CI_AS not null,
    model                nvarchar(20)          collate POLISH_CI_AS not null,
    marka                nvarchar(20)          collate POLISH_CI_AS not null,
+   data_produkcji      datetime             not null,
    czy_niskopodlogowy   bit                  not null,
    czy_sprawny          bit                  not null,
    constraint PK_POJAZD primary key nonclustered (id_pojazdu)

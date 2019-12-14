@@ -91,6 +91,7 @@
             this.exit.Name = "exit";
             this.exit.Size = new System.Drawing.Size(44, 30);
             this.exit.TabIndex = 2;
+            this.exit.TabStop = false;
             this.exit.Text = "X";
             this.exit.UseVisualStyleBackColor = false;
             this.exit.Click += new System.EventHandler(this.close_on_click);
@@ -151,7 +152,7 @@
             this.no1.Location = new System.Drawing.Point(92, 32);
             this.no1.Name = "no1";
             this.no1.Size = new System.Drawing.Size(41, 17);
-            this.no1.TabIndex = 1;
+            this.no1.TabIndex = 8;
             this.no1.TabStop = true;
             this.no1.Text = "Nie";
             this.no1.UseVisualStyleBackColor = true;
@@ -162,7 +163,7 @@
             this.yes2.Location = new System.Drawing.Point(31, 32);
             this.yes2.Name = "yes2";
             this.yes2.Size = new System.Drawing.Size(44, 17);
-            this.yes2.TabIndex = 0;
+            this.yes2.TabIndex = 7;
             this.yes2.TabStop = true;
             this.yes2.Text = "Tak";
             this.yes2.UseVisualStyleBackColor = true;
@@ -271,7 +272,7 @@
             this.no.Location = new System.Drawing.Point(92, 32);
             this.no.Name = "no";
             this.no.Size = new System.Drawing.Size(41, 17);
-            this.no.TabIndex = 1;
+            this.no.TabIndex = 6;
             this.no.TabStop = true;
             this.no.Text = "Nie";
             this.no.UseVisualStyleBackColor = true;
@@ -282,7 +283,7 @@
             this.yes.Location = new System.Drawing.Point(31, 32);
             this.yes.Name = "yes";
             this.yes.Size = new System.Drawing.Size(44, 17);
-            this.yes.TabIndex = 0;
+            this.yes.TabIndex = 5;
             this.yes.TabStop = true;
             this.yes.Text = "Tak";
             this.yes.UseVisualStyleBackColor = true;
@@ -292,7 +293,7 @@
             this.cancel.Location = new System.Drawing.Point(20, 325);
             this.cancel.Name = "cancel";
             this.cancel.Size = new System.Drawing.Size(80, 40);
-            this.cancel.TabIndex = 8;
+            this.cancel.TabIndex = 10;
             this.cancel.Text = "Anuluj";
             this.cancel.UseVisualStyleBackColor = true;
             this.cancel.Click += new System.EventHandler(this.close_on_click);
@@ -302,7 +303,7 @@
             this.create.Location = new System.Drawing.Point(506, 325);
             this.create.Name = "create";
             this.create.Size = new System.Drawing.Size(80, 40);
-            this.create.TabIndex = 7;
+            this.create.TabIndex = 9;
             this.create.Text = "Utwórz";
             this.create.UseVisualStyleBackColor = true;
             this.create.Click += new System.EventHandler(this.create_Click);
@@ -361,6 +362,7 @@
             this.help.Name = "help";
             this.help.Size = new System.Drawing.Size(44, 30);
             this.help.TabIndex = 1;
+            this.help.TabStop = false;
             this.help.Text = "?";
             this.help.UseVisualStyleBackColor = false;
             // 

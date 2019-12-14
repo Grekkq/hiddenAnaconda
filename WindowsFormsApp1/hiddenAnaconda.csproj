@@ -66,6 +66,7 @@
     <Compile Include="Models\AddingBusStops.cs" />
     <Compile Include="Models\AddingDrivers.cs" />
     <Compile Include="Models\AddingLine.cs" />
+    <Compile Include="Models\AddingVehicles.cs" />
     <Compile Include="Models\CreatingUsers.cs" />
     <Compile Include="Models\DayType.cs" />
     <Compile Include="Models\Login.cs" />

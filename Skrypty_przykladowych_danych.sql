@@ -20,11 +20,11 @@ SET IDENTITY_INSERT [dbo].[kierowca] OFF
 
 -- Dane dla pojazdu
 SET IDENTITY_INSERT [dbo].[pojazd] ON
-INSERT INTO [dbo].[pojazd] ([id_pojazdu], [nr_rejestracyjny], [model], [marka], [czy_niskopodlogowy], [czy_sprawny]) VALUES (0, N'SK12A12', N'Urbino12', N'Solaris', 1, 1)
-INSERT INTO [dbo].[pojazd] ([id_pojazdu], [nr_rejestracyjny], [model], [marka], [czy_niskopodlogowy], [czy_sprawny]) VALUES (1, N'SK13A13', N'Urbino12', N'Solaris', 1, 1)
-INSERT INTO [dbo].[pojazd] ([id_pojazdu], [nr_rejestracyjny], [model], [marka], [czy_niskopodlogowy], [czy_sprawny]) VALUES (2, N'SK14A14', N'Urbino18', N'Solaris', 1, 1)
-INSERT INTO [dbo].[pojazd] ([id_pojazdu], [nr_rejestracyjny], [model], [marka], [czy_niskopodlogowy], [czy_sprawny]) VALUES (3, N'SK15A15', N'Urbino18', N'Solaris', 1, 1)
-INSERT INTO [dbo].[pojazd] ([id_pojazdu], [nr_rejestracyjny], [model], [marka], [czy_niskopodlogowy], [czy_sprawny]) VALUES (4, N'SK16A16', N'Urbino10,5', N'Solaris', 1, 1)
+INSERT INTO [dbo].[pojazd] ([id_pojazdu], [nr_rejestracyjny], [nr_VIN], [model], [marka], [data_produkcji], [czy_niskopodlogowy], [czy_sprawny]) VALUES (0, N'SK12A12', N'1B3LC46K68N192898', N'Urbino12', N'Solaris', N'2000-11-29 23:59:59', 1, 1);
+INSERT INTO [dbo].[pojazd] ([id_pojazdu], [nr_rejestracyjny], [nr_VIN], [model], [marka], [data_produkcji], [czy_niskopodlogowy], [czy_sprawny]) VALUES (1, N'SK13A13', N'1FAFP53202A298049', N'Urbino12', N'Solaris', N'2001-10-13 23:59:59', 1, 1)
+INSERT INTO [dbo].[pojazd] ([id_pojazdu], [nr_rejestracyjny], [nr_VIN], [model], [marka], [data_produkcji], [czy_niskopodlogowy], [czy_sprawny]) VALUES (2, N'SK14A14', N'JM1BJ2217X0142704', N'Urbino18', N'Solaris', N'2002-01-09 23:59:59', 1, 1)
+INSERT INTO [dbo].[pojazd] ([id_pojazdu], [nr_rejestracyjny], [nr_VIN], [model], [marka], [data_produkcji], [czy_niskopodlogowy], [czy_sprawny]) VALUES (3, N'SK15A15', N'JM3TB38A490191433', N'Urbino18', N'Solaris', N'2003-07-17 23:59:59', 1, 1)
+INSERT INTO [dbo].[pojazd] ([id_pojazdu], [nr_rejestracyjny], [nr_VIN], [model], [marka], [data_produkcji], [czy_niskopodlogowy], [czy_sprawny]) VALUES (4, N'SK16A16', N'1FTNE2EW5DDA92298', N'Urbino10,5', N'Solaris', N'1997-05-28 23:59:59', 1, 1)
 SET IDENTITY_INSERT [dbo].[pojazd] OFF
 
 -- Dane dla lini
