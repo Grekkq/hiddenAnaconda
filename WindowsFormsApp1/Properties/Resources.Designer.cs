@@ -143,6 +143,16 @@ namespace hiddenAnaconda.Properties {
         /// <summary>
         ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap driver_icon_12 {
+            get {
+                object obj = ResourceManager.GetObject("driver-icon-12", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap driver1 {
             get {
                 object obj = ResourceManager.GetObject("driver1", resourceCulture);

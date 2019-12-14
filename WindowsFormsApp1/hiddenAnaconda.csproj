@@ -63,6 +63,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Constants.cs" />
+    <Compile Include="Models\AddingBusStops.cs" />
     <Compile Include="Models\AddingDrivers.cs" />
     <Compile Include="Models\AddingLine.cs" />
     <Compile Include="Models\CreatingUsers.cs" />
@@ -312,6 +313,7 @@
     <None Include="Resources\rainbow.jpg" />
     <None Include="Resources\drivingbus.gif" />
     <None Include="Resources\fireworks.gif" />
+    <None Include="Resources\driver-icon-12.png" />
     <Content Include="Resources\icon.ico" />
     <None Include="Resources\user.png" />
   </ItemGroup>

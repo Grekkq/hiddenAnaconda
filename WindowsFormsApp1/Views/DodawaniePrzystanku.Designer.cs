@@ -39,8 +39,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.p_miasto = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.p_adres = new System.Windows.Forms.TextBox();
             this.create = new System.Windows.Forms.Button();
             this.cancel = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -155,25 +153,6 @@
             this.label5.TabIndex = 15;
             this.label5.Text = "Podaj miasto:";
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.label6.Location = new System.Drawing.Point(16, 190);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(66, 13);
-            this.label6.TabIndex = 16;
-            this.label6.Text = "Podaj adres:";
-            // 
-            // p_adres
-            // 
-            this.p_adres.Location = new System.Drawing.Point(19, 206);
-            this.p_adres.Name = "p_adres";
-            this.p_adres.Size = new System.Drawing.Size(142, 20);
-            this.p_adres.TabIndex = 2;
-            this.p_adres.TextChanged += new System.EventHandler(this.p_adres_TextChanged);
-            this.p_adres.Validating += new System.ComponentModel.CancelEventHandler(this.p_adres_Validating);
-            // 
             // create
             // 
             this.create.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
@@ -204,9 +183,7 @@
             this.panel1.Controls.Add(this.create);
             this.panel1.Controls.Add(this.cancel);
             this.panel1.Controls.Add(this.groupBox1);
-            this.panel1.Controls.Add(this.p_adres);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.p_nazwa);
@@ -329,8 +306,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox p_miasto;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox p_adres;
         private System.Windows.Forms.Button create;
         private System.Windows.Forms.Button cancel;
         private System.Windows.Forms.Panel panel1;

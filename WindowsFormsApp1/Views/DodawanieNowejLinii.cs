@@ -69,25 +69,9 @@ namespace hiddenAnaconda.Views {
                     line_name.Focus();
                     groupBox1.Focus();
                 }
-
             }
         }
 
-        private void DodawanieNowejLinii_Load(object sender, EventArgs e) {
-
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e) {
-
-        }
-
-        private void line_name_TextChanged(object sender, EventArgs e) {
-
-        }
-
-        private void line_name_TextChanged_1(object sender, EventArgs e) {
-
-        }
         private void line_name_Validating(object sender, CancelEventArgs e) {
             if (string.IsNullOrEmpty(line_name.Text)) {
                 errorProvider1.SetError(line_name, "Nie wpisano linii");

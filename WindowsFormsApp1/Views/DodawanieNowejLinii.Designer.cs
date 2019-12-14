@@ -113,7 +113,6 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Czy tworzona linia będzie kursować w pętli?";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             this.groupBox1.Validating += new System.ComponentModel.CancelEventHandler(this.groupBox1_Validating);
             // 
             // no
@@ -166,7 +165,6 @@
             this.line_name.Name = "line_name";
             this.line_name.Size = new System.Drawing.Size(110, 20);
             this.line_name.TabIndex = 0;
-            this.line_name.TextChanged += new System.EventHandler(this.line_name_TextChanged_1);
             this.line_name.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.line_name_TextChanged);
             this.line_name.Validating += new System.ComponentModel.CancelEventHandler(this.line_name_Validating);
             // 
@@ -259,7 +257,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Kreator dodawania nowej linii";
             this.Activated += new System.EventHandler(this.turnoffFocus);
-            this.Load += new System.EventHandler(this.DodawanieNowejLinii_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.move_window);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

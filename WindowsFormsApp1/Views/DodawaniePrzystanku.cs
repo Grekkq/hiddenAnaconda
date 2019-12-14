@@ -37,32 +37,25 @@ namespace hiddenAnaconda.Views {
             InitializeComponent();
         }
 
-        private void create_Click(object sender, EventArgs e) 
-            {
-                 if (yes.Checked == false && no.Checked == false) {
-                    MessageBox.Show("Nie zaznaczono odpowiedz na pytanie.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        private void create_Click(object sender, EventArgs e) {
+            if (yes.Checked == false && no.Checked == false) {
+                MessageBox.Show("Nie zaznaczono odpowiedz na pytanie.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 p_miasto.Focus();
-                p_adres.Focus();
                 p_nazwa.Focus();
-            }
-             else if ((!string.IsNullOrEmpty(p_adres.Text) && !string.IsNullOrEmpty(p_nazwa.Text) && !string.IsNullOrEmpty(p_miasto.Text) && ErrorIsOn == false))
-            {
-                if (MessageBox.Show("Na pewno chcesz dodać kurs?", "Dodanie kursu", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                {
-                    const string message = "Pomyślnie utworzono nowy przystanek.";
-                    const string caption = "Sukces";
-                    var result = MessageBox.Show(message, caption, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    if (result == DialogResult.OK)
-                    {
-                        this.Close();
-                    }
+            } else if (!string.IsNullOrEmpty(p_nazwa.Text) && !string.IsNullOrEmpty(p_miasto.Text) && ErrorIsOn == false) {
+                var nazwa = p_nazwa.Text;
+                var miasto = p_miasto.Text;
+                var czy_jednokierunkwy = false;
+                if (yes.Checked == true)
+                    czy_jednokierunkwy = true;
+                var result = MessageBox.Show("Na pewno chcesz dodać przystanek o nazwie " + nazwa + " w mieście " + miasto + "?", "Dodanie kursu", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes) {
+                    Models.AddingBusStops addingBusStops = new Models.AddingBusStops();
+                    addingBusStops.AddBusStop(nazwa, miasto, czy_jednokierunkwy);
+                } else {
+                    p_miasto.Focus();
+                    p_nazwa.Focus();
                 }
-            }
-            else
-            {
-                p_miasto.Focus();
-                p_adres.Focus();
-                p_nazwa.Focus();
             }
         }
 
@@ -74,71 +67,45 @@ namespace hiddenAnaconda.Views {
             this.Close();
         }
 
-        private void label3_Click(object sender, EventArgs e)
-        {
+        private void label3_Click(object sender, EventArgs e) {
 
         }
-        private void p_miasto_TextChanged(object sender, KeyPressEventArgs e)
-        {
-            if (char.IsLetter(e.KeyChar) || (e.KeyChar == ' ') || e.KeyChar == (char)Keys.Back)
+        private void p_miasto_TextChanged(object sender, KeyPressEventArgs e) {
+            if (char.IsLetter(e.KeyChar) || (e.KeyChar == ' ') || e.KeyChar == (char) Keys.Back)
                 base.OnKeyPress(e);
             else
                 e.Handled = true;
         }
 
-            private void p_miasto_TextChanged(object sender, EventArgs e)
-        {
+        private void p_miasto_TextChanged(object sender, EventArgs e) {
 
             p_miasto.Text = System.Threading.Thread.CurrentThread.CurrentCulture.TextInfo.ToTitleCase(this.p_miasto.Text);
             p_miasto.Select(p_miasto.Text.Length, 0);
-           
-        }
-
-        private void p_adres_TextChanged(object sender, EventArgs e)
-        {
 
         }
 
-        private void p_nazwa_TextChanged(object sender, EventArgs e)
-        {
+        private void p_adres_TextChanged(object sender, EventArgs e) {
 
         }
-        private void p_nazwa_Validating(object sender, CancelEventArgs e)
-        {
-            if (string.IsNullOrEmpty(p_nazwa.Text))
-            {
+
+        private void p_nazwa_TextChanged(object sender, EventArgs e) {
+
+        }
+        private void p_nazwa_Validating(object sender, CancelEventArgs e) {
+            if (string.IsNullOrEmpty(p_nazwa.Text)) {
                 errorProvider1.SetError(p_nazwa, "Nie wpisano nazwy");
                 ErrorIsOn = true;
-            }
-            else
-            {
+            } else {
                 errorProvider1.SetError(p_nazwa, null);
                 ErrorIsOn = false;
             }
         }
-        private void p_miasto_Validating(object sender, CancelEventArgs e)
-        {
-            if (string.IsNullOrEmpty(p_miasto.Text))
-            {
+        private void p_miasto_Validating(object sender, CancelEventArgs e) {
+            if (string.IsNullOrEmpty(p_miasto.Text)) {
                 errorProvider1.SetError(p_miasto, "Nie wpisano miasta");
                 ErrorIsOn = true;
-            }
-            else
-            {
+            } else {
                 errorProvider1.SetError(p_miasto, null);
-                ErrorIsOn = false;
-            }
-        }
-        private void p_adres_Validating(object sender, CancelEventArgs e)
-        {
-            if (string.IsNullOrEmpty(p_adres.Text))
-            {
-                errorProvider1.SetError(p_adres, "Nie wpisano adresu");
-                ErrorIsOn = true;
-            }
-            else
-            {
-                errorProvider1.SetError(p_adres, null);
                 ErrorIsOn = false;
             }
         }
