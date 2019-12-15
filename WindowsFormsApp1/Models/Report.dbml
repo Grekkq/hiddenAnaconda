@@ -83,17 +83,6 @@
       <Column Name="czy_aktywny" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
-  <Table Name="dbo.pojazd" Member="pojazds">
-    <Type Name="pojazd">
-      <Column Name="id_pojazdu" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="nr_rejestracyjny" Type="System.String" DbType="NVarChar(7) NOT NULL" CanBeNull="false" />
-      <Column Name="model" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
-      <Column Name="marka" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
-      <Column Name="czy_niskopodlogowy" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Column Name="czy_sprawny" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Association Name="pojazd_realizacja_kursu" Member="realizacja_kursus" ThisKey="id_pojazdu" OtherKey="id_pojazdu" Type="realizacja_kursu" />
-    </Type>
-  </Table>
   <Table Name="dbo.przystanek" Member="przystaneks">
     <Type Name="przystanek">
       <Column Name="id_przystanku" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -114,8 +103,21 @@
       <Association Name="realizacja_kursu_czas_realizacji" Member="czas_realizacjis" ThisKey="id_realizacji_kursu" OtherKey="id_realizacji_kursu" Type="czas_realizacji" />
       <Association Name="kur_realizacja_kursu" Member="kur" ThisKey="id_kursu" OtherKey="id_kursu" Type="kur" IsForeignKey="true" />
       <Association Name="kierowca_realizacja_kursu" Member="kierowca" ThisKey="id_przypisanego_kierowcy" OtherKey="id_kierowcy" Type="kierowca" IsForeignKey="true" />
-      <Association Name="pojazd_realizacja_kursu" Member="pojazd" ThisKey="id_pojazdu" OtherKey="id_pojazdu" Type="pojazd" IsForeignKey="true" />
       <Association Name="kierowca_realizacja_kursu1" Member="kierowca1" ThisKey="id_wykonujacego_kierowcy" OtherKey="id_kierowcy" Type="kierowca" IsForeignKey="true" />
+      <Association Name="pojazd_realizacja_kursu" Member="pojazd" ThisKey="id_pojazdu" OtherKey="id_pojazdu" Type="pojazd" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.pojazd" Member="pojazd">
+    <Type Name="pojazd">
+      <Column Name="id_pojazdu" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="nr_rejestracyjny" Type="System.String" DbType="NVarChar(7) NOT NULL" CanBeNull="false" />
+      <Column Name="nr_VIN" Type="System.String" DbType="NVarChar(17) NOT NULL" CanBeNull="false" />
+      <Column Name="model" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="marka" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="data_produkcji" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="czy_niskopodlogowy" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="czy_sprawny" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="pojazd_realizacja_kursu" Member="realizacja_kursu" ThisKey="id_pojazdu" OtherKey="id_pojazdu" Type="realizacja_kursu" />
     </Type>
   </Table>
 </Database>

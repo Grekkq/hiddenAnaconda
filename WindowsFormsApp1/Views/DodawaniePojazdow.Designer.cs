@@ -34,11 +34,11 @@
             this.label1 = new System.Windows.Forms.Label();
             this.exit = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.year_number = new System.Windows.Forms.DateTimePicker();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.no1 = new System.Windows.Forms.RadioButton();
             this.yes2 = new System.Windows.Forms.RadioButton();
-            this.year_number = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.vin_number = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -101,9 +101,9 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.panel1.Controls.Add(this.year_number);
             this.panel1.Controls.Add(this.pictureBox2);
             this.panel1.Controls.Add(this.groupBox2);
-            this.panel1.Controls.Add(this.year_number);
             this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.vin_number);
             this.panel1.Controls.Add(this.label7);
@@ -122,7 +122,14 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(606, 377);
             this.panel1.TabIndex = 0;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // year_number
+            // 
+            this.year_number.Location = new System.Drawing.Point(19, 252);
+            this.year_number.Name = "year_number";
+            this.year_number.Size = new System.Drawing.Size(47, 20);
+            this.year_number.TabIndex = 21;
+            this.year_number.Validating += new System.ComponentModel.CancelEventHandler(this.year_number_Validating);
             // 
             // pictureBox2
             // 
@@ -168,18 +175,6 @@
             this.yes2.Text = "Tak";
             this.yes2.UseVisualStyleBackColor = true;
             // 
-            // year_number
-            // 
-            this.year_number.HideSelection = false;
-            this.year_number.Location = new System.Drawing.Point(20, 252);
-            this.year_number.MaxLength = 4;
-            this.year_number.Name = "year_number";
-            this.year_number.Size = new System.Drawing.Size(167, 20);
-            this.year_number.TabIndex = 4;
-            this.year_number.TextChanged += new System.EventHandler(this.year_number_TextChanged);
-            this.year_number.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.year_number_TextChanged);
-            this.year_number.Validating += new System.ComponentModel.CancelEventHandler(this.year_number_Validating);
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -198,7 +193,6 @@
             this.vin_number.Name = "vin_number";
             this.vin_number.Size = new System.Drawing.Size(167, 20);
             this.vin_number.TabIndex = 3;
-            this.vin_number.TextChanged += new System.EventHandler(this.vin_number_TextChanged);
             this.vin_number.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.vin_number_TextChanged);
             this.vin_number.Validating += new System.ComponentModel.CancelEventHandler(this.vin_number_Validating);
             // 
@@ -220,7 +214,6 @@
             this.plate_numer.Name = "plate_numer";
             this.plate_numer.Size = new System.Drawing.Size(167, 20);
             this.plate_numer.TabIndex = 2;
-            this.plate_numer.TextChanged += new System.EventHandler(this.plate_numer_TextChanged);
             this.plate_numer.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.plate_number_TextChanged);
             this.plate_numer.Validating += new System.ComponentModel.CancelEventHandler(this.plate_numer_Validating);
             // 
@@ -264,7 +257,6 @@
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Czy tworzony pojazd jest niskopodłogowy?";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // no
             // 
@@ -400,7 +392,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Kreator Dodawanie Pojazdu";
             this.Activated += new System.EventHandler(this.turnoffFocus);
-            this.Load += new System.EventHandler(this.DodawaniePojazdow_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.move_window);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -423,7 +414,6 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.RadioButton no1;
         private System.Windows.Forms.RadioButton yes2;
-        private System.Windows.Forms.TextBox year_number;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox vin_number;
         private System.Windows.Forms.Label label7;
@@ -444,5 +434,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.DateTimePicker year_number;
     }
 }

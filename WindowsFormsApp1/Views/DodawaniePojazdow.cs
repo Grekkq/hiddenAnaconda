@@ -28,6 +28,9 @@ namespace hiddenAnaconda.Views {
 
         public DodawaniePojazdow() {
             InitializeComponent();
+            year_number.Format = DateTimePickerFormat.Custom;
+            year_number.CustomFormat = "yyyy";
+            year_number.ShowUpDown = true;
         }
         private void turnoffFocus(object sender, EventArgs e) {
             this.ActiveControl = null;
@@ -76,30 +79,32 @@ namespace hiddenAnaconda.Views {
                 year_number.Focus();
                 mark_name.Focus();
             }
-            if ((!string.IsNullOrEmpty(vin_number.Text) && !string.IsNullOrEmpty(plate_numer.Text) && !string.IsNullOrEmpty(model_name.Text) && ErrorIsOn == false && !string.IsNullOrEmpty(year_number.Text))) {
-                var result = MessageBox.Show("Na pewno chcesz dodać kurs?", "Dodanie kursu", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (result == DialogResult.OK) {
-                    this.Close();
+            if ((!string.IsNullOrEmpty(vin_number.Text) && !string.IsNullOrEmpty(plate_numer.Text) && !string.IsNullOrEmpty(model_name.Text) && ErrorIsOn == false)) {
+                var plate = plate_numer.Text;
+                var vin = vin_number.Text;
+                var modelNumber = model_name.Text;
+                var brand = mark_name.Text;
+                var year = year_number.Value.Date;
+                var isLow = false;
+                var isWork = false;
+
+                if (yes.Checked == true)
+                    isLow = true;
+                if (yes2.Checked == true)
+                    isWork = true;
+
+                var result = MessageBox.Show("Na pewno chcesz utworzyć pojazd " + brand + " " + modelNumber + " rocznik " + year_number.Value.Year + " " + plate + " numer VIN: " + vin + " ?", "Dodanie kursu", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes) {
+                    Models.AddingVehicles addingVehicles = new Models.AddingVehicles();
+                    addingVehicles.AddVehicle(plate, vin, modelNumber, brand, year, isLow, isWork);
                 } else {
                     model_name.Focus();
                     vin_number.Focus();
                     plate_numer.Focus();
                     year_number.Focus();
                     mark_name.Focus();
-
                 }
             }
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e) {
-
-        }
-        private void DodawaniePojazdow_Load(object sender, EventArgs e) {
-
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e) {
-
         }
 
         private void vin_number_TextChanged(object sender, KeyPressEventArgs e) {
@@ -111,8 +116,14 @@ namespace hiddenAnaconda.Views {
                 e.Handled = true;
         }
 
-        private void vin_number_TextChanged(object sender, EventArgs e) {
-
+        private void year_number_Validating(object sender, CancelEventArgs e) {
+            if (year_number.Value.Year > DateTime.Today.Year) {
+                errorProvider1.SetError(year_number, "Nieprawidłowy rok produkcji");
+                ErrorIsOn = true;
+            } else {
+                errorProvider1.SetError(year_number, null);
+                ErrorIsOn = false;
+            }
         }
 
         private void vin_number_Validating(object sender, CancelEventArgs e) {
@@ -154,35 +165,12 @@ namespace hiddenAnaconda.Views {
             }
         }
 
-        private void plate_numer_TextChanged(object sender, EventArgs e) {
-
-        }
-
         private void plate_numer_Validating(object sender, CancelEventArgs e) {
             if (string.IsNullOrEmpty(plate_numer.Text)) {
                 errorProvider1.SetError(plate_numer, "Nie wpisano rejestracji");
                 ErrorIsOn = true;
             } else {
                 errorProvider1.SetError(plate_numer, null);
-                ErrorIsOn = false;
-            }
-        }
-        private void year_number_TextChanged(object sender, KeyPressEventArgs e) {
-            if (char.IsDigit(e.KeyChar) || e.KeyChar == (char) Keys.Back)
-                base.OnKeyPress(e);
-            else
-                e.Handled = true;
-        }
-
-        private void year_number_TextChanged(object sender, EventArgs e) {
-
-        }
-        private void year_number_Validating(object sender, CancelEventArgs e) {
-            if (string.IsNullOrEmpty(year_number.Text)) {
-                errorProvider1.SetError(year_number, "Nie wpisano roku");
-                ErrorIsOn = true;
-            } else {
-                errorProvider1.SetError(year_number, null);
                 ErrorIsOn = false;
             }
         }
