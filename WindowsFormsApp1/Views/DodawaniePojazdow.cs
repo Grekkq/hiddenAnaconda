@@ -93,7 +93,7 @@ namespace hiddenAnaconda.Views {
                 if (yes2.Checked == true)
                     isWork = true;
 
-                var result = MessageBox.Show("Na pewno chcesz utworzyć pojazd " + brand + " " + modelNumber + " rocznik " + year_number.Value.Year + " " + plate + " numer VIN: " + vin + " ?", "Dodanie kursu", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                var result = MessageBox.Show("Na pewno chcesz utworzyć pojazd " + brand + " " + modelNumber + " rocznik " + year_number.Value.Year + ", numer rejestracyjny: " + plate + ", numer VIN: " + vin + " ?", "Dodanie kursu", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.Yes) {
                     Models.AddingVehicles addingVehicles = new Models.AddingVehicles();
                     addingVehicles.AddVehicle(plate, vin, modelNumber, brand, year, isLow, isWork);
@@ -101,7 +101,6 @@ namespace hiddenAnaconda.Views {
                     model_name.Focus();
                     vin_number.Focus();
                     plate_numer.Focus();
-                    year_number.Focus();
                     mark_name.Focus();
                 }
             }
@@ -128,7 +127,7 @@ namespace hiddenAnaconda.Views {
 
         private void vin_number_Validating(object sender, CancelEventArgs e) {
             if (string.IsNullOrEmpty(vin_number.Text)) {
-                errorProvider1.SetError(vin_number, "Nie pisano VIN");
+                errorProvider1.SetError(vin_number, "Nie wpisano numeru VIN");
                 ErrorIsOn = true;
             } else {
                 errorProvider1.SetError(vin_number, null);
