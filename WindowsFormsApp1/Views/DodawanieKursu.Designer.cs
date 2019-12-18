@@ -36,7 +36,7 @@
             this.date_name = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.line_choose = new System.Windows.Forms.ComboBox();
+            this.LineChooseComboBox = new System.Windows.Forms.ComboBox();
             this.c_number = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.hour_name = new System.Windows.Forms.TextBox();
@@ -67,7 +67,7 @@
             this.panel1.Controls.Add(this.date_name);
             this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.line_choose);
+            this.panel1.Controls.Add(this.LineChooseComboBox);
             this.panel1.Controls.Add(this.c_number);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.hour_name);
@@ -81,7 +81,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(606, 377);
             this.panel1.TabIndex = 0;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // pictureBox2
             // 
@@ -104,7 +103,6 @@
             this.label9.Size = new System.Drawing.Size(248, 13);
             this.label9.TabIndex = 20;
             this.label9.Text = "Akceptowany format daty - DD/MM/RRRR";
-            this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
             // date_name
             // 
@@ -114,7 +112,6 @@
             this.date_name.Name = "date_name";
             this.date_name.Size = new System.Drawing.Size(109, 20);
             this.date_name.TabIndex = 3;
-            this.date_name.TextChanged += new System.EventHandler(this.date_name_TextChanged);
             this.date_name.Validating += new System.ComponentModel.CancelEventHandler(this.date_name_Validating);
             // 
             // label8
@@ -125,7 +122,6 @@
             this.label8.Size = new System.Drawing.Size(153, 13);
             this.label8.TabIndex = 18;
             this.label8.Text = "Podaj  datę rozpoczęcia kursu:";
-            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // label6
             // 
@@ -138,15 +134,14 @@
             this.label6.TabIndex = 17;
             this.label6.Text = "Akceptowany format czasu - GG:MM";
             // 
-            // line_choose
+            // LineChooseComboBox
             // 
-            this.line_choose.FormattingEnabled = true;
-            this.line_choose.Location = new System.Drawing.Point(19, 106);
-            this.line_choose.Name = "line_choose";
-            this.line_choose.Size = new System.Drawing.Size(130, 21);
-            this.line_choose.TabIndex = 0;
-            this.line_choose.SelectedIndexChanged += new System.EventHandler(this.line_choose_SelectedIndexChanged);
-            this.line_choose.Validating += new System.ComponentModel.CancelEventHandler(this.line_choose_Validating);
+            this.LineChooseComboBox.FormattingEnabled = true;
+            this.LineChooseComboBox.Location = new System.Drawing.Point(19, 106);
+            this.LineChooseComboBox.Name = "LineChooseComboBox";
+            this.LineChooseComboBox.Size = new System.Drawing.Size(130, 21);
+            this.LineChooseComboBox.TabIndex = 0;
+            this.LineChooseComboBox.Validating += new System.ComponentModel.CancelEventHandler(this.line_choose_Validating);
             // 
             // c_number
             // 
@@ -156,7 +151,6 @@
             this.c_number.Name = "c_number";
             this.c_number.Size = new System.Drawing.Size(109, 20);
             this.c_number.TabIndex = 1;
-            this.c_number.TextChanged += new System.EventHandler(this.c_number_TextChanged);
             this.c_number.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.c_number_TextChanged);
             this.c_number.Validating += new System.ComponentModel.CancelEventHandler(this.c_number_Validating);
             // 
@@ -168,7 +162,6 @@
             this.label5.Size = new System.Drawing.Size(98, 13);
             this.label5.TabIndex = 13;
             this.label5.Text = "Podaj numer kursu:";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // hour_name
             // 
@@ -178,7 +171,6 @@
             this.hour_name.Name = "hour_name";
             this.hour_name.Size = new System.Drawing.Size(109, 20);
             this.hour_name.TabIndex = 2;
-            this.hour_name.TextChanged += new System.EventHandler(this.hour_name_TextChanged);
             this.hour_name.Validating += new System.ComponentModel.CancelEventHandler(this.hour_name_Validating);
             // 
             // label3
@@ -189,7 +181,6 @@
             this.label3.Size = new System.Drawing.Size(205, 13);
             this.label3.TabIndex = 11;
             this.label3.Text = "Podaj  godzinę pierwszego odjazdu kursu:";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // cancel
             // 
@@ -231,7 +222,6 @@
             this.label1.Size = new System.Drawing.Size(608, 68);
             this.label1.TabIndex = 1;
             this.label1.Text = " \r\n      Tworzenie nowego kursu";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             this.label1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.move_window);
             // 
             // label4
@@ -354,7 +344,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox hour_name;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox line_choose;
+        private System.Windows.Forms.ComboBox LineChooseComboBox;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox date_name;
         private System.Windows.Forms.Label label8;
