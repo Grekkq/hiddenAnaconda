@@ -93,7 +93,7 @@ namespace hiddenAnaconda.Views
                 MessageBox.Show("Podano niepoprawne dane!", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             } else {
                 CreatingUsers creating = new CreatingUsers();
-                if (creating.isUserExitst(username.Text)) {
+                if (creating.CheckifUserExitst(username.Text)) {
                     MessageBox.Show("Podany user istnieje");
                 } else {
                     Login login = new Login();
