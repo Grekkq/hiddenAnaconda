@@ -16,6 +16,8 @@ namespace hiddenAnaconda.Views {
     public partial class DodawanieKursu : Form {
         bool ErrorIsOn, ErrorIsOn2 = false;
         SharedView sharedView = new SharedView();
+        Models.AddTrail addTrail = new Models.AddTrail();
+
         private void move_window(object sender, MouseEventArgs e) {
             if (e.Button == MouseButtons.Left) {
                 sharedView.moveWindow(sender, e, Handle);
@@ -43,8 +45,7 @@ namespace hiddenAnaconda.Views {
 
         private void DodawanieKursu_Load(object sender, EventArgs e) {
             // wczytaj linie do wyboru
-
-            //LineChooseComboBox;
+            sharedView.LoadLinesIntoComboBox(LineChooseComboBox);
         }
 
         private void create_Click(object sender, EventArgs e) {

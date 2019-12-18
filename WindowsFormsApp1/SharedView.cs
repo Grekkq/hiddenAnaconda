@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing;
+using hiddenAnaconda.Models;
 
 namespace hiddenAnaconda {
 
@@ -15,6 +16,27 @@ namespace hiddenAnaconda {
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
         [System.Runtime.InteropServices.DllImport("user32.dll")]
         public static extern bool ReleaseCapture();
+
+        ReportDataContext dc;
+        private List<String> lines;
+        public SharedView() {
+            dc = new ReportDataContext();
+            lines = new List<string>();
+        }
+
+        public void LoadLinesIntoComboBox(ComboBox comboBox) {
+            if (lines.Count == 0)
+                GetLinesFromDb();
+            foreach (var line in lines)
+                comboBox.Items.Add(line);
+        }
+
+        private void GetLinesFromDb() {
+            var data = dc.linias;
+            foreach (var item in data) {
+                lines.Add(item.id_linii.ToString());
+            }
+        }
 
         // przesuwanie okna
         public void moveWindow(object sender, MouseEventArgs e, IntPtr Handle) {

@@ -167,7 +167,6 @@
             this.label1.Size = new System.Drawing.Size(43, 22);
             this.label1.TabIndex = 27;
             this.label1.Text = "  Nr. ";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // pictureBox2
             // 
@@ -215,7 +214,6 @@
             this.mainListBox.Name = "mainListBox";
             this.mainListBox.Size = new System.Drawing.Size(468, 148);
             this.mainListBox.TabIndex = 1;
-            this.mainListBox.SelectedIndexChanged += new System.EventHandler(this.mainListBox_SelectedIndexChanged);
             this.mainListBox.DragDrop += new System.Windows.Forms.DragEventHandler(this.mainListBox_DragDrop);
             this.mainListBox.DragOver += new System.Windows.Forms.DragEventHandler(this.mainListBox_DragOver);
             this.mainListBox.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.mainListBox_MouseDoubleClick);
@@ -295,7 +293,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 49;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click_1);
             // 
             // pictureBox3
             // 

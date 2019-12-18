@@ -106,34 +106,8 @@ namespace hiddenAnaconda.Views {
                 }
         }
 
-        private void DodawanieTrasy_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void mainListBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox1_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
+        private void DodawanieTrasy_Load(object sender, EventArgs e) {
+            sharedView.LoadLinesIntoComboBox(this.lineSelectionComboBox);
         }
     }
 }
