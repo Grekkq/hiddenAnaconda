@@ -97,7 +97,7 @@ namespace hiddenAnaconda.Views {
             } else if (password == " Hasło") {
                 MessageBox.Show("Nie podano hasła.", "Błąd logowania", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             } else {
-                Models.Login login = new Models.Login();
+                Models.ApplicationUser login = new Models.ApplicationUser();
                 if (login.LoginUser(username, password)) {
                     this.Hide();
                     Form sistema = new WybórEkranu();

@@ -21,6 +21,7 @@ namespace hiddenAnaconda.Views
         }
         bool ErrorIsOn = true;
         SharedView sharedView = new SharedView();
+        ApplicationUser applicationUser = new ApplicationUser();
 
         private void turnoffFocus(object sender, EventArgs e)
         {
@@ -92,12 +93,10 @@ namespace hiddenAnaconda.Views
             if (ErrorIsOn == true) {
                 MessageBox.Show("Podano niepoprawne dane!", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             } else {
-                CreatingUsers creating = new CreatingUsers();
-                if (creating.CheckifUserExitst(username.Text)) {
+                if (applicationUser.CheckIfUserExist(username.Text)) {
                     MessageBox.Show("Podany user istnieje");
                 } else {
-                    Login login = new Login();
-                    login.createUser(username.Text, password.Text,Constants.TranslatePermissionLevel(permissions_level.Text));
+                    applicationUser.createUser(username.Text, password.Text,Constants.TranslatePermissionLevel(permissions_level.Text));
                 }
             }
                 

@@ -68,9 +68,8 @@
     <Compile Include="Models\AddingLine.cs" />
     <Compile Include="Models\AddingVehicles.cs" />
     <Compile Include="Models\AddTrail.cs" />
-    <Compile Include="Models\CreatingUsers.cs" />
+    <Compile Include="Models\ApplicationUser.cs" />
     <Compile Include="Models\DayType.cs" />
-    <Compile Include="Models\Login.cs" />
     <Compile Include="Models\Report.cs">
       <DependentUpon>Report.dbml</DependentUpon>
     </Compile>

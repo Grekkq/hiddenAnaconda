@@ -8,11 +8,11 @@ using System.Windows.Forms;
 using System.Diagnostics;
 
 namespace hiddenAnaconda.Models {
-    class Login {
+    class ApplicationUser {
 
         ReportDataContext dc;
 
-        public Login() {
+        public ApplicationUser() {
             dc = new ReportDataContext();
         }
 
@@ -31,16 +31,30 @@ namespace hiddenAnaconda.Models {
                 MessageBox.Show("Spróbuj jeszcze raz.", "Wystąpił błąd przy tworzeniu użytkownika!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            if (chceckIfUserExist(login))
+            if (CheckIfUserExist(login))
                 MessageBox.Show("Utworzono użytkownika: " + login);
             else
                 MessageBox.Show("Spróbuj jeszcze raz.", "Wystąpił błąd przy sprawdzeniu czy użytkownik istnieje!", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
-        private bool chceckIfUserExist(string login) {
-            if (dc.logowanies.Any(u => u.login == login))
+        public bool CheckIfUserExist(string username) {
+            try {
+                // Throw InvalidOperationException if no element satisfies the condition in predicate.
+                dc.logowanies.Where(l => l.login.ToLower() == username.ToLower()).First();
+            } catch (InvalidOperationException) {
+                return false;
+            }
+            return true;
+            // Wersja Mateusz
+            int result = (from l in dc.logowanies
+                          where l.login == username
+                          select l).Count();
+
+            if (result > 0) {
                 return true;
-            return false;
+            } else {
+                return false;
+            }
         }
 
         public bool LoginUser(string login, string password) {
