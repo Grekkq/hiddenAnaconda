@@ -37,10 +37,11 @@ namespace hiddenAnaconda.Models {
                 MessageBox.Show("Spróbuj jeszcze raz.", "Wystąpił błąd przy sprawdzeniu czy użytkownik istnieje!", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
+        //zzmienić where na Single????
         public bool CheckIfUserExist(string username) {
             try {
                 // Throw InvalidOperationException if no element satisfies the condition in predicate.
-                dc.logowanies.Where(l => l.login.ToLower() == username.ToLower()).First();
+                dc.logowanies.Single(l => l.login.ToLower() == username.ToLower());
             } catch (InvalidOperationException) {
                 return false;
             }
@@ -94,12 +95,13 @@ namespace hiddenAnaconda.Models {
         }
 
         // Return hash from DB if login not found return 0
+        // if failed to connect to db return null
         private string GetHashFromDb(string login) {
-            logowanie data;
+            logowanie data = null;
             try {
                 data = dc.logowanies.Single(l => l.login == login);
-            } catch {
-                Debug.Print("Failed to get hash from database for login: {0}", (object)login);
+            } catch (Exception e) {
+                Debug.Print("Failed to get hash from database for login: {0}\n Reason: {1}", (object)login, e);
                 return "0";
             }
             return data.hasz;
