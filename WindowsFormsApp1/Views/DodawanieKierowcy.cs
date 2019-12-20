@@ -38,23 +38,29 @@ namespace hiddenAnaconda.Views {
             DriverFirstName.ResetText();
             DriverLastName.ResetText();
             DriverPesel.ResetText();
+            this.Focus();
         }
 
         private void Zapisz_Click(object sender, EventArgs e) {
             var name = DriverFirstName.Text;
             var surname = DriverLastName.Text;
             var pesel = DriverPesel.Text;
-            if ((!string.IsNullOrEmpty(DriverLastName.Text) && !string.IsNullOrEmpty(DriverFirstName.Text) && !string.IsNullOrEmpty(DriverPesel.Text)) && ErrorIsOn == false) {
+            if ((!string.IsNullOrEmpty(DriverLastName.Text) && !string.IsNullOrEmpty(DriverFirstName.Text) && !string.IsNullOrEmpty(DriverPesel.Text)) && ErrorIsOn == false)
+            {
                 var result = MessageBox.Show("Czy na pewno chcesz utworzyć kierowcę: " + name + " " + surname + " o numerze PESEL: " + pesel + "?", "Czy na pewno?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (result == DialogResult.Yes) {
+                if (result == DialogResult.Yes)
+                {
                     Models.AddingDrivers addingDrivers = new Models.AddingDrivers();
                     addingDrivers.AddDriver(name, surname, Int64.Parse(pesel));
-                } else {
-                    DriverLastName.Focus();
-                    DriverPesel.Focus();
-                    DriverFirstName.Focus();
                 }
             }
+            else
+            { 
+                DriverLastName.Focus();
+                DriverPesel.Focus();
+                DriverFirstName.Focus();
+            }
+            
         }
         private void exit_Click(object sender, EventArgs e) {
             this.Close();

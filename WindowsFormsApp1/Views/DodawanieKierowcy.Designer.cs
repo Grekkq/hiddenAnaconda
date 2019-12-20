@@ -99,7 +99,7 @@
             this.powrot.Click += new System.EventHandler(this.powrot_Click);
             // 
             // Reset
-            // 
+            // valod
             this.Reset.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.Reset.Location = new System.Drawing.Point(411, 325);
             this.Reset.Margin = new System.Windows.Forms.Padding(2);

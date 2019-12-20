@@ -170,7 +170,7 @@ namespace hiddenAnaconda.Views {
 
             if (string.IsNullOrEmpty(arrivalTime.Text))
             {
-                errorProvider1.SetError(arrivalTime, "Nie wpisano godziny!");
+                errorProvider1.SetError(arrivalTime, "Nie wpisano godziny");
                 ErrorIsOn = true;
             }
             else if (!r.IsMatch(arrivalTime.Text))

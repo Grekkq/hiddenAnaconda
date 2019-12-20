@@ -79,16 +79,15 @@
             this.label3.ForeColor = System.Drawing.SystemColors.Window;
             this.label3.Location = new System.Drawing.Point(2, 4);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(202, 21);
+            this.label3.Size = new System.Drawing.Size(198, 21);
             this.label3.TabIndex = 2;
-            this.label3.Text = "Dodaj przystanek do kursu";
+            this.label3.Text = "Dodaj przystanek do trasy";
             this.label3.Click += new System.EventHandler(this.label3_Click);
             this.label3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.move_window);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Enabled = false;
             this.label4.Location = new System.Drawing.Point(10, 15);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(125, 13);

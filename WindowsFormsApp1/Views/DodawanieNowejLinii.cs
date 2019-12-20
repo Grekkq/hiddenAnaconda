@@ -82,13 +82,23 @@ namespace hiddenAnaconda.Views {
             }
         }
         private void groupBox1_Validating(object sender, CancelEventArgs e) {
-            if (string.IsNullOrEmpty(line_name.Text)) {
+            if (string.IsNullOrEmpty(groupBox1.Text) || yes.Checked == false && no.Checked==false) {
                 errorProvider1.SetError(groupBox1, "Nie wybrano odpowiedzi");
                 ErrorIsOn = true;
             } else {
                 errorProvider1.SetError(groupBox1, null);
                 ErrorIsOn = false;
             }
+        }
+
+        private void no_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

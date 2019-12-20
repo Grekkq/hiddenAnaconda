@@ -10,6 +10,7 @@ using System.Windows.Forms;
 
 namespace hiddenAnaconda.Views {
     public partial class DodawanieTrasy : Form {
+        bool ErrorIsOn = true;
         // funkcje wspólne dla widoków
         SharedView sharedView = new SharedView();
 
@@ -108,6 +109,41 @@ namespace hiddenAnaconda.Views {
 
         private void DodawanieTrasy_Load(object sender, EventArgs e) {
             sharedView.LoadLinesIntoComboBox(this.lineSelectionComboBox);
+        }
+
+        private void create_Click(object sender, EventArgs e)
+        {
+            if (ErrorIsOn!=true)
+            {
+                var result = MessageBox.Show("Na pewno chcesz utworzyć trasę?", "Czy na pewno?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    //WPISANIE DO BD
+                }
+                else
+                {
+                    lineSelectionComboBox.Focus();
+                }
+            }
+        }
+
+        private void lineSelectionComboBox_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(lineSelectionComboBox.Text))
+            {
+                errorProvider1.SetError(lineSelectionComboBox, "Nie wybrano linii");
+                ErrorIsOn = true;
+            }
+            else
+            {
+                errorProvider1.SetError(lineSelectionComboBox, null);
+                ErrorIsOn = false;
+            }
+        }
+
+        private void bgPanel_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

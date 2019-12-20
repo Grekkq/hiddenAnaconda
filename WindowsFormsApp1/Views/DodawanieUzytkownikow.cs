@@ -97,6 +97,10 @@ namespace hiddenAnaconda.Views
                     MessageBox.Show("Podany user istnieje");
                 } else {
                     applicationUser.createUser(username.Text, password.Text,Constants.TranslatePermissionLevel(permissions_level.Text));
+                    username.ResetText();
+                    password.ResetText();
+                    password_re.ResetText();
+                    permissions_level.ResetText();
                 }
             }
                 

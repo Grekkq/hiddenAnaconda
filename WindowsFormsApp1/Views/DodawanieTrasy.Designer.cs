@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DodawanieTrasy));
             this.helpLabel = new System.Windows.Forms.Label();
             this.lineSelectionComboBox = new System.Windows.Forms.ComboBox();
@@ -49,10 +50,12 @@
             this.help = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.bgPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // helpLabel
@@ -78,6 +81,7 @@
             this.lineSelectionComboBox.Name = "lineSelectionComboBox";
             this.lineSelectionComboBox.Size = new System.Drawing.Size(131, 21);
             this.lineSelectionComboBox.TabIndex = 0;
+            this.lineSelectionComboBox.Validating += new System.ComponentModel.CancelEventHandler(this.lineSelectionComboBox_Validating);
             // 
             // cancel
             // 
@@ -99,6 +103,7 @@
             this.create.TabIndex = 3;
             this.create.Text = "Utwórz";
             this.create.UseVisualStyleBackColor = false;
+            this.create.Click += new System.EventHandler(this.create_Click);
             // 
             // lineSelectionLabel
             // 
@@ -131,6 +136,7 @@
             this.bgPanel.Name = "bgPanel";
             this.bgPanel.Size = new System.Drawing.Size(606, 377);
             this.bgPanel.TabIndex = 0;
+            this.bgPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.bgPanel_Paint);
             // 
             // label2
             // 
@@ -304,6 +310,11 @@
             this.pictureBox3.TabIndex = 50;
             this.pictureBox3.TabStop = false;
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.errorProvider1.ContainerControl = this;
+            // 
             // DodawanieTrasy
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -329,6 +340,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -355,5 +367,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }
