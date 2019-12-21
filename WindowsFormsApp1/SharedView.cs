@@ -25,6 +25,7 @@ namespace hiddenAnaconda {
         }
 
         public void LoadLinesIntoComboBox(ComboBox comboBox) {
+            comboBox.Items.Clear();
             if (lines.Count == 0)
                 GetLinesFromDb();
             foreach (var line in lines)
