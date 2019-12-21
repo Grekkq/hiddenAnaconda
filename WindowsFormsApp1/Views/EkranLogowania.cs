@@ -13,8 +13,6 @@ namespace hiddenAnaconda.Views {
         public EkranLogowania() {
             InitializeComponent();
         }
-
-
         SharedView sharedView = new SharedView();
 
         private void exit_Click(object sender, EventArgs e) {
@@ -100,8 +98,7 @@ namespace hiddenAnaconda.Views {
                 Models.ApplicationUser login = new Models.ApplicationUser();
                 if (login.LoginUser(username, password)) {
                     this.Hide();
-                    Form sistema = new WybórEkranu();
-                    sistema.ShowDialog();
+                    new WybórEkranu().ShowDialog();
                     this.Close();
                 } else {
                     MessageBox.Show("Niepoprawna nazwa użytkownika lub hasło!", ":(", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -109,23 +106,14 @@ namespace hiddenAnaconda.Views {
             }
 
         }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-        private void textBox2_loginButtonClick(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
+        private void textBox2_loginButtonClick(object sender, KeyEventArgs e) {
+            if (e.KeyCode == Keys.Enter) {
                 button1.PerformClick();
             }
 
         }
-        private void CheckEnter(object sender, System.Windows.Forms.KeyPressEventArgs e)
-        {
-            if (e.KeyChar == (char)13)
-            {
+        private void CheckEnter(object sender, System.Windows.Forms.KeyPressEventArgs e) {
+            if (e.KeyChar == (char)13) {
                 button1_Click(this, new EventArgs());
             }
         }
