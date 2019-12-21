@@ -30,7 +30,7 @@ namespace hiddenAnaconda.Models {
                 return false;
             } else {
                 try {
-                    dc.pojazd.InsertOnSubmit(vehicle);
+                    dc.pojazds.InsertOnSubmit(vehicle);
                     dc.SubmitChanges();
                 } catch {
                     MessageBox.Show("Nie udało się utworzyć pojazdu. Spróbuj ponownie.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -42,7 +42,7 @@ namespace hiddenAnaconda.Models {
         }
 
         private bool checkIfVehicleExist(string plateNumber) { //sprawdzanie czy pojazd już istnieje
-            if (dc.pojazd.Any(u => u.nr_rejestracyjny == plateNumber))
+            if (dc.pojazds.Any(u => u.nr_rejestracyjny == plateNumber))
                 return true;
             return false;
         }

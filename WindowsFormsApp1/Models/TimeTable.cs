@@ -146,19 +146,19 @@ namespace hiddenAnaconda.Models {
                            l.czy_zapetla,
                        };
             // jeśli jednokierunkowy zwróć wszystko, jeśli nie to zwróć co drugi chyba że linia się nie zapętla
-            var isOneWay = dc.przystaneks.Where(p => p.nazwa == stopName).First().czy_jednokierunkowy;
-            List<LiniaITrasa> list = new List<LiniaITrasa>();
-            if (isOneWay) {
-                foreach (var item in data) {
-                    list.Add(new LiniaITrasa(item.id_linii, item.id_trasy));
-                }
-            } else {
-                data = data.Where(d => d.nr_trasy % 2 == kierunek || d.czy_zapetla == false);
-                foreach (var item in data) {
-                    list.Add(new LiniaITrasa(item.id_linii, item.id_trasy));
-                }
-            }
-            return list;
+            //var isOneWay = dc.przystaneks.Where(p => p.nazwa == stopName).First().czy_jednokierunkowy;
+            //List<LiniaITrasa> list = new List<LiniaITrasa>();
+            //if (isOneWay) {
+            //    foreach (var item in data) {
+            //        list.Add(new LiniaITrasa(item.id_linii, item.id_trasy));
+            //    }
+            //} else {
+            //    data = data.Where(d => d.nr_trasy % 2 == kierunek || d.czy_zapetla == false);
+            //    foreach (var item in data) {
+            //        list.Add(new LiniaITrasa(item.id_linii, item.id_trasy));
+            //    }
+            //}
+            return null;
         }
 
         // daj html'a z czsami przyjazdu dla danych idTrasy

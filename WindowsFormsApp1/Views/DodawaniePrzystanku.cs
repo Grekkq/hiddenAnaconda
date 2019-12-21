@@ -45,13 +45,14 @@ namespace hiddenAnaconda.Views {
             } else if (!string.IsNullOrEmpty(p_nazwa.Text) && !string.IsNullOrEmpty(p_miasto.Text) && ErrorIsOn == false) {
                 var nazwa = p_nazwa.Text;
                 var miasto = p_miasto.Text;
-                var czy_jednokierunkwy = false;
+                // TODO dodanie możliwości wpisania kierunku
+                var direction = "zaimplementowac-kierunek";
                 if (yes.Checked == true)
-                    czy_jednokierunkwy = true;
+                    direction = "kierunek-zaimplementowac";
                 var result = MessageBox.Show("Na pewno chcesz dodać przystanek o nazwie " + nazwa + " w mieście " + miasto + "?", "Dodanie kursu", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.Yes) {
                     Models.AddingBusStops addingBusStops = new Models.AddingBusStops();
-                    addingBusStops.AddBusStop(nazwa, miasto, czy_jednokierunkwy);
+                    addingBusStops.AddBusStop(nazwa, miasto, direction);
                 } else {
                     p_miasto.Focus();
                     p_nazwa.Focus();

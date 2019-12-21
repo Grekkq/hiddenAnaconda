@@ -1,155 +1,155 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 14, 11.375" name="Report">
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 15.875, 10.625" name="Report">
   <DataContextMoniker Name="/ReportDataContext" />
   <nestedChildShapes>
-    <classShape Id="1c0c5a3e-2d39-4705-bebc-7eb42dce258b" absoluteBounds="5.625, 6.75, 2, 1.3862939453125005">
+    <classShape Id="7f0254d8-55a1-46f9-93f7-e92adf345ecf" absoluteBounds="6.25, 6.875, 2, 1.3862939453125014">
       <DataClassMoniker Name="/ReportDataContext/czas_odjazdu" />
       <nestedChildShapes>
-        <elementListCompartment Id="cc10e41f-bcea-4ffe-b067-f8e86856f750" absoluteBounds="5.64, 7.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="676c7114-815d-4a6a-b871-52fa1fa9e283" absoluteBounds="6.265, 7.335, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="988185b7-ae0f-4d21-8aa6-c1770c30eef2" absoluteBounds="3.125, 6.625, 2, 1.7708968098958335">
-      <DataClassMoniker Name="/ReportDataContext/trasa" />
-      <nestedChildShapes>
-        <elementListCompartment Id="ae293019-e8f1-4ac7-9233-953ec9c72240" absoluteBounds="3.14, 7.085, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="bd13741f-5f6c-4e63-8e6d-a9016de81836" absoluteBounds="7.5, 8.75, 2, 1.5785953776041666">
+    <classShape Id="bef98dbc-b288-4a7b-8d69-6409e75b5c2c" absoluteBounds="9.5, 6.75, 2, 1.5785953776041666">
       <DataClassMoniker Name="/ReportDataContext/czas_realizacji" />
       <nestedChildShapes>
-        <elementListCompartment Id="c6316b24-3668-4467-9657-af4d5e23e930" absoluteBounds="7.5150000000000006, 9.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="ccdcc1cf-164a-43f6-8c59-00a981f556e8" absoluteBounds="9.515, 7.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="24a4769c-723b-4f55-91f3-0f872011f2c8" absoluteBounds="0.75, 7.25, 2, 1.5785953776041666">
+    <classShape Id="3064697a-12f5-4367-8fe5-f82f128c9293" absoluteBounds="6.375, 8.75, 2, 1.5785953776041666">
       <DataClassMoniker Name="/ReportDataContext/dni_kursowania" />
       <nestedChildShapes>
-        <elementListCompartment Id="5d628c9d-e758-40c2-a629-043a393a1aa1" absoluteBounds="0.765, 7.71, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="a6645693-a065-45b9-bf1a-c7328924212e" absoluteBounds="6.39, 9.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="b94fd5b3-fef4-4937-a61e-e718d042af67" absoluteBounds="11.75, 4.25, 2, 1.7708968098958335">
+    <classShape Id="38d57954-6cc2-451b-81b9-5820a67a07e8" absoluteBounds="13.625, 4.375, 2, 1.7708968098958344">
       <DataClassMoniker Name="/ReportDataContext/kierowca" />
       <nestedChildShapes>
-        <elementListCompartment Id="d60c0545-4bff-4081-a1b4-3e5841e5a74d" absoluteBounds="11.765, 4.7100000000000009, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="7e57d774-814d-4d4b-b3d9-c77794dc427b" absoluteBounds="13.64, 4.8350000000000009, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="41e487db-fd0b-4a2d-b572-067c6593c5dc" absoluteBounds="4.75, 2, 2, 1.9631982421875">
+    <classShape Id="1ab3bed0-d469-4bdc-9c8f-6ca9eac1b308" absoluteBounds="6.25, 3.5, 2, 1.9631982421875005">
       <DataClassMoniker Name="/ReportDataContext/kur" />
       <nestedChildShapes>
-        <elementListCompartment Id="677e284b-c85d-4957-b2d8-f5d6e34c6e10" absoluteBounds="4.7650000000000006, 2.46, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="17e2f3de-dc46-4625-a0ff-1c8092653244" absoluteBounds="6.265, 3.96, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="24af9d66-621c-4b8d-a9a3-81607ecc97d5" absoluteBounds="4, 4.625, 2, 1.1939925130208335">
+    <classShape Id="3106658d-ca2d-4073-ac4b-098f09c05fbb" absoluteBounds="3.75, 5.75, 2, 1.193992513020834">
       <DataClassMoniker Name="/ReportDataContext/linia" />
       <nestedChildShapes>
-        <elementListCompartment Id="8dfd89ae-ae3e-465a-8ac7-945c08e763f1" absoluteBounds="4.015, 5.085, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="5d27b04a-3ed4-4659-93b4-cd9c381edf88" absoluteBounds="3.7649999999999997, 6.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="dc0a7355-faf4-4a5a-bf6c-6a9345a0937a" absoluteBounds="0.625, 9.375, 2, 1.7708968098958327">
+    <classShape Id="71f151a1-29df-4b21-9326-faa065bcb812" absoluteBounds="2.375, 8.375, 2, 1.7708968098958344">
       <DataClassMoniker Name="/ReportDataContext/logowanie" />
       <nestedChildShapes>
-        <elementListCompartment Id="8177bafa-c64f-4772-a8ce-1fe6587d1c4f" absoluteBounds="0.64000000000000012, 9.835, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="ed15f872-4c40-4d24-8c2f-b90708aedcad" absoluteBounds="2.39, 8.835, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="76e7275e-4a52-4b6f-a58a-fdf34907c867" absoluteBounds="0.875, 3.875, 2, 1.5785953776041668">
-      <DataClassMoniker Name="/ReportDataContext/przystanek" />
-      <nestedChildShapes>
-        <elementListCompartment Id="5d81c610-6816-4964-9475-3f95e3d0e2fb" absoluteBounds="0.89, 4.335, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="1a2a4167-9d98-4854-9b2e-15e48b84fba7" absoluteBounds="7.875, 4.875, 2, 1.9631982421875">
-      <DataClassMoniker Name="/ReportDataContext/realizacja_kursu" />
-      <nestedChildShapes>
-        <elementListCompartment Id="764481c1-80cf-4d59-a262-cd28b3e587af" absoluteBounds="7.8900000000000006, 5.335, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <associationConnector edgePoints="[(5.125 : 7.44314697265625); (5.625 : 7.44314697265625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
-      <AssociationMoniker Name="/ReportDataContext/trasa/trasa_czas_odjazdu" />
-      <nodes>
-        <classShapeMoniker Id="988185b7-ae0f-4d21-8aa6-c1770c30eef2" />
-        <classShapeMoniker Id="1c0c5a3e-2d39-4705-bebc-7eb42dce258b" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(6.5624995 : 8.1362939453125); (6.5624995 : 9.53929768880208); (7.5 : 9.53929768880208)]" fixedFrom="NotFixed" fixedTo="NotFixed">
-      <AssociationMoniker Name="/ReportDataContext/czas_odjazdu/czas_odjazdu_czas_realizacji" />
-      <nodes>
-        <classShapeMoniker Id="1c0c5a3e-2d39-4705-bebc-7eb42dce258b" />
-        <classShapeMoniker Id="bd13741f-5f6c-4e63-8e6d-a9016de81836" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(6.40625 : 6.75); (6.40625 : 3.9631982421875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
-      <AssociationMoniker Name="/ReportDataContext/czas_odjazdu/czas_odjazdu_kur" />
-      <nodes>
-        <classShapeMoniker Id="1c0c5a3e-2d39-4705-bebc-7eb42dce258b" />
-        <classShapeMoniker Id="41e487db-fd0b-4a2d-b572-067c6593c5dc" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(3.53125 : 6.625); (3.53125 : 2.98159912109375); (4.75 : 2.98159912109375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
-      <AssociationMoniker Name="/ReportDataContext/trasa/trasa_kur" />
-      <nodes>
-        <classShapeMoniker Id="988185b7-ae0f-4d21-8aa6-c1770c30eef2" />
-        <classShapeMoniker Id="41e487db-fd0b-4a2d-b572-067c6593c5dc" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(4.5625 : 5.81899251302083); (4.5625 : 6.625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
-      <AssociationMoniker Name="/ReportDataContext/linia/linia_trasa" />
-      <nodes>
-        <classShapeMoniker Id="24af9d66-621c-4b8d-a9a3-81607ecc97d5" />
-        <classShapeMoniker Id="988185b7-ae0f-4d21-8aa6-c1770c30eef2" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(5.375 : 4.625); (5.375 : 3.9631982421875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
-      <AssociationMoniker Name="/ReportDataContext/linia/linia_kur" />
-      <nodes>
-        <classShapeMoniker Id="24af9d66-621c-4b8d-a9a3-81607ecc97d5" />
-        <classShapeMoniker Id="41e487db-fd0b-4a2d-b572-067c6593c5dc" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(2.84375 : 5.45359537760417); (2.84375 : 6.90625); (3.125 : 6.90625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
-      <AssociationMoniker Name="/ReportDataContext/przystanek/przystanek_trasa" />
-      <nodes>
-        <classShapeMoniker Id="76e7275e-4a52-4b6f-a58a-fdf34907c867" />
-        <classShapeMoniker Id="988185b7-ae0f-4d21-8aa6-c1770c30eef2" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(8.6875 : 6.8381982421875); (8.6875 : 8.75)]" fixedFrom="NotFixed" fixedTo="NotFixed">
-      <AssociationMoniker Name="/ReportDataContext/realizacja_kursu/realizacja_kursu_czas_realizacji" />
-      <nodes>
-        <classShapeMoniker Id="1a2a4167-9d98-4854-9b2e-15e48b84fba7" />
-        <classShapeMoniker Id="bd13741f-5f6c-4e63-8e6d-a9016de81836" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(6.75 : 2.98159912109375); (9.56574899264287 : 2.98159912109375); (9.56574899264287 : 4.875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
-      <AssociationMoniker Name="/ReportDataContext/kur/kur_realizacja_kursu" />
-      <nodes>
-        <classShapeMoniker Id="41e487db-fd0b-4a2d-b572-067c6593c5dc" />
-        <classShapeMoniker Id="1a2a4167-9d98-4854-9b2e-15e48b84fba7" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(11.75 : 5.44794840494792); (9.875 : 5.44794840494792)]" fixedFrom="NotFixed" fixedTo="NotFixed">
-      <AssociationMoniker Name="/ReportDataContext/kierowca/kierowca_realizacja_kursu" />
-      <nodes>
-        <classShapeMoniker Id="b94fd5b3-fef4-4937-a61e-e718d042af67" />
-        <classShapeMoniker Id="1a2a4167-9d98-4854-9b2e-15e48b84fba7" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(11.75 : 5.09897420247396); (9.875 : 5.09897420247396)]" fixedFrom="NotFixed" fixedTo="NotFixed">
-      <AssociationMoniker Name="/ReportDataContext/kierowca/kierowca_realizacja_kursu1" />
-      <nodes>
-        <classShapeMoniker Id="b94fd5b3-fef4-4937-a61e-e718d042af67" />
-        <classShapeMoniker Id="1a2a4167-9d98-4854-9b2e-15e48b84fba7" />
-      </nodes>
-    </associationConnector>
-    <classShape Id="e1184abd-4bd1-4faa-bbe5-dd95b5ec40d4" absoluteBounds="11.125, 6.875, 2, 2.3478011067708335">
+    <classShape Id="36f7ed1e-49dd-4e24-8c23-4bfcf107ddef" absoluteBounds="10.875, 0.75, 2, 2.3478011067708344">
       <DataClassMoniker Name="/ReportDataContext/pojazd" />
       <nestedChildShapes>
-        <elementListCompartment Id="d84bb277-e885-4b7c-8b0d-494bbccec832" absoluteBounds="11.14, 7.335, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="8ce9cff8-1d9a-4e04-8023-8684f4adbc0b" absoluteBounds="10.89, 1.2100000000000009, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(11.125 : 7.78125); (9.71875 : 7.78125); (9.71875 : 6.8381982421875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <classShape Id="9ffa707f-5521-4151-9f9e-d4b5827d2f7b" absoluteBounds="0.75, 0.75, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/ReportDataContext/przystanek" />
+      <nestedChildShapes>
+        <elementListCompartment Id="896b3627-e2e2-496f-81e8-7f361d27d4ae" absoluteBounds="0.765, 1.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d8f10a4c-b3ff-418d-8221-d8ea9f232f2d" absoluteBounds="9, 3.5, 2, 1.9631982421875005">
+      <DataClassMoniker Name="/ReportDataContext/realizacja_kursu" />
+      <nestedChildShapes>
+        <elementListCompartment Id="40a13197-ac58-4092-b6cb-7a299ea5e295" absoluteBounds="9.015, 3.96, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="308fd529-0382-4e0c-84c2-48ea5dbae00f" absoluteBounds="1.875, 3.25, 2, 1.7708968098958327">
+      <DataClassMoniker Name="/ReportDataContext/trasa" />
+      <nestedChildShapes>
+        <elementListCompartment Id="97086d87-9036-4f9d-8794-bbe81c8c5ebf" absoluteBounds="1.8900000000000001, 3.71, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(8.25 : 7.56814697265625); (9.5 : 7.56814697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ReportDataContext/czas_odjazdu/czas_odjazdu_czas_realizacji" />
+      <nodes>
+        <classShapeMoniker Id="7f0254d8-55a1-46f9-93f7-e92adf345ecf" />
+        <classShapeMoniker Id="bef98dbc-b288-4a7b-8d69-6409e75b5c2c" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(7.53125 : 6.875); (7.53125 : 5.4631982421875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ReportDataContext/czas_odjazdu/czas_odjazdu_kur" />
+      <nodes>
+        <classShapeMoniker Id="7f0254d8-55a1-46f9-93f7-e92adf345ecf" />
+        <classShapeMoniker Id="1ab3bed0-d469-4bdc-9c8f-6ca9eac1b308" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.75 : 5.75); (6.25 : 5.4631982421875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/ReportDataContext/linia/linia_kur" />
+      <nodes>
+        <classShapeMoniker Id="3106658d-ca2d-4073-ac4b-098f09c05fbb" />
+        <classShapeMoniker Id="1ab3bed0-d469-4bdc-9c8f-6ca9eac1b308" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(10.25 : 5.4631982421875); (10.25 : 6.75)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ReportDataContext/realizacja_kursu/realizacja_kursu_czas_realizacji" />
+      <nodes>
+        <classShapeMoniker Id="d8f10a4c-b3ff-418d-8221-d8ea9f232f2d" />
+        <classShapeMoniker Id="bef98dbc-b288-4a7b-8d69-6409e75b5c2c" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.25 : 4.48159912109375); (9 : 4.48159912109375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ReportDataContext/kur/kur_realizacja_kursu" />
+      <nodes>
+        <classShapeMoniker Id="1ab3bed0-d469-4bdc-9c8f-6ca9eac1b308" />
+        <classShapeMoniker Id="d8f10a4c-b3ff-418d-8221-d8ea9f232f2d" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(13.625 : 4.91909912109375); (11 : 4.91909912109375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ReportDataContext/kierowca/kierowca_realizacja_kursu" />
+      <nodes>
+        <classShapeMoniker Id="38d57954-6cc2-451b-81b9-5820a67a07e8" />
+        <classShapeMoniker Id="d8f10a4c-b3ff-418d-8221-d8ea9f232f2d" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(11.9375005 : 3.09780110677083); (11.9375005 : 4.01102278027344); (11 : 4.01102278027344)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/ReportDataContext/pojazd/pojazd_realizacja_kursu" />
       <nodes>
-        <classShapeMoniker Id="e1184abd-4bd1-4faa-bbe5-dd95b5ec40d4" />
-        <classShapeMoniker Id="1a2a4167-9d98-4854-9b2e-15e48b84fba7" />
+        <classShapeMoniker Id="36f7ed1e-49dd-4e24-8c23-4bfcf107ddef" />
+        <classShapeMoniker Id="d8f10a4c-b3ff-418d-8221-d8ea9f232f2d" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(13.625 : 4.58454956054688); (11 : 4.58454956054688)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ReportDataContext/kierowca/kierowca_realizacja_kursu1" />
+      <nodes>
+        <classShapeMoniker Id="38d57954-6cc2-451b-81b9-5820a67a07e8" />
+        <classShapeMoniker Id="d8f10a4c-b3ff-418d-8221-d8ea9f232f2d" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.94405081429791 : 5.02089680989583); (2.94405081429791 : 7.63389322916667); (6.25 : 7.63389322916667)]" fixedFrom="Caller" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ReportDataContext/trasa/trasa_czas_odjazdu" />
+      <nodes>
+        <classShapeMoniker Id="308fd529-0382-4e0c-84c2-48ea5dbae00f" />
+        <classShapeMoniker Id="7f0254d8-55a1-46f9-93f7-e92adf345ecf" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(3.875 : 4.15625); (6.25 : 4.15625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ReportDataContext/trasa/trasa_kur" />
+      <nodes>
+        <classShapeMoniker Id="308fd529-0382-4e0c-84c2-48ea5dbae00f" />
+        <classShapeMoniker Id="1ab3bed0-d469-4bdc-9c8f-6ca9eac1b308" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.3125 : 2.32859537760417); (2.3125 : 3.25)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ReportDataContext/przystanek/przystanek_trasa" />
+      <nodes>
+        <classShapeMoniker Id="9ffa707f-5521-4151-9f9e-d4b5827d2f7b" />
+        <classShapeMoniker Id="308fd529-0382-4e0c-84c2-48ea5dbae00f" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(4.12702877994883 : 5.75); (4.12702877994883 : 4.52504065688871); (3.875 : 4.52504065688871)]" fixedFrom="Caller" fixedTo="Caller">
+      <AssociationMoniker Name="/ReportDataContext/linia/linia_trasa" />
+      <nodes>
+        <classShapeMoniker Id="3106658d-ca2d-4073-ac4b-098f09c05fbb" />
+        <classShapeMoniker Id="308fd529-0382-4e0c-84c2-48ea5dbae00f" />
       </nodes>
     </associationConnector>
   </nestedChildShapes>

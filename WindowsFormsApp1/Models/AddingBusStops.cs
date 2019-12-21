@@ -16,14 +16,14 @@ namespace hiddenAnaconda.Models {
             dc = new ReportDataContext();
         }
 
-        public bool AddBusStop(string name,string city,bool isOneWay) {
+        public bool AddBusStop(string name, string city, string direction) {
             przystanek busStop = new przystanek();
             busStop.nazwa = name;
             busStop.miasto = city;
-            busStop.czy_jednokierunkowy = isOneWay;
+            busStop.kierunek = direction;
 
-            if (chceckIfBusStopExist(name,city)) {
-                MessageBox.Show("Przystanek "+name+" zlokalizowany w mieście "+city+" istnieje już w bazie!", "Błąd!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            if (chceckIfBusStopExist(name, city)) {
+                MessageBox.Show("Przystanek " + name + " zlokalizowany w mieście " + city + " istnieje już w bazie!", "Błąd!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             } else {
                 try {
@@ -37,8 +37,8 @@ namespace hiddenAnaconda.Models {
             }
         }
 
-        private bool chceckIfBusStopExist(string name,string city) {
-            if (dc.przystaneks.Any(u => u.miasto==city && u.nazwa==name))
+        private bool chceckIfBusStopExist(string name, string city) {
+            if (dc.przystaneks.Any(u => u.miasto == city && u.nazwa == name))
                 return true;
             return false;
         }
