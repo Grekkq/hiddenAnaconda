@@ -21,9 +21,9 @@ namespace hiddenAnaconda.Views {
         public DodajPrzystanekDoTrasy(Models.routeElementModel busStop)
         {
             InitializeComponent();
-            this.stopName.Text = busStop.Name;
-            this.cityName.Text = busStop.City;
-            this.arrivalTime.Text = busStop.ArrivalTime;
+            //this.stopName.Text = busStop.Name;
+            //this.cityName.Text = busStop.City;
+            //this.textbox_time.Text = busStop.ArrivalTime;
         }
 
         Models.routeElementModel busStop;
@@ -68,25 +68,42 @@ namespace hiddenAnaconda.Views {
 
         private void DodajPrzystanekDoTrasy_Load(object sender, EventArgs e)
         {
+            //przykładowe dane
+            this.comboBox_miasto.Items.Clear();
+            this.comboBox_miasto.Items.Add("Sosnowiec");
+            this.comboBox_przystanek.Items.Clear();
+            this.comboBox_przystanek.Items.Add("Remiza");
+            this.comboBox_kierunek.Items.Clear();
+            this.comboBox_kierunek.Items.Add("Sosnowiec-Katowice");
+            this.comboBox_kierunek.Items.Add("Katowice-Sosnowiec");
 
+            comboBox_miasto.Focus();
+            label_przystanek.Visible = false;
+            label_kierunek.Visible = false;
+            label_czas.Visible = false;
+            label_timedescription.Visible = false;
+
+            comboBox_przystanek.Visible = false;
+            comboBox_kierunek.Visible = false;
+            textbox_time.Visible = false;
         }
 
         private void Dodaj_Click(object sender, EventArgs e)
         {
-            if ((!string.IsNullOrEmpty(arrivalTime.Text) && !string.IsNullOrEmpty(stopName.Text) && !string.IsNullOrEmpty(cityName.Text) && ErrorIsOn == false))
+            if ((!string.IsNullOrEmpty(textbox_time.Text) && !string.IsNullOrEmpty(comboBox_przystanek.Text) && !string.IsNullOrEmpty(comboBox_miasto.Text) && ErrorIsOn == false))
             {
                 if (MessageBox.Show("Na pewno chcesz dodać przystanek?", "Dodanie przystanku", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    busStop = new Models.routeElementModel(this.stopName.Text, this.cityName.Text, this.arrivalTime.Text);
+                    busStop = new Models.routeElementModel(this.comboBox_przystanek.Text, this.comboBox_miasto.Text, this.textbox_time.Text);
                     this.DialogResult = DialogResult.OK;
                     this.Close();
                 }
             }
             else
             {
-                arrivalTime.Focus();
-                cityName.Focus();
-                stopName.Focus();
+                textbox_time.Focus();
+                comboBox_miasto.Focus();
+                comboBox_przystanek.Focus();
             }
 
             
@@ -109,7 +126,7 @@ namespace hiddenAnaconda.Views {
                 e.Handled = true;
 
             // nie pozwala na przecinek na początku
-            if ((e.KeyChar == '.' && arrivalTime.SelectionStart == 0) || (e.KeyChar == ':' && arrivalTime.SelectionStart == 0))
+            if ((e.KeyChar == '.' && textbox_time.SelectionStart == 0) || (e.KeyChar == ':' && textbox_time.SelectionStart == 0))
                 e.Handled = true;
 
         }
@@ -123,101 +140,60 @@ namespace hiddenAnaconda.Views {
 
         }
 
-        private void cityName_TextChanged(object sender, EventArgs e)
-        {
-            cityName.Text = System.Threading.Thread.CurrentThread.CurrentCulture.TextInfo.ToTitleCase(this.cityName.Text);
-            cityName.Select(cityName.Text.Length, 0);
-        }
-        private void cityName_Validating(object sender, CancelEventArgs e)
-        {
-            if (string.IsNullOrEmpty(cityName.Text))
-            {
-                errorProvider1.SetError(cityName, "Nie wpisano miasta");
-                ErrorIsOn = true;
-            }
-            else
-            {
-                errorProvider1.SetError(cityName, null);
-                ErrorIsOn = false;
-            }
-        }
-
-        private void stopName_TextChanged(object sender, EventArgs e)
-        {
-            stopName.Text = System.Threading.Thread.CurrentThread.CurrentCulture.TextInfo.ToTitleCase(this.stopName.Text);
-            stopName.Select(stopName.Text.Length, 0);
-        }
-        private void stopName_Validating(object sender, CancelEventArgs e)
-        {
-            if (string.IsNullOrEmpty(stopName.Text))
-            {
-                errorProvider1.SetError(stopName, "Nie wpisano nazwy");
-                ErrorIsOn = true;
-            }
-            else
-            {
-                errorProvider1.SetError(stopName, null);
-                ErrorIsOn = false;
-            }
-        }
-        private void arrivalTime_TextChanged(object sender, EventArgs e)
-        {
-
-        }
         private void arrivalTime_Validating(object sender, CancelEventArgs e)
         {
             Regex r = new Regex(@"^(?:0?[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$");
 
-            if (string.IsNullOrEmpty(arrivalTime.Text))
+            if (string.IsNullOrEmpty(textbox_time.Text))
             {
-                errorProvider1.SetError(arrivalTime, "Nie wpisano godziny");
+                errorProvider1.SetError(textbox_time, "Nie wpisano godziny");
                 ErrorIsOn = true;
             }
-            else if (!r.IsMatch(arrivalTime.Text))
+            else if (!r.IsMatch(textbox_time.Text))
             {
-                errorProvider1.SetError(arrivalTime, "Niepoprawnie wpisana godzina");
+                errorProvider1.SetError(textbox_time, "Niepoprawnie wpisana godzina");
                 ErrorIsOn = true;
             }
             else
             {
-                errorProvider1.SetError(arrivalTime, null);
+                errorProvider1.SetError(textbox_time, null);
                 ErrorIsOn = false;
             }
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
+        private void comboBox_miasto_SelectedIndexChanged(object sender, EventArgs e) {
+            label_przystanek.Visible = true;
+            comboBox_przystanek.Visible = true;
+            comboBox_przystanek.Focus();
+            comboBox_kierunek.Focus();
+            comboBox_kierunek.Visible = true;
+            label_kierunek.Visible = true;
         }
 
-        private void create_Click(object sender, EventArgs e)
-        {
-
+        private void comboBox_przystanek_SelectedIndexChanged(object sender, EventArgs e) {
+            label_czas.Visible = true;
+            textbox_time.Visible = true;
+            label_timedescription.Visible = true;
         }
 
-        private void label5_Click(object sender, EventArgs e)
-        {
-
+        private void comboBox_przystanek_Validating(object sender, CancelEventArgs e) {
+            if (string.IsNullOrEmpty(comboBox_przystanek.Text)) {
+                errorProvider1.SetError(comboBox_przystanek, "Nie wybrano przystanku");
+                ErrorIsOn = true;
+            } else {
+                errorProvider1.SetError(comboBox_przystanek, null);
+                ErrorIsOn = false;
+            }
         }
 
-        private void cancel_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
+        private void comboBox_miasto_Validating(object sender, CancelEventArgs e) {
+            if (string.IsNullOrEmpty(comboBox_miasto.Text)) {
+                errorProvider1.SetError(comboBox_miasto, "Nie wybrano miasta");
+                ErrorIsOn = true;
+            } else {
+                errorProvider1.SetError(comboBox_miasto, null);
+                ErrorIsOn = false;
+            }
         }
     }
 }

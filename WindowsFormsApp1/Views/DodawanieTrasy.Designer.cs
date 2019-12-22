@@ -36,6 +36,7 @@
             this.create = new System.Windows.Forms.Button();
             this.lineSelectionLabel = new System.Windows.Forms.Label();
             this.bgPanel = new System.Windows.Forms.Panel();
+            this.checkBox_czyUtworzycNowaTrase = new System.Windows.Forms.CheckBox();
             this.label_lokalizacja = new System.Windows.Forms.Label();
             this.label_godzina = new System.Windows.Forms.Label();
             this.label_nr = new System.Windows.Forms.Label();
@@ -45,14 +46,14 @@
             this.mainListBox = new System.Windows.Forms.ListBox();
             this.deleteButton = new System.Windows.Forms.Button();
             this.addButton = new System.Windows.Forms.Button();
+            this.label_trasa = new System.Windows.Forms.Label();
+            this.comboBoxTrasa = new System.Windows.Forms.ComboBox();
             this.exit = new System.Windows.Forms.Button();
             this.titleLabel = new System.Windows.Forms.Label();
             this.help = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.comboBoxTrasa = new System.Windows.Forms.ComboBox();
-            this.label_trasa = new System.Windows.Forms.Label();
             this.bgPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -69,7 +70,7 @@
             this.helpLabel.Name = "helpLabel";
             this.helpLabel.Size = new System.Drawing.Size(608, 68);
             this.helpLabel.TabIndex = 3;
-            this.helpLabel.Text = " \r\n      Tworzenie nowej trasy";
+            this.helpLabel.Text = " \r\n      Zarządzanie trasami";
             // 
             // linia_comboBox
             // 
@@ -121,6 +122,7 @@
             // bgPanel
             // 
             this.bgPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.bgPanel.Controls.Add(this.checkBox_czyUtworzycNowaTrase);
             this.bgPanel.Controls.Add(this.label_lokalizacja);
             this.bgPanel.Controls.Add(this.label_godzina);
             this.bgPanel.Controls.Add(this.label_nr);
@@ -142,6 +144,16 @@
             this.bgPanel.Size = new System.Drawing.Size(606, 377);
             this.bgPanel.TabIndex = 0;
             this.bgPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.bgPanel_Paint);
+            // 
+            // checkBox_czyUtworzycNowaTrase
+            // 
+            this.checkBox_czyUtworzycNowaTrase.AutoSize = true;
+            this.checkBox_czyUtworzycNowaTrase.Location = new System.Drawing.Point(313, 98);
+            this.checkBox_czyUtworzycNowaTrase.Name = "checkBox_czyUtworzycNowaTrase";
+            this.checkBox_czyUtworzycNowaTrase.Size = new System.Drawing.Size(273, 17);
+            this.checkBox_czyUtworzycNowaTrase.TabIndex = 28;
+            this.checkBox_czyUtworzycNowaTrase.Text = "Utwórz nową trasę na podstawie zedytowanej tabeli.";
+            this.checkBox_czyUtworzycNowaTrase.UseVisualStyleBackColor = true;
             // 
             // label_lokalizacja
             // 
@@ -196,10 +208,9 @@
             this.helpLabel2.BackColor = System.Drawing.SystemColors.Window;
             this.helpLabel2.Location = new System.Drawing.Point(29, 33);
             this.helpLabel2.Name = "helpLabel2";
-            this.helpLabel2.Size = new System.Drawing.Size(440, 13);
+            this.helpLabel2.Size = new System.Drawing.Size(332, 13);
             this.helpLabel2.TabIndex = 25;
-            this.helpLabel2.Text = "Aby utworzyć nową trasę autobusową wypełnij poniższy formularz a następnie klikni" +
-    "j utwórz.";
+            this.helpLabel2.Text = "Aby zedytować lub utworzyć nową trasę wypełnij poniższy formularz. ";
             // 
             // clearButton
             // 
@@ -250,6 +261,31 @@
             this.addButton.UseVisualStyleBackColor = true;
             this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
+            // label_trasa
+            // 
+            this.label_trasa.AutoSize = true;
+            this.label_trasa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.label_trasa.Location = new System.Drawing.Point(165, 80);
+            this.label_trasa.Name = "label_trasa";
+            this.label_trasa.Size = new System.Drawing.Size(74, 13);
+            this.label_trasa.TabIndex = 18;
+            this.label_trasa.Text = "Wybierz trasę:";
+            // 
+            // comboBoxTrasa
+            // 
+            this.comboBoxTrasa.BackColor = System.Drawing.SystemColors.Window;
+            this.comboBoxTrasa.FormattingEnabled = true;
+            this.comboBoxTrasa.Items.AddRange(new object[] {
+            "657",
+            "296",
+            "409"});
+            this.comboBoxTrasa.Location = new System.Drawing.Point(168, 96);
+            this.comboBoxTrasa.Name = "comboBoxTrasa";
+            this.comboBoxTrasa.Size = new System.Drawing.Size(131, 21);
+            this.comboBoxTrasa.TabIndex = 0;
+            this.comboBoxTrasa.SelectedIndexChanged += new System.EventHandler(this.comboBoxTrasa_SelectedIndexChanged);
+            this.comboBoxTrasa.Validating += new System.ComponentModel.CancelEventHandler(this.lineSelectionComboBox_Validating);
+            // 
             // exit
             // 
             this.exit.BackColor = System.Drawing.Color.Transparent;
@@ -276,9 +312,9 @@
             this.titleLabel.ForeColor = System.Drawing.SystemColors.Window;
             this.titleLabel.Location = new System.Drawing.Point(28, 4);
             this.titleLabel.Name = "titleLabel";
-            this.titleLabel.Size = new System.Drawing.Size(244, 21);
+            this.titleLabel.Size = new System.Drawing.Size(229, 21);
             this.titleLabel.TabIndex = 23;
-            this.titleLabel.Text = "Formularz tworzenia nowej trasy";
+            this.titleLabel.Text = "Formularz zarządzania trasami.";
             this.titleLabel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.move_window);
             // 
             // help
@@ -319,31 +355,6 @@
             // 
             this.errorProvider1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.errorProvider1.ContainerControl = this;
-            // 
-            // comboBoxTrasa
-            // 
-            this.comboBoxTrasa.BackColor = System.Drawing.SystemColors.Window;
-            this.comboBoxTrasa.FormattingEnabled = true;
-            this.comboBoxTrasa.Items.AddRange(new object[] {
-            "657",
-            "296",
-            "409"});
-            this.comboBoxTrasa.Location = new System.Drawing.Point(168, 96);
-            this.comboBoxTrasa.Name = "comboBoxTrasa";
-            this.comboBoxTrasa.Size = new System.Drawing.Size(131, 21);
-            this.comboBoxTrasa.TabIndex = 0;
-            this.comboBoxTrasa.SelectedIndexChanged += new System.EventHandler(this.comboBoxTrasa_SelectedIndexChanged);
-            this.comboBoxTrasa.Validating += new System.ComponentModel.CancelEventHandler(this.lineSelectionComboBox_Validating);
-            // 
-            // label_trasa
-            // 
-            this.label_trasa.AutoSize = true;
-            this.label_trasa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.label_trasa.Location = new System.Drawing.Point(165, 80);
-            this.label_trasa.Name = "label_trasa";
-            this.label_trasa.Size = new System.Drawing.Size(74, 13);
-            this.label_trasa.TabIndex = 18;
-            this.label_trasa.Text = "Wybierz trasę:";
             // 
             // DodawanieTrasy
             // 
@@ -400,5 +411,6 @@
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.ComboBox comboBoxTrasa;
         private System.Windows.Forms.Label label_trasa;
+        private System.Windows.Forms.CheckBox checkBox_czyUtworzycNowaTrase;
     }
 }

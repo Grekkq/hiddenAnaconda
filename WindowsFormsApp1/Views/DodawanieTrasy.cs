@@ -109,12 +109,14 @@ namespace hiddenAnaconda.Views {
 
         private void DodawanieTrasy_Load(object sender, EventArgs e) {
             sharedView.LoadLinesIntoComboBox(this.linia_comboBox);
+            checkBox_czyUtworzycNowaTrase.Visible = false;
             label_trasa.Visible = false;
             comboBoxTrasa.Visible = false;
             clearButton.Visible = false;
             addButton.Visible = false;
             deleteButton.Visible = false;
             create.Visible = false;
+
 
             //visability of datagrid
             label_lokalizacja.Visible = false;
@@ -171,6 +173,7 @@ namespace hiddenAnaconda.Views {
             label_godzina.Visible = true;
             label_lokalizacja.Visible = true;
             label_nr.Visible = true;
+            checkBox_czyUtworzycNowaTrase.Visible = true;
 
             clearButton.Visible = true;
             addButton.Visible = true;
