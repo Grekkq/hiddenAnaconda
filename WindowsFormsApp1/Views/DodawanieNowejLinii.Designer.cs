@@ -114,7 +114,7 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Czy tworzona linia będzie kursować w pętli?";
-            this.groupBox1.Validating += new System.ComponentModel.CancelEventHandler(this.groupBox1_Validating);
+            this.groupBox1.Validating += new System.ComponentModel.CancelEventHandler(this.GroupBox1_Validating);
             // 
             // no
             // 
@@ -147,7 +147,7 @@
             this.cancel.TabIndex = 3;
             this.cancel.Text = "Anuluj";
             this.cancel.UseVisualStyleBackColor = true;
-            this.cancel.Click += new System.EventHandler(this.close_on_click);
+            this.cancel.Click += new System.EventHandler(this.Close_on_click);
             // 
             // create
             // 
@@ -157,7 +157,7 @@
             this.create.TabIndex = 2;
             this.create.Text = "Utwórz";
             this.create.UseVisualStyleBackColor = true;
-            this.create.Click += new System.EventHandler(this.create_Click);
+            this.create.Click += new System.EventHandler(this.CreateClick);
             // 
             // line_name
             // 
@@ -167,8 +167,8 @@
             this.line_name.Name = "line_name";
             this.line_name.Size = new System.Drawing.Size(110, 20);
             this.line_name.TabIndex = 0;
-            this.line_name.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.line_name_TextChanged);
-            this.line_name.Validating += new System.ComponentModel.CancelEventHandler(this.line_name_Validating);
+            this.line_name.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Line_name_TextChanged);
+            this.line_name.Validating += new System.ComponentModel.CancelEventHandler(this.Line_name_Validating);
             // 
             // label4
             // 
@@ -194,9 +194,9 @@
             this.exit.TabIndex = 2;
             this.exit.Text = "X";
             this.exit.UseVisualStyleBackColor = false;
-            this.exit.Click += new System.EventHandler(this.close_on_click);
-            this.exit.MouseEnter += new System.EventHandler(this.hover_exitbutton);
-            this.exit.MouseLeave += new System.EventHandler(this.leave_exitbutton);
+            this.exit.Click += new System.EventHandler(this.Close_on_click);
+            this.exit.MouseEnter += new System.EventHandler(this.Hover_exitbutton);
+            this.exit.MouseLeave += new System.EventHandler(this.Leave_exitbutton);
             // 
             // label3
             // 
@@ -208,7 +208,7 @@
             this.label3.Size = new System.Drawing.Size(234, 21);
             this.label3.TabIndex = 5;
             this.label3.Text = "Formularz tworzenia nowej linii";
-            this.label3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.move_window);
+            this.label3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MoveWindow);
             // 
             // help
             // 
@@ -258,8 +258,8 @@
             this.Name = "DodawanieNowejLinii";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Kreator dodawania nowej linii";
-            this.Activated += new System.EventHandler(this.turnoffFocus);
-            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.move_window);
+            this.Activated += new System.EventHandler(this.TurnoffFocus);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MoveWindow);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();

@@ -15,17 +15,17 @@ namespace hiddenAnaconda.Views {
         // funkcje wspólne dla widoków
         SharedView sharedView = new SharedView();
 
-        private void move_window(object sender, MouseEventArgs e) {
+        private void MoveWindow(object sender, MouseEventArgs e) {
             if (e.Button == MouseButtons.Left) {
                 sharedView.MoveWindow(sender, e, Handle);
             }
         }
 
-        private void hover_exitbutton(object sender, EventArgs e) {
+        private void Hover_exitbutton(object sender, EventArgs e) {
             sharedView.Hover_exitbutton(exit);
         }
 
-        private void leave_exitbutton(object sender, EventArgs e) {
+        private void Leave_exitbutton(object sender, EventArgs e) {
             sharedView.Leave_exitbutton(exit);
         }
 
@@ -34,17 +34,17 @@ namespace hiddenAnaconda.Views {
         }
 
         // wyłączenie fokusu na pola tekstowe przy uruchomieniu formularza
-        private void turnoffFocus(object sender, EventArgs e) {
+        private void TurnoffFocus(object sender, EventArgs e) {
             this.ActiveControl = null;
         }
 
-        private void close_on_click(object sender, EventArgs e) {
+        private void Close_on_click(object sender, EventArgs e) {
             this.Close();
         }
 
-        private void line_name_TextChanged(object sender, KeyPressEventArgs e) {
+        private void Line_name_TextChanged(object sender, KeyPressEventArgs e) {
 
-            if (char.IsDigit(e.KeyChar) || e.KeyChar == (char) Keys.Back)
+            if (char.IsDigit(e.KeyChar) || e.KeyChar == (char)Keys.Back)
                 base.OnKeyPress(e);
             else
                 e.Handled = true;
@@ -52,7 +52,7 @@ namespace hiddenAnaconda.Views {
         }
 
         // walidacja pól i zamknięcie okna
-        private void create_Click(object sender, EventArgs e) {
+        private void CreateClick(object sender, EventArgs e) {
 
             if (yes.Checked == false && no.Checked == false) {
                 MessageBox.Show("Nie zaznaczono odpowiedz na pytanie.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -72,7 +72,7 @@ namespace hiddenAnaconda.Views {
             }
         }
 
-        private void line_name_Validating(object sender, CancelEventArgs e) {
+        private void Line_name_Validating(object sender, CancelEventArgs e) {
             if (string.IsNullOrEmpty(line_name.Text)) {
                 errorProvider1.SetError(line_name, "Nie wpisano linii");
                 ErrorIsOn = true;
@@ -81,8 +81,8 @@ namespace hiddenAnaconda.Views {
                 ErrorIsOn = false;
             }
         }
-        private void groupBox1_Validating(object sender, CancelEventArgs e) {
-            if (string.IsNullOrEmpty(groupBox1.Text) || yes.Checked == false && no.Checked==false) {
+        private void GroupBox1_Validating(object sender, CancelEventArgs e) {
+            if (string.IsNullOrEmpty(groupBox1.Text) || yes.Checked == false && no.Checked == false) {
                 errorProvider1.SetError(groupBox1, "Nie wybrano odpowiedzi");
                 ErrorIsOn = true;
             } else {
@@ -91,13 +91,11 @@ namespace hiddenAnaconda.Views {
             }
         }
 
-        private void no_CheckedChanged(object sender, EventArgs e)
-        {
+        private void no_CheckedChanged(object sender, EventArgs e) {
 
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
+        private void panel1_Paint(object sender, PaintEventArgs e) {
 
         }
     }
