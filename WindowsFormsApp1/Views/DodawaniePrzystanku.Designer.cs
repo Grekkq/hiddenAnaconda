@@ -42,6 +42,8 @@
             this.create = new System.Windows.Forms.Button();
             this.cancel = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.textbox_kierunek = new System.Windows.Forms.TextBox();
+            this.label_kierunek = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.exit = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
@@ -82,7 +84,7 @@
             this.p_nazwa.Location = new System.Drawing.Point(19, 106);
             this.p_nazwa.MaxLength = 15;
             this.p_nazwa.Name = "p_nazwa";
-            this.p_nazwa.Size = new System.Drawing.Size(140, 20);
+            this.p_nazwa.Size = new System.Drawing.Size(142, 20);
             this.p_nazwa.TabIndex = 0;
             this.p_nazwa.TextChanged += new System.EventHandler(this.p_nazwa_TextChanged);
             this.p_nazwa.Validating += new System.ComponentModel.CancelEventHandler(this.p_nazwa_Validating);
@@ -110,6 +112,7 @@
             this.no.TabStop = true;
             this.no.Text = "Nie";
             this.no.UseVisualStyleBackColor = true;
+            this.no.CheckedChanged += new System.EventHandler(this.no_CheckedChanged);
             // 
             // yes
             // 
@@ -121,6 +124,7 @@
             this.yes.TabStop = true;
             this.yes.Text = "Tak";
             this.yes.UseVisualStyleBackColor = true;
+            this.yes.CheckedChanged += new System.EventHandler(this.yes_CheckedChanged);
             // 
             // label3
             // 
@@ -178,6 +182,8 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.panel1.Controls.Add(this.textbox_kierunek);
+            this.panel1.Controls.Add(this.label_kierunek);
             this.panel1.Controls.Add(this.pictureBox2);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.create);
@@ -192,6 +198,22 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(606, 377);
             this.panel1.TabIndex = 0;
+            // 
+            // textbox_kierunek
+            // 
+            this.textbox_kierunek.Location = new System.Drawing.Point(19, 206);
+            this.textbox_kierunek.Name = "textbox_kierunek";
+            this.textbox_kierunek.Size = new System.Drawing.Size(142, 20);
+            this.textbox_kierunek.TabIndex = 2;
+            // 
+            // label_kierunek
+            // 
+            this.label_kierunek.AutoSize = true;
+            this.label_kierunek.Location = new System.Drawing.Point(16, 190);
+            this.label_kierunek.Name = "label_kierunek";
+            this.label_kierunek.Size = new System.Drawing.Size(81, 13);
+            this.label_kierunek.TabIndex = 21;
+            this.label_kierunek.Text = "Podaj kierunek:";
             // 
             // pictureBox2
             // 
@@ -315,5 +337,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.TextBox textbox_kierunek;
+        private System.Windows.Forms.Label label_kierunek;
     }
 }

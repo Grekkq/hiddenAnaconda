@@ -46,16 +46,6 @@ namespace hiddenAnaconda.Models {
                 return false;
             }
             return true;
-            // Wersja Mateusz
-            int result = (from l in dc.logowanies
-                          where l.login == username
-                          select l).Count();
-
-            if (result > 0) {
-                return true;
-            } else {
-                return false;
-            }
         }
 
         public bool LoginUser(string login, string password) {
