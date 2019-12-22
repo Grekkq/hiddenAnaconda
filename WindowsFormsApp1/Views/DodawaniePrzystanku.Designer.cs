@@ -84,7 +84,7 @@
             this.p_nazwa.Location = new System.Drawing.Point(19, 106);
             this.p_nazwa.MaxLength = 15;
             this.p_nazwa.Name = "p_nazwa";
-            this.p_nazwa.Size = new System.Drawing.Size(142, 20);
+            this.p_nazwa.Size = new System.Drawing.Size(140, 20);
             this.p_nazwa.TabIndex = 0;
             this.p_nazwa.TextChanged += new System.EventHandler(this.p_nazwa_TextChanged);
             this.p_nazwa.Validating += new System.ComponentModel.CancelEventHandler(this.p_nazwa_Validating);
@@ -141,7 +141,7 @@
             // 
             this.p_miasto.Location = new System.Drawing.Point(19, 156);
             this.p_miasto.Name = "p_miasto";
-            this.p_miasto.Size = new System.Drawing.Size(142, 20);
+            this.p_miasto.Size = new System.Drawing.Size(140, 20);
             this.p_miasto.TabIndex = 1;
             this.p_miasto.TextChanged += new System.EventHandler(this.p_miasto_TextChanged);
             this.p_miasto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.p_miasto_TextChanged);
@@ -203,7 +203,7 @@
             // 
             this.textbox_kierunek.Location = new System.Drawing.Point(19, 206);
             this.textbox_kierunek.Name = "textbox_kierunek";
-            this.textbox_kierunek.Size = new System.Drawing.Size(142, 20);
+            this.textbox_kierunek.Size = new System.Drawing.Size(140, 20);
             this.textbox_kierunek.TabIndex = 2;
             // 
             // label_kierunek

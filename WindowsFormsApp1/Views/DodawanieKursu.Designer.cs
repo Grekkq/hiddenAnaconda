@@ -31,16 +31,12 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DodawanieKursu));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.comboBox_rodzajKursu = new System.Windows.Forms.ComboBox();
+            this.comboBox_trasa = new System.Windows.Forms.ComboBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.date_name = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.LineChooseComboBox = new System.Windows.Forms.ComboBox();
-            this.c_number = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.hour_name = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.comboBox_linia = new System.Windows.Forms.ComboBox();
+            this.label_rodzajKursu = new System.Windows.Forms.Label();
+            this.label_trasa = new System.Windows.Forms.Label();
             this.cancel = new System.Windows.Forms.Button();
             this.create = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -62,16 +58,12 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.panel1.Controls.Add(this.comboBox_rodzajKursu);
+            this.panel1.Controls.Add(this.comboBox_trasa);
             this.panel1.Controls.Add(this.pictureBox2);
-            this.panel1.Controls.Add(this.label9);
-            this.panel1.Controls.Add(this.date_name);
-            this.panel1.Controls.Add(this.label8);
-            this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.LineChooseComboBox);
-            this.panel1.Controls.Add(this.c_number);
-            this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.hour_name);
-            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.comboBox_linia);
+            this.panel1.Controls.Add(this.label_rodzajKursu);
+            this.panel1.Controls.Add(this.label_trasa);
             this.panel1.Controls.Add(this.cancel);
             this.panel1.Controls.Add(this.create);
             this.panel1.Controls.Add(this.label2);
@@ -81,6 +73,25 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(606, 377);
             this.panel1.TabIndex = 0;
+            // 
+            // comboBox_rodzajKursu
+            // 
+            this.comboBox_rodzajKursu.FormattingEnabled = true;
+            this.comboBox_rodzajKursu.Location = new System.Drawing.Point(20, 209);
+            this.comboBox_rodzajKursu.Name = "comboBox_rodzajKursu";
+            this.comboBox_rodzajKursu.Size = new System.Drawing.Size(129, 21);
+            this.comboBox_rodzajKursu.TabIndex = 2;
+            this.comboBox_rodzajKursu.Validating += new System.ComponentModel.CancelEventHandler(this.comboBox_rodzajKursu_Validating);
+            // 
+            // comboBox_trasa
+            // 
+            this.comboBox_trasa.FormattingEnabled = true;
+            this.comboBox_trasa.Location = new System.Drawing.Point(19, 156);
+            this.comboBox_trasa.Name = "comboBox_trasa";
+            this.comboBox_trasa.Size = new System.Drawing.Size(130, 21);
+            this.comboBox_trasa.TabIndex = 1;
+            this.comboBox_trasa.SelectedIndexChanged += new System.EventHandler(this.comboBox_trasa_SelectedIndexChanged);
+            this.comboBox_trasa.Validating += new System.ComponentModel.CancelEventHandler(this.comboBox_trasa_Validating);
             // 
             // pictureBox2
             // 
@@ -93,94 +104,33 @@
             this.pictureBox2.TabIndex = 21;
             this.pictureBox2.TabStop = false;
             // 
-            // label9
+            // comboBox_linia
             // 
-            this.label9.AutoSize = true;
-            this.label9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label9.Location = new System.Drawing.Point(170, 260);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(248, 13);
-            this.label9.TabIndex = 20;
-            this.label9.Text = "Akceptowany format daty - DD/MM/RRRR";
+            this.comboBox_linia.FormattingEnabled = true;
+            this.comboBox_linia.Location = new System.Drawing.Point(19, 106);
+            this.comboBox_linia.Name = "comboBox_linia";
+            this.comboBox_linia.Size = new System.Drawing.Size(130, 21);
+            this.comboBox_linia.TabIndex = 0;
+            this.comboBox_linia.SelectedIndexChanged += new System.EventHandler(this.comboBox_linia_SelectedIndexChanged);
+            this.comboBox_linia.Validating += new System.ComponentModel.CancelEventHandler(this.line_choose_Validating);
             // 
-            // date_name
+            // label_rodzajKursu
             // 
-            this.date_name.HideSelection = false;
-            this.date_name.Location = new System.Drawing.Point(19, 257);
-            this.date_name.MaxLength = 10;
-            this.date_name.Name = "date_name";
-            this.date_name.Size = new System.Drawing.Size(109, 20);
-            this.date_name.TabIndex = 3;
-            this.date_name.Validating += new System.ComponentModel.CancelEventHandler(this.date_name_Validating);
+            this.label_rodzajKursu.AutoSize = true;
+            this.label_rodzajKursu.Location = new System.Drawing.Point(17, 193);
+            this.label_rodzajKursu.Name = "label_rodzajKursu";
+            this.label_rodzajKursu.Size = new System.Drawing.Size(108, 13);
+            this.label_rodzajKursu.TabIndex = 13;
+            this.label_rodzajKursu.Text = "Wybierz rodzaj kursu:";
             // 
-            // label8
+            // label_trasa
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(16, 240);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(153, 13);
-            this.label8.TabIndex = 18;
-            this.label8.Text = "Podaj  datę rozpoczęcia kursu:";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label6.Location = new System.Drawing.Point(170, 209);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(213, 13);
-            this.label6.TabIndex = 17;
-            this.label6.Text = "Akceptowany format czasu - GG:MM";
-            // 
-            // LineChooseComboBox
-            // 
-            this.LineChooseComboBox.FormattingEnabled = true;
-            this.LineChooseComboBox.Location = new System.Drawing.Point(19, 106);
-            this.LineChooseComboBox.Name = "LineChooseComboBox";
-            this.LineChooseComboBox.Size = new System.Drawing.Size(130, 21);
-            this.LineChooseComboBox.TabIndex = 0;
-            this.LineChooseComboBox.Validating += new System.ComponentModel.CancelEventHandler(this.line_choose_Validating);
-            // 
-            // c_number
-            // 
-            this.c_number.HideSelection = false;
-            this.c_number.Location = new System.Drawing.Point(19, 156);
-            this.c_number.MaxLength = 4;
-            this.c_number.Name = "c_number";
-            this.c_number.Size = new System.Drawing.Size(109, 20);
-            this.c_number.TabIndex = 1;
-            this.c_number.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.c_number_TextChanged);
-            this.c_number.Validating += new System.ComponentModel.CancelEventHandler(this.c_number_Validating);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(16, 140);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(98, 13);
-            this.label5.TabIndex = 13;
-            this.label5.Text = "Podaj numer kursu:";
-            // 
-            // hour_name
-            // 
-            this.hour_name.HideSelection = false;
-            this.hour_name.Location = new System.Drawing.Point(19, 206);
-            this.hour_name.MaxLength = 5;
-            this.hour_name.Name = "hour_name";
-            this.hour_name.Size = new System.Drawing.Size(109, 20);
-            this.hour_name.TabIndex = 2;
-            this.hour_name.Validating += new System.ComponentModel.CancelEventHandler(this.hour_name_Validating);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(16, 190);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(205, 13);
-            this.label3.TabIndex = 11;
-            this.label3.Text = "Podaj  godzinę pierwszego odjazdu kursu:";
+            this.label_trasa.AutoSize = true;
+            this.label_trasa.Location = new System.Drawing.Point(16, 140);
+            this.label_trasa.Name = "label_trasa";
+            this.label_trasa.Size = new System.Drawing.Size(74, 13);
+            this.label_trasa.TabIndex = 13;
+            this.label_trasa.Text = "Wybierz trasę:";
             // 
             // cancel
             // 
@@ -340,19 +290,15 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button exit;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox c_number;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox hour_name;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox LineChooseComboBox;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox date_name;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label_trasa;
+        private System.Windows.Forms.ComboBox comboBox_linia;
         private System.Windows.Forms.Button help;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.ErrorProvider errorProvider2;
+        private System.Windows.Forms.ComboBox comboBox_trasa;
+        private System.Windows.Forms.ComboBox comboBox_rodzajKursu;
+        private System.Windows.Forms.Label label_rodzajKursu;
     }
 }

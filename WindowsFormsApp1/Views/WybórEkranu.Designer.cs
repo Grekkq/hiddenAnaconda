@@ -25,38 +25,38 @@
         private void InitializeComponent() {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WybórEkranu));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
-            this.RaportButton = new System.Windows.Forms.Button();
-            this.create = new System.Windows.Forms.Button();
-            this.Czas = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.Przypisanie = new System.Windows.Forms.Button();
-            this.Kurs = new System.Windows.Forms.Button();
-            this.Kierowca = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.ZmianaStatusu = new System.Windows.Forms.Button();
+            this.Kierowca = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.Czas = new System.Windows.Forms.Button();
+            this.Przypisanie = new System.Windows.Forms.Button();
+            this.RaportButton = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.Pojazd = new System.Windows.Forms.Button();
             this.Przystanek = new System.Windows.Forms.Button();
-            this.Trasa = new System.Windows.Forms.Button();
             this.Linia = new System.Windows.Forms.Button();
+            this.Trasa = new System.Windows.Forms.Button();
+            this.Kurs = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.create = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.exit = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.help = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.label5 = new System.Windows.Forms.Label();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            this.panel3.SuspendLayout();
+            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -77,6 +77,14 @@
             this.panel1.Size = new System.Drawing.Size(606, 377);
             this.panel1.TabIndex = 0;
             // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.button1);
+            this.panel4.Location = new System.Drawing.Point(402, 99);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(180, 210);
+            this.panel4.TabIndex = 34;
+            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(25, 4);
@@ -88,25 +96,59 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // RaportButton
+            // ZmianaStatusu
             // 
-            this.RaportButton.Location = new System.Drawing.Point(25, 73);
-            this.RaportButton.Name = "RaportButton";
-            this.RaportButton.Size = new System.Drawing.Size(130, 30);
-            this.RaportButton.TabIndex = 8;
-            this.RaportButton.Text = "raport";
-            this.RaportButton.UseVisualStyleBackColor = true;
-            this.RaportButton.Click += new System.EventHandler(this.RaportButton_Click);
+            this.ZmianaStatusu.Location = new System.Drawing.Point(25, 107);
+            this.ZmianaStatusu.Margin = new System.Windows.Forms.Padding(2);
+            this.ZmianaStatusu.Name = "ZmianaStatusu";
+            this.ZmianaStatusu.Size = new System.Drawing.Size(130, 30);
+            this.ZmianaStatusu.TabIndex = 11;
+            this.ZmianaStatusu.Text = "zmiana statusu";
+            this.ZmianaStatusu.UseVisualStyleBackColor = true;
+            this.ZmianaStatusu.Click += new System.EventHandler(this.ZmianaStatusu_Click);
             // 
-            // create
+            // Kierowca
             // 
-            this.create.Location = new System.Drawing.Point(20, 325);
-            this.create.Name = "create";
-            this.create.Size = new System.Drawing.Size(80, 40);
-            this.create.TabIndex = 14;
-            this.create.Text = "Zakończ";
-            this.create.UseVisualStyleBackColor = true;
-            this.create.Click += new System.EventHandler(this.create_Click);
+            this.Kierowca.Location = new System.Drawing.Point(25, 73);
+            this.Kierowca.Margin = new System.Windows.Forms.Padding(2);
+            this.Kierowca.Name = "Kierowca";
+            this.Kierowca.Size = new System.Drawing.Size(130, 30);
+            this.Kierowca.TabIndex = 10;
+            this.Kierowca.Text = "dodawanie kierowców";
+            this.Kierowca.UseVisualStyleBackColor = true;
+            this.Kierowca.Click += new System.EventHandler(this.Kierowca_Click);
+            // 
+            // label6
+            // 
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label6.Location = new System.Drawing.Point(402, 73);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(180, 23);
+            this.label6.TabIndex = 33;
+            this.label6.Text = "Administracja";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label5
+            // 
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label5.Location = new System.Drawing.Point(216, 73);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(180, 23);
+            this.label5.TabIndex = 33;
+            this.label5.Text = "Zarządzanie i raporty:";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.Czas);
+            this.panel3.Controls.Add(this.ZmianaStatusu);
+            this.panel3.Controls.Add(this.Przypisanie);
+            this.panel3.Controls.Add(this.Kierowca);
+            this.panel3.Controls.Add(this.RaportButton);
+            this.panel3.Location = new System.Drawing.Point(216, 99);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(180, 210);
+            this.panel3.TabIndex = 32;
             // 
             // Czas
             // 
@@ -119,27 +161,6 @@
             this.Czas.UseVisualStyleBackColor = true;
             this.Czas.Click += new System.EventHandler(this.Czas_Click);
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(26, 32);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(205, 13);
-            this.label2.TabIndex = 18;
-            this.label2.Text = "Wybierz, do którego okna chcesz przejść.";
-            // 
-            // label1
-            // 
-            this.label1.BackColor = System.Drawing.SystemColors.Window;
-            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.Location = new System.Drawing.Point(-1, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(608, 68);
-            this.label1.TabIndex = 17;
-            this.label1.Text = " \r\n      Wybór Ekranu";
-            // 
             // Przypisanie
             // 
             this.Przypisanie.Location = new System.Drawing.Point(25, 38);
@@ -151,49 +172,38 @@
             this.Przypisanie.UseVisualStyleBackColor = true;
             this.Przypisanie.Click += new System.EventHandler(this.Przypisanie_Click);
             // 
-            // Kurs
+            // RaportButton
             // 
-            this.Kurs.Location = new System.Drawing.Point(25, 141);
-            this.Kurs.Margin = new System.Windows.Forms.Padding(2);
-            this.Kurs.Name = "Kurs";
-            this.Kurs.Size = new System.Drawing.Size(130, 30);
-            this.Kurs.TabIndex = 4;
-            this.Kurs.Text = "kursu";
-            this.Kurs.UseVisualStyleBackColor = true;
-            this.Kurs.Click += new System.EventHandler(this.Kurs_Click);
+            this.RaportButton.Location = new System.Drawing.Point(25, 142);
+            this.RaportButton.Name = "RaportButton";
+            this.RaportButton.Size = new System.Drawing.Size(130, 30);
+            this.RaportButton.TabIndex = 8;
+            this.RaportButton.Text = "raport";
+            this.RaportButton.UseVisualStyleBackColor = true;
+            this.RaportButton.Click += new System.EventHandler(this.RaportButton_Click);
             // 
-            // Kierowca
+            // label4
             // 
-            this.Kierowca.Location = new System.Drawing.Point(25, 38);
-            this.Kierowca.Margin = new System.Windows.Forms.Padding(2);
-            this.Kierowca.Name = "Kierowca";
-            this.Kierowca.Size = new System.Drawing.Size(130, 30);
-            this.Kierowca.TabIndex = 10;
-            this.Kierowca.Text = "dodawanie kierowców";
-            this.Kierowca.UseVisualStyleBackColor = true;
-            this.Kierowca.Click += new System.EventHandler(this.Kierowca_Click);
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label4.Location = new System.Drawing.Point(27, 73);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(183, 23);
+            this.label4.TabIndex = 31;
+            this.label4.Text = "Tworzenie:";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // button2
+            // panel2
             // 
-            this.button2.Location = new System.Drawing.Point(25, 175);
-            this.button2.Margin = new System.Windows.Forms.Padding(2);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(130, 30);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "terminów kursowania";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // ZmianaStatusu
-            // 
-            this.ZmianaStatusu.Location = new System.Drawing.Point(25, 72);
-            this.ZmianaStatusu.Margin = new System.Windows.Forms.Padding(2);
-            this.ZmianaStatusu.Name = "ZmianaStatusu";
-            this.ZmianaStatusu.Size = new System.Drawing.Size(130, 30);
-            this.ZmianaStatusu.TabIndex = 11;
-            this.ZmianaStatusu.Text = "zmiana statusu";
-            this.ZmianaStatusu.UseVisualStyleBackColor = true;
-            this.ZmianaStatusu.Click += new System.EventHandler(this.ZmianaStatusu_Click);
+            this.panel2.Controls.Add(this.Pojazd);
+            this.panel2.Controls.Add(this.Przystanek);
+            this.panel2.Controls.Add(this.Linia);
+            this.panel2.Controls.Add(this.Trasa);
+            this.panel2.Controls.Add(this.Kurs);
+            this.panel2.Controls.Add(this.button2);
+            this.panel2.Location = new System.Drawing.Point(29, 99);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(180, 210);
+            this.panel2.TabIndex = 30;
             // 
             // Pojazd
             // 
@@ -217,6 +227,17 @@
             this.Przystanek.UseVisualStyleBackColor = true;
             this.Przystanek.Click += new System.EventHandler(this.Przystanek_Click);
             // 
+            // Linia
+            // 
+            this.Linia.Location = new System.Drawing.Point(25, 73);
+            this.Linia.Margin = new System.Windows.Forms.Padding(2);
+            this.Linia.Name = "Linia";
+            this.Linia.Size = new System.Drawing.Size(130, 30);
+            this.Linia.TabIndex = 2;
+            this.Linia.Text = "linii";
+            this.Linia.UseVisualStyleBackColor = true;
+            this.Linia.Click += new System.EventHandler(this.Linia_Click);
+            // 
             // Trasa
             // 
             this.Trasa.Location = new System.Drawing.Point(25, 107);
@@ -228,16 +249,69 @@
             this.Trasa.UseVisualStyleBackColor = true;
             this.Trasa.Click += new System.EventHandler(this.Trasa_Click);
             // 
-            // Linia
+            // Kurs
             // 
-            this.Linia.Location = new System.Drawing.Point(25, 73);
-            this.Linia.Margin = new System.Windows.Forms.Padding(2);
-            this.Linia.Name = "Linia";
-            this.Linia.Size = new System.Drawing.Size(130, 30);
-            this.Linia.TabIndex = 2;
-            this.Linia.Text = "linii";
-            this.Linia.UseVisualStyleBackColor = true;
-            this.Linia.Click += new System.EventHandler(this.Linia_Click);
+            this.Kurs.Location = new System.Drawing.Point(25, 141);
+            this.Kurs.Margin = new System.Windows.Forms.Padding(2);
+            this.Kurs.Name = "Kurs";
+            this.Kurs.Size = new System.Drawing.Size(130, 30);
+            this.Kurs.TabIndex = 4;
+            this.Kurs.Text = "kursu";
+            this.Kurs.UseVisualStyleBackColor = true;
+            this.Kurs.Click += new System.EventHandler(this.Kurs_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(25, 175);
+            this.button2.Margin = new System.Windows.Forms.Padding(2);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(130, 30);
+            this.button2.TabIndex = 5;
+            this.button2.Text = "terminów kursowania";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.White;
+            this.pictureBox2.Image = global::hiddenAnaconda.Properties.Resources.manage;
+            this.pictureBox2.Location = new System.Drawing.Point(537, 3);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(69, 60);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 27;
+            this.pictureBox2.TabStop = false;
+            // 
+            // create
+            // 
+            this.create.Location = new System.Drawing.Point(20, 325);
+            this.create.Name = "create";
+            this.create.Size = new System.Drawing.Size(80, 40);
+            this.create.TabIndex = 14;
+            this.create.Text = "Zakończ";
+            this.create.UseVisualStyleBackColor = true;
+            this.create.Click += new System.EventHandler(this.create_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(26, 32);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(205, 13);
+            this.label2.TabIndex = 18;
+            this.label2.Text = "Wybierz, do którego okna chcesz przejść.";
+            // 
+            // label1
+            // 
+            this.label1.BackColor = System.Drawing.SystemColors.Window;
+            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label1.Location = new System.Drawing.Point(-1, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(608, 68);
+            this.label1.TabIndex = 17;
+            this.label1.Text = " \r\n      Wybór Ekranu";
             // 
             // exit
             // 
@@ -289,69 +363,6 @@
             this.help.MouseEnter += new System.EventHandler(this.hover_helpbutton);
             this.help.MouseLeave += new System.EventHandler(this.leave_helpbutton);
             // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.Pojazd);
-            this.panel2.Controls.Add(this.Przystanek);
-            this.panel2.Controls.Add(this.Linia);
-            this.panel2.Controls.Add(this.Trasa);
-            this.panel2.Controls.Add(this.Kurs);
-            this.panel2.Controls.Add(this.button2);
-            this.panel2.Location = new System.Drawing.Point(29, 99);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(180, 210);
-            this.panel2.TabIndex = 30;
-            // 
-            // label4
-            // 
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label4.Location = new System.Drawing.Point(27, 73);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(183, 23);
-            this.label4.TabIndex = 31;
-            this.label4.Text = "Tworzenie:";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.Czas);
-            this.panel3.Controls.Add(this.Przypisanie);
-            this.panel3.Controls.Add(this.RaportButton);
-            this.panel3.Location = new System.Drawing.Point(216, 99);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(180, 210);
-            this.panel3.TabIndex = 32;
-            // 
-            // label5
-            // 
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label5.Location = new System.Drawing.Point(216, 73);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(180, 23);
-            this.label5.TabIndex = 33;
-            this.label5.Text = "Zarządzanie i raporty:";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.button1);
-            this.panel4.Controls.Add(this.ZmianaStatusu);
-            this.panel4.Controls.Add(this.Kierowca);
-            this.panel4.Location = new System.Drawing.Point(402, 99);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(180, 210);
-            this.panel4.TabIndex = 34;
-            // 
-            // label6
-            // 
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label6.Location = new System.Drawing.Point(402, 73);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(180, 23);
-            this.label6.TabIndex = 33;
-            this.label6.Text = "Administracja";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // pictureBox3
             // 
             this.pictureBox3.Image = global::hiddenAnaconda.Properties.Resources.icon;
@@ -361,17 +372,6 @@
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox3.TabIndex = 48;
             this.pictureBox3.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.Color.White;
-            this.pictureBox2.Image = global::hiddenAnaconda.Properties.Resources.manage;
-            this.pictureBox2.Location = new System.Drawing.Point(537, 3);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(69, 60);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 27;
-            this.pictureBox2.TabStop = false;
             // 
             // WybórEkranu
             // 
@@ -395,11 +395,11 @@
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.move_window);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            this.panel3.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
