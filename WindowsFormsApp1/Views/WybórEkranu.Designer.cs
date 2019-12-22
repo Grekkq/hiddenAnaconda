@@ -94,7 +94,7 @@
             this.button1.TabIndex = 11;
             this.button1.Text = "tworzenie użytkowników";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.Click += new System.EventHandler(this.Button1_Click);
             // 
             // label6
             // 
@@ -269,7 +269,7 @@
             this.button2.TabIndex = 4;
             this.button2.Text = "terminów kursowania";
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.button2.Click += new System.EventHandler(this.Button2_Click);
             // 
             // pictureBox2
             // 
@@ -291,7 +291,7 @@
             this.create.TabStop = false;
             this.create.Text = "Zakończ";
             this.create.UseVisualStyleBackColor = true;
-            this.create.Click += new System.EventHandler(this.create_Click);
+            this.create.Click += new System.EventHandler(this.Create_Click);
             // 
             // label2
             // 
@@ -330,9 +330,9 @@
             this.exit.TabStop = false;
             this.exit.Text = "X";
             this.exit.UseVisualStyleBackColor = false;
-            this.exit.Click += new System.EventHandler(this.exit_Click);
-            this.exit.MouseEnter += new System.EventHandler(this.hover_exitbutton);
-            this.exit.MouseLeave += new System.EventHandler(this.leave_exitbutton);
+            this.exit.Click += new System.EventHandler(this.Exit_Click);
+            this.exit.MouseEnter += new System.EventHandler(this.Hover_exitbutton);
+            this.exit.MouseLeave += new System.EventHandler(this.Leave_exitbutton);
             // 
             // label3
             // 
@@ -344,7 +344,7 @@
             this.label3.Size = new System.Drawing.Size(124, 21);
             this.label3.TabIndex = 7;
             this.label3.Text = "Wybór Ekranów";
-            this.label3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.move_window);
+            this.label3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Move_window);
             // 
             // help
             // 
@@ -361,8 +361,8 @@
             this.help.TabStop = false;
             this.help.Text = "?";
             this.help.UseVisualStyleBackColor = false;
-            this.help.MouseEnter += new System.EventHandler(this.hover_helpbutton);
-            this.help.MouseLeave += new System.EventHandler(this.leave_helpbutton);
+            this.help.MouseEnter += new System.EventHandler(this.Hover_helpbutton);
+            this.help.MouseLeave += new System.EventHandler(this.Leave_helpbutton);
             // 
             // pictureBox3
             // 
@@ -391,9 +391,9 @@
             this.Name = "WybórEkranu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "WybórEkranu";
-            this.Activated += new System.EventHandler(this.turnoffFocus);
+            this.Activated += new System.EventHandler(this.TurnoffFocus);
             this.Load += new System.EventHandler(this.WybórEkranu_Load);
-            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.move_window);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Move_window);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel4.ResumeLayout(false);

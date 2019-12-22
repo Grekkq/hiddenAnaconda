@@ -84,8 +84,8 @@
             this.linia_comboBox.Name = "linia_comboBox";
             this.linia_comboBox.Size = new System.Drawing.Size(131, 21);
             this.linia_comboBox.TabIndex = 0;
-            this.linia_comboBox.SelectedIndexChanged += new System.EventHandler(this.linia_comboBox_SelectedIndexChanged);
-            this.linia_comboBox.Validating += new System.ComponentModel.CancelEventHandler(this.lineSelectionComboBox_Validating);
+            this.linia_comboBox.SelectedIndexChanged += new System.EventHandler(this.Linia_comboBox_SelectedIndexChanged);
+            this.linia_comboBox.Validating += new System.ComponentModel.CancelEventHandler(this.LineSelectionComboBox_Validating);
             // 
             // cancel
             // 
@@ -96,7 +96,7 @@
             this.cancel.TabIndex = 6;
             this.cancel.Text = "Anuluj";
             this.cancel.UseVisualStyleBackColor = false;
-            this.cancel.Click += new System.EventHandler(this.cancel_Click);
+            this.cancel.Click += new System.EventHandler(this.Cancel_Click);
             // 
             // create
             // 
@@ -107,7 +107,7 @@
             this.create.TabIndex = 3;
             this.create.Text = "Utwórz";
             this.create.UseVisualStyleBackColor = false;
-            this.create.Click += new System.EventHandler(this.create_Click);
+            this.create.Click += new System.EventHandler(this.Create_Click);
             // 
             // lineSelectionLabel
             // 
@@ -143,8 +143,6 @@
             this.bgPanel.Name = "bgPanel";
             this.bgPanel.Size = new System.Drawing.Size(606, 377);
             this.bgPanel.TabIndex = 0;
-            this.bgPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.bgPanel_Paint);
-            // 
             // checkBox_czyUtworzycNowaTrase
             // 
             this.checkBox_czyUtworzycNowaTrase.AutoSize = true;
@@ -220,7 +218,7 @@
             this.clearButton.TabIndex = 5;
             this.clearButton.Text = "Wyczyść";
             this.clearButton.UseVisualStyleBackColor = true;
-            this.clearButton.Click += new System.EventHandler(this.clearButton_Click);
+            this.clearButton.Click += new System.EventHandler(this.ClearButton_Click);
             // 
             // mainListBox
             // 
@@ -236,10 +234,10 @@
             this.mainListBox.Name = "mainListBox";
             this.mainListBox.Size = new System.Drawing.Size(468, 148);
             this.mainListBox.TabIndex = 1;
-            this.mainListBox.DragDrop += new System.Windows.Forms.DragEventHandler(this.mainListBox_DragDrop);
-            this.mainListBox.DragOver += new System.Windows.Forms.DragEventHandler(this.mainListBox_DragOver);
-            this.mainListBox.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.mainListBox_MouseDoubleClick);
-            this.mainListBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.mainListBox_MouseDown);
+            this.mainListBox.DragDrop += new System.Windows.Forms.DragEventHandler(this.MainListBox_DragDrop);
+            this.mainListBox.DragOver += new System.Windows.Forms.DragEventHandler(this.MainListBox_DragOver);
+            this.mainListBox.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.MainListBox_MouseDoubleClick);
+            this.mainListBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MainListBox_MouseDown);
             // 
             // deleteButton
             // 
@@ -249,7 +247,7 @@
             this.deleteButton.TabIndex = 4;
             this.deleteButton.Text = "Usuń";
             this.deleteButton.UseVisualStyleBackColor = true;
-            this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
+            this.deleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
             // 
             // addButton
             // 
@@ -259,7 +257,7 @@
             this.addButton.TabIndex = 2;
             this.addButton.Text = "Dodaj";
             this.addButton.UseVisualStyleBackColor = true;
-            this.addButton.Click += new System.EventHandler(this.addButton_Click);
+            this.addButton.Click += new System.EventHandler(this.AddButton_Click);
             // 
             // label_trasa
             // 
@@ -283,8 +281,8 @@
             this.comboBoxTrasa.Name = "comboBoxTrasa";
             this.comboBoxTrasa.Size = new System.Drawing.Size(131, 21);
             this.comboBoxTrasa.TabIndex = 0;
-            this.comboBoxTrasa.SelectedIndexChanged += new System.EventHandler(this.comboBoxTrasa_SelectedIndexChanged);
-            this.comboBoxTrasa.Validating += new System.ComponentModel.CancelEventHandler(this.lineSelectionComboBox_Validating);
+            this.comboBoxTrasa.SelectedIndexChanged += new System.EventHandler(this.ComboBoxTrasa_SelectedIndexChanged);
+            this.comboBoxTrasa.Validating += new System.ComponentModel.CancelEventHandler(this.LineSelectionComboBox_Validating);
             // 
             // exit
             // 
@@ -301,9 +299,9 @@
             this.exit.TabIndex = 2;
             this.exit.Text = "X";
             this.exit.UseVisualStyleBackColor = false;
-            this.exit.Click += new System.EventHandler(this.exit_Click);
-            this.exit.MouseEnter += new System.EventHandler(this.hover_exitbutton);
-            this.exit.MouseLeave += new System.EventHandler(this.leave_exitbutton);
+            this.exit.Click += new System.EventHandler(this.Exit_Click);
+            this.exit.MouseEnter += new System.EventHandler(this.Hover_exitbutton);
+            this.exit.MouseLeave += new System.EventHandler(this.Leave_exitbutton);
             // 
             // titleLabel
             // 
@@ -315,7 +313,7 @@
             this.titleLabel.Size = new System.Drawing.Size(229, 21);
             this.titleLabel.TabIndex = 23;
             this.titleLabel.Text = "Formularz zarządzania trasami.";
-            this.titleLabel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.move_window);
+            this.titleLabel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Move_window);
             // 
             // help
             // 
@@ -374,8 +372,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Formularz tworzenia trasy";
             this.Load += new System.EventHandler(this.DodawanieTrasy_Load);
-            this.Enter += new System.EventHandler(this.turnoff_focus);
-            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.move_window);
+            this.Enter += new System.EventHandler(this.Turnoff_focus);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Move_window);
             this.bgPanel.ResumeLayout(false);
             this.bgPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();

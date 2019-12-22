@@ -14,21 +14,21 @@ namespace hiddenAnaconda.Views {
         // funkcje wspólne dla widoków
         SharedView sharedView = new SharedView();
 
-        private void move_window(object sender, MouseEventArgs e) {
+        private void Move_window(object sender, MouseEventArgs e) {
             if (e.Button == MouseButtons.Left) {
-                sharedView.moveWindow(sender, e, Handle);
+                sharedView.MoveWindow(sender, e, Handle);
             }
         }
 
-        private void hover_exitbutton(object sender, EventArgs e) {
-            sharedView.hover_exitbutton(this.exit);
+        private void Hover_exitbutton(object sender, EventArgs e) {
+            sharedView.Hover_exitbutton(this.exit);
         }
 
-        private void leave_exitbutton(object sender, EventArgs e) {
-            sharedView.leave_exitbutton(this.exit);
+        private void Leave_exitbutton(object sender, EventArgs e) {
+            sharedView.Leave_exitbutton(this.exit);
         }
 
-        private void turnoff_focus(object sender, EventArgs e) {  //wyłączenie fokusu na pola tekstowe przy uruchomieniu 
+        private void Turnoff_focus(object sender, EventArgs e) {  //wyłączenie fokusu na pola tekstowe przy uruchomieniu 
             this.ActiveControl = null;
         }
 
@@ -36,16 +36,16 @@ namespace hiddenAnaconda.Views {
             InitializeComponent();
         }
 
-        private void cancel_Click(object sender, EventArgs e) {
+        private void Cancel_Click(object sender, EventArgs e) {
             this.Close();
         }
 
-        private void exit_Click(object sender, EventArgs e) {
+        private void Exit_Click(object sender, EventArgs e) {
             this.Close();
         }
 
         // DRAG&DROP
-        private void mainListBox_MouseDown(object sender, MouseEventArgs e) {
+        private void MainListBox_MouseDown(object sender, MouseEventArgs e) {
             if (this.mainListBox.SelectedItem == null)
                 return;
             // nie ruszać jak się usunie if'a to nigdy nie wejdzie do doubleclick 
@@ -55,11 +55,11 @@ namespace hiddenAnaconda.Views {
             }
         }
 
-        private void mainListBox_DragOver(object sender, DragEventArgs e) {
+        private void MainListBox_DragOver(object sender, DragEventArgs e) {
             e.Effect = DragDropEffects.Move;
         }
 
-        private void mainListBox_DragDrop(object sender, DragEventArgs e) {
+        private void MainListBox_DragDrop(object sender, DragEventArgs e) {
             Point point = mainListBox.PointToClient(new Point(e.X, e.Y));
             int index = this.mainListBox.IndexFromPoint(point);
             if (index < 0)
@@ -68,18 +68,18 @@ namespace hiddenAnaconda.Views {
             this.mainListBox.Items.Remove(data);
             this.mainListBox.Items.Insert(index, data);
             // Napraw indexy
-            sharedView.fixIndex(this.mainListBox);
+            sharedView.FixIndex(this.mainListBox);
         }
 
-        private void itemcreator_Load(object sender, EventArgs e) {
+        private void Itemcreator_Load(object sender, EventArgs e) {
             this.mainListBox.AllowDrop = true;
         }
 
-        private void clearButton_Click(object sender, EventArgs e) {
+        private void ClearButton_Click(object sender, EventArgs e) {
             mainListBox.Items.Clear();
         }
 
-        private void mainListBox_MouseDoubleClick(object sender, MouseEventArgs e) {
+        private void MainListBox_MouseDoubleClick(object sender, MouseEventArgs e) {
             if (this.mainListBox.SelectedItem == null)
                 return;
             int index = this.mainListBox.SelectedIndex;
@@ -91,16 +91,16 @@ namespace hiddenAnaconda.Views {
                 }
         }
 
-        private void deleteButton_Click(object sender, EventArgs e) {
+        private void DeleteButton_Click(object sender, EventArgs e) {
             if (this.mainListBox.SelectedIndex == -1)
                 MessageBox.Show("Musisz najpierw zanzaczyć który element chcesz usunąć.");
             else {
                 this.mainListBox.Items.RemoveAt(this.mainListBox.SelectedIndex);
-                sharedView.fixIndex(this.mainListBox);
+                sharedView.FixIndex(this.mainListBox);
             }
         }
 
-        private void addButton_Click(object sender, EventArgs e) {
+        private void AddButton_Click(object sender, EventArgs e) {
             using (Views.DodajPrzystanekDoTrasy InnerForm = new Views.DodajPrzystanekDoTrasy())
                 if (InnerForm.ShowDialog() == DialogResult.OK) {
                     InnerForm.GetStop.putInListBox(this.mainListBox);
@@ -128,47 +128,33 @@ namespace hiddenAnaconda.Views {
             this.comboBoxTrasa.Items.Add("1");
         }
 
-        private void create_Click(object sender, EventArgs e)
-        {
-            if (ErrorIsOn!=true)
-            {
+        private void Create_Click(object sender, EventArgs e) {
+            if (ErrorIsOn != true) {
                 var result = MessageBox.Show("Na pewno chcesz utworzyć trasę?", "Czy na pewno?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (result == DialogResult.Yes)
-                {
+                if (result == DialogResult.Yes) {
                     //WPISANIE DO BD
-                }
-                else
-                {
+                } else {
                     linia_comboBox.Focus();
                 }
             }
         }
 
-        private void lineSelectionComboBox_Validating(object sender, CancelEventArgs e)
-        {
-            if (string.IsNullOrEmpty(linia_comboBox.Text))
-            {
+        private void LineSelectionComboBox_Validating(object sender, CancelEventArgs e) {
+            if (string.IsNullOrEmpty(linia_comboBox.Text)) {
                 errorProvider1.SetError(linia_comboBox, "Nie wybrano linii");
                 ErrorIsOn = true;
-            }
-            else
-            {
+            } else {
                 errorProvider1.SetError(linia_comboBox, null);
                 ErrorIsOn = false;
             }
         }
 
-        private void bgPanel_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void linia_comboBox_SelectedIndexChanged(object sender, EventArgs e) {
+        private void Linia_comboBox_SelectedIndexChanged(object sender, EventArgs e) {
             label_trasa.Visible = true;
             comboBoxTrasa.Visible = true;
         }
 
-        private void comboBoxTrasa_SelectedIndexChanged(object sender, EventArgs e) {
+        private void ComboBoxTrasa_SelectedIndexChanged(object sender, EventArgs e) {
             mainListBox.Visible = true;
             label_godzina.Visible = true;
             label_lokalizacja.Visible = true;

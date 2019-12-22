@@ -81,7 +81,7 @@
             this.comboBox_rodzajKursu.Name = "comboBox_rodzajKursu";
             this.comboBox_rodzajKursu.Size = new System.Drawing.Size(129, 21);
             this.comboBox_rodzajKursu.TabIndex = 2;
-            this.comboBox_rodzajKursu.Validating += new System.ComponentModel.CancelEventHandler(this.comboBox_rodzajKursu_Validating);
+            this.comboBox_rodzajKursu.Validating += new System.ComponentModel.CancelEventHandler(this.ComboBox_rodzajKursu_Validating);
             // 
             // comboBox_trasa
             // 
@@ -90,8 +90,8 @@
             this.comboBox_trasa.Name = "comboBox_trasa";
             this.comboBox_trasa.Size = new System.Drawing.Size(130, 21);
             this.comboBox_trasa.TabIndex = 1;
-            this.comboBox_trasa.SelectedIndexChanged += new System.EventHandler(this.comboBox_trasa_SelectedIndexChanged);
-            this.comboBox_trasa.Validating += new System.ComponentModel.CancelEventHandler(this.comboBox_trasa_Validating);
+            this.comboBox_trasa.SelectedIndexChanged += new System.EventHandler(this.ComboBox_trasa_SelectedIndexChanged);
+            this.comboBox_trasa.Validating += new System.ComponentModel.CancelEventHandler(this.ComboBox_trasa_Validating);
             // 
             // pictureBox2
             // 
@@ -111,8 +111,8 @@
             this.comboBox_linia.Name = "comboBox_linia";
             this.comboBox_linia.Size = new System.Drawing.Size(130, 21);
             this.comboBox_linia.TabIndex = 0;
-            this.comboBox_linia.SelectedIndexChanged += new System.EventHandler(this.comboBox_linia_SelectedIndexChanged);
-            this.comboBox_linia.Validating += new System.ComponentModel.CancelEventHandler(this.line_choose_Validating);
+            this.comboBox_linia.SelectedIndexChanged += new System.EventHandler(this.ComboBox_linia_SelectedIndexChanged);
+            this.comboBox_linia.Validating += new System.ComponentModel.CancelEventHandler(this.Line_choose_Validating);
             // 
             // label_rodzajKursu
             // 
@@ -140,7 +140,7 @@
             this.cancel.TabIndex = 5;
             this.cancel.Text = "Anuluj";
             this.cancel.UseVisualStyleBackColor = true;
-            this.cancel.Click += new System.EventHandler(this.close_on_click);
+            this.cancel.Click += new System.EventHandler(this.Close_on_click);
             // 
             // create
             // 
@@ -150,7 +150,7 @@
             this.create.TabIndex = 4;
             this.create.Text = "Utwórz";
             this.create.UseVisualStyleBackColor = true;
-            this.create.Click += new System.EventHandler(this.create_Click);
+            this.create.Click += new System.EventHandler(this.Create_Click);
             // 
             // label2
             // 
@@ -172,7 +172,7 @@
             this.label1.Size = new System.Drawing.Size(608, 68);
             this.label1.TabIndex = 1;
             this.label1.Text = " \r\n      Tworzenie nowego kursu";
-            this.label1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.move_window);
+            this.label1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Move_window);
             // 
             // label4
             // 
@@ -198,9 +198,9 @@
             this.exit.TabIndex = 2;
             this.exit.Text = "X";
             this.exit.UseVisualStyleBackColor = false;
-            this.exit.Click += new System.EventHandler(this.close_on_click);
-            this.exit.MouseEnter += new System.EventHandler(this.hover_exitbutton);
-            this.exit.MouseLeave += new System.EventHandler(this.leave_exitbutton);
+            this.exit.Click += new System.EventHandler(this.Close_on_click);
+            this.exit.MouseEnter += new System.EventHandler(this.Hover_exitbutton);
+            this.exit.MouseLeave += new System.EventHandler(this.Leave_exitbutton);
             // 
             // label7
             // 
@@ -266,9 +266,9 @@
             this.Name = "DodawanieKursu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DodawaniekKursu";
-            this.Activated += new System.EventHandler(this.turnoffFocus);
+            this.Activated += new System.EventHandler(this.TurnoffFocus);
             this.Load += new System.EventHandler(this.DodawanieKursu_Load);
-            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.move_window);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Move_window);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();

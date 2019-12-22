@@ -71,7 +71,7 @@ namespace hiddenAnaconda {
         }
 
         // przesuwanie okna
-        public void moveWindow(object sender, MouseEventArgs e, IntPtr Handle) {
+        public void MoveWindow(object sender, MouseEventArgs e, IntPtr Handle) {
             if (e.Button == MouseButtons.Left) {
                 ReleaseCapture();
                 SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
@@ -79,26 +79,26 @@ namespace hiddenAnaconda {
         }
 
         // zmiana koloru X'a po najechaniu
-        public void hover_exitbutton(Button exit) {
+        public void Hover_exitbutton(Button exit) {
             exit.BackColor = Color.FromArgb(218, 83, 44);
         }
 
         // zmiana koloru ?'a po najechaniu
-        public void hover_helpbutton(Button help) {
+        public void Hover_helpbutton(Button help) {
             help.BackColor = Color.FromArgb(0, 99, 183);
         }
         // zmiana koloru ?'a po zjechaniu
 
-        public void leave_helpbutton(Button help) {
+        public void Leave_helpbutton(Button help) {
             help.BackColor = Color.FromArgb(0, 99, 183);
         }
 
         // zmiana koloru X'a po zjechaniu
-        public void leave_exitbutton(Button exit) {
+        public void Leave_exitbutton(Button exit) {
             exit.BackColor = Color.FromArgb(0, 99, 183);
         }
 
-        public void fixIndex(ListBox listBox) {
+        public void FixIndex(ListBox listBox) {
             int index = 1;
             //List<String> replacmentData = new List<String>();
             List<Models.routeElementModel> busStops = new List<Models.routeElementModel>();

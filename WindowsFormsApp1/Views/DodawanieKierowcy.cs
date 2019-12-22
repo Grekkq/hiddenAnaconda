@@ -67,19 +67,19 @@ namespace hiddenAnaconda.Views {
         }
 
         private void hover_exitbutton(object sender, EventArgs e) {
-            sharedView.hover_exitbutton(exit);
+            sharedView.Hover_exitbutton(exit);
         }
 
         private void leave_exitbutton(object sender, EventArgs e) {
-            sharedView.leave_exitbutton(exit);
+            sharedView.Leave_exitbutton(exit);
         }
 
         private void leave_helpbutton(object sender, EventArgs e) {
-            sharedView.leave_exitbutton(help);
+            sharedView.Leave_exitbutton(help);
         }
 
         private void hover_helpbutton(object sender, EventArgs e) {
-            sharedView.leave_exitbutton(help);
+            sharedView.Leave_exitbutton(help);
         }
 
         private void move_window(object sender, MouseEventArgs e) {

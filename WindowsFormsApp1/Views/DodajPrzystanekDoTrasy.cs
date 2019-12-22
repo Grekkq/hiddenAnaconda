@@ -31,17 +31,17 @@ namespace hiddenAnaconda.Views {
 
         private void move_window(object sender, MouseEventArgs e)
         {
-            sharedView.moveWindow(sender, e, Handle);
+            sharedView.MoveWindow(sender, e, Handle);
         }
 
         private void hover_exitbutton(object sender, EventArgs e)
         {
-            sharedView.hover_exitbutton(exit);
+            sharedView.Hover_exitbutton(exit);
         }
 
         private void leave_exitbutton(object sender, EventArgs e)
         {
-            sharedView.leave_exitbutton(exit);
+            sharedView.Leave_exitbutton(exit);
         }
 
         // wyłączenie fokusu na pola tekstowe przy uruchomieniu formularza

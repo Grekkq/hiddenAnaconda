@@ -28,15 +28,15 @@ namespace hiddenAnaconda.Views
         {
             this.Close();
         }
-        private void Hover_exitbutton(object sender, EventArgs e) => sharedView.hover_exitbutton(exit);
+        private void Hover_exitbutton(object sender, EventArgs e) => sharedView.Hover_exitbutton(exit);
 
-        private void Leave_exitbutton(object sender, EventArgs e) => sharedView.leave_exitbutton(exit);
+        private void Leave_exitbutton(object sender, EventArgs e) => sharedView.Leave_exitbutton(exit);
 
 
         private void move_window(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left) {
-                sharedView.moveWindow(sender, e, Handle);
+                sharedView.MoveWindow(sender, e, Handle);
             }
         }
 

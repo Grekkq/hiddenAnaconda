@@ -18,28 +18,28 @@ namespace hiddenAnaconda.Views {
         SharedView sharedView = new SharedView();
         Models.AddTrail addTrail = new Models.AddTrail();
 
-        private void move_window(object sender, MouseEventArgs e) {
+        private void Move_window(object sender, MouseEventArgs e) {
             if (e.Button == MouseButtons.Left) {
-                sharedView.moveWindow(sender, e, Handle);
+                sharedView.MoveWindow(sender, e, Handle);
             }
         }
 
-        private void hover_exitbutton(object sender, EventArgs e) {
-            sharedView.hover_exitbutton(exit);
+        private void Hover_exitbutton(object sender, EventArgs e) {
+            sharedView.Hover_exitbutton(exit);
         }
 
-        private void leave_exitbutton(object sender, EventArgs e) {
-            sharedView.leave_exitbutton(exit);
+        private void Leave_exitbutton(object sender, EventArgs e) {
+            sharedView.Leave_exitbutton(exit);
         }
 
         public DodawanieKursu() {
             InitializeComponent();
         }
-        private void turnoffFocus(object sender, EventArgs e) {
+        private void TurnoffFocus(object sender, EventArgs e) {
             this.ActiveControl = null;
         }
 
-        private void close_on_click(object sender, EventArgs e) {
+        private void Close_on_click(object sender, EventArgs e) {
             this.Close();
         }
 
@@ -61,7 +61,7 @@ namespace hiddenAnaconda.Views {
             sharedView.LoadDayTypesIntoComboBox(comboBox_rodzajKursu);
         }
 
-        private void create_Click(object sender, EventArgs e) {
+        private void Create_Click(object sender, EventArgs e) {
             if (ErrorIsOn == false) {
                 if (MessageBox.Show("Na pewno chcesz dodać kurs?", "Dodanie kursu", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) {
                     const string message = "Pomyślnie utworzono nowy kurs";
@@ -78,7 +78,7 @@ namespace hiddenAnaconda.Views {
             }
         }
 
-        private void c_number_TextChanged(object sender, KeyPressEventArgs e) {
+        private void C_number_TextChanged(object sender, KeyPressEventArgs e) {
 
             if (char.IsDigit(e.KeyChar) || e.KeyChar == (char)Keys.Back)
                 base.OnKeyPress(e);
@@ -87,20 +87,20 @@ namespace hiddenAnaconda.Views {
 
         }
 
-        private void comboBox_linia_SelectedIndexChanged(object sender, EventArgs e) {
+        private void ComboBox_linia_SelectedIndexChanged(object sender, EventArgs e) {
             label_trasa.Visible = true;
             comboBox_trasa.Visible = true;
             comboBox_trasa.Focus();
             sharedView.LoadRouteNumberIntoComboBox(comboBox_trasa, Int32.Parse(comboBox_linia.Text));
         }
 
-        private void comboBox_trasa_SelectedIndexChanged(object sender, EventArgs e) {
+        private void ComboBox_trasa_SelectedIndexChanged(object sender, EventArgs e) {
             label_rodzajKursu.Visible = true;
             comboBox_rodzajKursu.Visible = true;
             comboBox_rodzajKursu.Focus();
         }
 
-        private void line_choose_Validating(object sender, CancelEventArgs e) {
+        private void Line_choose_Validating(object sender, CancelEventArgs e) {
             if (string.IsNullOrEmpty(comboBox_linia.Text)) {
                 errorProvider1.SetError(comboBox_linia, "Nie wybrano linii");
                 ErrorIsOn = true;
@@ -110,7 +110,7 @@ namespace hiddenAnaconda.Views {
             }
         }
 
-        private void comboBox_trasa_Validating(object sender, CancelEventArgs e) {
+        private void ComboBox_trasa_Validating(object sender, CancelEventArgs e) {
             if (string.IsNullOrEmpty(comboBox_trasa.Text)) {
                 errorProvider1.SetError(comboBox_trasa, "Nie wybrano trasy");
                 ErrorIsOn = true;
@@ -120,7 +120,7 @@ namespace hiddenAnaconda.Views {
             }
         }
 
-        private void comboBox_rodzajKursu_Validating(object sender, CancelEventArgs e) {
+        private void ComboBox_rodzajKursu_Validating(object sender, CancelEventArgs e) {
             if (string.IsNullOrEmpty(comboBox_rodzajKursu.Text)) {
                 errorProvider1.SetError(comboBox_rodzajKursu, "Nie wybrano rodzaju kursu");
                 ErrorIsOn = true;

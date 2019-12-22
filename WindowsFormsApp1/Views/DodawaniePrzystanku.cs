@@ -16,16 +16,16 @@ namespace hiddenAnaconda.Views {
 
         private void move_window(object sender, MouseEventArgs e) {
             if (e.Button == MouseButtons.Left) {
-                sharedView.moveWindow(sender, e, Handle);
+                sharedView.MoveWindow(sender, e, Handle);
             }
         }
 
         private void hover_exitbutton(object sender, EventArgs e) {
-            sharedView.hover_exitbutton(this.exit);
+            sharedView.Hover_exitbutton(this.exit);
         }
 
         private void leave_exitbutton(object sender, EventArgs e) {
-            sharedView.leave_exitbutton(this.exit);
+            sharedView.Leave_exitbutton(this.exit);
         }
 
         // Wyłączenie fokusu

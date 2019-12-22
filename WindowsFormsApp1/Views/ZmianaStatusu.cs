@@ -22,11 +22,11 @@ namespace hiddenAnaconda.Views {
         }
 
         private void hover_helpbutton(object sender, EventArgs e) {
-            sharedView.hover_helpbutton(help);
+            sharedView.Hover_helpbutton(help);
         }
 
         private void leave_helpbutton(object sender, EventArgs e) {
-            sharedView.leave_helpbutton(help);
+            sharedView.Leave_helpbutton(help);
         }
 
         private void exit_Click(object sender, EventArgs e) {
@@ -35,13 +35,13 @@ namespace hiddenAnaconda.Views {
 
         private void move_window(object sender, MouseEventArgs e) {
             if (e.Button == MouseButtons.Left) {
-                sharedView.moveWindow(sender, e, Handle);
+                sharedView.MoveWindow(sender, e, Handle);
             }
         }
 
-        private void Hover_exitbutton(object sender, EventArgs e) => sharedView.hover_exitbutton(exit);
+        private void Hover_exitbutton(object sender, EventArgs e) => sharedView.Hover_exitbutton(exit);
 
-        private void Leave_exitbutton(object sender, EventArgs e) => sharedView.leave_exitbutton(exit);
+        private void Leave_exitbutton(object sender, EventArgs e) => sharedView.Leave_exitbutton(exit);
 
         private void kierowca_CheckedChanged(object sender, EventArgs e) {
             if (kierowca.Checked == true) {
