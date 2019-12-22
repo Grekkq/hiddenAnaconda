@@ -16,6 +16,31 @@ namespace hiddenAnaconda.Models {
             dc = new ReportDataContext();
         }
 
+        public bool AddDoubleBusStop(string name,string city,string directionTo,string directionFrom) {
+            przystanek busStop = new przystanek();
+            przystanek busStop2 = new przystanek();
+            busStop.nazwa = name;
+            busStop.miasto = city;
+            busStop.kierunek = directionFrom + "-" + directionTo;
+            busStop2.nazwa = name;
+            busStop2.miasto = city;
+            busStop2.kierunek = directionTo + "-" + directionFrom;
+            if (chceckIfBusStopExist(name, city)) {
+                MessageBox.Show("Przystanek " + name + " zlokalizowany w mieście " + city + " istnieje już w bazie!", "Błąd!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            } else {
+                try {
+                    dc.przystaneks.InsertOnSubmit(busStop);
+                    dc.przystaneks.InsertOnSubmit(busStop2);
+                    dc.SubmitChanges();
+                } catch {
+                    MessageBox.Show("Nie udało się utworzyć przystanku. Spróbuj ponownie.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                MessageBox.Show("Pomyślnie utworzono nowy przystanek.", "Sukces", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return true;
+            }
+        }
+
         public bool AddBusStop(string name, string city, string direction) {
             przystanek busStop = new przystanek();
             busStop.nazwa = name;

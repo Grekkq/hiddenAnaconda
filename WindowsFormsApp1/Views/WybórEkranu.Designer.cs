@@ -33,6 +33,7 @@
             this.Czas = new System.Windows.Forms.Button();
             this.ZmianaStatusu = new System.Windows.Forms.Button();
             this.Przypisanie = new System.Windows.Forms.Button();
+            this.Trasa = new System.Windows.Forms.Button();
             this.Kierowca = new System.Windows.Forms.Button();
             this.RaportButton = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
@@ -40,7 +41,6 @@
             this.Pojazd = new System.Windows.Forms.Button();
             this.Przystanek = new System.Windows.Forms.Button();
             this.Linia = new System.Windows.Forms.Button();
-            this.Trasa = new System.Windows.Forms.Button();
             this.Kurs = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -91,7 +91,7 @@
             this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(130, 30);
-            this.button1.TabIndex = 9;
+            this.button1.TabIndex = 11;
             this.button1.Text = "tworzenie użytkowników";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -135,7 +135,7 @@
             this.Czas.Margin = new System.Windows.Forms.Padding(2);
             this.Czas.Name = "Czas";
             this.Czas.Size = new System.Drawing.Size(130, 30);
-            this.Czas.TabIndex = 6;
+            this.Czas.TabIndex = 5;
             this.Czas.Text = "czasy realizacji kursu";
             this.Czas.UseVisualStyleBackColor = true;
             this.Czas.Click += new System.EventHandler(this.Czas_Click);
@@ -146,7 +146,7 @@
             this.ZmianaStatusu.Margin = new System.Windows.Forms.Padding(2);
             this.ZmianaStatusu.Name = "ZmianaStatusu";
             this.ZmianaStatusu.Size = new System.Drawing.Size(130, 30);
-            this.ZmianaStatusu.TabIndex = 11;
+            this.ZmianaStatusu.TabIndex = 8;
             this.ZmianaStatusu.Text = "zmiana statusu";
             this.ZmianaStatusu.UseVisualStyleBackColor = true;
             this.ZmianaStatusu.Click += new System.EventHandler(this.ZmianaStatusu_Click);
@@ -157,10 +157,21 @@
             this.Przypisanie.Margin = new System.Windows.Forms.Padding(2);
             this.Przypisanie.Name = "Przypisanie";
             this.Przypisanie.Size = new System.Drawing.Size(130, 30);
-            this.Przypisanie.TabIndex = 7;
+            this.Przypisanie.TabIndex = 6;
             this.Przypisanie.Text = "przypisanie do kursu";
             this.Przypisanie.UseVisualStyleBackColor = true;
             this.Przypisanie.Click += new System.EventHandler(this.Przypisanie_Click);
+            // 
+            // Trasa
+            // 
+            this.Trasa.Location = new System.Drawing.Point(25, 175);
+            this.Trasa.Margin = new System.Windows.Forms.Padding(2);
+            this.Trasa.Name = "Trasa";
+            this.Trasa.Size = new System.Drawing.Size(130, 30);
+            this.Trasa.TabIndex = 10;
+            this.Trasa.Text = "zarządzanie trasami";
+            this.Trasa.UseVisualStyleBackColor = true;
+            this.Trasa.Click += new System.EventHandler(this.Trasa_Click);
             // 
             // Kierowca
             // 
@@ -168,7 +179,7 @@
             this.Kierowca.Margin = new System.Windows.Forms.Padding(2);
             this.Kierowca.Name = "Kierowca";
             this.Kierowca.Size = new System.Drawing.Size(130, 30);
-            this.Kierowca.TabIndex = 10;
+            this.Kierowca.TabIndex = 7;
             this.Kierowca.Text = "dodawanie kierowców";
             this.Kierowca.UseVisualStyleBackColor = true;
             this.Kierowca.Click += new System.EventHandler(this.Kierowca_Click);
@@ -178,7 +189,7 @@
             this.RaportButton.Location = new System.Drawing.Point(25, 142);
             this.RaportButton.Name = "RaportButton";
             this.RaportButton.Size = new System.Drawing.Size(130, 30);
-            this.RaportButton.TabIndex = 8;
+            this.RaportButton.TabIndex = 9;
             this.RaportButton.Text = "raport";
             this.RaportButton.UseVisualStyleBackColor = true;
             this.RaportButton.Click += new System.EventHandler(this.RaportButton_Click);
@@ -229,7 +240,7 @@
             // 
             // Linia
             // 
-            this.Linia.Location = new System.Drawing.Point(25, 73);
+            this.Linia.Location = new System.Drawing.Point(25, 74);
             this.Linia.Margin = new System.Windows.Forms.Padding(2);
             this.Linia.Name = "Linia";
             this.Linia.Size = new System.Drawing.Size(130, 30);
@@ -238,24 +249,13 @@
             this.Linia.UseVisualStyleBackColor = true;
             this.Linia.Click += new System.EventHandler(this.Linia_Click);
             // 
-            // Trasa
-            // 
-            this.Trasa.Location = new System.Drawing.Point(25, 175);
-            this.Trasa.Margin = new System.Windows.Forms.Padding(2);
-            this.Trasa.Name = "Trasa";
-            this.Trasa.Size = new System.Drawing.Size(130, 30);
-            this.Trasa.TabIndex = 3;
-            this.Trasa.Text = "zarządzanie trasami";
-            this.Trasa.UseVisualStyleBackColor = true;
-            this.Trasa.Click += new System.EventHandler(this.Trasa_Click);
-            // 
             // Kurs
             // 
             this.Kurs.Location = new System.Drawing.Point(25, 107);
             this.Kurs.Margin = new System.Windows.Forms.Padding(2);
             this.Kurs.Name = "Kurs";
             this.Kurs.Size = new System.Drawing.Size(130, 30);
-            this.Kurs.TabIndex = 4;
+            this.Kurs.TabIndex = 3;
             this.Kurs.Text = "kursu";
             this.Kurs.UseVisualStyleBackColor = true;
             this.Kurs.Click += new System.EventHandler(this.Kurs_Click);
@@ -266,7 +266,7 @@
             this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(130, 30);
-            this.button2.TabIndex = 5;
+            this.button2.TabIndex = 4;
             this.button2.Text = "terminów kursowania";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
@@ -288,6 +288,7 @@
             this.create.Name = "create";
             this.create.Size = new System.Drawing.Size(80, 40);
             this.create.TabIndex = 14;
+            this.create.TabStop = false;
             this.create.Text = "Zakończ";
             this.create.UseVisualStyleBackColor = true;
             this.create.Click += new System.EventHandler(this.create_Click);

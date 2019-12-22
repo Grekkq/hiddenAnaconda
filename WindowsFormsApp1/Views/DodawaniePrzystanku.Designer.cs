@@ -42,7 +42,10 @@
             this.create = new System.Windows.Forms.Button();
             this.cancel = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.textbox_kierunek = new System.Windows.Forms.TextBox();
+            this.label_Do = new System.Windows.Forms.Label();
+            this.label_Z = new System.Windows.Forms.Label();
+            this.textBox_kierunekDo = new System.Windows.Forms.TextBox();
+            this.textbox_kierunekZ = new System.Windows.Forms.TextBox();
             this.label_kierunek = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.exit = new System.Windows.Forms.Button();
@@ -81,11 +84,11 @@
             // 
             // p_nazwa
             // 
-            this.p_nazwa.Location = new System.Drawing.Point(19, 106);
+            this.p_nazwa.Location = new System.Drawing.Point(19, 141);
             this.p_nazwa.MaxLength = 15;
             this.p_nazwa.Name = "p_nazwa";
             this.p_nazwa.Size = new System.Drawing.Size(140, 20);
-            this.p_nazwa.TabIndex = 0;
+            this.p_nazwa.TabIndex = 1;
             this.p_nazwa.TextChanged += new System.EventHandler(this.p_nazwa_TextChanged);
             this.p_nazwa.Validating += new System.ComponentModel.CancelEventHandler(this.p_nazwa_Validating);
             // 
@@ -98,7 +101,7 @@
             this.groupBox1.Location = new System.Drawing.Point(341, 90);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(245, 80);
-            this.groupBox1.TabIndex = 3;
+            this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Czy utworzony przystanek jest pojedynczy?";
             // 
@@ -130,7 +133,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.label3.Location = new System.Drawing.Point(16, 90);
+            this.label3.Location = new System.Drawing.Point(16, 125);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(125, 13);
             this.label3.TabIndex = 12;
@@ -139,10 +142,10 @@
             // 
             // p_miasto
             // 
-            this.p_miasto.Location = new System.Drawing.Point(19, 156);
+            this.p_miasto.Location = new System.Drawing.Point(20, 96);
             this.p_miasto.Name = "p_miasto";
             this.p_miasto.Size = new System.Drawing.Size(140, 20);
-            this.p_miasto.TabIndex = 1;
+            this.p_miasto.TabIndex = 0;
             this.p_miasto.TextChanged += new System.EventHandler(this.p_miasto_TextChanged);
             this.p_miasto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.p_miasto_TextChanged);
             this.p_miasto.Validating += new System.ComponentModel.CancelEventHandler(this.p_miasto_Validating);
@@ -151,7 +154,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.label5.Location = new System.Drawing.Point(16, 140);
+            this.label5.Location = new System.Drawing.Point(17, 80);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(70, 13);
             this.label5.TabIndex = 15;
@@ -182,7 +185,10 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.panel1.Controls.Add(this.textbox_kierunek);
+            this.panel1.Controls.Add(this.label_Do);
+            this.panel1.Controls.Add(this.label_Z);
+            this.panel1.Controls.Add(this.textBox_kierunekDo);
+            this.panel1.Controls.Add(this.textbox_kierunekZ);
             this.panel1.Controls.Add(this.label_kierunek);
             this.panel1.Controls.Add(this.pictureBox2);
             this.panel1.Controls.Add(this.label2);
@@ -199,17 +205,42 @@
             this.panel1.Size = new System.Drawing.Size(606, 377);
             this.panel1.TabIndex = 0;
             // 
-            // textbox_kierunek
+            // label_Do
             // 
-            this.textbox_kierunek.Location = new System.Drawing.Point(19, 206);
-            this.textbox_kierunek.Name = "textbox_kierunek";
-            this.textbox_kierunek.Size = new System.Drawing.Size(140, 20);
-            this.textbox_kierunek.TabIndex = 2;
+            this.label_Do.AutoSize = true;
+            this.label_Do.Location = new System.Drawing.Point(29, 223);
+            this.label_Do.Name = "label_Do";
+            this.label_Do.Size = new System.Drawing.Size(90, 13);
+            this.label_Do.TabIndex = 22;
+            this.label_Do.Text = "Miasto docelowe:";
+            // 
+            // label_Z
+            // 
+            this.label_Z.AutoSize = true;
+            this.label_Z.Location = new System.Drawing.Point(29, 197);
+            this.label_Z.Name = "label_Z";
+            this.label_Z.Size = new System.Drawing.Size(92, 13);
+            this.label_Z.TabIndex = 22;
+            this.label_Z.Text = "Miasto wyjściowe:";
+            // 
+            // textBox_kierunekDo
+            // 
+            this.textBox_kierunekDo.Location = new System.Drawing.Point(127, 220);
+            this.textBox_kierunekDo.Name = "textBox_kierunekDo";
+            this.textBox_kierunekDo.Size = new System.Drawing.Size(140, 20);
+            this.textBox_kierunekDo.TabIndex = 4;
+            // 
+            // textbox_kierunekZ
+            // 
+            this.textbox_kierunekZ.Location = new System.Drawing.Point(127, 194);
+            this.textbox_kierunekZ.Name = "textbox_kierunekZ";
+            this.textbox_kierunekZ.Size = new System.Drawing.Size(140, 20);
+            this.textbox_kierunekZ.TabIndex = 3;
             // 
             // label_kierunek
             // 
             this.label_kierunek.AutoSize = true;
-            this.label_kierunek.Location = new System.Drawing.Point(16, 190);
+            this.label_kierunek.Location = new System.Drawing.Point(16, 174);
             this.label_kierunek.Name = "label_kierunek";
             this.label_kierunek.Size = new System.Drawing.Size(81, 13);
             this.label_kierunek.TabIndex = 21;
@@ -303,6 +334,7 @@
             this.Name = "DodawaniePrzystanku";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Formularz dodawania przystanku";
+            this.Load += new System.EventHandler(this.DodawaniePrzystanku_Load);
             this.Shown += new System.EventHandler(this.turnoff_focus);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.move_window);
             this.groupBox1.ResumeLayout(false);
@@ -337,7 +369,10 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.ErrorProvider errorProvider1;
-        private System.Windows.Forms.TextBox textbox_kierunek;
+        private System.Windows.Forms.TextBox textbox_kierunekZ;
         private System.Windows.Forms.Label label_kierunek;
+        private System.Windows.Forms.Label label_Do;
+        private System.Windows.Forms.Label label_Z;
+        private System.Windows.Forms.TextBox textBox_kierunekDo;
     }
 }

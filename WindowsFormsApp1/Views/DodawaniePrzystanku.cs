@@ -36,38 +36,50 @@ namespace hiddenAnaconda.Views {
         public DodawaniePrzystanku() {
             InitializeComponent();
             label_kierunek.Visible = false;
-            textbox_kierunek.Visible = false;
+            textbox_kierunekZ.Visible = false;
         }
 
         private void create_Click(object sender, EventArgs e) {
-            if (no.Checked == true && string.IsNullOrEmpty(textbox_kierunek.Text)) {
-                errorProvider1.SetError(textbox_kierunek, "Nie wpisano kierunku");
+            if (no.Checked == true && string.IsNullOrEmpty(textbox_kierunekZ.Text) && string.IsNullOrEmpty(textBox_kierunekDo.Text)) {
+                errorProvider1.SetError(label_kierunek, "Nie wpisano kierunku");
                 ErrorIsOn = true;
             } else {
-                errorProvider1.SetError(textbox_kierunek, null);
+                errorProvider1.SetError(textbox_kierunekZ, null);
                 ErrorIsOn = false;
             }
             if (yes.Checked == false && no.Checked == false) {
                 MessageBox.Show("Nie zaznaczono odpowiedz na pytanie.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 p_miasto.Focus();
                 p_nazwa.Focus();
-                textbox_kierunek.Focus();
-            } else if (!string.IsNullOrEmpty(p_nazwa.Text) && !string.IsNullOrEmpty(p_miasto.Text) && ErrorIsOn == false) {
+                textbox_kierunekZ.Focus();
+            } else if (ErrorIsOn == false) {
                 var nazwa = p_nazwa.Text;
                 var miasto = p_miasto.Text;
-                // TODO dodanie możliwości wpisania kierunku
-                string direction=null;
-                if (no.Checked == true)
-                    direction = textbox_kierunek.Text;
-                var result = MessageBox.Show("Na pewno chcesz dodać przystanek " + nazwa + " w mieście " + miasto + "?", "Dodanie kursu", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (result == DialogResult.Yes) {
-                    Models.AddingBusStops addingBusStops = new Models.AddingBusStops();
-                    addingBusStops.AddBusStop(nazwa, miasto, direction);
+                string direction = null;
+
+                if (yes.Checked == true) {
+                    var result = MessageBox.Show("Czy na pewno chcesz dodać w mieście " + miasto + " przystanek \"" + nazwa +"\"?", "Dodanie przystanku", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (result == DialogResult.Yes) {
+                        Models.AddingBusStops addingBusStops = new Models.AddingBusStops();
+                        addingBusStops.AddBusStop(nazwa, miasto, direction);
+                    } else {
+                        p_miasto.Focus();
+                        p_nazwa.Focus();
+                    }
                 } else {
-                    p_miasto.Focus();
-                    p_nazwa.Focus();
-                    textbox_kierunek.Focus();
+                    direction = textbox_kierunekZ.Text + "-" + textBox_kierunekDo.Text;
+                    var directionTo = textBox_kierunekDo.Text;
+                    var directionFrom = textbox_kierunekZ.Text;
+                    var result2 = MessageBox.Show("Czy na pewno chcesz dodać w mieście " + miasto + " przystanek \"" + nazwa + "\" kierunek " + direction + "?", "Dodawanie przystanku", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (result2 == DialogResult.Yes) {
+                        Models.AddingBusStops addingBusStops = new Models.AddingBusStops();
+                        addingBusStops.AddDoubleBusStop(nazwa, miasto, directionTo, directionFrom);
+                    } else {
+                        p_miasto.Focus();
+                        p_nazwa.Focus();
+                    }
                 }
+
             }
         }
 
@@ -124,12 +136,25 @@ namespace hiddenAnaconda.Views {
 
         private void yes_CheckedChanged(object sender, EventArgs e) {
             label_kierunek.Visible = false;
-            textbox_kierunek.Visible = false;
+            label_Z.Visible = false;
+            label_Do.Visible = false;
+            textBox_kierunekDo.Visible = false;
+            textbox_kierunekZ.Visible = false;
         }
 
         private void no_CheckedChanged(object sender, EventArgs e) {
             label_kierunek.Visible = true;
-            textbox_kierunek.Visible = true;
+            label_Z.Visible = true;
+            label_Do.Visible = true;
+            textBox_kierunekDo.Visible = true;
+            textbox_kierunekZ.Visible = true;
+        }
+
+        private void DodawaniePrzystanku_Load(object sender, EventArgs e) {
+            label_Z.Visible = false;
+            label_Do.Visible = false;
+            textBox_kierunekDo.Visible = false;
+            textbox_kierunekZ.Visible = false;
         }
     }
 }
