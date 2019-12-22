@@ -31,14 +31,14 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DodawanieTrasy));
             this.helpLabel = new System.Windows.Forms.Label();
-            this.lineSelectionComboBox = new System.Windows.Forms.ComboBox();
+            this.linia_comboBox = new System.Windows.Forms.ComboBox();
             this.cancel = new System.Windows.Forms.Button();
             this.create = new System.Windows.Forms.Button();
             this.lineSelectionLabel = new System.Windows.Forms.Label();
             this.bgPanel = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.label_lokalizacja = new System.Windows.Forms.Label();
+            this.label_godzina = new System.Windows.Forms.Label();
+            this.label_nr = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.helpLabel2 = new System.Windows.Forms.Label();
             this.clearButton = new System.Windows.Forms.Button();
@@ -51,6 +51,8 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.comboBoxTrasa = new System.Windows.Forms.ComboBox();
+            this.label_trasa = new System.Windows.Forms.Label();
             this.bgPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -69,19 +71,20 @@
             this.helpLabel.TabIndex = 3;
             this.helpLabel.Text = " \r\n      Tworzenie nowej trasy";
             // 
-            // lineSelectionComboBox
+            // linia_comboBox
             // 
-            this.lineSelectionComboBox.BackColor = System.Drawing.SystemColors.Window;
-            this.lineSelectionComboBox.FormattingEnabled = true;
-            this.lineSelectionComboBox.Items.AddRange(new object[] {
+            this.linia_comboBox.BackColor = System.Drawing.SystemColors.Window;
+            this.linia_comboBox.FormattingEnabled = true;
+            this.linia_comboBox.Items.AddRange(new object[] {
             "657",
             "296",
             "409"});
-            this.lineSelectionComboBox.Location = new System.Drawing.Point(19, 96);
-            this.lineSelectionComboBox.Name = "lineSelectionComboBox";
-            this.lineSelectionComboBox.Size = new System.Drawing.Size(131, 21);
-            this.lineSelectionComboBox.TabIndex = 0;
-            this.lineSelectionComboBox.Validating += new System.ComponentModel.CancelEventHandler(this.lineSelectionComboBox_Validating);
+            this.linia_comboBox.Location = new System.Drawing.Point(19, 96);
+            this.linia_comboBox.Name = "linia_comboBox";
+            this.linia_comboBox.Size = new System.Drawing.Size(131, 21);
+            this.linia_comboBox.TabIndex = 0;
+            this.linia_comboBox.SelectedIndexChanged += new System.EventHandler(this.linia_comboBox_SelectedIndexChanged);
+            this.linia_comboBox.Validating += new System.ComponentModel.CancelEventHandler(this.lineSelectionComboBox_Validating);
             // 
             // cancel
             // 
@@ -111,16 +114,16 @@
             this.lineSelectionLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.lineSelectionLabel.Location = new System.Drawing.Point(16, 80);
             this.lineSelectionLabel.Name = "lineSelectionLabel";
-            this.lineSelectionLabel.Size = new System.Drawing.Size(73, 13);
+            this.lineSelectionLabel.Size = new System.Drawing.Size(69, 13);
             this.lineSelectionLabel.TabIndex = 18;
-            this.lineSelectionLabel.Text = "Wybierz Linię:";
+            this.lineSelectionLabel.Text = "Wybierz linię:";
             // 
             // bgPanel
             // 
             this.bgPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.bgPanel.Controls.Add(this.label2);
-            this.bgPanel.Controls.Add(this.label6);
-            this.bgPanel.Controls.Add(this.label1);
+            this.bgPanel.Controls.Add(this.label_lokalizacja);
+            this.bgPanel.Controls.Add(this.label_godzina);
+            this.bgPanel.Controls.Add(this.label_nr);
             this.bgPanel.Controls.Add(this.pictureBox2);
             this.bgPanel.Controls.Add(this.helpLabel2);
             this.bgPanel.Controls.Add(this.clearButton);
@@ -128,51 +131,53 @@
             this.bgPanel.Controls.Add(this.deleteButton);
             this.bgPanel.Controls.Add(this.helpLabel);
             this.bgPanel.Controls.Add(this.addButton);
+            this.bgPanel.Controls.Add(this.label_trasa);
             this.bgPanel.Controls.Add(this.lineSelectionLabel);
             this.bgPanel.Controls.Add(this.create);
             this.bgPanel.Controls.Add(this.cancel);
-            this.bgPanel.Controls.Add(this.lineSelectionComboBox);
+            this.bgPanel.Controls.Add(this.comboBoxTrasa);
+            this.bgPanel.Controls.Add(this.linia_comboBox);
             this.bgPanel.Location = new System.Drawing.Point(2, 31);
             this.bgPanel.Name = "bgPanel";
             this.bgPanel.Size = new System.Drawing.Size(606, 377);
             this.bgPanel.TabIndex = 0;
             this.bgPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.bgPanel_Paint);
             // 
-            // label2
+            // label_lokalizacja
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Silver;
-            this.label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label2.Location = new System.Drawing.Point(105, 133);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(313, 22);
-            this.label2.TabIndex = 27;
-            this.label2.Text = "                              Lokalizacja                          ";
+            this.label_lokalizacja.AutoSize = true;
+            this.label_lokalizacja.BackColor = System.Drawing.Color.Silver;
+            this.label_lokalizacja.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label_lokalizacja.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label_lokalizacja.Location = new System.Drawing.Point(105, 133);
+            this.label_lokalizacja.Name = "label_lokalizacja";
+            this.label_lokalizacja.Size = new System.Drawing.Size(313, 22);
+            this.label_lokalizacja.TabIndex = 27;
+            this.label_lokalizacja.Text = "                              Lokalizacja                          ";
             // 
-            // label6
+            // label_godzina
             // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.Silver;
-            this.label6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label6.Location = new System.Drawing.Point(418, 133);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(115, 22);
-            this.label6.TabIndex = 27;
-            this.label6.Text = "      Godzina     ";
+            this.label_godzina.AutoSize = true;
+            this.label_godzina.BackColor = System.Drawing.Color.Silver;
+            this.label_godzina.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label_godzina.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label_godzina.Location = new System.Drawing.Point(418, 133);
+            this.label_godzina.Name = "label_godzina";
+            this.label_godzina.Size = new System.Drawing.Size(115, 22);
+            this.label_godzina.TabIndex = 27;
+            this.label_godzina.Text = "      Godzina     ";
             // 
-            // label1
+            // label_nr
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Silver;
-            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.Location = new System.Drawing.Point(65, 133);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(43, 22);
-            this.label1.TabIndex = 27;
-            this.label1.Text = "  Nr. ";
+            this.label_nr.AutoSize = true;
+            this.label_nr.BackColor = System.Drawing.Color.Silver;
+            this.label_nr.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label_nr.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label_nr.Location = new System.Drawing.Point(65, 133);
+            this.label_nr.Name = "label_nr";
+            this.label_nr.Size = new System.Drawing.Size(43, 22);
+            this.label_nr.TabIndex = 27;
+            this.label_nr.Text = "  Nr. ";
             // 
             // pictureBox2
             // 
@@ -315,6 +320,31 @@
             this.errorProvider1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.errorProvider1.ContainerControl = this;
             // 
+            // comboBoxTrasa
+            // 
+            this.comboBoxTrasa.BackColor = System.Drawing.SystemColors.Window;
+            this.comboBoxTrasa.FormattingEnabled = true;
+            this.comboBoxTrasa.Items.AddRange(new object[] {
+            "657",
+            "296",
+            "409"});
+            this.comboBoxTrasa.Location = new System.Drawing.Point(168, 96);
+            this.comboBoxTrasa.Name = "comboBoxTrasa";
+            this.comboBoxTrasa.Size = new System.Drawing.Size(131, 21);
+            this.comboBoxTrasa.TabIndex = 0;
+            this.comboBoxTrasa.SelectedIndexChanged += new System.EventHandler(this.comboBoxTrasa_SelectedIndexChanged);
+            this.comboBoxTrasa.Validating += new System.ComponentModel.CancelEventHandler(this.lineSelectionComboBox_Validating);
+            // 
+            // label_trasa
+            // 
+            this.label_trasa.AutoSize = true;
+            this.label_trasa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.label_trasa.Location = new System.Drawing.Point(165, 80);
+            this.label_trasa.Name = "label_trasa";
+            this.label_trasa.Size = new System.Drawing.Size(74, 13);
+            this.label_trasa.TabIndex = 18;
+            this.label_trasa.Text = "Wybierz trasę:";
+            // 
             // DodawanieTrasy
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -348,7 +378,7 @@
 
         #endregion
         private System.Windows.Forms.Label helpLabel;
-        private System.Windows.Forms.ComboBox lineSelectionComboBox;
+        private System.Windows.Forms.ComboBox linia_comboBox;
         private System.Windows.Forms.Button cancel;
         private System.Windows.Forms.Button create;
         private System.Windows.Forms.Label lineSelectionLabel;
@@ -364,9 +394,11 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label_lokalizacja;
+        private System.Windows.Forms.Label label_godzina;
+        private System.Windows.Forms.Label label_nr;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.ComboBox comboBoxTrasa;
+        private System.Windows.Forms.Label label_trasa;
     }
 }

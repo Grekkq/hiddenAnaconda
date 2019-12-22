@@ -108,7 +108,22 @@ namespace hiddenAnaconda.Views {
         }
 
         private void DodawanieTrasy_Load(object sender, EventArgs e) {
-            sharedView.LoadLinesIntoComboBox(this.lineSelectionComboBox);
+            sharedView.LoadLinesIntoComboBox(this.linia_comboBox);
+            label_trasa.Visible = false;
+            comboBoxTrasa.Visible = false;
+            clearButton.Visible = false;
+            addButton.Visible = false;
+            deleteButton.Visible = false;
+            create.Visible = false;
+
+            //visability of datagrid
+            label_lokalizacja.Visible = false;
+            label_nr.Visible = false;
+            label_godzina.Visible = false;
+            mainListBox.Visible = false;
+            //przykładowe dane
+            this.comboBoxTrasa.Items.Clear();
+            this.comboBoxTrasa.Items.Add("1");
         }
 
         private void create_Click(object sender, EventArgs e)
@@ -122,21 +137,21 @@ namespace hiddenAnaconda.Views {
                 }
                 else
                 {
-                    lineSelectionComboBox.Focus();
+                    linia_comboBox.Focus();
                 }
             }
         }
 
         private void lineSelectionComboBox_Validating(object sender, CancelEventArgs e)
         {
-            if (string.IsNullOrEmpty(lineSelectionComboBox.Text))
+            if (string.IsNullOrEmpty(linia_comboBox.Text))
             {
-                errorProvider1.SetError(lineSelectionComboBox, "Nie wybrano linii");
+                errorProvider1.SetError(linia_comboBox, "Nie wybrano linii");
                 ErrorIsOn = true;
             }
             else
             {
-                errorProvider1.SetError(lineSelectionComboBox, null);
+                errorProvider1.SetError(linia_comboBox, null);
                 ErrorIsOn = false;
             }
         }
@@ -144,6 +159,23 @@ namespace hiddenAnaconda.Views {
         private void bgPanel_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void linia_comboBox_SelectedIndexChanged(object sender, EventArgs e) {
+            label_trasa.Visible = true;
+            comboBoxTrasa.Visible = true;
+        }
+
+        private void comboBoxTrasa_SelectedIndexChanged(object sender, EventArgs e) {
+            mainListBox.Visible = true;
+            label_godzina.Visible = true;
+            label_lokalizacja.Visible = true;
+            label_nr.Visible = true;
+
+            clearButton.Visible = true;
+            addButton.Visible = true;
+            create.Visible = true;
+            deleteButton.Visible = true;
         }
     }
 }

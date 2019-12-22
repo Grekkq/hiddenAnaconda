@@ -208,9 +208,9 @@
             this.label2.BackColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(29, 33);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(359, 13);
+            this.label2.Size = new System.Drawing.Size(358, 13);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Aby dodać dni wolne od pracy wypełnij formularz, a następnie kliknij dodaj.";
+            this.label2.Text = "Aby dodać termin kursowania  wypełnij formularz, a następnie kliknij dodaj.";
             // 
             // label1
             // 
@@ -221,7 +221,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(608, 68);
             this.label1.TabIndex = 1;
-            this.label1.Text = " \r\n      Dodawanie dni wolnych od pracy";
+            this.label1.Text = " \r\n      Dodawanie terminów kursowania.";
             // 
             // label3
             // 
