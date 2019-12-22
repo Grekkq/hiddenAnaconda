@@ -40,6 +40,16 @@ namespace hiddenAnaconda {
             }
         }
 
+        public void LoadRouteNumberIntoComboBox(ComboBox comboBox, int lineNumber) {
+            comboBox.Items.Clear();
+            foreach (var busStop in GetRouteNumberFromDb(lineNumber))
+                comboBox.Items.Add(busStop);
+        }
+
+        private List<string> GetRouteNumberFromDb(int lineNumber) {
+            return dc.trasas.Where(t => t.id_linii == lineNumber).Select(t => t.nr_trasy.ToString()).Distinct().ToList();
+        }
+
         public void LoadBusStopsIntoComboBox(ComboBox comboBox) {
             comboBox.Items.Clear();
             foreach (var busStop in GetAllCitiesFromDb())
