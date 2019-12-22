@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing;
 using hiddenAnaconda.Models;
+using System.Diagnostics;
 
 namespace hiddenAnaconda {
 
@@ -39,6 +40,16 @@ namespace hiddenAnaconda {
             }
         }
 
+        public void LoadBusStopsIntoComboBox(ComboBox comboBox) {
+            comboBox.Items.Clear();
+            foreach (var busStop in GetAllCitiesFromDb())
+                comboBox.Items.Add(busStop);
+        }
+
+        private List<string> GetAllCitiesFromDb() {
+            return dc.przystaneks.Select(p => p.miasto).Distinct().ToList();
+        }
+
         // przesuwanie okna
         public void moveWindow(object sender, MouseEventArgs e, IntPtr Handle) {
             if (e.Button == MouseButtons.Left) {
@@ -53,14 +64,12 @@ namespace hiddenAnaconda {
         }
 
         // zmiana koloru ?'a po najechaniu
-        public void hover_helpbutton(Button help)
-        {
+        public void hover_helpbutton(Button help) {
             help.BackColor = Color.FromArgb(0, 99, 183);
         }
         // zmiana koloru ?'a po zjechaniu
 
-        public void leave_helpbutton(Button help)
-        {
+        public void leave_helpbutton(Button help) {
             help.BackColor = Color.FromArgb(0, 99, 183);
         }
 
@@ -74,7 +83,7 @@ namespace hiddenAnaconda {
             //List<String> replacmentData = new List<String>();
             List<Models.routeElementModel> busStops = new List<Models.routeElementModel>();
             foreach (object item in listBox.Items) {
-                busStops.Add(new Models.routeElementModel((string) item));
+                busStops.Add(new Models.routeElementModel((string)item));
                 index++;
             }
             listBox.Items.Clear();
