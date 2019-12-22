@@ -26,7 +26,7 @@ namespace hiddenAnaconda.Models {
             busStop2.miasto = city;
             busStop2.kierunek = directionTo + "-" + directionFrom;
             if (chceckIfBusStopExist(name, city)) {
-                MessageBox.Show("Przystanek " + name + " zlokalizowany w mieście " + city + " istnieje już w bazie!", "Błąd!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Przystanek " + city + " \"" + name + "\" istnieje już w bazie!", "Błąd!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             } else {
                 try {
@@ -48,7 +48,7 @@ namespace hiddenAnaconda.Models {
             busStop.kierunek = direction;
 
             if (chceckIfBusStopExist(name, city)) {
-                MessageBox.Show("Przystanek " + name + " zlokalizowany w mieście " + city + " istnieje już w bazie!", "Błąd!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Przystanek "+city+ " \"" + name + "\" istnieje już w bazie!", "Błąd!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             } else {
                 try {
