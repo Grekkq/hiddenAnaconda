@@ -80,7 +80,7 @@ namespace hiddenAnaconda.Views {
 
         private void c_number_TextChanged(object sender, KeyPressEventArgs e) {
 
-            if (char.IsDigit(e.KeyChar) || e.KeyChar == (char) Keys.Back)
+            if (char.IsDigit(e.KeyChar) || e.KeyChar == (char)Keys.Back)
                 base.OnKeyPress(e);
             else
                 e.Handled = true;
@@ -91,6 +91,7 @@ namespace hiddenAnaconda.Views {
             label_trasa.Visible = true;
             comboBox_trasa.Visible = true;
             comboBox_trasa.Focus();
+            sharedView.LoadRouteNumberIntoComboBox(comboBox_trasa, Int32.Parse(comboBox_linia.Text));
         }
 
         private void comboBox_trasa_SelectedIndexChanged(object sender, EventArgs e) {
