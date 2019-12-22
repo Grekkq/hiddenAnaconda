@@ -60,6 +60,16 @@ namespace hiddenAnaconda {
             return dc.przystaneks.Select(p => p.miasto).Distinct().ToList();
         }
 
+        public void LoadDayTypesIntoComboBox(ComboBox comboBox) {
+            comboBox.Items.Clear();
+            foreach (var dayType in GetAllDayTypesFromDb())
+                comboBox.Items.Add(dayType);
+        }
+
+        private List<string> GetAllDayTypesFromDb() {
+            return dc.dni_kursowanias.Select(d => d.rodzaj_kursu).Distinct().ToList();
+        }
+
         // przesuwanie okna
         public void moveWindow(object sender, MouseEventArgs e, IntPtr Handle) {
             if (e.Button == MouseButtons.Left) {

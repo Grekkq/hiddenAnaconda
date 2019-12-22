@@ -46,6 +46,7 @@ namespace hiddenAnaconda.Views {
         private void DodawanieDniSwiatecznych_Load(object sender, EventArgs e) {
             type.MaxLength = 30;
             ReloadDataInDataGrid();
+            sharedView.LoadDayTypesIntoComboBox(type);
         }
 
         private void ReloadDataInDataGrid() {

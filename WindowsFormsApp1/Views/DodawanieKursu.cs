@@ -58,6 +58,7 @@ namespace hiddenAnaconda.Views {
             this.comboBox_trasa.Items.Add("1");
             // wczytaj linie do wyboru
             sharedView.LoadLinesIntoComboBox(comboBox_linia);
+            sharedView.LoadDayTypesIntoComboBox(comboBox_rodzajKursu);
         }
 
         private void create_Click(object sender, EventArgs e) {
