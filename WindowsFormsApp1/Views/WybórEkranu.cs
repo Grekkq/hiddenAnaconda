@@ -134,7 +134,7 @@ namespace hiddenAnaconda.Views {
         }
 
         private void Button1_Click(object sender, EventArgs e) {
-            using (Views.EdycjaUżytkowników InnerForm = new Views.EdycjaUżytkowników()) {
+            using (Views.EdycjaUzytkownikow InnerForm = new Views.EdycjaUzytkownikow()) {
                 if (InnerForm.ShowDialog() == DialogResult.OK) {
                 }
             };
