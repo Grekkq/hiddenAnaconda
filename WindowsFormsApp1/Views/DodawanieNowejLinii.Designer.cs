@@ -141,9 +141,9 @@
             // 
             // cancel
             // 
-            this.cancel.Location = new System.Drawing.Point(20, 325);
+            this.cancel.Location = new System.Drawing.Point(20, 335);
             this.cancel.Name = "cancel";
-            this.cancel.Size = new System.Drawing.Size(80, 40);
+            this.cancel.Size = new System.Drawing.Size(80, 30);
             this.cancel.TabIndex = 3;
             this.cancel.Text = "Anuluj";
             this.cancel.UseVisualStyleBackColor = true;
@@ -151,9 +151,9 @@
             // 
             // create
             // 
-            this.create.Location = new System.Drawing.Point(506, 325);
+            this.create.Location = new System.Drawing.Point(507, 335);
             this.create.Name = "create";
-            this.create.Size = new System.Drawing.Size(80, 40);
+            this.create.Size = new System.Drawing.Size(80, 30);
             this.create.TabIndex = 2;
             this.create.Text = "Utwórz";
             this.create.UseVisualStyleBackColor = true;
@@ -162,10 +162,10 @@
             // line_name
             // 
             this.line_name.HideSelection = false;
-            this.line_name.Location = new System.Drawing.Point(19, 106);
+            this.line_name.Location = new System.Drawing.Point(18, 110);
             this.line_name.MaxLength = 4;
             this.line_name.Name = "line_name";
-            this.line_name.Size = new System.Drawing.Size(110, 20);
+            this.line_name.Size = new System.Drawing.Size(130, 20);
             this.line_name.TabIndex = 0;
             this.line_name.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Line_name_TextChanged);
             this.line_name.Validating += new System.ComponentModel.CancelEventHandler(this.Line_name_Validating);
@@ -175,9 +175,9 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(16, 90);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(136, 13);
+            this.label4.Size = new System.Drawing.Size(134, 13);
             this.label4.TabIndex = 3;
-            this.label4.Text = "Podaj nazwę tworzonej linii:";
+            this.label4.Text = "Podaj numer tworzonej linii:";
             // 
             // exit
             // 

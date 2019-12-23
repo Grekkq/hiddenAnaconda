@@ -56,9 +56,9 @@
             this.windowTitle.ForeColor = System.Drawing.SystemColors.Window;
             this.windowTitle.Location = new System.Drawing.Point(28, 4);
             this.windowTitle.Name = "windowTitle";
-            this.windowTitle.Size = new System.Drawing.Size(158, 21);
+            this.windowTitle.Size = new System.Drawing.Size(234, 21);
             this.windowTitle.TabIndex = 8;
-            this.windowTitle.Text = "Przypisanie do kursu";
+            this.windowTitle.Text = "Formularz przypisania do kursu";
             this.windowTitle.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Move_window);
             // 
             // instructionSublabel
@@ -120,7 +120,7 @@
             // datePickerLabel
             // 
             this.datePickerLabel.AutoSize = true;
-            this.datePickerLabel.Location = new System.Drawing.Point(398, 94);
+            this.datePickerLabel.Location = new System.Drawing.Point(398, 90);
             this.datePickerLabel.Name = "datePickerLabel";
             this.datePickerLabel.Size = new System.Drawing.Size(120, 13);
             this.datePickerLabel.TabIndex = 19;
@@ -133,15 +133,15 @@
             "Mercedes - SG 6743K",
             "Solaris - SK 98551",
             "Man - ST 12985"});
-            this.pojazdSelectionComboBox.Location = new System.Drawing.Point(19, 264);
+            this.pojazdSelectionComboBox.Location = new System.Drawing.Point(18, 260);
             this.pojazdSelectionComboBox.Name = "pojazdSelectionComboBox";
-            this.pojazdSelectionComboBox.Size = new System.Drawing.Size(121, 21);
+            this.pojazdSelectionComboBox.Size = new System.Drawing.Size(119, 21);
             this.pojazdSelectionComboBox.TabIndex = 3;
             // 
             // pojazdSelectionLabel
             // 
             this.pojazdSelectionLabel.AutoSize = true;
-            this.pojazdSelectionLabel.Location = new System.Drawing.Point(16, 248);
+            this.pojazdSelectionLabel.Location = new System.Drawing.Point(16, 240);
             this.pojazdSelectionLabel.Name = "pojazdSelectionLabel";
             this.pojazdSelectionLabel.Size = new System.Drawing.Size(82, 13);
             this.pojazdSelectionLabel.TabIndex = 17;
@@ -154,15 +154,15 @@
             "Kowalski Jan",
             "Zielnik Piotr",
             "Gawron Małgorzata"});
-            this.kierowcaSelectionComboBox.Location = new System.Drawing.Point(19, 212);
+            this.kierowcaSelectionComboBox.Location = new System.Drawing.Point(18, 210);
             this.kierowcaSelectionComboBox.Name = "kierowcaSelectionComboBox";
-            this.kierowcaSelectionComboBox.Size = new System.Drawing.Size(121, 21);
+            this.kierowcaSelectionComboBox.Size = new System.Drawing.Size(119, 21);
             this.kierowcaSelectionComboBox.TabIndex = 2;
             // 
             // kierowcaSelectionLabel
             // 
             this.kierowcaSelectionLabel.AutoSize = true;
-            this.kierowcaSelectionLabel.Location = new System.Drawing.Point(16, 196);
+            this.kierowcaSelectionLabel.Location = new System.Drawing.Point(16, 190);
             this.kierowcaSelectionLabel.Name = "kierowcaSelectionLabel";
             this.kierowcaSelectionLabel.Size = new System.Drawing.Size(94, 13);
             this.kierowcaSelectionLabel.TabIndex = 15;
@@ -170,7 +170,7 @@
             // 
             // dataKursuPicker
             // 
-            this.dataKursuPicker.Location = new System.Drawing.Point(317, 116);
+            this.dataKursuPicker.Location = new System.Drawing.Point(317, 110);
             this.dataKursuPicker.Name = "dataKursuPicker";
             this.dataKursuPicker.TabIndex = 4;
             // 
@@ -182,16 +182,16 @@
             "2",
             "3",
             "4"});
-            this.kursSelectionComboBox.Location = new System.Drawing.Point(19, 160);
+            this.kursSelectionComboBox.Location = new System.Drawing.Point(18, 160);
             this.kursSelectionComboBox.Name = "kursSelectionComboBox";
-            this.kursSelectionComboBox.Size = new System.Drawing.Size(121, 21);
+            this.kursSelectionComboBox.Size = new System.Drawing.Size(119, 21);
             this.kursSelectionComboBox.TabIndex = 1;
             this.kursSelectionComboBox.SelectedIndexChanged += new System.EventHandler(this.KursSelectionComboBox_SelectedIndexChanged);
             // 
             // kursSelectionLabel
             // 
             this.kursSelectionLabel.AutoSize = true;
-            this.kursSelectionLabel.Location = new System.Drawing.Point(16, 144);
+            this.kursSelectionLabel.Location = new System.Drawing.Point(16, 140);
             this.kursSelectionLabel.Name = "kursSelectionLabel";
             this.kursSelectionLabel.Size = new System.Drawing.Size(109, 13);
             this.kursSelectionLabel.TabIndex = 11;
@@ -204,17 +204,17 @@
             "32",
             "617",
             "A4"});
-            this.liniaSelectionComboBox.Location = new System.Drawing.Point(19, 106);
+            this.liniaSelectionComboBox.Location = new System.Drawing.Point(18, 110);
             this.liniaSelectionComboBox.Name = "liniaSelectionComboBox";
-            this.liniaSelectionComboBox.Size = new System.Drawing.Size(121, 21);
+            this.liniaSelectionComboBox.Size = new System.Drawing.Size(120, 21);
             this.liniaSelectionComboBox.TabIndex = 0;
             this.liniaSelectionComboBox.SelectedIndexChanged += new System.EventHandler(this.LiniaSelectionComboBox_SelectedIndexChanged);
             // 
             // cancel
             // 
-            this.cancel.Location = new System.Drawing.Point(20, 325);
+            this.cancel.Location = new System.Drawing.Point(20, 335);
             this.cancel.Name = "cancel";
-            this.cancel.Size = new System.Drawing.Size(80, 40);
+            this.cancel.Size = new System.Drawing.Size(80, 30);
             this.cancel.TabIndex = 6;
             this.cancel.Text = "Anuluj";
             this.cancel.UseVisualStyleBackColor = true;
@@ -222,9 +222,9 @@
             // 
             // save
             // 
-            this.save.Location = new System.Drawing.Point(506, 325);
+            this.save.Location = new System.Drawing.Point(507, 335);
             this.save.Name = "save";
-            this.save.Size = new System.Drawing.Size(80, 40);
+            this.save.Size = new System.Drawing.Size(80, 30);
             this.save.TabIndex = 5;
             this.save.Text = "Przypisz";
             this.save.UseVisualStyleBackColor = true;

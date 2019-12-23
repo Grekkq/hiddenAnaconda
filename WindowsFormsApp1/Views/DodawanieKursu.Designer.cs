@@ -77,18 +77,18 @@
             // comboBox_rodzajKursu
             // 
             this.comboBox_rodzajKursu.FormattingEnabled = true;
-            this.comboBox_rodzajKursu.Location = new System.Drawing.Point(20, 209);
+            this.comboBox_rodzajKursu.Location = new System.Drawing.Point(18, 210);
             this.comboBox_rodzajKursu.Name = "comboBox_rodzajKursu";
-            this.comboBox_rodzajKursu.Size = new System.Drawing.Size(129, 21);
+            this.comboBox_rodzajKursu.Size = new System.Drawing.Size(150, 21);
             this.comboBox_rodzajKursu.TabIndex = 2;
             this.comboBox_rodzajKursu.Validating += new System.ComponentModel.CancelEventHandler(this.ComboBox_rodzajKursu_Validating);
             // 
             // comboBox_trasa
             // 
             this.comboBox_trasa.FormattingEnabled = true;
-            this.comboBox_trasa.Location = new System.Drawing.Point(19, 156);
+            this.comboBox_trasa.Location = new System.Drawing.Point(18, 160);
             this.comboBox_trasa.Name = "comboBox_trasa";
-            this.comboBox_trasa.Size = new System.Drawing.Size(130, 21);
+            this.comboBox_trasa.Size = new System.Drawing.Size(150, 21);
             this.comboBox_trasa.TabIndex = 1;
             this.comboBox_trasa.SelectedIndexChanged += new System.EventHandler(this.ComboBox_trasa_SelectedIndexChanged);
             this.comboBox_trasa.Validating += new System.ComponentModel.CancelEventHandler(this.ComboBox_trasa_Validating);
@@ -107,9 +107,9 @@
             // comboBox_linia
             // 
             this.comboBox_linia.FormattingEnabled = true;
-            this.comboBox_linia.Location = new System.Drawing.Point(19, 106);
+            this.comboBox_linia.Location = new System.Drawing.Point(18, 110);
             this.comboBox_linia.Name = "comboBox_linia";
-            this.comboBox_linia.Size = new System.Drawing.Size(130, 21);
+            this.comboBox_linia.Size = new System.Drawing.Size(150, 21);
             this.comboBox_linia.TabIndex = 0;
             this.comboBox_linia.SelectedIndexChanged += new System.EventHandler(this.ComboBox_linia_SelectedIndexChanged);
             this.comboBox_linia.Validating += new System.ComponentModel.CancelEventHandler(this.Line_choose_Validating);
@@ -117,7 +117,7 @@
             // label_rodzajKursu
             // 
             this.label_rodzajKursu.AutoSize = true;
-            this.label_rodzajKursu.Location = new System.Drawing.Point(17, 193);
+            this.label_rodzajKursu.Location = new System.Drawing.Point(16, 190);
             this.label_rodzajKursu.Name = "label_rodzajKursu";
             this.label_rodzajKursu.Size = new System.Drawing.Size(108, 13);
             this.label_rodzajKursu.TabIndex = 13;

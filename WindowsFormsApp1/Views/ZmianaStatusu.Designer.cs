@@ -61,10 +61,10 @@
             // 
             // powrot
             // 
-            this.powrot.Location = new System.Drawing.Point(20, 325);
+            this.powrot.Location = new System.Drawing.Point(20, 335);
             this.powrot.Margin = new System.Windows.Forms.Padding(2);
             this.powrot.Name = "powrot";
-            this.powrot.Size = new System.Drawing.Size(80, 40);
+            this.powrot.Size = new System.Drawing.Size(80, 30);
             this.powrot.TabIndex = 5;
             this.powrot.Text = "Anuluj";
             this.powrot.UseVisualStyleBackColor = true;
@@ -103,10 +103,10 @@
             // 
             // Aktualizuj
             // 
-            this.Aktualizuj.Location = new System.Drawing.Point(506, 325);
+            this.Aktualizuj.Location = new System.Drawing.Point(506, 335);
             this.Aktualizuj.Margin = new System.Windows.Forms.Padding(2);
             this.Aktualizuj.Name = "Aktualizuj";
-            this.Aktualizuj.Size = new System.Drawing.Size(80, 40);
+            this.Aktualizuj.Size = new System.Drawing.Size(80, 30);
             this.Aktualizuj.TabIndex = 4;
             this.Aktualizuj.Text = "Aktualizuj";
             this.Aktualizuj.UseVisualStyleBackColor = true;
@@ -195,19 +195,19 @@
             // radioButton3
             // 
             this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(105, 32);
+            this.radioButton3.Location = new System.Drawing.Point(131, 32);
             this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(74, 17);
+            this.radioButton3.Size = new System.Drawing.Size(77, 17);
             this.radioButton3.TabIndex = 1;
             this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "niepracuje";
+            this.radioButton3.Text = "nie pracuje";
             this.radioButton3.UseVisualStyleBackColor = true;
             this.radioButton3.Visible = false;
             // 
             // radioButton4
             // 
             this.radioButton4.AutoSize = true;
-            this.radioButton4.Location = new System.Drawing.Point(31, 32);
+            this.radioButton4.Location = new System.Drawing.Point(65, 32);
             this.radioButton4.Name = "radioButton4";
             this.radioButton4.Size = new System.Drawing.Size(60, 17);
             this.radioButton4.TabIndex = 0;
@@ -259,9 +259,9 @@
             "Mercedes - SG 6743K, sprawny",
             "Solaris - SK 98551, sprawny",
             "Man - ST 12985, niesprawny"});
-            this.pojazdSelectionComboBox.Location = new System.Drawing.Point(20, 200);
+            this.pojazdSelectionComboBox.Location = new System.Drawing.Point(18, 210);
             this.pojazdSelectionComboBox.Name = "pojazdSelectionComboBox";
-            this.pojazdSelectionComboBox.Size = new System.Drawing.Size(241, 21);
+            this.pojazdSelectionComboBox.Size = new System.Drawing.Size(250, 21);
             this.pojazdSelectionComboBox.TabIndex = 1;
             this.pojazdSelectionComboBox.Visible = false;
             this.pojazdSelectionComboBox.SelectedIndexChanged += new System.EventHandler(this.pojazdSelectionComboBox_SelectedIndexChanged);
@@ -269,7 +269,7 @@
             // pojazdSelectionLabel
             // 
             this.pojazdSelectionLabel.AutoSize = true;
-            this.pojazdSelectionLabel.Location = new System.Drawing.Point(17, 184);
+            this.pojazdSelectionLabel.Location = new System.Drawing.Point(16, 190);
             this.pojazdSelectionLabel.Name = "pojazdSelectionLabel";
             this.pojazdSelectionLabel.Size = new System.Drawing.Size(82, 13);
             this.pojazdSelectionLabel.TabIndex = 4;
@@ -283,9 +283,9 @@
             "Kowalski Jan, pracuje",
             "Zielnik Piotr, nie pracuje",
             "Gawron Małgorzata, chorobowe"});
-            this.kierowcaSelectionComboBox.Location = new System.Drawing.Point(20, 200);
+            this.kierowcaSelectionComboBox.Location = new System.Drawing.Point(18, 210);
             this.kierowcaSelectionComboBox.Name = "kierowcaSelectionComboBox";
-            this.kierowcaSelectionComboBox.Size = new System.Drawing.Size(241, 21);
+            this.kierowcaSelectionComboBox.Size = new System.Drawing.Size(250, 21);
             this.kierowcaSelectionComboBox.TabIndex = 2;
             this.kierowcaSelectionComboBox.Visible = false;
             this.kierowcaSelectionComboBox.SelectedIndexChanged += new System.EventHandler(this.kierowcaSelectionComboBox_SelectedIndexChanged);
@@ -293,7 +293,7 @@
             // kierowcaSelectionLabel
             // 
             this.kierowcaSelectionLabel.AutoSize = true;
-            this.kierowcaSelectionLabel.Location = new System.Drawing.Point(17, 184);
+            this.kierowcaSelectionLabel.Location = new System.Drawing.Point(16, 190);
             this.kierowcaSelectionLabel.Name = "kierowcaSelectionLabel";
             this.kierowcaSelectionLabel.Size = new System.Drawing.Size(94, 13);
             this.kierowcaSelectionLabel.TabIndex = 1;

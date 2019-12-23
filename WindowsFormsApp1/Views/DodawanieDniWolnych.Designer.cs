@@ -84,7 +84,7 @@
             this.panel1.Controls.Add(this.Aktualizuj);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(2, 32);
+            this.panel1.Location = new System.Drawing.Point(2, 31);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(606, 377);
             this.panel1.TabIndex = 0;
@@ -97,9 +97,9 @@
             "wolny",
             "świąteczny",
             "roboczy"});
-            this.type.Location = new System.Drawing.Point(19, 206);
+            this.type.Location = new System.Drawing.Point(18, 210);
             this.type.Name = "type";
-            this.type.Size = new System.Drawing.Size(200, 66);
+            this.type.Size = new System.Drawing.Size(150, 66);
             this.type.TabIndex = 2;
             // 
             // label7
@@ -128,7 +128,7 @@
             this.dataGridView.AllowUserToOrderColumns = true;
             this.dataGridView.AllowUserToResizeRows = false;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView.Location = new System.Drawing.Point(340, 106);
+            this.dataGridView.Location = new System.Drawing.Point(341, 110);
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.ReadOnly = true;
             this.dataGridView.RowHeadersWidth = 45;
@@ -149,7 +149,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(356, 90);
+            this.label6.Location = new System.Drawing.Point(357, 94);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(220, 13);
             this.label6.TabIndex = 47;
@@ -166,7 +166,7 @@
             // 
             // dateTimeEnd
             // 
-            this.dateTimeEnd.Location = new System.Drawing.Point(19, 156);
+            this.dateTimeEnd.Location = new System.Drawing.Point(18, 160);
             this.dateTimeEnd.Name = "dateTimeEnd";
             this.dateTimeEnd.Size = new System.Drawing.Size(200, 20);
             this.dateTimeEnd.TabIndex = 1;
@@ -174,7 +174,7 @@
             // 
             // dateTimeStart
             // 
-            this.dateTimeStart.Location = new System.Drawing.Point(19, 106);
+            this.dateTimeStart.Location = new System.Drawing.Point(18, 110);
             this.dateTimeStart.Name = "dateTimeStart";
             this.dateTimeStart.Size = new System.Drawing.Size(200, 20);
             this.dateTimeStart.TabIndex = 0;
@@ -182,10 +182,10 @@
             // 
             // powrot
             // 
-            this.powrot.Location = new System.Drawing.Point(20, 325);
+            this.powrot.Location = new System.Drawing.Point(20, 335);
             this.powrot.Margin = new System.Windows.Forms.Padding(2);
             this.powrot.Name = "powrot";
-            this.powrot.Size = new System.Drawing.Size(80, 40);
+            this.powrot.Size = new System.Drawing.Size(80, 30);
             this.powrot.TabIndex = 5;
             this.powrot.Text = "Anuluj";
             this.powrot.UseVisualStyleBackColor = true;
@@ -193,10 +193,10 @@
             // 
             // Aktualizuj
             // 
-            this.Aktualizuj.Location = new System.Drawing.Point(506, 325);
+            this.Aktualizuj.Location = new System.Drawing.Point(507, 335);
             this.Aktualizuj.Margin = new System.Windows.Forms.Padding(2);
             this.Aktualizuj.Name = "Aktualizuj";
-            this.Aktualizuj.Size = new System.Drawing.Size(80, 40);
+            this.Aktualizuj.Size = new System.Drawing.Size(80, 30);
             this.Aktualizuj.TabIndex = 4;
             this.Aktualizuj.Text = "Dodaj";
             this.Aktualizuj.UseVisualStyleBackColor = true;

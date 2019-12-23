@@ -82,7 +82,7 @@
             "409"});
             this.linia_comboBox.Location = new System.Drawing.Point(19, 96);
             this.linia_comboBox.Name = "linia_comboBox";
-            this.linia_comboBox.Size = new System.Drawing.Size(131, 21);
+            this.linia_comboBox.Size = new System.Drawing.Size(120, 21);
             this.linia_comboBox.TabIndex = 0;
             this.linia_comboBox.SelectedIndexChanged += new System.EventHandler(this.Linia_comboBox_SelectedIndexChanged);
             this.linia_comboBox.Validating += new System.ComponentModel.CancelEventHandler(this.LineSelectionComboBox_Validating);
@@ -90,9 +90,9 @@
             // cancel
             // 
             this.cancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.cancel.Location = new System.Drawing.Point(10, 325);
+            this.cancel.Location = new System.Drawing.Point(20, 335);
             this.cancel.Name = "cancel";
-            this.cancel.Size = new System.Drawing.Size(80, 40);
+            this.cancel.Size = new System.Drawing.Size(80, 30);
             this.cancel.TabIndex = 6;
             this.cancel.Text = "Anuluj";
             this.cancel.UseVisualStyleBackColor = false;
@@ -101,9 +101,9 @@
             // create
             // 
             this.create.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.create.Location = new System.Drawing.Point(506, 325);
+            this.create.Location = new System.Drawing.Point(507, 335);
             this.create.Name = "create";
-            this.create.Size = new System.Drawing.Size(80, 40);
+            this.create.Size = new System.Drawing.Size(80, 30);
             this.create.TabIndex = 3;
             this.create.Text = "Utwórz";
             this.create.UseVisualStyleBackColor = false;
@@ -143,6 +143,7 @@
             this.bgPanel.Name = "bgPanel";
             this.bgPanel.Size = new System.Drawing.Size(606, 377);
             this.bgPanel.TabIndex = 0;
+            // 
             // checkBox_czyUtworzycNowaTrase
             // 
             this.checkBox_czyUtworzycNowaTrase.AutoSize = true;
@@ -159,7 +160,7 @@
             this.label_lokalizacja.BackColor = System.Drawing.Color.Silver;
             this.label_lokalizacja.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label_lokalizacja.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label_lokalizacja.Location = new System.Drawing.Point(105, 133);
+            this.label_lokalizacja.Location = new System.Drawing.Point(109, 136);
             this.label_lokalizacja.Name = "label_lokalizacja";
             this.label_lokalizacja.Size = new System.Drawing.Size(313, 22);
             this.label_lokalizacja.TabIndex = 27;
@@ -171,7 +172,7 @@
             this.label_godzina.BackColor = System.Drawing.Color.Silver;
             this.label_godzina.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label_godzina.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label_godzina.Location = new System.Drawing.Point(418, 133);
+            this.label_godzina.Location = new System.Drawing.Point(422, 136);
             this.label_godzina.Name = "label_godzina";
             this.label_godzina.Size = new System.Drawing.Size(115, 22);
             this.label_godzina.TabIndex = 27;
@@ -183,7 +184,7 @@
             this.label_nr.BackColor = System.Drawing.Color.Silver;
             this.label_nr.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label_nr.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label_nr.Location = new System.Drawing.Point(65, 133);
+            this.label_nr.Location = new System.Drawing.Point(69, 136);
             this.label_nr.Name = "label_nr";
             this.label_nr.Size = new System.Drawing.Size(43, 22);
             this.label_nr.TabIndex = 27;
@@ -208,13 +209,13 @@
             this.helpLabel2.Name = "helpLabel2";
             this.helpLabel2.Size = new System.Drawing.Size(332, 13);
             this.helpLabel2.TabIndex = 25;
-            this.helpLabel2.Text = "Aby zedytować lub utworzyć nową trasę wypełnij poniższy formularz. ";
+            this.helpLabel2.Text = "Aby zedytować trasę lub utworzyć nową wypełnij poniższy formularz. ";
             // 
             // clearButton
             // 
-            this.clearButton.Location = new System.Drawing.Point(105, 325);
+            this.clearButton.Location = new System.Drawing.Point(117, 335);
             this.clearButton.Name = "clearButton";
-            this.clearButton.Size = new System.Drawing.Size(80, 40);
+            this.clearButton.Size = new System.Drawing.Size(80, 30);
             this.clearButton.TabIndex = 5;
             this.clearButton.Text = "Wyczyść";
             this.clearButton.UseVisualStyleBackColor = true;
@@ -230,7 +231,7 @@
             "1)   Gliwice, Plac Piastów            07:15",
             "2)   Zabrze, Plac Kroczkaa            08:00",
             "3)   Zabrze, Rokietnica               08:30"});
-            this.mainListBox.Location = new System.Drawing.Point(65, 155);
+            this.mainListBox.Location = new System.Drawing.Point(69, 157);
             this.mainListBox.Name = "mainListBox";
             this.mainListBox.Size = new System.Drawing.Size(468, 148);
             this.mainListBox.TabIndex = 1;
@@ -241,9 +242,9 @@
             // 
             // deleteButton
             // 
-            this.deleteButton.Location = new System.Drawing.Point(200, 325);
+            this.deleteButton.Location = new System.Drawing.Point(214, 335);
             this.deleteButton.Name = "deleteButton";
-            this.deleteButton.Size = new System.Drawing.Size(80, 40);
+            this.deleteButton.Size = new System.Drawing.Size(80, 30);
             this.deleteButton.TabIndex = 4;
             this.deleteButton.Text = "Usuń";
             this.deleteButton.UseVisualStyleBackColor = true;
@@ -251,9 +252,9 @@
             // 
             // addButton
             // 
-            this.addButton.Location = new System.Drawing.Point(411, 325);
+            this.addButton.Location = new System.Drawing.Point(410, 335);
             this.addButton.Name = "addButton";
-            this.addButton.Size = new System.Drawing.Size(80, 40);
+            this.addButton.Size = new System.Drawing.Size(80, 30);
             this.addButton.TabIndex = 2;
             this.addButton.Text = "Dodaj";
             this.addButton.UseVisualStyleBackColor = true;
@@ -263,7 +264,7 @@
             // 
             this.label_trasa.AutoSize = true;
             this.label_trasa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.label_trasa.Location = new System.Drawing.Point(165, 80);
+            this.label_trasa.Location = new System.Drawing.Point(157, 80);
             this.label_trasa.Name = "label_trasa";
             this.label_trasa.Size = new System.Drawing.Size(74, 13);
             this.label_trasa.TabIndex = 18;
@@ -277,9 +278,9 @@
             "657",
             "296",
             "409"});
-            this.comboBoxTrasa.Location = new System.Drawing.Point(168, 96);
+            this.comboBoxTrasa.Location = new System.Drawing.Point(160, 96);
             this.comboBoxTrasa.Name = "comboBoxTrasa";
-            this.comboBoxTrasa.Size = new System.Drawing.Size(131, 21);
+            this.comboBoxTrasa.Size = new System.Drawing.Size(120, 21);
             this.comboBoxTrasa.TabIndex = 0;
             this.comboBoxTrasa.SelectedIndexChanged += new System.EventHandler(this.ComboBoxTrasa_SelectedIndexChanged);
             this.comboBoxTrasa.Validating += new System.ComponentModel.CancelEventHandler(this.LineSelectionComboBox_Validating);
@@ -310,9 +311,9 @@
             this.titleLabel.ForeColor = System.Drawing.SystemColors.Window;
             this.titleLabel.Location = new System.Drawing.Point(28, 4);
             this.titleLabel.Name = "titleLabel";
-            this.titleLabel.Size = new System.Drawing.Size(229, 21);
+            this.titleLabel.Size = new System.Drawing.Size(225, 21);
             this.titleLabel.TabIndex = 23;
-            this.titleLabel.Text = "Formularz zarządzania trasami.";
+            this.titleLabel.Text = "Formularz zarządzania trasami";
             this.titleLabel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Move_window);
             // 
             // help

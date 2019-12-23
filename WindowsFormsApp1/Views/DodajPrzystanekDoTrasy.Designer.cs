@@ -119,7 +119,7 @@
             this.textbox_time.Location = new System.Drawing.Point(10, 131);
             this.textbox_time.MaxLength = 5;
             this.textbox_time.Name = "textbox_time";
-            this.textbox_time.Size = new System.Drawing.Size(121, 20);
+            this.textbox_time.Size = new System.Drawing.Size(120, 20);
             this.textbox_time.TabIndex = 3;
             this.textbox_time.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.arrivalTime_TextChanged);
             this.textbox_time.Validating += new System.ComponentModel.CancelEventHandler(this.arrivalTime_Validating);
@@ -159,7 +159,7 @@
             this.comboBox_kierunek.FormattingEnabled = true;
             this.comboBox_kierunek.Location = new System.Drawing.Point(166, 80);
             this.comboBox_kierunek.Name = "comboBox_kierunek";
-            this.comboBox_kierunek.Size = new System.Drawing.Size(149, 21);
+            this.comboBox_kierunek.Size = new System.Drawing.Size(150, 21);
             this.comboBox_kierunek.TabIndex = 2;
             this.comboBox_kierunek.SelectedIndexChanged += new System.EventHandler(this.comboBox_kierunek_SelectedIndexChanged);
             this.comboBox_kierunek.Validating += new System.ComponentModel.CancelEventHandler(this.comboBox_kierunek_SelectedIndexChanged);
@@ -169,7 +169,7 @@
             this.comboBox_przystanek.FormattingEnabled = true;
             this.comboBox_przystanek.Location = new System.Drawing.Point(10, 80);
             this.comboBox_przystanek.Name = "comboBox_przystanek";
-            this.comboBox_przystanek.Size = new System.Drawing.Size(121, 21);
+            this.comboBox_przystanek.Size = new System.Drawing.Size(120, 21);
             this.comboBox_przystanek.TabIndex = 1;
             this.comboBox_przystanek.SelectedIndexChanged += new System.EventHandler(this.comboBox_przystanek_SelectedIndexChanged);
             this.comboBox_przystanek.Validating += new System.ComponentModel.CancelEventHandler(this.comboBox_przystanek_Validating);
@@ -179,7 +179,7 @@
             this.comboBox_miasto.FormattingEnabled = true;
             this.comboBox_miasto.Location = new System.Drawing.Point(10, 31);
             this.comboBox_miasto.Name = "comboBox_miasto";
-            this.comboBox_miasto.Size = new System.Drawing.Size(121, 21);
+            this.comboBox_miasto.Size = new System.Drawing.Size(120, 21);
             this.comboBox_miasto.TabIndex = 0;
             this.comboBox_miasto.SelectedIndexChanged += new System.EventHandler(this.comboBox_miasto_SelectedIndexChanged);
             this.comboBox_miasto.Validating += new System.ComponentModel.CancelEventHandler(this.comboBox_miasto_Validating);
@@ -189,7 +189,7 @@
             this.label_timedescription.AutoSize = true;
             this.label_timedescription.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.label_timedescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label_timedescription.Location = new System.Drawing.Point(140, 133);
+            this.label_timedescription.Location = new System.Drawing.Point(137, 134);
             this.label_timedescription.Name = "label_timedescription";
             this.label_timedescription.Size = new System.Drawing.Size(136, 13);
             this.label_timedescription.TabIndex = 18;
@@ -197,7 +197,7 @@
             // 
             // dodaj
             // 
-            this.dodaj.Location = new System.Drawing.Point(251, 188);
+            this.dodaj.Location = new System.Drawing.Point(241, 188);
             this.dodaj.Name = "dodaj";
             this.dodaj.Size = new System.Drawing.Size(90, 28);
             this.dodaj.TabIndex = 3;
@@ -207,7 +207,7 @@
             // 
             // anuluj
             // 
-            this.anuluj.Location = new System.Drawing.Point(10, 188);
+            this.anuluj.Location = new System.Drawing.Point(20, 188);
             this.anuluj.Name = "anuluj";
             this.anuluj.Size = new System.Drawing.Size(90, 28);
             this.anuluj.TabIndex = 4;

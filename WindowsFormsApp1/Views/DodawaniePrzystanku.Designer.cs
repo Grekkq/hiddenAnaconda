@@ -84,10 +84,10 @@
             // 
             // p_nazwa
             // 
-            this.p_nazwa.Location = new System.Drawing.Point(19, 141);
+            this.p_nazwa.Location = new System.Drawing.Point(18, 160);
             this.p_nazwa.MaxLength = 15;
             this.p_nazwa.Name = "p_nazwa";
-            this.p_nazwa.Size = new System.Drawing.Size(140, 20);
+            this.p_nazwa.Size = new System.Drawing.Size(150, 20);
             this.p_nazwa.TabIndex = 1;
             this.p_nazwa.TextChanged += new System.EventHandler(this.p_nazwa_TextChanged);
             this.p_nazwa.Validating += new System.ComponentModel.CancelEventHandler(this.p_nazwa_Validating);
@@ -98,9 +98,9 @@
             this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.groupBox1.Controls.Add(this.no);
             this.groupBox1.Controls.Add(this.yes);
-            this.groupBox1.Location = new System.Drawing.Point(341, 90);
+            this.groupBox1.Location = new System.Drawing.Point(352, 90);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(245, 80);
+            this.groupBox1.Size = new System.Drawing.Size(234, 80);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Czy utworzony przystanek jest pojedynczy?";
@@ -108,7 +108,7 @@
             // no
             // 
             this.no.AutoSize = true;
-            this.no.Location = new System.Drawing.Point(143, 31);
+            this.no.Location = new System.Drawing.Point(119, 33);
             this.no.Name = "no";
             this.no.Size = new System.Drawing.Size(41, 17);
             this.no.TabIndex = 1;
@@ -120,7 +120,7 @@
             // yes
             // 
             this.yes.AutoSize = true;
-            this.yes.Location = new System.Drawing.Point(52, 31);
+            this.yes.Location = new System.Drawing.Point(69, 33);
             this.yes.Name = "yes";
             this.yes.Size = new System.Drawing.Size(44, 17);
             this.yes.TabIndex = 0;
@@ -133,7 +133,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.label3.Location = new System.Drawing.Point(16, 125);
+            this.label3.Location = new System.Drawing.Point(16, 140);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(125, 13);
             this.label3.TabIndex = 12;
@@ -142,9 +142,9 @@
             // 
             // p_miasto
             // 
-            this.p_miasto.Location = new System.Drawing.Point(20, 96);
+            this.p_miasto.Location = new System.Drawing.Point(18, 110);
             this.p_miasto.Name = "p_miasto";
-            this.p_miasto.Size = new System.Drawing.Size(140, 20);
+            this.p_miasto.Size = new System.Drawing.Size(150, 20);
             this.p_miasto.TabIndex = 0;
             this.p_miasto.TextChanged += new System.EventHandler(this.p_miasto_TextChanged);
             this.p_miasto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.p_miasto_TextChanged);
@@ -154,7 +154,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.label5.Location = new System.Drawing.Point(17, 80);
+            this.label5.Location = new System.Drawing.Point(16, 90);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(70, 13);
             this.label5.TabIndex = 15;
@@ -163,9 +163,9 @@
             // create
             // 
             this.create.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.create.Location = new System.Drawing.Point(506, 325);
+            this.create.Location = new System.Drawing.Point(507, 335);
             this.create.Name = "create";
-            this.create.Size = new System.Drawing.Size(80, 40);
+            this.create.Size = new System.Drawing.Size(80, 30);
             this.create.TabIndex = 4;
             this.create.Text = "Utwórz";
             this.create.UseVisualStyleBackColor = false;
@@ -174,9 +174,9 @@
             // cancel
             // 
             this.cancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.cancel.Location = new System.Drawing.Point(20, 325);
+            this.cancel.Location = new System.Drawing.Point(20, 335);
             this.cancel.Name = "cancel";
-            this.cancel.Size = new System.Drawing.Size(80, 40);
+            this.cancel.Size = new System.Drawing.Size(80, 30);
             this.cancel.TabIndex = 5;
             this.cancel.Text = "Anuluj";
             this.cancel.UseVisualStyleBackColor = false;
@@ -207,27 +207,27 @@
             // 
             // label_Do
             // 
-            this.label_Do.AutoSize = true;
-            this.label_Do.Location = new System.Drawing.Point(29, 223);
+            this.label_Do.Location = new System.Drawing.Point(18, 233);
             this.label_Do.Name = "label_Do";
-            this.label_Do.Size = new System.Drawing.Size(90, 13);
+            this.label_Do.Size = new System.Drawing.Size(101, 20);
             this.label_Do.TabIndex = 22;
             this.label_Do.Text = "Miasto docelowe:";
+            this.label_Do.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label_Z
             // 
-            this.label_Z.AutoSize = true;
-            this.label_Z.Location = new System.Drawing.Point(29, 197);
+            this.label_Z.Location = new System.Drawing.Point(19, 207);
             this.label_Z.Name = "label_Z";
-            this.label_Z.Size = new System.Drawing.Size(92, 13);
+            this.label_Z.Size = new System.Drawing.Size(100, 20);
             this.label_Z.TabIndex = 22;
             this.label_Z.Text = "Miasto wyjściowe:";
+            this.label_Z.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // textBox_kierunekDo
             // 
-            this.textBox_kierunekDo.Location = new System.Drawing.Point(127, 220);
+            this.textBox_kierunekDo.Location = new System.Drawing.Point(125, 235);
             this.textBox_kierunekDo.Name = "textBox_kierunekDo";
-            this.textBox_kierunekDo.Size = new System.Drawing.Size(140, 20);
+            this.textBox_kierunekDo.Size = new System.Drawing.Size(150, 20);
             this.textBox_kierunekDo.TabIndex = 4;
             this.textBox_kierunekDo.TextChanged += new System.EventHandler(this.textBox_kierunekDo_TextChanged);
             this.textBox_kierunekDo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.p_miasto_TextChanged);
@@ -235,9 +235,9 @@
             // 
             // textbox_kierunekZ
             // 
-            this.textbox_kierunekZ.Location = new System.Drawing.Point(127, 194);
+            this.textbox_kierunekZ.Location = new System.Drawing.Point(125, 209);
             this.textbox_kierunekZ.Name = "textbox_kierunekZ";
-            this.textbox_kierunekZ.Size = new System.Drawing.Size(140, 20);
+            this.textbox_kierunekZ.Size = new System.Drawing.Size(150, 20);
             this.textbox_kierunekZ.TabIndex = 3;
             this.textbox_kierunekZ.TextChanged += new System.EventHandler(this.textbox_kierunekZ_TextChanged);
             this.textbox_kierunekZ.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.p_miasto_TextChanged);
@@ -246,7 +246,7 @@
             // label_kierunek
             // 
             this.label_kierunek.AutoSize = true;
-            this.label_kierunek.Location = new System.Drawing.Point(16, 174);
+            this.label_kierunek.Location = new System.Drawing.Point(16, 190);
             this.label_kierunek.Name = "label_kierunek";
             this.label_kierunek.Size = new System.Drawing.Size(81, 13);
             this.label_kierunek.TabIndex = 21;

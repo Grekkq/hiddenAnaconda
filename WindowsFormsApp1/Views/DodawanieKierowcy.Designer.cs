@@ -89,22 +89,22 @@
             // 
             // powrot
             // 
-            this.powrot.Location = new System.Drawing.Point(20, 325);
+            this.powrot.Location = new System.Drawing.Point(20, 335);
             this.powrot.Margin = new System.Windows.Forms.Padding(2);
             this.powrot.Name = "powrot";
-            this.powrot.Size = new System.Drawing.Size(80, 40);
+            this.powrot.Size = new System.Drawing.Size(80, 30);
             this.powrot.TabIndex = 6;
             this.powrot.Text = "Anuluj";
             this.powrot.UseVisualStyleBackColor = true;
             this.powrot.Click += new System.EventHandler(this.powrot_Click);
             // 
             // Reset
-            // valod
+            // 
             this.Reset.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.Reset.Location = new System.Drawing.Point(411, 325);
+            this.Reset.Location = new System.Drawing.Point(410, 335);
             this.Reset.Margin = new System.Windows.Forms.Padding(2);
             this.Reset.Name = "Reset";
-            this.Reset.Size = new System.Drawing.Size(80, 40);
+            this.Reset.Size = new System.Drawing.Size(80, 30);
             this.Reset.TabIndex = 5;
             this.Reset.Text = "Reset";
             this.Reset.UseVisualStyleBackColor = true;
@@ -115,27 +115,27 @@
             this.label5.Location = new System.Drawing.Point(16, 190);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(212, 18);
+            this.label5.Size = new System.Drawing.Size(202, 18);
             this.label5.TabIndex = 42;
-            this.label5.Text = "Pesel:";
+            this.label5.Text = "Podaj numer PESEL:";
             // 
             // label6
             // 
-            this.label6.Location = new System.Drawing.Point(17, 140);
+            this.label6.Location = new System.Drawing.Point(16, 140);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(212, 18);
+            this.label6.Size = new System.Drawing.Size(151, 18);
             this.label6.TabIndex = 41;
-            this.label6.Text = "Nazwisko:";
+            this.label6.Text = "Podaj nazwisko:";
             // 
             // label7
             // 
             this.label7.Location = new System.Drawing.Point(16, 90);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(212, 18);
+            this.label7.Size = new System.Drawing.Size(152, 18);
             this.label7.TabIndex = 40;
-            this.label7.Text = "Imię:";
+            this.label7.Text = "Podaj imię:";
             // 
             // DriverPesel
             // 
@@ -143,7 +143,7 @@
             this.DriverPesel.Margin = new System.Windows.Forms.Padding(2);
             this.DriverPesel.MaxLength = 11;
             this.DriverPesel.Name = "DriverPesel";
-            this.DriverPesel.Size = new System.Drawing.Size(200, 20);
+            this.DriverPesel.Size = new System.Drawing.Size(150, 20);
             this.DriverPesel.TabIndex = 2;
             this.DriverPesel.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DriverPesel_TextChanged);
             this.DriverPesel.Validating += new System.ComponentModel.CancelEventHandler(this.DriverPesel_Validating);
@@ -153,7 +153,7 @@
             this.DriverLastName.Location = new System.Drawing.Point(18, 160);
             this.DriverLastName.Margin = new System.Windows.Forms.Padding(2);
             this.DriverLastName.Name = "DriverLastName";
-            this.DriverLastName.Size = new System.Drawing.Size(200, 20);
+            this.DriverLastName.Size = new System.Drawing.Size(150, 20);
             this.DriverLastName.TabIndex = 1;
             this.DriverLastName.TextChanged += new System.EventHandler(this.DriverLastName_TextChanged);
             this.DriverLastName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DriverName_TextChanged);
@@ -161,10 +161,10 @@
             // 
             // DriverFirstName
             // 
-            this.DriverFirstName.Location = new System.Drawing.Point(18, 109);
+            this.DriverFirstName.Location = new System.Drawing.Point(18, 110);
             this.DriverFirstName.Margin = new System.Windows.Forms.Padding(2);
             this.DriverFirstName.Name = "DriverFirstName";
-            this.DriverFirstName.Size = new System.Drawing.Size(200, 20);
+            this.DriverFirstName.Size = new System.Drawing.Size(150, 20);
             this.DriverFirstName.TabIndex = 0;
             this.DriverFirstName.TextChanged += new System.EventHandler(this.DriverFirstName_TextChanged);
             this.DriverFirstName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DriverName_TextChanged);
@@ -172,10 +172,10 @@
             // 
             // Zapisz
             // 
-            this.Zapisz.Location = new System.Drawing.Point(506, 325);
+            this.Zapisz.Location = new System.Drawing.Point(507, 335);
             this.Zapisz.Margin = new System.Windows.Forms.Padding(2);
             this.Zapisz.Name = "Zapisz";
-            this.Zapisz.Size = new System.Drawing.Size(80, 40);
+            this.Zapisz.Size = new System.Drawing.Size(80, 30);
             this.Zapisz.TabIndex = 4;
             this.Zapisz.Text = "Dodaj";
             this.Zapisz.UseVisualStyleBackColor = true;

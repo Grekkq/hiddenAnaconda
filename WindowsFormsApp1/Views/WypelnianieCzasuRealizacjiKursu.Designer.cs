@@ -100,7 +100,7 @@
             "Jan Kowalski",
             "Adam Meller",
             "Łukasz Nowak"});
-            this.driver.Location = new System.Drawing.Point(19, 256);
+            this.driver.Location = new System.Drawing.Point(18, 260);
             this.driver.Name = "driver";
             this.driver.Size = new System.Drawing.Size(121, 21);
             this.driver.TabIndex = 2;
@@ -186,7 +186,7 @@
             "15.11.2019 - 710 - 2",
             "16.11.2019 - 710 - 1",
             "16.11.2019 - 710 - 2"});
-            this.kurs.Location = new System.Drawing.Point(19, 109);
+            this.kurs.Location = new System.Drawing.Point(18, 110);
             this.kurs.Name = "kurs";
             this.kurs.Size = new System.Drawing.Size(127, 119);
             this.kurs.Sorted = true;
@@ -196,9 +196,9 @@
             // 
             // cancel
             // 
-            this.cancel.Location = new System.Drawing.Point(20, 325);
+            this.cancel.Location = new System.Drawing.Point(20, 335);
             this.cancel.Name = "cancel";
-            this.cancel.Size = new System.Drawing.Size(80, 40);
+            this.cancel.Size = new System.Drawing.Size(80, 30);
             this.cancel.TabIndex = 5;
             this.cancel.Text = "Anuluj";
             this.cancel.UseVisualStyleBackColor = true;
@@ -206,9 +206,9 @@
             // 
             // create
             // 
-            this.create.Location = new System.Drawing.Point(506, 325);
+            this.create.Location = new System.Drawing.Point(507, 335);
             this.create.Name = "create";
-            this.create.Size = new System.Drawing.Size(80, 40);
+            this.create.Size = new System.Drawing.Size(80, 30);
             this.create.TabIndex = 4;
             this.create.Text = "Przypisz";
             this.create.UseVisualStyleBackColor = true;

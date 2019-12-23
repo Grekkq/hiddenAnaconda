@@ -79,11 +79,11 @@
             // password_re
             // 
             this.password_re.HideSelection = false;
-            this.password_re.Location = new System.Drawing.Point(19, 206);
+            this.password_re.Location = new System.Drawing.Point(18, 210);
             this.password_re.MaxLength = 20;
             this.password_re.Name = "password_re";
             this.password_re.PasswordChar = '*';
-            this.password_re.Size = new System.Drawing.Size(137, 20);
+            this.password_re.Size = new System.Drawing.Size(150, 20);
             this.password_re.TabIndex = 3;
             this.password_re.Validating += new System.ComponentModel.CancelEventHandler(this.password_re_Validating);
             // 
@@ -129,9 +129,9 @@
             this.label7.ForeColor = System.Drawing.SystemColors.Window;
             this.label7.Location = new System.Drawing.Point(26, 5);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(191, 21);
+            this.label7.Size = new System.Drawing.Size(324, 21);
             this.label7.TabIndex = 52;
-            this.label7.Text = "Tworzenie użytkowników";
+            this.label7.Text = "Formularz tworzenia nowych użytkowników";
             this.label7.MouseDown += new System.Windows.Forms.MouseEventHandler(this.move_window);
             // 
             // exit
@@ -156,9 +156,9 @@
             // 
             // cancel
             // 
-            this.cancel.Location = new System.Drawing.Point(20, 325);
+            this.cancel.Location = new System.Drawing.Point(20, 335);
             this.cancel.Name = "cancel";
-            this.cancel.Size = new System.Drawing.Size(80, 40);
+            this.cancel.Size = new System.Drawing.Size(80, 30);
             this.cancel.TabIndex = 9;
             this.cancel.Text = "Anuluj";
             this.cancel.UseVisualStyleBackColor = true;
@@ -166,9 +166,9 @@
             // 
             // create
             // 
-            this.create.Location = new System.Drawing.Point(506, 325);
+            this.create.Location = new System.Drawing.Point(507, 335);
             this.create.Name = "create";
-            this.create.Size = new System.Drawing.Size(80, 40);
+            this.create.Size = new System.Drawing.Size(80, 30);
             this.create.TabIndex = 8;
             this.create.Text = "Utwórz";
             this.create.UseVisualStyleBackColor = true;
@@ -231,18 +231,18 @@
             "Menedżer",
             "Układacz Tras",
             "Administrator"});
-            this.permissions_level.Location = new System.Drawing.Point(19, 256);
+            this.permissions_level.Location = new System.Drawing.Point(18, 260);
             this.permissions_level.Name = "permissions_level";
-            this.permissions_level.Size = new System.Drawing.Size(137, 21);
+            this.permissions_level.Size = new System.Drawing.Size(150, 21);
             this.permissions_level.TabIndex = 4;
             // 
             // username
             // 
             this.username.HideSelection = false;
-            this.username.Location = new System.Drawing.Point(19, 106);
+            this.username.Location = new System.Drawing.Point(18, 110);
             this.username.MaxLength = 20;
             this.username.Name = "username";
-            this.username.Size = new System.Drawing.Size(137, 20);
+            this.username.Size = new System.Drawing.Size(150, 20);
             this.username.TabIndex = 1;
             this.username.Validating += new System.ComponentModel.CancelEventHandler(this.username_Validating);
             // 
@@ -258,11 +258,11 @@
             // password
             // 
             this.password.HideSelection = false;
-            this.password.Location = new System.Drawing.Point(19, 156);
+            this.password.Location = new System.Drawing.Point(18, 160);
             this.password.MaxLength = 20;
             this.password.Name = "password";
             this.password.PasswordChar = '*';
-            this.password.Size = new System.Drawing.Size(137, 20);
+            this.password.Size = new System.Drawing.Size(150, 20);
             this.password.TabIndex = 2;
             this.password.Validated += new System.EventHandler(this.password_Validated);
             // 
