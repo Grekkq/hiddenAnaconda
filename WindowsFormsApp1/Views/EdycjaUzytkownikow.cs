@@ -9,8 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace hiddenAnaconda.Views {
-    public partial class EdycjaUżytkowników : Form {
-        public EdycjaUżytkowników() {
+    public partial class EdycjaUzytkownikow : Form {
+        public EdycjaUzytkownikow() {
             InitializeComponent();
         }
 

@@ -1,5 +1,5 @@
 ﻿namespace hiddenAnaconda.Views {
-    partial class EdycjaUżytkowników {
+    partial class EdycjaUzytkownikow {
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -23,7 +23,7 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EdycjaUżytkowników));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EdycjaUzytkownikow));
             this.cancel = new System.Windows.Forms.Button();
             this.create = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
