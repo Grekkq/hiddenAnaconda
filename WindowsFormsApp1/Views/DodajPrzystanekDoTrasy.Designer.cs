@@ -161,6 +161,8 @@
             this.comboBox_kierunek.Name = "comboBox_kierunek";
             this.comboBox_kierunek.Size = new System.Drawing.Size(149, 21);
             this.comboBox_kierunek.TabIndex = 2;
+            this.comboBox_kierunek.SelectedIndexChanged += new System.EventHandler(this.comboBox_kierunek_SelectedIndexChanged);
+            this.comboBox_kierunek.Validating += new System.ComponentModel.CancelEventHandler(this.comboBox_kierunek_SelectedIndexChanged);
             // 
             // comboBox_przystanek
             // 

@@ -58,10 +58,9 @@ namespace hiddenAnaconda.Views
             //Regex regex = new Regex(@"^(0[0-9]|1[0-9]|2[0-3]|[0-9]):[0-5][0-9]$");
             //bool isValid = regex.IsMatch(czas_realizacji.Text.Trim());
             if (kurs.SelectedIndex == -1) {
-                MessageBox.Show("Nie wybrano kursu.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                goto SkipToEnd;
+                errorProvider1.SetError(kurs, "Nie wybrano kursu");
             } else if (driver.SelectedIndex == -1) {
-                MessageBox.Show("Nie wybrano kierowcy.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                errorProvider1.SetError(driver, "Nie wybrano kierowcy");
                 goto SkipToEnd;
             } else {
                 const string message = "Pomyślnie przypisano czas realizacji danego kursu.";

@@ -195,5 +195,25 @@ namespace hiddenAnaconda.Views {
                 ErrorIsOn = false;
             }
         }
+
+        private void comboBox_kierunek_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox_kierunek_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(comboBox_kierunek.Text))
+            {
+                errorProvider1.SetError(comboBox_kierunek, "Nie wybrano kierunku");
+                ErrorIsOn = true;
+            }
+            else
+            {
+                errorProvider1.SetError(comboBox_kierunek, null);
+                ErrorIsOn = false;
+            }
+        }
+
     }
 }

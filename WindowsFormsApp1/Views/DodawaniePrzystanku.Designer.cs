@@ -229,6 +229,9 @@
             this.textBox_kierunekDo.Name = "textBox_kierunekDo";
             this.textBox_kierunekDo.Size = new System.Drawing.Size(140, 20);
             this.textBox_kierunekDo.TabIndex = 4;
+            this.textBox_kierunekDo.TextChanged += new System.EventHandler(this.textBox_kierunekDo_TextChanged);
+            this.textBox_kierunekDo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.p_miasto_TextChanged);
+            this.textBox_kierunekDo.Validating += new System.ComponentModel.CancelEventHandler(this.textBox_kierunekDo_Validating);
             // 
             // textbox_kierunekZ
             // 
@@ -236,6 +239,9 @@
             this.textbox_kierunekZ.Name = "textbox_kierunekZ";
             this.textbox_kierunekZ.Size = new System.Drawing.Size(140, 20);
             this.textbox_kierunekZ.TabIndex = 3;
+            this.textbox_kierunekZ.TextChanged += new System.EventHandler(this.textbox_kierunekZ_TextChanged);
+            this.textbox_kierunekZ.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.p_miasto_TextChanged);
+            this.textbox_kierunekZ.Validating += new System.ComponentModel.CancelEventHandler(this.textbox_kierunekZ_Validating);
             // 
             // label_kierunek
             // 

@@ -79,7 +79,7 @@ namespace hiddenAnaconda.Views {
                 year_number.Focus();
                 mark_name.Focus();
             }
-            if ((!string.IsNullOrEmpty(vin_number.Text) && !string.IsNullOrEmpty(plate_numer.Text) && (yes2.Checked == true || no1.Checked == true) && (yes.Checked == true || no.Checked == true) && !string.IsNullOrEmpty(model_name.Text) && ErrorIsOn == false)) {
+            if ((!string.IsNullOrEmpty(mark_name.Text) && !string.IsNullOrEmpty(model_name.Text) && !string.IsNullOrEmpty(vin_number.Text) && !string.IsNullOrEmpty(plate_numer.Text) && (yes2.Checked == true || no1.Checked == true) && (yes.Checked == true || no.Checked == true) && ErrorIsOn == false)) {
                 var plate = plate_numer.Text;
                 var vin = vin_number.Text;
                 var modelNumber = model_name.Text;

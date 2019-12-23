@@ -10,7 +10,8 @@ using System.Windows.Forms;
 
 namespace hiddenAnaconda.Views {
     public partial class DodawaniePrzystanku : Form {
-        bool ErrorIsOn = false;
+        bool ErrorIsOn, ErrorNazwaIsOn = true;
+        bool ErrorKierIsOn = false;
         // funkcje wspólne dla widoków
         SharedView sharedView = new SharedView();
 
@@ -40,43 +41,50 @@ namespace hiddenAnaconda.Views {
         }
 
         private void create_Click(object sender, EventArgs e) {
-            if (no.Checked == true && string.IsNullOrEmpty(textbox_kierunekZ.Text) && string.IsNullOrEmpty(textBox_kierunekDo.Text)) {
-                errorProvider1.SetError(label_kierunek, "Nie wpisano kierunku");
-                ErrorIsOn = true;
-            } else {
-                errorProvider1.SetError(textbox_kierunekZ, null);
-                ErrorIsOn = false;
-            }
+            p_miasto.Focus();
+            p_nazwa.Focus();
+            p_miasto.Focus();
             if (yes.Checked == false && no.Checked == false) {
                 MessageBox.Show("Nie zaznaczono odpowiedz na pytanie.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                p_miasto.Focus();
-                p_nazwa.Focus();
-                textbox_kierunekZ.Focus();
-            } else if (ErrorIsOn == false) {
+               
+            } else if (ErrorIsOn == false && ErrorNazwaIsOn == false) {
                 var nazwa = p_nazwa.Text;
                 var miasto = p_miasto.Text;
                 string direction = null;
 
                 if (yes.Checked == true) {
+                   
                     var result = MessageBox.Show("Czy na pewno chcesz dodać w mieście " + miasto + " przystanek \"" + nazwa +"\"?", "Dodanie przystanku", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                    if (result == DialogResult.Yes) {
-                        Models.AddingBusStops addingBusStops = new Models.AddingBusStops();
-                        addingBusStops.AddBusStop(nazwa, miasto, direction);
-                    } else {
+                        if (result == DialogResult.Yes)
+                        {
+                            Models.AddingBusStops addingBusStops = new Models.AddingBusStops();
+                            addingBusStops.AddBusStop(nazwa, miasto, direction);
+                        }
+                     else {
                         p_miasto.Focus();
                         p_nazwa.Focus();
+                        p_miasto.Focus();
                     }
                 } else {
-                    direction = textbox_kierunekZ.Text + "-" + textBox_kierunekDo.Text;
+                    textbox_kierunekZ.Focus();
+                    textBox_kierunekDo.Focus();
+                    if ((!string.IsNullOrEmpty(p_miasto.Text) && !string.IsNullOrEmpty(p_nazwa.Text) && !string.IsNullOrEmpty(textBox_kierunekDo.Text) && !string.IsNullOrEmpty(textbox_kierunekZ.Text) && ErrorKierIsOn == false && ErrorIsOn == false))
+                    {
+                        direction = textbox_kierunekZ.Text + "-" + textBox_kierunekDo.Text;
                     var directionTo = textBox_kierunekDo.Text;
                     var directionFrom = textbox_kierunekZ.Text;
                     var result2 = MessageBox.Show("Czy na pewno chcesz dodać w mieście " + miasto + " przystanek \"" + nazwa + "\" kierunek " + direction + "?", "Dodawanie przystanku", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                    if (result2 == DialogResult.Yes) {
-                        Models.AddingBusStops addingBusStops = new Models.AddingBusStops();
-                        addingBusStops.AddDoubleBusStop(nazwa, miasto, directionTo, directionFrom);
+                        if (result2 == DialogResult.Yes)
+                        {
+                            Models.AddingBusStops addingBusStops = new Models.AddingBusStops();
+                            addingBusStops.AddDoubleBusStop(nazwa, miasto, directionTo, directionFrom);
+                        }
                     } else {
                         p_miasto.Focus();
                         p_nazwa.Focus();
+                        textbox_kierunekZ.Focus();
+                        textBox_kierunekDo.Focus();
+                        p_miasto.Focus();
                     }
                 }
 
@@ -118,10 +126,10 @@ namespace hiddenAnaconda.Views {
         private void p_nazwa_Validating(object sender, CancelEventArgs e) {
             if (string.IsNullOrEmpty(p_nazwa.Text)) {
                 errorProvider1.SetError(p_nazwa, "Nie wpisano nazwy");
-                ErrorIsOn = true;
+                ErrorNazwaIsOn = true;
             } else {
                 errorProvider1.SetError(p_nazwa, null);
-                ErrorIsOn = false;
+                ErrorNazwaIsOn = false;
             }
         }
         private void p_miasto_Validating(object sender, CancelEventArgs e) {
@@ -155,6 +163,48 @@ namespace hiddenAnaconda.Views {
             label_Do.Visible = false;
             textBox_kierunekDo.Visible = false;
             textbox_kierunekZ.Visible = false;
+        }
+
+        private void textbox_kierunekZ_TextChanged(object sender, EventArgs e)
+        {
+            textbox_kierunekZ.Text = System.Threading.Thread.CurrentThread.CurrentCulture.TextInfo.ToTitleCase(this.textbox_kierunekZ.Text);
+            textbox_kierunekZ.Select(textbox_kierunekZ.Text.Length, 0);
+
+        }
+        private void textbox_kierunekZ_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(textbox_kierunekZ.Text))
+            {
+                errorProvider1.SetError(textbox_kierunekZ, "Nie wpisano miasta wyjściowego");
+                ErrorIsOn = true;
+            }
+            else
+            {
+                errorProvider1.SetError(textbox_kierunekZ, null);
+                ErrorIsOn = false;
+            }
+        }
+
+            private void textBox_kierunekDo_TextChanged(object sender, EventArgs e)
+            {
+            textBox_kierunekDo.Text = System.Threading.Thread.CurrentThread.CurrentCulture.TextInfo.ToTitleCase(this.textBox_kierunekDo.Text);
+            textBox_kierunekDo.Select(textBox_kierunekDo.Text.Length, 0);
+
+             }
+
+        private void textBox_kierunekDo_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(textBox_kierunekDo.Text))
+            {
+                errorProvider1.SetError(textBox_kierunekDo, "Nie wpisano miasta docelowego");
+                ErrorKierIsOn = true;
+            }
+            else
+            {
+                errorProvider1.SetError(textBox_kierunekDo, null);
+                ErrorKierIsOn = false;
+            }
+
         }
     }
 }
