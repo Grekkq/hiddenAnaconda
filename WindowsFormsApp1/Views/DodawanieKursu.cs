@@ -16,7 +16,6 @@ namespace hiddenAnaconda.Views {
     public partial class DodawanieKursu : Form {
         bool ErrorIsOn = false;
         SharedView sharedView = new SharedView();
-        Models.AddTrail addTrail = new Models.AddTrail();
 
         private void Move_window(object sender, MouseEventArgs e) {
             if (e.Button == MouseButtons.Left) {

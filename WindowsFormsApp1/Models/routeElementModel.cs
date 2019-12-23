@@ -22,6 +22,12 @@ namespace hiddenAnaconda.Models {
             this.ArrivalTime = arrivalTime;
         }
 
+        public routeElementModel(string name, string city, TimeSpan arrivalTime) {
+            this.Name = name;
+            this.City = city;
+            this._timeSpan = arrivalTime;
+        }
+
         // Parse record from ListBox
         public routeElementModel(string element) {
             String newcontent = element.Split(new[] { ") " }, 2, StringSplitOptions.RemoveEmptyEntries)[1].TrimStart();

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using hiddenAnaconda.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -123,9 +124,6 @@ namespace hiddenAnaconda.Views {
             label_nr.Visible = false;
             label_godzina.Visible = false;
             mainListBox.Visible = false;
-            //przykładowe dane
-            this.comboBoxTrasa.Items.Clear();
-            this.comboBoxTrasa.Items.Add("1");
         }
 
         private void Create_Click(object sender, EventArgs e) {
@@ -152,6 +150,7 @@ namespace hiddenAnaconda.Views {
         private void Linia_comboBox_SelectedIndexChanged(object sender, EventArgs e) {
             label_trasa.Visible = true;
             comboBoxTrasa.Visible = true;
+            sharedView.LoadRouteNumberIntoComboBox(comboBoxTrasa, Int32.Parse(linia_comboBox.Text));
         }
 
         private void ComboBoxTrasa_SelectedIndexChanged(object sender, EventArgs e) {
@@ -165,6 +164,7 @@ namespace hiddenAnaconda.Views {
             addButton.Visible = true;
             create.Visible = true;
             deleteButton.Visible = true;
+            new AddTrail(Int32.Parse(this.linia_comboBox.Text), Int32.Parse(this.comboBoxTrasa.Text)).LoadTrailIntoListBox(this.mainListBox);
         }
     }
 }
