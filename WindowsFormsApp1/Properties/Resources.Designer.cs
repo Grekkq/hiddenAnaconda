@@ -63,6 +63,36 @@ namespace hiddenAnaconda.Properties {
         /// <summary>
         ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _116_1168371_the_icon_is_a_picture_of_a_logo {
+            get {
+                object obj = ResourceManager.GetObject("116-1168371_the-icon-is-a-picture-of-a-logo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _60807 {
+            get {
+                object obj = ResourceManager.GetObject("60807", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _83402_200 {
+            get {
+                object obj = ResourceManager.GetObject("83402-200", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Alert_Download_PNG {
             get {
                 object obj = ResourceManager.GetObject("Alert-Download-PNG", resourceCulture);
@@ -203,6 +233,16 @@ namespace hiddenAnaconda.Properties {
         /// <summary>
         ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap img_381234 {
+            get {
+                object obj = ResourceManager.GetObject("img_381234", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap line {
             get {
                 object obj = ResourceManager.GetObject("line", resourceCulture);
@@ -223,6 +263,26 @@ namespace hiddenAnaconda.Properties {
         /// <summary>
         ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap pngtree_manage_glyph_black_icon_png_image_4008318 {
+            get {
+                object obj = ResourceManager.GetObject("pngtree-manage-glyph-black-icon-png-image_4008318", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Programming_Edit_Property_icon {
+            get {
+                object obj = ResourceManager.GetObject("Programming-Edit-Property-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap rainbow {
             get {
                 object obj = ResourceManager.GetObject("rainbow", resourceCulture);
@@ -236,6 +296,16 @@ namespace hiddenAnaconda.Properties {
         internal static System.Drawing.Bitmap rainbow1 {
             get {
                 object obj = ResourceManager.GetObject("rainbow1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap report {
+            get {
+                object obj = ResourceManager.GetObject("report", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

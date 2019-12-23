@@ -119,7 +119,7 @@
             this.textbox_time.Location = new System.Drawing.Point(10, 131);
             this.textbox_time.MaxLength = 5;
             this.textbox_time.Name = "textbox_time";
-            this.textbox_time.Size = new System.Drawing.Size(110, 20);
+            this.textbox_time.Size = new System.Drawing.Size(121, 20);
             this.textbox_time.TabIndex = 3;
             this.textbox_time.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.arrivalTime_TextChanged);
             this.textbox_time.Validating += new System.ComponentModel.CancelEventHandler(this.arrivalTime_Validating);

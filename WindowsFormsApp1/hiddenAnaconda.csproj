@@ -310,11 +310,18 @@
     <None Include="Resources\driver1.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\pngtree-manage-glyph-black-icon-png-image_4008318.jpg" />
+    <None Include="Resources\img_381234.png" />
+    <None Include="Resources\report.png" />
+    <None Include="Resources\Programming-Edit-Property-icon.png" />
     <None Include="Resources\rainbow1.jpg" />
     <None Include="Resources\rainbow.jpg" />
     <None Include="Resources\drivingbus.gif" />
     <None Include="Resources\fireworks.gif" />
     <None Include="Resources\driver-icon-12.png" />
+    <None Include="Resources\116-1168371_the-icon-is-a-picture-of-a-logo.png" />
+    <None Include="Resources\60807.png" />
+    <None Include="Resources\83402-200.png" />
     <Content Include="Resources\icon.ico" />
     <None Include="Resources\user.png" />
   </ItemGroup>

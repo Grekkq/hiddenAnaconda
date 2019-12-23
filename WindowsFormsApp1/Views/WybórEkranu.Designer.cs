@@ -27,8 +27,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.Czas = new System.Windows.Forms.Button();
             this.ZmianaStatusu = new System.Windows.Forms.Button();
@@ -36,14 +34,12 @@
             this.Trasa = new System.Windows.Forms.Button();
             this.Kierowca = new System.Windows.Forms.Button();
             this.RaportButton = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.Pojazd = new System.Windows.Forms.Button();
             this.Przystanek = new System.Windows.Forms.Button();
             this.Linia = new System.Windows.Forms.Button();
             this.Kurs = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.create = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -51,22 +47,30 @@
             this.label3 = new System.Windows.Forms.Label();
             this.help = new System.Windows.Forms.Button();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.panel1.Controls.Add(this.panel4);
-            this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.panel3);
-            this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.pictureBox2);
             this.panel1.Controls.Add(this.create);
@@ -79,214 +83,186 @@
             // 
             // panel4
             // 
+            this.panel4.BackColor = System.Drawing.SystemColors.Window;
+            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel4.Controls.Add(this.label6);
+            this.panel4.Controls.Add(this.pictureBox5);
+            this.panel4.Controls.Add(this.button3);
             this.panel4.Controls.Add(this.button1);
-            this.panel4.Location = new System.Drawing.Point(402, 99);
+            this.panel4.Location = new System.Drawing.Point(398, 74);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(180, 210);
+            this.panel4.Size = new System.Drawing.Size(180, 259);
             this.panel4.TabIndex = 34;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(25, 4);
+            this.button1.Location = new System.Drawing.Point(24, 51);
             this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(130, 30);
+            this.button1.Size = new System.Drawing.Size(130, 40);
             this.button1.TabIndex = 11;
-            this.button1.Text = "tworzenie użytkowników";
+            this.button1.Text = "Tworzenie użytkowników";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.Button1_Click);
             // 
-            // label6
-            // 
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label6.Location = new System.Drawing.Point(402, 73);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(180, 23);
-            this.label6.TabIndex = 33;
-            this.label6.Text = "Administracja";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label5
-            // 
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label5.Location = new System.Drawing.Point(216, 73);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(180, 23);
-            this.label5.TabIndex = 33;
-            this.label5.Text = "Zarządzanie i raporty:";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // panel3
             // 
+            this.panel3.BackColor = System.Drawing.SystemColors.Window;
+            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel3.Controls.Add(this.label5);
+            this.panel3.Controls.Add(this.pictureBox4);
             this.panel3.Controls.Add(this.Czas);
             this.panel3.Controls.Add(this.ZmianaStatusu);
             this.panel3.Controls.Add(this.Przypisanie);
             this.panel3.Controls.Add(this.Trasa);
             this.panel3.Controls.Add(this.Kierowca);
             this.panel3.Controls.Add(this.RaportButton);
-            this.panel3.Location = new System.Drawing.Point(216, 99);
+            this.panel3.Location = new System.Drawing.Point(211, 74);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(180, 233);
+            this.panel3.Size = new System.Drawing.Size(181, 259);
             this.panel3.TabIndex = 32;
             // 
             // Czas
             // 
-            this.Czas.Location = new System.Drawing.Point(25, 4);
+            this.Czas.Location = new System.Drawing.Point(25, 51);
             this.Czas.Margin = new System.Windows.Forms.Padding(2);
             this.Czas.Name = "Czas";
             this.Czas.Size = new System.Drawing.Size(130, 30);
             this.Czas.TabIndex = 5;
-            this.Czas.Text = "czasy realizacji kursu";
+            this.Czas.Text = "Czasy realizacji kursu";
             this.Czas.UseVisualStyleBackColor = true;
             this.Czas.Click += new System.EventHandler(this.Czas_Click);
             // 
             // ZmianaStatusu
             // 
-            this.ZmianaStatusu.Location = new System.Drawing.Point(25, 107);
+            this.ZmianaStatusu.Location = new System.Drawing.Point(25, 153);
             this.ZmianaStatusu.Margin = new System.Windows.Forms.Padding(2);
             this.ZmianaStatusu.Name = "ZmianaStatusu";
             this.ZmianaStatusu.Size = new System.Drawing.Size(130, 30);
             this.ZmianaStatusu.TabIndex = 8;
-            this.ZmianaStatusu.Text = "zmiana statusu";
+            this.ZmianaStatusu.Text = "Zmiana statusu";
             this.ZmianaStatusu.UseVisualStyleBackColor = true;
             this.ZmianaStatusu.Click += new System.EventHandler(this.ZmianaStatusu_Click);
             // 
             // Przypisanie
             // 
-            this.Przypisanie.Location = new System.Drawing.Point(25, 38);
+            this.Przypisanie.Location = new System.Drawing.Point(25, 85);
             this.Przypisanie.Margin = new System.Windows.Forms.Padding(2);
             this.Przypisanie.Name = "Przypisanie";
             this.Przypisanie.Size = new System.Drawing.Size(130, 30);
             this.Przypisanie.TabIndex = 6;
-            this.Przypisanie.Text = "przypisanie do kursu";
+            this.Przypisanie.Text = "Przypisanie do kursu";
             this.Przypisanie.UseVisualStyleBackColor = true;
             this.Przypisanie.Click += new System.EventHandler(this.Przypisanie_Click);
             // 
             // Trasa
             // 
-            this.Trasa.Location = new System.Drawing.Point(25, 175);
+            this.Trasa.Location = new System.Drawing.Point(25, 223);
             this.Trasa.Margin = new System.Windows.Forms.Padding(2);
             this.Trasa.Name = "Trasa";
             this.Trasa.Size = new System.Drawing.Size(130, 30);
             this.Trasa.TabIndex = 10;
-            this.Trasa.Text = "zarządzanie trasami";
+            this.Trasa.Text = "Zarządzanie trasami";
             this.Trasa.UseVisualStyleBackColor = true;
             this.Trasa.Click += new System.EventHandler(this.Trasa_Click);
             // 
             // Kierowca
             // 
-            this.Kierowca.Location = new System.Drawing.Point(25, 73);
+            this.Kierowca.Location = new System.Drawing.Point(25, 119);
             this.Kierowca.Margin = new System.Windows.Forms.Padding(2);
             this.Kierowca.Name = "Kierowca";
             this.Kierowca.Size = new System.Drawing.Size(130, 30);
             this.Kierowca.TabIndex = 7;
-            this.Kierowca.Text = "dodawanie kierowców";
+            this.Kierowca.Text = "Dodawanie kierowców";
             this.Kierowca.UseVisualStyleBackColor = true;
             this.Kierowca.Click += new System.EventHandler(this.Kierowca_Click);
             // 
             // RaportButton
             // 
-            this.RaportButton.Location = new System.Drawing.Point(25, 142);
+            this.RaportButton.Location = new System.Drawing.Point(25, 188);
             this.RaportButton.Name = "RaportButton";
             this.RaportButton.Size = new System.Drawing.Size(130, 30);
             this.RaportButton.TabIndex = 9;
-            this.RaportButton.Text = "raport";
+            this.RaportButton.Text = "Tworzenie raportu";
             this.RaportButton.UseVisualStyleBackColor = true;
             this.RaportButton.Click += new System.EventHandler(this.RaportButton_Click);
             // 
-            // label4
-            // 
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label4.Location = new System.Drawing.Point(27, 73);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(183, 23);
-            this.label4.TabIndex = 31;
-            this.label4.Text = "Tworzenie:";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // panel2
             // 
+            this.panel2.BackColor = System.Drawing.SystemColors.Window;
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel2.Controls.Add(this.label4);
+            this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Controls.Add(this.Pojazd);
             this.panel2.Controls.Add(this.Przystanek);
             this.panel2.Controls.Add(this.Linia);
             this.panel2.Controls.Add(this.Kurs);
             this.panel2.Controls.Add(this.button2);
-            this.panel2.Location = new System.Drawing.Point(29, 99);
+            this.panel2.Location = new System.Drawing.Point(25, 74);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(180, 210);
+            this.panel2.Size = new System.Drawing.Size(180, 258);
             this.panel2.TabIndex = 30;
             // 
             // Pojazd
             // 
-            this.Pojazd.Location = new System.Drawing.Point(25, 4);
+            this.Pojazd.Location = new System.Drawing.Point(28, 51);
             this.Pojazd.Margin = new System.Windows.Forms.Padding(2);
             this.Pojazd.Name = "Pojazd";
             this.Pojazd.Size = new System.Drawing.Size(130, 30);
             this.Pojazd.TabIndex = 0;
-            this.Pojazd.Text = "pojazdu";
+            this.Pojazd.Text = "Tworzenie pojazdów";
             this.Pojazd.UseVisualStyleBackColor = true;
             this.Pojazd.Click += new System.EventHandler(this.Pojazd_Click);
             // 
             // Przystanek
             // 
-            this.Przystanek.Location = new System.Drawing.Point(25, 38);
+            this.Przystanek.Location = new System.Drawing.Point(28, 85);
             this.Przystanek.Margin = new System.Windows.Forms.Padding(2);
             this.Przystanek.Name = "Przystanek";
             this.Przystanek.Size = new System.Drawing.Size(130, 30);
             this.Przystanek.TabIndex = 1;
-            this.Przystanek.Text = "przystanku";
+            this.Przystanek.Text = "Tworzenie przystanków";
             this.Przystanek.UseVisualStyleBackColor = true;
             this.Przystanek.Click += new System.EventHandler(this.Przystanek_Click);
             // 
             // Linia
             // 
-            this.Linia.Location = new System.Drawing.Point(25, 74);
+            this.Linia.Location = new System.Drawing.Point(28, 119);
             this.Linia.Margin = new System.Windows.Forms.Padding(2);
             this.Linia.Name = "Linia";
-            this.Linia.Size = new System.Drawing.Size(130, 30);
+            this.Linia.Size = new System.Drawing.Size(130, 40);
             this.Linia.TabIndex = 2;
-            this.Linia.Text = "linii";
+            this.Linia.Text = "Tworzenie linii autobusowych";
             this.Linia.UseVisualStyleBackColor = true;
             this.Linia.Click += new System.EventHandler(this.Linia_Click);
             // 
             // Kurs
             // 
-            this.Kurs.Location = new System.Drawing.Point(25, 107);
+            this.Kurs.Location = new System.Drawing.Point(28, 163);
             this.Kurs.Margin = new System.Windows.Forms.Padding(2);
             this.Kurs.Name = "Kurs";
             this.Kurs.Size = new System.Drawing.Size(130, 30);
             this.Kurs.TabIndex = 3;
-            this.Kurs.Text = "kursu";
+            this.Kurs.Text = "Tworzenie kursów";
             this.Kurs.UseVisualStyleBackColor = true;
             this.Kurs.Click += new System.EventHandler(this.Kurs_Click);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(25, 142);
+            this.button2.Location = new System.Drawing.Point(28, 197);
             this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(130, 30);
+            this.button2.Size = new System.Drawing.Size(130, 40);
             this.button2.TabIndex = 4;
-            this.button2.Text = "terminów kursowania";
+            this.button2.Text = "Tworzenie terminów kursowania";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.Button2_Click);
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.Color.White;
-            this.pictureBox2.Image = global::hiddenAnaconda.Properties.Resources.manage;
-            this.pictureBox2.Location = new System.Drawing.Point(537, 3);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(69, 60);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 27;
-            this.pictureBox2.TabStop = false;
-            // 
             // create
             // 
-            this.create.Location = new System.Drawing.Point(20, 325);
+            this.create.Location = new System.Drawing.Point(10, 338);
             this.create.Name = "create";
-            this.create.Size = new System.Drawing.Size(80, 40);
+            this.create.Size = new System.Drawing.Size(80, 30);
             this.create.TabIndex = 14;
             this.create.TabStop = false;
             this.create.Text = "Zakończ";
@@ -299,9 +275,9 @@
             this.label2.BackColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(26, 32);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(205, 13);
+            this.label2.Size = new System.Drawing.Size(208, 13);
             this.label2.TabIndex = 18;
-            this.label2.Text = "Wybierz, do którego okna chcesz przejść.";
+            this.label2.Text = "Wybierz ekran, do którego chcesz przejść.";
             // 
             // label1
             // 
@@ -374,6 +350,88 @@
             this.pictureBox3.TabIndex = 48;
             this.pictureBox3.TabStop = false;
             // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Image = global::hiddenAnaconda.Properties.Resources._83402_200;
+            this.pictureBox5.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(51, 43);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox5.TabIndex = 5;
+            this.pictureBox5.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = global::hiddenAnaconda.Properties.Resources.img_381234;
+            this.pictureBox4.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(51, 43);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox4.TabIndex = 5;
+            this.pictureBox4.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::hiddenAnaconda.Properties.Resources.Programming_Edit_Property_icon;
+            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(49, 43);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 5;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.White;
+            this.pictureBox2.Image = global::hiddenAnaconda.Properties.Resources.manage;
+            this.pictureBox2.Location = new System.Drawing.Point(537, 3);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(69, 60);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 27;
+            this.pictureBox2.TabStop = false;
+            // 
+            // label4
+            // 
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label4.Location = new System.Drawing.Point(58, 3);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(100, 43);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "Tworzenie";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label5
+            // 
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label5.Location = new System.Drawing.Point(60, 3);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(101, 43);
+            this.label5.TabIndex = 6;
+            this.label5.Text = "Zarządzanie \r\ni raporty";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label6
+            // 
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label6.Location = new System.Drawing.Point(60, 3);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(113, 43);
+            this.label6.TabIndex = 6;
+            this.label6.Text = "Zarządzanie\r\nużytkownikami";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(24, 95);
+            this.button3.Margin = new System.Windows.Forms.Padding(2);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(130, 40);
+            this.button3.TabIndex = 11;
+            this.button3.Text = "Edycja użytkowników";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.Button1_Click);
+            // 
             // WybórEkranu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -392,15 +450,17 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "WybórEkranu";
             this.Activated += new System.EventHandler(this.TurnoffFocus);
-            this.Load += new System.EventHandler(this.WybórEkranu_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Move_window);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -429,11 +489,15 @@
         private System.Windows.Forms.Button ZmianaStatusu;
         private System.Windows.Forms.Button RaportButton;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button button3;
     }
 }

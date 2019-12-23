@@ -91,10 +91,6 @@ namespace hiddenAnaconda.Views {
             };
         }
 
-        private void WybórEkranu_Load(object sender, EventArgs e) {
-
-        }
-
         private void Hover_exitbutton(object sender, EventArgs e) {
             exit.BackColor = Color.FromArgb(218, 83, 44);
         }
