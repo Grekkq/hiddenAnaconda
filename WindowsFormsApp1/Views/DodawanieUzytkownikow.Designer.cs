@@ -30,10 +30,6 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DodawanieUzytkownikow));
             this.errorProvider2 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.password_re = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.help = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.exit = new System.Windows.Forms.Button();
@@ -46,65 +42,28 @@
             this.permissions_level = new System.Windows.Forms.ComboBox();
             this.username = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.password = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.errorProvider3 = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProvider4 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.password_re = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.password = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // errorProvider2
             // 
             this.errorProvider2.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.errorProvider2.ContainerControl = this;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.Color.White;
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(537, 5);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(66, 54);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 21;
-            this.pictureBox2.TabStop = false;
-            // 
-            // password_re
-            // 
-            this.password_re.HideSelection = false;
-            this.password_re.Location = new System.Drawing.Point(18, 210);
-            this.password_re.MaxLength = 20;
-            this.password_re.Name = "password_re";
-            this.password_re.PasswordChar = '*';
-            this.password_re.Size = new System.Drawing.Size(150, 20);
-            this.password_re.TabIndex = 3;
-            this.password_re.Validating += new System.ComponentModel.CancelEventHandler(this.password_re_Validating);
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(16, 190);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(140, 13);
-            this.label8.TabIndex = 18;
-            this.label8.Text = "Wprowadź hasło ponownie:";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::hiddenAnaconda.Properties.Resources.icon;
-            this.pictureBox1.Location = new System.Drawing.Point(4, 4);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(24, 24);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 54;
-            this.pictureBox1.TabStop = false;
             // 
             // help
             // 
@@ -255,6 +214,66 @@
             this.label5.TabIndex = 13;
             this.label5.Text = "Podaj nazwę użytkownika:";
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(16, 240);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(136, 13);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "Wybierz poziom uprawnień:";
+            // 
+            // errorProvider3
+            // 
+            this.errorProvider3.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.errorProvider3.ContainerControl = this;
+            // 
+            // errorProvider4
+            // 
+            this.errorProvider4.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.errorProvider4.ContainerControl = this;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::hiddenAnaconda.Properties.Resources.icon;
+            this.pictureBox1.Location = new System.Drawing.Point(4, 4);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 54;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.White;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(537, 5);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(66, 54);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 21;
+            this.pictureBox2.TabStop = false;
+            // 
+            // password_re
+            // 
+            this.password_re.HideSelection = false;
+            this.password_re.Location = new System.Drawing.Point(18, 210);
+            this.password_re.MaxLength = 20;
+            this.password_re.Name = "password_re";
+            this.password_re.PasswordChar = '*';
+            this.password_re.Size = new System.Drawing.Size(150, 20);
+            this.password_re.TabIndex = 3;
+            this.password_re.Validating += new System.ComponentModel.CancelEventHandler(this.password_re_Validating);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(16, 190);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(140, 13);
+            this.label8.TabIndex = 18;
+            this.label8.Text = "Wprowadź hasło ponownie:";
+            // 
             // password
             // 
             this.password.HideSelection = false;
@@ -275,25 +294,6 @@
             this.label3.TabIndex = 11;
             this.label3.Text = "Wprowadź hasło:";
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(16, 240);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(136, 13);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Wybierz poziom uprawnień:";
-            // 
-            // errorProvider3
-            // 
-            this.errorProvider3.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
-            this.errorProvider3.ContainerControl = this;
-            // 
-            // errorProvider4
-            // 
-            this.errorProvider4.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
-            this.errorProvider4.ContainerControl = this;
-            // 
             // DodawanieUzytkownikow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -313,13 +313,13 @@
             this.Load += new System.EventHandler(this.DodawanieUzytkownikow_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.move_window);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -334,8 +334,6 @@
         private System.Windows.Forms.Button exit;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.TextBox password_re;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button cancel;
         private System.Windows.Forms.Button create;
         private System.Windows.Forms.Label label2;
@@ -344,10 +342,12 @@
         private System.Windows.Forms.ComboBox permissions_level;
         private System.Windows.Forms.TextBox username;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox password;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ErrorProvider errorProvider3;
         private System.Windows.Forms.ErrorProvider errorProvider4;
+        private System.Windows.Forms.TextBox password_re;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox password;
+        private System.Windows.Forms.Label label3;
     }
 }

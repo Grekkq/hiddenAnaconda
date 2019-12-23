@@ -107,6 +107,12 @@
     <Compile Include="Views\DodawanieUzytkownikow.Designer.cs">
       <DependentUpon>DodawanieUzytkownikow.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\EdycjaUżytkowników.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\EdycjaUżytkowników.Designer.cs">
+      <DependentUpon>EdycjaUżytkowników.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\EkranLogowania.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -193,6 +199,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\DodawanieUzytkownikow.resx">
       <DependentUpon>DodawanieUzytkownikow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\EdycjaUżytkowników.resx">
+      <DependentUpon>EdycjaUżytkowników.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\EkranLogowania.resx">
       <DependentUpon>EkranLogowania.cs</DependentUpon>
@@ -322,6 +331,7 @@
     <None Include="Resources\116-1168371_the-icon-is-a-picture-of-a-logo.png" />
     <None Include="Resources\60807.png" />
     <None Include="Resources\83402-200.png" />
+    <None Include="Resources\1268.png" />
     <Content Include="Resources\icon.ico" />
     <None Include="Resources\user.png" />
   </ItemGroup>
