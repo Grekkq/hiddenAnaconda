@@ -40,6 +40,9 @@ namespace hiddenAnaconda.Views {
             exit.TabStop = false;
             help.TabStop = false;
             button3.TabStop = false;
+            pictureBox1.Controls.Add(pictureBox3);
+            pictureBox3.Location = new Point(35, -5);
+            pictureBox3.BackColor = Color.Transparent;
         }
 
         protected void textBox2_SetText() {
@@ -113,10 +116,9 @@ namespace hiddenAnaconda.Views {
 
         }
         private void CheckEnter(object sender, System.Windows.Forms.KeyPressEventArgs e) {
-            if (e.KeyChar == (char)13) {
+            if (e.KeyChar == (char) 13) {
                 button1_Click(this, new EventArgs());
             }
         }
-
     }
 }

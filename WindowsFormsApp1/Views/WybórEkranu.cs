@@ -122,19 +122,19 @@ namespace hiddenAnaconda.Views {
         }
 
         private void RaportButton_Click(object sender, EventArgs e) {
-            Models.TimeTable timeTable = new Models.TimeTable();
-            DateTime date = DateTime.Parse("29.11.2020");
-            date = date.AddHours(2);
+            //Models.TimeTable timeTable = new Models.TimeTable();
+            //DateTime date = DateTime.Parse("29.11.2020");
+            //date = date.AddHours(2);
             //timeTable.GetTimeTable(101, "Skalka", date, 1);
             //GenerateReport();
             //timeTable.GetAllBusStops(164);
             // test pdf'a
             //timeTable.SaveToPdf("<p>Przykładowa zawartość</p><br /><p><table style='width:100%'><tr><th>Firstname</th><th>Lastname</th><th>Age</th></tr><tr><td>Jill</td><td>Smith</td><td>50</td></tr><tr><td>Eve</td><td>Jackson</td><td>94</td></tr></table></p>");
-            timeTable.GenerateTimetable("Aleja Korfantego", 0);
+            //timeTable.GenerateTimetable("Aleja Korfantego", 0);
         }
 
         private void Button1_Click(object sender, EventArgs e) {
-            using (Views.DodawanieUzytkownikow InnerForm = new Views.DodawanieUzytkownikow()) {
+            using (Views.EdycjaUżytkowników InnerForm = new Views.EdycjaUżytkowników()) {
                 if (InnerForm.ShowDialog() == DialogResult.OK) {
                 }
             };

@@ -73,6 +73,16 @@ namespace hiddenAnaconda.Properties {
         /// <summary>
         ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _1268 {
+            get {
+                object obj = ResourceManager.GetObject("1268", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _60807 {
             get {
                 object obj = ResourceManager.GetObject("60807", resourceCulture);
