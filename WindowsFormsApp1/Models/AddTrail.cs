@@ -32,6 +32,40 @@ namespace hiddenAnaconda.Models {
                 trail.Add(new StopInTrail(busStop.miasto, busStop.nazwa, item.kolejnosc_przystankow, item.id_trasy, timeStamp.czas_odjazdu1));
             }
         }
+
+        public void EditExistingTrail() {
+
+        }
+
+        public void AddNewTrail(ListBox listBox) {
+            List<StopInTrail> toAdd = new List<StopInTrail>();
+            foreach(var item in listBox.Items) {
+                string row = item.ToString();
+
+                int order = Int32.Parse(row.Substring(0, row.IndexOf(')')));
+                row = row.Substring(row.IndexOf(')')+1).TrimStart();
+
+                string city = row.Substring(0, row.IndexOf(','));
+                row = row.Substring(row.IndexOf(',')+1).TrimStart();
+
+                // tu będzie problem jak pomiędzy nazwą a godziną nie będzie 3 spacji odstępu
+                // w wolnej chwili zmienić na wyszukiwanie HH:mm
+                string name = row.Substring(0, row.IndexOf("   ")).TrimEnd();
+                row = row.Substring(row.IndexOf("   ") + 3).Trim();
+
+                DateTime time = DateTime.Parse(row.Substring(0, 5));
+                toAdd.Add(new StopInTrail(city, name, order, 0, time));
+            }
+            PutTrailIntoDb(toAdd);
+        }
+
+        private void PutTrailIntoDb(List<StopInTrail> trail) {
+            // wstawiać po elemencie trasę i czas
+            foreach (var item in trail) {
+                //dc.trasas.InsertOnSubmit();
+            }
+
+        }
     }
 
     class StopInTrail {

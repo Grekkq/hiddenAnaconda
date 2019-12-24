@@ -14,6 +14,7 @@ namespace hiddenAnaconda.Views {
         bool ErrorIsOn = true;
         // funkcje wspólne dla widoków
         SharedView sharedView = new SharedView();
+        AddTrail trail;
 
         private void Move_window(object sender, MouseEventArgs e) {
             if (e.Button == MouseButtons.Left) {
@@ -131,6 +132,7 @@ namespace hiddenAnaconda.Views {
                 var result = MessageBox.Show("Na pewno chcesz utworzyć trasę?", "Czy na pewno?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.Yes) {
                     //WPISANIE DO BD
+                    trail.AddNewTrail(mainListBox);
                 } else {
                     linia_comboBox.Focus();
                 }
@@ -164,7 +166,8 @@ namespace hiddenAnaconda.Views {
             addButton.Visible = true;
             create.Visible = true;
             deleteButton.Visible = true;
-            new AddTrail(Int32.Parse(this.linia_comboBox.Text), Int32.Parse(this.comboBoxTrasa.Text)).LoadTrailIntoListBox(this.mainListBox);
+            trail = new AddTrail(Int32.Parse(this.linia_comboBox.Text), Int32.Parse(this.comboBoxTrasa.Text));
+            trail.LoadTrailIntoListBox(this.mainListBox);
         }
     }
 }
