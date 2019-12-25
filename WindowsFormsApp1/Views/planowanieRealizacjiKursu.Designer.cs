@@ -23,6 +23,7 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(planowanieRealizacjiKursu));
             this.windowTitle = new System.Windows.Forms.Label();
             this.instructionSublabel = new System.Windows.Forms.Label();
@@ -44,9 +45,11 @@
             this.exit = new System.Windows.Forms.Button();
             this.help = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // windowTitle
@@ -137,6 +140,8 @@
             this.pojazdSelectionComboBox.Name = "pojazdSelectionComboBox";
             this.pojazdSelectionComboBox.Size = new System.Drawing.Size(119, 21);
             this.pojazdSelectionComboBox.TabIndex = 3;
+            this.pojazdSelectionComboBox.SelectedIndexChanged += new System.EventHandler(this.pojazdSelectionComboBox_SelectedIndexChanged);
+            this.pojazdSelectionComboBox.Validating += new System.ComponentModel.CancelEventHandler(this.pojazdSelectionComboBox_Validating);
             // 
             // pojazdSelectionLabel
             // 
@@ -158,6 +163,8 @@
             this.kierowcaSelectionComboBox.Name = "kierowcaSelectionComboBox";
             this.kierowcaSelectionComboBox.Size = new System.Drawing.Size(119, 21);
             this.kierowcaSelectionComboBox.TabIndex = 2;
+            this.kierowcaSelectionComboBox.SelectedIndexChanged += new System.EventHandler(this.kierowcaSelectionComboBox_SelectedIndexChanged);
+            this.kierowcaSelectionComboBox.Validating += new System.ComponentModel.CancelEventHandler(this.kierowcaSelectionComboBox_Validating);
             // 
             // kierowcaSelectionLabel
             // 
@@ -187,6 +194,7 @@
             this.kursSelectionComboBox.Size = new System.Drawing.Size(119, 21);
             this.kursSelectionComboBox.TabIndex = 1;
             this.kursSelectionComboBox.SelectedIndexChanged += new System.EventHandler(this.KursSelectionComboBox_SelectedIndexChanged);
+            this.kursSelectionComboBox.Validating += new System.ComponentModel.CancelEventHandler(this.KursSelectionComboBox_Validating);
             // 
             // kursSelectionLabel
             // 
@@ -209,6 +217,7 @@
             this.liniaSelectionComboBox.Size = new System.Drawing.Size(120, 21);
             this.liniaSelectionComboBox.TabIndex = 0;
             this.liniaSelectionComboBox.SelectedIndexChanged += new System.EventHandler(this.LiniaSelectionComboBox_SelectedIndexChanged);
+            this.liniaSelectionComboBox.Validating += new System.ComponentModel.CancelEventHandler(this.LiniaSelectionComboBox_Validating);
             // 
             // cancel
             // 
@@ -283,6 +292,11 @@
             this.pictureBox1.TabIndex = 51;
             this.pictureBox1.TabStop = false;
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.errorProvider1.ContainerControl = this;
+            // 
             // planowanieRealizacjiKursu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -306,6 +320,7 @@
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -333,5 +348,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button help;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

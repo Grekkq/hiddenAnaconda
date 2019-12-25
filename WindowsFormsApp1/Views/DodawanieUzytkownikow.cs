@@ -19,7 +19,9 @@ namespace hiddenAnaconda.Views
         {
             InitializeComponent();
         }
-        bool ErrorIsOn = true;
+        bool ErrorIsOn, ErrorPermIsOn, ErrorPassIsOn = true;
+
+
         SharedView sharedView = new SharedView();
         ApplicationUser applicationUser = new ApplicationUser();
 
@@ -59,6 +61,17 @@ namespace hiddenAnaconda.Views
 
         private void password_re_Validating(object sender, CancelEventArgs e)
         {
+            if (string.IsNullOrEmpty(password_re.Text))
+            {
+                errorProvider1.SetError(password_re, "Nie wpisano hasła");
+                ErrorIsOn = true;
+            }
+            else
+            {
+                errorProvider1.SetError(password_re, null);
+                ErrorIsOn = false;
+            }
+
             if (password_re.Text!=password.Text) {
                 errorProvider3.SetError(password_re, "Podane hasła nie są identyczne");
                 ErrorIsOn = true;
@@ -74,33 +87,39 @@ namespace hiddenAnaconda.Views
             Regex r = new Regex("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{6,20}$");
             if (!r.IsMatch(password.Text)) {
                 errorProvider2.SetError(password, "Podane hasła nie spełnia wymogów.");
-                ErrorIsOn = true;
+                ErrorPassIsOn = true;
             } else {
                 errorProvider2.SetError(password, null);
-                ErrorIsOn = false;
+                ErrorPassIsOn = false;
             }
         }
 
         private void create_Click(object sender, EventArgs e)
         {
-            if (permissions_level.SelectedIndex == -1) {
-                errorProvider4.SetError(permissions_level, "Nie wybrano poziomu uprawnień");
-                ErrorIsOn = true;
-            } else {
-                errorProvider3.SetError(password_re, null);
-                ErrorIsOn = false;
-            }
-            if (ErrorIsOn == true) {
-                MessageBox.Show("Podano niepoprawne dane!", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            } else {
-                if (applicationUser.CheckIfUserExist(username.Text)) {
+            username.Focus();
+            password.Focus();
+            password_re.Focus();
+            permissions_level.Focus();
+            username.Focus();
+
+            if ((!string.IsNullOrEmpty(username.Text) && !string.IsNullOrEmpty(password.Text) && !string.IsNullOrEmpty(password_re.Text)) && !string.IsNullOrWhiteSpace(permissions_level.Text) && ErrorIsOn == false && ErrorPassIsOn == false && ErrorPermIsOn == false)
+            {
+                username.Focus();
+                if (applicationUser.CheckIfUserExist(username.Text))
+                {
                     MessageBox.Show("Podany user istnieje");
-                } else {
-                    applicationUser.createUser(username.Text, password.Text,Constants.TranslatePermissionLevel(permissions_level.Text));
-                    username.ResetText();
-                    password.ResetText();
-                    password_re.ResetText();
-                    permissions_level.ResetText();
+                }
+                else
+                {
+                    var result = MessageBox.Show("Czy na pewno chcesz utworzyć użytkownika: " + username.Text + "?", "Czy na pewno?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (result == DialogResult.Yes)
+                    {
+                        applicationUser.createUser(username.Text, password.Text, Constants.TranslatePermissionLevel(permissions_level.Text));
+                        username.ResetText();
+                        password.ResetText();
+                        password_re.ResetText();
+                        permissions_level.ResetText();
+                    }
                 }
             }
                 
@@ -126,5 +145,37 @@ namespace hiddenAnaconda.Views
             this.permissions_level.Items.Add(Constants.MenagerPermission);
             this.permissions_level.Items.Add(Constants.DriverPermission);
         }
+
+        private void password_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void password_re_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void permissions_level_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void permissions_level_Validating(object sender, CancelEventArgs e)
+        {
+
+            if (permissions_level.SelectedIndex == -1)
+            {
+                errorProvider4.SetError(permissions_level, "Nie wybrano poziomu uprawnień");
+                ErrorPermIsOn = true;
+            }
+            else
+            {
+                errorProvider4.SetError(permissions_level, null);
+                ErrorPermIsOn = false;
+            }
+        }
+
+
     }
 }

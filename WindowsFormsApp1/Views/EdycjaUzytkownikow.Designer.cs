@@ -23,32 +23,35 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EdycjaUzytkownikow));
             this.cancel = new System.Windows.Forms.Button();
             this.create = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.comboBox_uprawnienia = new System.Windows.Forms.ComboBox();
+            this.groupBox_status = new System.Windows.Forms.GroupBox();
+            this.radioButton_nieaktywne = new System.Windows.Forms.RadioButton();
+            this.radioButton_aktywne = new System.Windows.Forms.RadioButton();
+            this.groupBox_status_uprawnienia = new System.Windows.Forms.GroupBox();
+            this.radio_uprawnienia = new System.Windows.Forms.RadioButton();
+            this.radio_status = new System.Windows.Forms.RadioButton();
+            this.comboBox_uzytkownik = new System.Windows.Forms.ComboBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.label_uprawnienia = new System.Windows.Forms.Label();
+            this.label_nazwaUzytkownika = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.help = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.exit = new System.Windows.Forms.Button();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label_nazwaUzytkownika = new System.Windows.Forms.Label();
-            this.comboBox_uzytkownik = new System.Windows.Forms.ComboBox();
-            this.groupBox_status_uprawnienia = new System.Windows.Forms.GroupBox();
-            this.radio_uprawnienia = new System.Windows.Forms.RadioButton();
-            this.radio_status = new System.Windows.Forms.RadioButton();
-            this.groupBox_status = new System.Windows.Forms.GroupBox();
-            this.radioButton_nieaktywne = new System.Windows.Forms.RadioButton();
-            this.radioButton_aktywne = new System.Windows.Forms.RadioButton();
-            this.comboBox_uprawnienia = new System.Windows.Forms.ComboBox();
-            this.label_uprawnienia = new System.Windows.Forms.Label();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel1.SuspendLayout();
+            this.groupBox_status.SuspendLayout();
+            this.groupBox_status_uprawnienia.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.groupBox_status_uprawnienia.SuspendLayout();
-            this.groupBox_status.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // cancel
@@ -69,6 +72,7 @@
             this.create.TabIndex = 8;
             this.create.Text = "Utwórz";
             this.create.UseVisualStyleBackColor = true;
+            this.create.Click += new System.EventHandler(this.create_Click);
             // 
             // panel1
             // 
@@ -88,6 +92,129 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(606, 377);
             this.panel1.TabIndex = 55;
+            // 
+            // comboBox_uprawnienia
+            // 
+            this.comboBox_uprawnienia.FormattingEnabled = true;
+            this.comboBox_uprawnienia.ItemHeight = 13;
+            this.comboBox_uprawnienia.Items.AddRange(new object[] {
+            "Kierowca",
+            "Menedżer",
+            "Układacz Tras",
+            "Administrator"});
+            this.comboBox_uprawnienia.Location = new System.Drawing.Point(18, 260);
+            this.comboBox_uprawnienia.Name = "comboBox_uprawnienia";
+            this.comboBox_uprawnienia.Size = new System.Drawing.Size(150, 21);
+            this.comboBox_uprawnienia.TabIndex = 24;
+            this.comboBox_uprawnienia.SelectedIndexChanged += new System.EventHandler(this.comboBox_uprawnienia_SelectedIndexChanged);
+            this.comboBox_uprawnienia.Validating += new System.ComponentModel.CancelEventHandler(this.comboBox_uprawnienia_Validating);
+            // 
+            // groupBox_status
+            // 
+            this.groupBox_status.Controls.Add(this.radioButton_nieaktywne);
+            this.groupBox_status.Controls.Add(this.radioButton_aktywne);
+            this.groupBox_status.Location = new System.Drawing.Point(16, 226);
+            this.groupBox_status.Name = "groupBox_status";
+            this.groupBox_status.Size = new System.Drawing.Size(174, 68);
+            this.groupBox_status.TabIndex = 23;
+            this.groupBox_status.TabStop = false;
+            this.groupBox_status.Text = "Zmień status konta na:";
+            // 
+            // radioButton_nieaktywne
+            // 
+            this.radioButton_nieaktywne.AutoSize = true;
+            this.radioButton_nieaktywne.Location = new System.Drawing.Point(90, 32);
+            this.radioButton_nieaktywne.Name = "radioButton_nieaktywne";
+            this.radioButton_nieaktywne.Size = new System.Drawing.Size(81, 17);
+            this.radioButton_nieaktywne.TabIndex = 1;
+            this.radioButton_nieaktywne.TabStop = true;
+            this.radioButton_nieaktywne.Text = "Nieaktywne";
+            this.radioButton_nieaktywne.UseVisualStyleBackColor = true;
+            // 
+            // radioButton_aktywne
+            // 
+            this.radioButton_aktywne.AutoSize = true;
+            this.radioButton_aktywne.Location = new System.Drawing.Point(18, 32);
+            this.radioButton_aktywne.Name = "radioButton_aktywne";
+            this.radioButton_aktywne.Size = new System.Drawing.Size(66, 17);
+            this.radioButton_aktywne.TabIndex = 0;
+            this.radioButton_aktywne.TabStop = true;
+            this.radioButton_aktywne.Text = "Aktywne";
+            this.radioButton_aktywne.UseVisualStyleBackColor = true;
+            // 
+            // groupBox_status_uprawnienia
+            // 
+            this.groupBox_status_uprawnienia.Controls.Add(this.radio_uprawnienia);
+            this.groupBox_status_uprawnienia.Controls.Add(this.radio_status);
+            this.groupBox_status_uprawnienia.Location = new System.Drawing.Point(16, 140);
+            this.groupBox_status_uprawnienia.Name = "groupBox_status_uprawnienia";
+            this.groupBox_status_uprawnienia.Size = new System.Drawing.Size(243, 80);
+            this.groupBox_status_uprawnienia.TabIndex = 23;
+            this.groupBox_status_uprawnienia.TabStop = false;
+            this.groupBox_status_uprawnienia.Text = "Edycja dotyczy:";
+            // 
+            // radio_uprawnienia
+            // 
+            this.radio_uprawnienia.AutoSize = true;
+            this.radio_uprawnienia.Location = new System.Drawing.Point(113, 32);
+            this.radio_uprawnienia.Name = "radio_uprawnienia";
+            this.radio_uprawnienia.Size = new System.Drawing.Size(117, 17);
+            this.radio_uprawnienia.TabIndex = 1;
+            this.radio_uprawnienia.TabStop = true;
+            this.radio_uprawnienia.Text = "Poziomu uprawnień";
+            this.radio_uprawnienia.UseVisualStyleBackColor = true;
+            this.radio_uprawnienia.CheckedChanged += new System.EventHandler(this.radio_uprawnienia_CheckedChanged);
+            // 
+            // radio_status
+            // 
+            this.radio_status.AutoSize = true;
+            this.radio_status.Location = new System.Drawing.Point(16, 32);
+            this.radio_status.Name = "radio_status";
+            this.radio_status.Size = new System.Drawing.Size(91, 17);
+            this.radio_status.TabIndex = 0;
+            this.radio_status.TabStop = true;
+            this.radio_status.Text = "Statusu konta";
+            this.radio_status.UseVisualStyleBackColor = true;
+            this.radio_status.CheckedChanged += new System.EventHandler(this.radio_status_CheckedChanged);
+            // 
+            // comboBox_uzytkownik
+            // 
+            this.comboBox_uzytkownik.FormattingEnabled = true;
+            this.comboBox_uzytkownik.Location = new System.Drawing.Point(18, 110);
+            this.comboBox_uzytkownik.Name = "comboBox_uzytkownik";
+            this.comboBox_uzytkownik.Size = new System.Drawing.Size(120, 21);
+            this.comboBox_uzytkownik.TabIndex = 22;
+            this.comboBox_uzytkownik.SelectedIndexChanged += new System.EventHandler(this.comboBox_uzytkownik_SelectedIndexChanged);
+            this.comboBox_uzytkownik.Validating += new System.ComponentModel.CancelEventHandler(this.comboBox_uzytkownik_Validating);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.White;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(537, 5);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(66, 54);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 21;
+            this.pictureBox2.TabStop = false;
+            // 
+            // label_uprawnienia
+            // 
+            this.label_uprawnienia.AutoSize = true;
+            this.label_uprawnienia.Location = new System.Drawing.Point(16, 240);
+            this.label_uprawnienia.Name = "label_uprawnienia";
+            this.label_uprawnienia.Size = new System.Drawing.Size(164, 13);
+            this.label_uprawnienia.TabIndex = 13;
+            this.label_uprawnienia.Text = "Wybierz nowy poziom uprawnień:";
+            // 
+            // label_nazwaUzytkownika
+            // 
+            this.label_nazwaUzytkownika.AutoSize = true;
+            this.label_nazwaUzytkownika.Location = new System.Drawing.Point(16, 90);
+            this.label_nazwaUzytkownika.Name = "label_nazwaUzytkownika";
+            this.label_nazwaUzytkownika.Size = new System.Drawing.Size(107, 13);
+            this.label_nazwaUzytkownika.TabIndex = 13;
+            this.label_nazwaUzytkownika.Text = "Wybierz użytkownika";
             // 
             // label2
             // 
@@ -157,17 +284,6 @@
             this.exit.MouseEnter += new System.EventHandler(this.hover_exitbutton);
             this.exit.MouseLeave += new System.EventHandler(this.leave_exitbutton);
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.Color.White;
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(537, 5);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(66, 54);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 21;
-            this.pictureBox2.TabStop = false;
-            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::hiddenAnaconda.Properties.Resources.icon;
@@ -178,116 +294,12 @@
             this.pictureBox1.TabIndex = 59;
             this.pictureBox1.TabStop = false;
             // 
-            // label_nazwaUzytkownika
+            // errorProvider1
             // 
-            this.label_nazwaUzytkownika.AutoSize = true;
-            this.label_nazwaUzytkownika.Location = new System.Drawing.Point(16, 90);
-            this.label_nazwaUzytkownika.Name = "label_nazwaUzytkownika";
-            this.label_nazwaUzytkownika.Size = new System.Drawing.Size(107, 13);
-            this.label_nazwaUzytkownika.TabIndex = 13;
-            this.label_nazwaUzytkownika.Text = "Wybierz użytkownika";
+            this.errorProvider1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.errorProvider1.ContainerControl = this;
             // 
-            // comboBox_uzytkownik
-            // 
-            this.comboBox_uzytkownik.FormattingEnabled = true;
-            this.comboBox_uzytkownik.Location = new System.Drawing.Point(18, 110);
-            this.comboBox_uzytkownik.Name = "comboBox_uzytkownik";
-            this.comboBox_uzytkownik.Size = new System.Drawing.Size(120, 21);
-            this.comboBox_uzytkownik.TabIndex = 22;
-            this.comboBox_uzytkownik.SelectedIndexChanged += new System.EventHandler(this.comboBox_uzytkownik_SelectedIndexChanged);
-            // 
-            // groupBox_status_uprawnienia
-            // 
-            this.groupBox_status_uprawnienia.Controls.Add(this.radio_uprawnienia);
-            this.groupBox_status_uprawnienia.Controls.Add(this.radio_status);
-            this.groupBox_status_uprawnienia.Location = new System.Drawing.Point(16, 140);
-            this.groupBox_status_uprawnienia.Name = "groupBox_status_uprawnienia";
-            this.groupBox_status_uprawnienia.Size = new System.Drawing.Size(243, 80);
-            this.groupBox_status_uprawnienia.TabIndex = 23;
-            this.groupBox_status_uprawnienia.TabStop = false;
-            this.groupBox_status_uprawnienia.Text = "Edycja dotyczy:";
-            // 
-            // radio_uprawnienia
-            // 
-            this.radio_uprawnienia.AutoSize = true;
-            this.radio_uprawnienia.Location = new System.Drawing.Point(113, 32);
-            this.radio_uprawnienia.Name = "radio_uprawnienia";
-            this.radio_uprawnienia.Size = new System.Drawing.Size(117, 17);
-            this.radio_uprawnienia.TabIndex = 1;
-            this.radio_uprawnienia.TabStop = true;
-            this.radio_uprawnienia.Text = "Poziomu uprawnień";
-            this.radio_uprawnienia.UseVisualStyleBackColor = true;
-            this.radio_uprawnienia.CheckedChanged += new System.EventHandler(this.radio_uprawnienia_CheckedChanged);
-            // 
-            // radio_status
-            // 
-            this.radio_status.AutoSize = true;
-            this.radio_status.Location = new System.Drawing.Point(16, 32);
-            this.radio_status.Name = "radio_status";
-            this.radio_status.Size = new System.Drawing.Size(91, 17);
-            this.radio_status.TabIndex = 0;
-            this.radio_status.TabStop = true;
-            this.radio_status.Text = "Statusu konta";
-            this.radio_status.UseVisualStyleBackColor = true;
-            this.radio_status.CheckedChanged += new System.EventHandler(this.radio_status_CheckedChanged);
-            // 
-            // groupBox_status
-            // 
-            this.groupBox_status.Controls.Add(this.radioButton_nieaktywne);
-            this.groupBox_status.Controls.Add(this.radioButton_aktywne);
-            this.groupBox_status.Location = new System.Drawing.Point(16, 226);
-            this.groupBox_status.Name = "groupBox_status";
-            this.groupBox_status.Size = new System.Drawing.Size(174, 68);
-            this.groupBox_status.TabIndex = 23;
-            this.groupBox_status.TabStop = false;
-            this.groupBox_status.Text = "Zmień status konta na:";
-            // 
-            // radioButton_nieaktywne
-            // 
-            this.radioButton_nieaktywne.AutoSize = true;
-            this.radioButton_nieaktywne.Location = new System.Drawing.Point(90, 32);
-            this.radioButton_nieaktywne.Name = "radioButton_nieaktywne";
-            this.radioButton_nieaktywne.Size = new System.Drawing.Size(81, 17);
-            this.radioButton_nieaktywne.TabIndex = 1;
-            this.radioButton_nieaktywne.TabStop = true;
-            this.radioButton_nieaktywne.Text = "Nieaktywne";
-            this.radioButton_nieaktywne.UseVisualStyleBackColor = true;
-            // 
-            // radioButton_aktywne
-            // 
-            this.radioButton_aktywne.AutoSize = true;
-            this.radioButton_aktywne.Location = new System.Drawing.Point(18, 32);
-            this.radioButton_aktywne.Name = "radioButton_aktywne";
-            this.radioButton_aktywne.Size = new System.Drawing.Size(66, 17);
-            this.radioButton_aktywne.TabIndex = 0;
-            this.radioButton_aktywne.TabStop = true;
-            this.radioButton_aktywne.Text = "Aktywne";
-            this.radioButton_aktywne.UseVisualStyleBackColor = true;
-            // 
-            // comboBox_uprawnienia
-            // 
-            this.comboBox_uprawnienia.FormattingEnabled = true;
-            this.comboBox_uprawnienia.ItemHeight = 13;
-            this.comboBox_uprawnienia.Items.AddRange(new object[] {
-            "Kierowca",
-            "Menedżer",
-            "Układacz Tras",
-            "Administrator"});
-            this.comboBox_uprawnienia.Location = new System.Drawing.Point(18, 260);
-            this.comboBox_uprawnienia.Name = "comboBox_uprawnienia";
-            this.comboBox_uprawnienia.Size = new System.Drawing.Size(150, 21);
-            this.comboBox_uprawnienia.TabIndex = 24;
-            // 
-            // label_uprawnienia
-            // 
-            this.label_uprawnienia.AutoSize = true;
-            this.label_uprawnienia.Location = new System.Drawing.Point(16, 240);
-            this.label_uprawnienia.Name = "label_uprawnienia";
-            this.label_uprawnienia.Size = new System.Drawing.Size(164, 13);
-            this.label_uprawnienia.TabIndex = 13;
-            this.label_uprawnienia.Text = "Wybierz nowy poziom uprawnień:";
-            // 
-            // EdycjaUżytkowników
+            // EdycjaUzytkownikow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -300,7 +312,7 @@
             this.Controls.Add(this.exit);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "EdycjaUżytkowników";
+            this.Name = "EdycjaUzytkownikow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "EdycjaUżytkowników";
             this.Activated += new System.EventHandler(this.turnoffFocus);
@@ -308,12 +320,13 @@
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.move_window);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.groupBox_status_uprawnienia.ResumeLayout(false);
-            this.groupBox_status_uprawnienia.PerformLayout();
             this.groupBox_status.ResumeLayout(false);
             this.groupBox_status.PerformLayout();
+            this.groupBox_status_uprawnienia.ResumeLayout(false);
+            this.groupBox_status_uprawnienia.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -340,5 +353,6 @@
         private System.Windows.Forms.RadioButton radio_status;
         private System.Windows.Forms.ComboBox comboBox_uprawnienia;
         private System.Windows.Forms.Label label_uprawnienia;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

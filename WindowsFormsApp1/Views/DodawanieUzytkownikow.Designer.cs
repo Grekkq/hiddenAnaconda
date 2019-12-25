@@ -39,25 +39,25 @@
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.password_re = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.permissions_level = new System.Windows.Forms.ComboBox();
             this.username = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.password = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.errorProvider3 = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProvider4 = new System.Windows.Forms.ErrorProvider(this.components);
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.password_re = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.password = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // errorProvider2
@@ -181,6 +181,38 @@
             this.panel1.Size = new System.Drawing.Size(606, 377);
             this.panel1.TabIndex = 50;
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.White;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(537, 5);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(66, 54);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 21;
+            this.pictureBox2.TabStop = false;
+            // 
+            // password_re
+            // 
+            this.password_re.HideSelection = false;
+            this.password_re.Location = new System.Drawing.Point(18, 210);
+            this.password_re.MaxLength = 20;
+            this.password_re.Name = "password_re";
+            this.password_re.PasswordChar = '*';
+            this.password_re.Size = new System.Drawing.Size(150, 20);
+            this.password_re.TabIndex = 3;
+            this.password_re.TextChanged += new System.EventHandler(this.password_re_TextChanged);
+            this.password_re.Validating += new System.ComponentModel.CancelEventHandler(this.password_re_Validating);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(16, 190);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(140, 13);
+            this.label8.TabIndex = 18;
+            this.label8.Text = "Wprowadź hasło ponownie:";
+            // 
             // permissions_level
             // 
             this.permissions_level.FormattingEnabled = true;
@@ -194,6 +226,8 @@
             this.permissions_level.Name = "permissions_level";
             this.permissions_level.Size = new System.Drawing.Size(150, 21);
             this.permissions_level.TabIndex = 4;
+            this.permissions_level.SelectedIndexChanged += new System.EventHandler(this.permissions_level_SelectedIndexChanged);
+            this.permissions_level.Validating += new System.ComponentModel.CancelEventHandler(this.permissions_level_Validating);
             // 
             // username
             // 
@@ -213,6 +247,27 @@
             this.label5.Size = new System.Drawing.Size(133, 13);
             this.label5.TabIndex = 13;
             this.label5.Text = "Podaj nazwę użytkownika:";
+            // 
+            // password
+            // 
+            this.password.HideSelection = false;
+            this.password.Location = new System.Drawing.Point(18, 160);
+            this.password.MaxLength = 20;
+            this.password.Name = "password";
+            this.password.PasswordChar = '*';
+            this.password.Size = new System.Drawing.Size(150, 20);
+            this.password.TabIndex = 2;
+            this.password.TextChanged += new System.EventHandler(this.password_TextChanged);
+            this.password.Validated += new System.EventHandler(this.password_Validated);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(16, 140);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(91, 13);
+            this.label3.TabIndex = 11;
+            this.label3.Text = "Wprowadź hasło:";
             // 
             // label4
             // 
@@ -243,57 +298,6 @@
             this.pictureBox1.TabIndex = 54;
             this.pictureBox1.TabStop = false;
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.Color.White;
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(537, 5);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(66, 54);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 21;
-            this.pictureBox2.TabStop = false;
-            // 
-            // password_re
-            // 
-            this.password_re.HideSelection = false;
-            this.password_re.Location = new System.Drawing.Point(18, 210);
-            this.password_re.MaxLength = 20;
-            this.password_re.Name = "password_re";
-            this.password_re.PasswordChar = '*';
-            this.password_re.Size = new System.Drawing.Size(150, 20);
-            this.password_re.TabIndex = 3;
-            this.password_re.Validating += new System.ComponentModel.CancelEventHandler(this.password_re_Validating);
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(16, 190);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(140, 13);
-            this.label8.TabIndex = 18;
-            this.label8.Text = "Wprowadź hasło ponownie:";
-            // 
-            // password
-            // 
-            this.password.HideSelection = false;
-            this.password.Location = new System.Drawing.Point(18, 160);
-            this.password.MaxLength = 20;
-            this.password.Name = "password";
-            this.password.PasswordChar = '*';
-            this.password.Size = new System.Drawing.Size(150, 20);
-            this.password.TabIndex = 2;
-            this.password.Validated += new System.EventHandler(this.password_Validated);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(16, 140);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(91, 13);
-            this.label3.TabIndex = 11;
-            this.label3.Text = "Wprowadź hasło:";
-            // 
             // DodawanieUzytkownikow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -316,10 +320,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
