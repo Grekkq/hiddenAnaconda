@@ -87,7 +87,10 @@ namespace hiddenAnaconda {
         }
 
         private List<string> GetTrailDirectionsFromDb(string busStopName) {
-            return dc.przystaneks.Where(p => p.nazwa.Equals(busStopName)).Select(p => p.kierunek).ToList();
+            var data = dc.przystaneks.Where(p => p.nazwa.Equals(busStopName)).Select(p => p.kierunek).ToList();
+            if (data.First() == null)
+                return new List<string>() { "Przystanek jednokierunkowy" };
+            return data;
         }
 
         // przesuwanie okna
