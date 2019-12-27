@@ -138,6 +138,12 @@
     <Compile Include="Views\DodawanieNowejLinii.Designer.cs">
       <DependentUpon>DodawanieNowejLinii.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\TworzenieRaportu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\TworzenieRaportu.Designer.cs">
+      <DependentUpon>TworzenieRaportu.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\WypelnianieCzasuRealizacjiKursu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -180,6 +186,12 @@
     <Compile Include="Views\DodawanieTrasy.Designer.cs">
       <DependentUpon>DodawanieTrasy.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\ZapiszJako.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ZapiszJako.Designer.cs">
+      <DependentUpon>ZapiszJako.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\ZmianaStatusu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -215,6 +227,9 @@
     <EmbeddedResource Include="Views\DodawanieNowejLinii.resx">
       <DependentUpon>DodawanieNowejLinii.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\TworzenieRaportu.resx">
+      <DependentUpon>TworzenieRaportu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\WypelnianieCzasuRealizacjiKursu.resx">
       <DependentUpon>WypelnianieCzasuRealizacjiKursu.cs</DependentUpon>
     </EmbeddedResource>
@@ -235,6 +250,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\DodawanieTrasy.resx">
       <DependentUpon>DodawanieTrasy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ZapiszJako.resx">
+      <DependentUpon>ZapiszJako.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\ZmianaStatusu.resx">
       <DependentUpon>ZmianaStatusu.cs</DependentUpon>

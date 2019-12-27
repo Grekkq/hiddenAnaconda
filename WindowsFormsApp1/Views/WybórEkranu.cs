@@ -122,6 +122,10 @@ namespace hiddenAnaconda.Views {
         }
 
         private void RaportButton_Click(object sender, EventArgs e) {
+            using (Views.TworzenieRaportu InnerForm = new Views.TworzenieRaportu()) {
+                if (InnerForm.ShowDialog() == DialogResult.OK) {
+                }
+            };
             //Models.TimeTable timeTable = new Models.TimeTable();
             //DateTime date = DateTime.Parse("29.11.2020");
             //date = date.AddHours(2);

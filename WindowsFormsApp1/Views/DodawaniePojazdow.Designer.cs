@@ -129,7 +129,6 @@
             this.year_number.Name = "year_number";
             this.year_number.Size = new System.Drawing.Size(47, 20);
             this.year_number.TabIndex = 21;
-            this.year_number.ValueChanged += new System.EventHandler(this.year_number_ValueChanged);
             this.year_number.Validating += new System.ComponentModel.CancelEventHandler(this.year_number_Validating);
             // 
             // pictureBox2
@@ -184,7 +183,6 @@
             this.label8.Size = new System.Drawing.Size(141, 13);
             this.label8.TabIndex = 17;
             this.label8.Text = "Podaj rok produkcji pojazdu:";
-            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // vin_number
             // 
@@ -195,7 +193,6 @@
             this.vin_number.Name = "vin_number";
             this.vin_number.Size = new System.Drawing.Size(150, 20);
             this.vin_number.TabIndex = 3;
-            this.vin_number.TextChanged += new System.EventHandler(this.vin_number_TextChanged);
             this.vin_number.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.vin_number_TextChanged);
             this.vin_number.Validating += new System.ComponentModel.CancelEventHandler(this.vin_number_Validating);
             // 
@@ -207,7 +204,6 @@
             this.label7.Size = new System.Drawing.Size(133, 13);
             this.label7.TabIndex = 15;
             this.label7.Text = "Podaj numer VIN  pojazdu:";
-            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // plate_numer
             // 
@@ -218,7 +214,6 @@
             this.plate_numer.Name = "plate_numer";
             this.plate_numer.Size = new System.Drawing.Size(149, 20);
             this.plate_numer.TabIndex = 2;
-            this.plate_numer.TextChanged += new System.EventHandler(this.plate_numer_TextChanged);
             this.plate_numer.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.plate_number_TextChanged);
             this.plate_numer.Validating += new System.ComponentModel.CancelEventHandler(this.plate_numer_Validating);
             // 
@@ -230,7 +225,6 @@
             this.label6.Size = new System.Drawing.Size(170, 13);
             this.label6.TabIndex = 13;
             this.label6.Text = "Podaj numer rejestracyjny pojazdu:";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // model_name
             // 
@@ -252,7 +246,6 @@
             this.label5.Size = new System.Drawing.Size(108, 13);
             this.label5.TabIndex = 11;
             this.label5.Text = "Podaj model pojazdu:";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // groupBox1
             // 
