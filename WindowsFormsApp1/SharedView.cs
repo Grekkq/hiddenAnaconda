@@ -50,7 +50,7 @@ namespace hiddenAnaconda {
             return dc.trasas.Where(t => t.id_linii == lineNumber).Select(t => t.nr_trasy.ToString()).Distinct().ToList();
         }
 
-        public void LoadBusStopsIntoComboBox(ComboBox comboBox) {
+        public void LoadCitiesIntoComboBox(ComboBox comboBox) {
             comboBox.Items.Clear();
             foreach (var busStop in GetAllCitiesFromDb())
                 comboBox.Items.Add(busStop);
@@ -68,6 +68,26 @@ namespace hiddenAnaconda {
 
         private List<string> GetAllDayTypesFromDb() {
             return dc.dni_kursowanias.Select(d => d.rodzaj_kursu).Distinct().ToList();
+        }
+
+        public void LoadBusStopsIntoComboBox(ComboBox comboBox, string city) {
+            comboBox.Items.Clear();
+            foreach (var busStop in GetBusStopsFromDb(city))
+                comboBox.Items.Add(busStop);
+        }
+
+        private List<string> GetBusStopsFromDb(string city) {
+            return dc.przystaneks.Where(p => p.miasto.Equals(city)).Select(p => p.nazwa).Distinct().ToList();
+        }
+
+        public void LoadTrailDirectionIntoComboBox(ComboBox comboBox, string busStopName) {
+            comboBox.Items.Clear();
+            foreach (var trailDirection in GetTrailDirectionsFromDb(busStopName))
+                comboBox.Items.Add(trailDirection);
+        }
+
+        private List<string> GetTrailDirectionsFromDb(string busStopName) {
+            return dc.przystaneks.Where(p => p.nazwa.Equals(busStopName)).Select(p => p.kierunek).ToList();
         }
 
         // przesuwanie okna

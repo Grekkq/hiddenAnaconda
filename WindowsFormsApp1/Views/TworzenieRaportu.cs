@@ -62,6 +62,8 @@ namespace hiddenAnaconda.Views {
             this.comboBox_kierunek.Items.Add("Knurów-Gliwice");
             this.comboBox_kierunek.Items.Add("Gliwice-Zabrze");
             this.comboBox_kierunek.Items.Add("Zabrze-Gliwice");
+
+            sharedView.LoadCitiesIntoComboBox(comboBox_miasto);
         }
 
         private void exit_Click(object sender, EventArgs e) {
@@ -76,12 +78,14 @@ namespace hiddenAnaconda.Views {
             label_kierunek.Visible = true;
             comboBox_kierunek.Visible = true;
             comboBox_kierunek.Focus();
+            sharedView.LoadTrailDirectionIntoComboBox(comboBox_kierunek, comboBox_przystanek.Text);
         }
 
         private void comboBox_miasto_SelectedIndexChanged(object sender, EventArgs e) {
             label_przystanek.Visible = true;
             comboBox_przystanek.Visible = true;
             comboBox_przystanek.Focus();
+            sharedView.LoadBusStopsIntoComboBox(comboBox_przystanek, comboBox_miasto.Text);
         }
 
         private void comboBox_miasto_Validating(object sender, CancelEventArgs e) {
