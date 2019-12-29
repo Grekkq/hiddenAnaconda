@@ -90,7 +90,7 @@ namespace hiddenAnaconda.Views {
 
         private void Dodaj_Click(object sender, EventArgs e)
         {
-            if ((!string.IsNullOrEmpty(textbox_time.Text) && !string.IsNullOrEmpty(comboBox_przystanek.Text) && !string.IsNullOrEmpty(comboBox_miasto.Text) && ErrorIsOn == false))
+            if ((!string.IsNullOrEmpty(textbox_time.Text) && !string.IsNullOrEmpty(comboBox_kierunek.Text) && !string.IsNullOrEmpty(comboBox_przystanek.Text) && !string.IsNullOrEmpty(comboBox_miasto.Text) && ErrorIsOn == false))
             {
                 if (MessageBox.Show("Na pewno chcesz dodać przystanek?", "Dodanie przystanku", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
@@ -103,6 +103,7 @@ namespace hiddenAnaconda.Views {
             {
                 textbox_time.Focus();
                 comboBox_miasto.Focus();
+                comboBox_kierunek.Focus();
                 comboBox_przystanek.Focus();
             }
 
@@ -205,12 +206,12 @@ namespace hiddenAnaconda.Views {
         {
             if (string.IsNullOrEmpty(comboBox_kierunek.Text))
             {
-                errorProvider1.SetError(comboBox_kierunek, "Nie wybrano kierunku");
+                errorProvider2.SetError(comboBox_kierunek, "Nie wybrano kierunku");
                 ErrorIsOn = true;
             }
             else
             {
-                errorProvider1.SetError(comboBox_kierunek, null);
+                errorProvider2.SetError(comboBox_kierunek, null);
                 ErrorIsOn = false;
             }
         }

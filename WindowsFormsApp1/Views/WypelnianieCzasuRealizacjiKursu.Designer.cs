@@ -104,6 +104,8 @@
             this.driver.Name = "driver";
             this.driver.Size = new System.Drawing.Size(121, 21);
             this.driver.TabIndex = 2;
+            this.driver.SelectedIndexChanged += new System.EventHandler(this.driver_SelectedIndexChanged);
+            this.driver.Validating += new System.ComponentModel.CancelEventHandler(this.driver_SelectedIndexChanged_Validating);
             // 
             // alertpic
             // 
@@ -193,6 +195,7 @@
             this.kurs.TabIndex = 0;
             this.kurs.SelectedIndexChanged += new System.EventHandler(this.kurs_SelectedIndexChanged);
             this.kurs.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ComboBox1_KeyPress);
+            this.kurs.Validating += new System.ComponentModel.CancelEventHandler(this.kurs_SelectedIndexChanged_Validating);
             // 
             // cancel
             // 

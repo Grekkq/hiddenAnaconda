@@ -61,7 +61,10 @@ namespace hiddenAnaconda.Views {
         }
 
         private void Create_Click(object sender, EventArgs e) {
-            if (ErrorIsOn == false) {
+            comboBox_linia.Focus();
+            comboBox_rodzajKursu.Focus();
+            comboBox_trasa.Focus();
+            if (!string.IsNullOrEmpty(comboBox_linia.Text) && !string.IsNullOrEmpty(comboBox_trasa.Text) && !string.IsNullOrEmpty(comboBox_rodzajKursu.Text) && ErrorIsOn == false) {
                 if (MessageBox.Show("Na pewno chcesz dodać kurs?", "Dodanie kursu", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) {
                     const string message = "Pomyślnie utworzono nowy kurs";
                     const string caption = "Sukces";

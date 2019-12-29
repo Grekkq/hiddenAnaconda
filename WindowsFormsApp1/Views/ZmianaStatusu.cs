@@ -14,6 +14,8 @@ namespace hiddenAnaconda.Views {
             InitializeComponent();
         }
 
+        bool ErrorIsOn, ErrorKierIsOn = true;
+
         SharedView sharedView = new SharedView();
         Models.StatusChange statusChange = new Models.StatusChange();
 
@@ -103,7 +105,21 @@ namespace hiddenAnaconda.Views {
             radioButton4.Visible = false;
         }
 
-        private void kierowcaSelectionComboBox_SelectedIndexChanged(object sender, EventArgs e) {
+        private void pojazdSelectionComboBox_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(pojazdSelectionComboBox.Text))
+            {
+                errorProvider1.SetError(pojazdSelectionComboBox, "Nie wybrano pojazdu");
+                ErrorIsOn = true;
+            }
+            else
+            {
+                errorProvider1.SetError(pojazdSelectionComboBox, null);
+                ErrorIsOn = false;
+            }
+        }
+
+            private void kierowcaSelectionComboBox_SelectedIndexChanged(object sender, EventArgs e) {
             //czyszczenie wcześniej zaznaczonych opcji
             radioButton3.Checked = false;
             radioButton4.Checked = false;
@@ -119,36 +135,134 @@ namespace hiddenAnaconda.Views {
             radio_pojazd.Visible = false;
         }
 
-        // TODO: zmienne z aktualnie zaznaczonym statusem
-        private void Aktualizuj_Click(object sender, EventArgs e) {
-            if (pojazd.Checked == false & kierowca.Checked == false) {
-                MessageBox.Show("Nie wypełniono formularza.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            } else if (pojazd.Checked == true & pojazdSelectionComboBox.SelectedIndex == -1) {
-                MessageBox.Show("Nie wybrano pojazdu.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            } else if (kierowca.Checked == true & kierowcaSelectionComboBox.SelectedIndex == -1) {
-                MessageBox.Show("Nie wybrano kierowcy.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            } else if (kierowcaSelectionComboBox.SelectedIndex != -1 & (radioButton3.Checked == false & radioButton4.Checked == false)) {
-                MessageBox.Show("Nie wybrano statusu kierowcy.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            } else if (pojazdSelectionComboBox.SelectedIndex != -1 & (radioButton1.Checked == false & radioButton2.Checked == false)) {
-                MessageBox.Show("Nie wybrano statusu pojazdu.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            } else {
-                string obiekt = "";
-                if (pojazd.Checked == true) {
-                    obiekt = "pojazdu";
-                    if (radioButton1.Checked == true)
-                        statusChange.ChangeVehicleStatus(pojazdSelectionComboBox.Text, true);
-                    else
-                        statusChange.ChangeVehicleStatus(pojazdSelectionComboBox.Text, false);
-                } else {
-                    obiekt = "kierowcy";
-                    if (radioButton4.Checked == true)
-                        statusChange.ChangeDriverStatus(kierowcaSelectionComboBox.Text, true);
-                    else
-                        statusChange.ChangeDriverStatus(kierowcaSelectionComboBox.Text, false);
-                }
-                MessageBox.Show("Pomyślnie zmieniono status " + obiekt + ".", "Sukces", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Close();
+
+        private void kierowcaSelectionComboBox_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(kierowcaSelectionComboBox.Text))
+            {
+                errorProvider1.SetError(kierowcaSelectionComboBox, "Nie wybrano kierowcy");
+                ErrorKierIsOn = true;
             }
+            else
+            {
+                errorProvider1.SetError(kierowcaSelectionComboBox, null);
+                ErrorKierIsOn = false;
+            }
+        }
+
+        // TODO: zmienne z aktualnie zaznaczonym statusem
+        private void Aktualizuj_Click(object sender, EventArgs e)
+        {
+
+            if (kierowca.Checked == false && pojazd.Checked == false)
+            {
+                MessageBox.Show("Nie zaznaczono odpowiedz na pytanie.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            }
+            else if (kierowca.Checked == true && pojazd.Checked == false)
+            {
+                kierowcaSelectionComboBox.Focus();
+                label2.Focus();
+                kierowcaSelectionComboBox.Focus();
+
+                if ((!string.IsNullOrEmpty(kierowcaSelectionComboBox.Text) && ErrorIsOn == false))
+                {
+                    if (radioButton4.Checked == true || radioButton3.Checked == true)
+                    {
+                        string obiekt = "";
+                        obiekt = "kierowcy";
+                        if (radioButton4.Checked == true)
+                        {
+                            var result = MessageBox.Show("Na pewno chcesz zmienić status kierowcy: ''"+ kierowcaSelectionComboBox.SelectedText + "'' na: ''" + radioButton4.Text + "'' ?", "Zmiana statusu", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                            if (result == DialogResult.Yes)
+                            {
+                                statusChange.ChangeDriverStatus(kierowcaSelectionComboBox.Text, true);
+                            }
+                        }
+                        else
+                        {
+                            var result = MessageBox.Show("Na pewno chcesz zmienić status kierowcy: ''" + kierowcaSelectionComboBox.SelectedText + "'' na: ''" + radioButton3.Text + "'' ?", "Zmiana statusu", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                            if (result == DialogResult.Yes)
+                            {
+                                statusChange.ChangeDriverStatus(kierowcaSelectionComboBox.Text, false);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Nie zaznaczono odpowiedz na pytanie.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+            }
+            else if (kierowca.Checked == false && pojazd.Checked == true)
+            {
+                pojazdSelectionComboBox.Focus();
+                label2.Focus();
+                pojazdSelectionComboBox.Focus();
+                if ((!string.IsNullOrEmpty(pojazdSelectionComboBox.Text) && ErrorIsOn == false))
+                {
+                    string obiekt = "";
+                    obiekt = "pojazdu";
+                    if (radioButton2.Checked == true || radioButton1.Checked == true)
+                    {
+                        if (radioButton1.Checked == true)
+                        {
+                            var result = MessageBox.Show("Na pewno chcesz zmienić status pojazdu: ''" + pojazdSelectionComboBox.SelectedText + "'' na ''" + radioButton1.Text + "'' ?", "Zmiana statusu", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                            if (result == DialogResult.Yes)
+                            {
+                                statusChange.ChangeVehicleStatus(pojazdSelectionComboBox.Text, true);
+                            }
+                        }
+                        else
+                        {
+                            var result = MessageBox.Show("Na pewno chcesz zmienić status pojazdu: " +"''"+  pojazdSelectionComboBox.SelectedText + "'' na " +"''" +radioButton2.Text +"''"+ " ?", "Zmiana statusu", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                            if (result == DialogResult.Yes)
+                            {
+                                statusChange.ChangeVehicleStatus(pojazdSelectionComboBox.Text, false);
+                            }
+                        }
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Nie zaznaczono odpowiedz na pytanie.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+            }
+            /*     
+                else
+                 {
+
+                 }
+                 //////
+                 if (pojazd.Checked == false & kierowca.Checked == false) {
+                     MessageBox.Show("Nie wypełniono formularza.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                 } else if (pojazd.Checked == true & pojazdSelectionComboBox.SelectedIndex == -1) {
+                     MessageBox.Show("Nie wybrano pojazdu.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                 } else if (kierowca.Checked == true & kierowcaSelectionComboBox.SelectedIndex == -1) {
+                     MessageBox.Show("Nie wybrano kierowcy.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                 } else if (kierowcaSelectionComboBox.SelectedIndex != -1 & (radioButton3.Checked == false & radioButton4.Checked == false)) {
+                     MessageBox.Show("Nie wybrano statusu kierowcy.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                 } else if (pojazdSelectionComboBox.SelectedIndex != -1 & (radioButton1.Checked == false & radioButton2.Checked == false)) {
+                     MessageBox.Show("Nie wybrano statusu pojazdu.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                 } else {
+                     string obiekt = "";
+                     if (pojazd.Checked == true) {
+                         obiekt = "pojazdu";
+                         if (radioButton1.Checked == true)
+                             statusChange.ChangeVehicleStatus(pojazdSelectionComboBox.Text, true);
+                         else
+                             statusChange.ChangeVehicleStatus(pojazdSelectionComboBox.Text, false);
+                     } else {
+                         obiekt = "kierowcy";
+                         if (radioButton4.Checked == true)
+                             statusChange.ChangeDriverStatus(kierowcaSelectionComboBox.Text, true);
+                         else
+                             statusChange.ChangeDriverStatus(kierowcaSelectionComboBox.Text, false);
+                     }
+                     MessageBox.Show("Pomyślnie zmieniono status " + obiekt + ".", "Sukces", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                     this.Close();
+                 }*/
         }
     }
 }

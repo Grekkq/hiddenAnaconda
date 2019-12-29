@@ -136,7 +136,7 @@ namespace hiddenAnaconda.Views {
                     comboBox_uprawnienia.Focus();
                     if ((!string.IsNullOrWhiteSpace(comboBox_uprawnienia.Text) && ErrorUprawnieIsOn == false))
                     {
-                        var result = MessageBox.Show("Na pewno chcesz zmienić uprawnienia użytkownika" + comboBox_uprawnienia.SelectedText + "?", "Zmiana uprawnień", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        var result = MessageBox.Show("Na pewno chcesz zmienić poziom uprawnień użytkownika ''"+ comboBox_uzytkownik.Text + "'' na: " + comboBox_uprawnienia.SelectedText + "?", "Zmiana uprawnień", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                         if (result == DialogResult.Yes)
                         {
                             //DOANIE DO BAZY
@@ -156,7 +156,7 @@ namespace hiddenAnaconda.Views {
                 {
                     if ((radioButton_aktywne.Checked == true || radioButton_nieaktywne.Checked == true))
                     {
-                        var result = MessageBox.Show("Na pewno chcesz zmienić status konta" + comboBox_uprawnienia.SelectedText + "?", "Zmiana statusu", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        var result = MessageBox.Show("Na pewno chcesz zmienić status konta ''" + comboBox_uzytkownik.Text + "''?", "Zmiana statusu", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                         if (result == DialogResult.Yes)
                         {
                             //DOANIE DO BAZY

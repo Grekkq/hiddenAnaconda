@@ -141,9 +141,9 @@
             this.label_miasto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.label_miasto.Location = new System.Drawing.Point(16, 90);
             this.label_miasto.Name = "label_miasto";
-            this.label_miasto.Size = new System.Drawing.Size(78, 13);
+            this.label_miasto.Size = new System.Drawing.Size(81, 13);
             this.label_miasto.TabIndex = 15;
-            this.label_miasto.Text = "Wybierz miasto";
+            this.label_miasto.Text = "Wybierz miasto:";
             // 
             // label1
             // 

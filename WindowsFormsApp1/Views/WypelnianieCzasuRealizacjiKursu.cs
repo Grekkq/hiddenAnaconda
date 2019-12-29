@@ -18,6 +18,8 @@ namespace hiddenAnaconda.Views
             InitializeComponent();
         }
 
+        bool ErrorIsOn,ErrorKierIsOn = true;
+
         public const int WM_NCLBUTTONDOWN = 0xA1;                                               // stałe do funkcji przesuwania okna
         public const int HT_CAPTION = 0x2;                                                      //
         [System.Runtime.InteropServices.DllImport("user32.dll")]                                // importowanie funkcji do przesuwania okna
@@ -57,21 +59,20 @@ namespace hiddenAnaconda.Views
         {
             //Regex regex = new Regex(@"^(0[0-9]|1[0-9]|2[0-3]|[0-9]):[0-5][0-9]$");
             //bool isValid = regex.IsMatch(czas_realizacji.Text.Trim());
-            if (kurs.SelectedIndex == -1) {
-                errorProvider1.SetError(kurs, "Nie wybrano kursu");
-            } else if (driver.SelectedIndex == -1) {
-                errorProvider1.SetError(driver, "Nie wybrano kierowcy");
-                goto SkipToEnd;
-            } else {
-                const string message = "Pomyślnie przypisano czas realizacji danego kursu.";
-                const string caption = "Sukces";
-                var result = MessageBox.Show(message, caption, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                if (result == DialogResult.OK) {
+            kurs.Focus();
+            driver.Focus();
+            kurs.Focus();
+            if (ErrorKierIsOn == false && ErrorIsOn == false)
+            { 
+                var result = MessageBox.Show("Czy na pewno chcesz przypisać czas realizacji danego kursu?", "Czy na pewno?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    //WPISANIE DO BD
                     this.Close();
                 }
+             
             }
-        SkipToEnd:
-            ;
+      
         }
 
         private void ComboBox1_KeyPress(object sender, KeyPressEventArgs e)
@@ -85,6 +86,38 @@ namespace hiddenAnaconda.Views
                 tabela.Visible = true;
                 alert.Visible = true;
                 alertpic.Visible = true;
+            }
+        }
+        private void kurs_SelectedIndexChanged_Validating(object sender, CancelEventArgs e)
+        {
+            if (kurs.SelectedIndex == -1)
+            {
+                errorProvider1.SetError(kurs, "Nie wybrano kursu");
+                ErrorIsOn = true;
+            }
+            else
+            {
+                errorProvider1.SetError(kurs, null);
+                ErrorIsOn = false;
+            }
+        }
+
+        private void driver_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ErrorKierIsOn = true;
+        }
+
+        private void driver_SelectedIndexChanged_Validating(object sender, CancelEventArgs e)
+        {
+            if (driver.SelectedIndex == -1)
+            {
+                errorProvider1.SetError(driver, "Nie wybrano kierowcy");
+                ErrorKierIsOn = true;
+            }
+            else
+            {
+                errorProvider1.SetError(driver, null);
+                ErrorKierIsOn = false;
             }
         }
     }

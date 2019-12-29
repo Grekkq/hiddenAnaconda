@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DodawanieDniWolnych));
             this.help = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -47,10 +48,12 @@
             this.label3 = new System.Windows.Forms.Label();
             this.exit = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // help
@@ -101,6 +104,8 @@
             this.type.Name = "type";
             this.type.Size = new System.Drawing.Size(150, 66);
             this.type.TabIndex = 2;
+            this.type.SelectedIndexChanged += new System.EventHandler(this.type_SelectedIndexChanged);
+            this.type.Validating += new System.ComponentModel.CancelEventHandler(this.type_SelectedIndexChanged_Validating);
             // 
             // label7
             // 
@@ -171,6 +176,7 @@
             this.dateTimeEnd.Size = new System.Drawing.Size(200, 20);
             this.dateTimeEnd.TabIndex = 1;
             this.dateTimeEnd.ValueChanged += new System.EventHandler(this.dateTimeEnd_ValueChanged);
+            this.dateTimeEnd.Validating += new System.ComponentModel.CancelEventHandler(this.dateTimeEnd_ValueChanged_Validating);
             // 
             // dateTimeStart
             // 
@@ -179,6 +185,7 @@
             this.dateTimeStart.Size = new System.Drawing.Size(200, 20);
             this.dateTimeStart.TabIndex = 0;
             this.dateTimeStart.ValueChanged += new System.EventHandler(this.dateTimeStart_ValueChanged);
+            this.dateTimeStart.Validating += new System.ComponentModel.CancelEventHandler(this.dateTimeStart_ValueChanged_Validating);
             // 
             // powrot
             // 
@@ -264,6 +271,11 @@
             this.pictureBox1.TabIndex = 58;
             this.pictureBox1.TabStop = false;
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.errorProvider1.ContainerControl = this;
+            // 
             // DodawanieDniWolnych
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -289,6 +301,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -313,5 +326,6 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox type;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

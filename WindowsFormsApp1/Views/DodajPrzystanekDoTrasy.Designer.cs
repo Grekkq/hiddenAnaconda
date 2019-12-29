@@ -46,8 +46,10 @@
             this.anuluj = new System.Windows.Forms.Button();
             this.cancel = new System.Windows.Forms.Button();
             this.label_kierunek = new System.Windows.Forms.Label();
+            this.errorProvider2 = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).BeginInit();
             this.SuspendLayout();
             // 
             // errorProvider1
@@ -161,8 +163,7 @@
             this.comboBox_kierunek.Name = "comboBox_kierunek";
             this.comboBox_kierunek.Size = new System.Drawing.Size(150, 21);
             this.comboBox_kierunek.TabIndex = 2;
-            this.comboBox_kierunek.SelectedIndexChanged += new System.EventHandler(this.comboBox_kierunek_SelectedIndexChanged);
-            this.comboBox_kierunek.Validating += new System.ComponentModel.CancelEventHandler(this.comboBox_kierunek_SelectedIndexChanged);
+            this.comboBox_kierunek.Validating += new System.ComponentModel.CancelEventHandler(this.comboBox_kierunek_Validating);
             // 
             // comboBox_przystanek
             // 
@@ -233,6 +234,11 @@
             this.label_kierunek.TabIndex = 1;
             this.label_kierunek.Text = "Wybierz kierunek:";
             // 
+            // errorProvider2
+            // 
+            this.errorProvider2.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.errorProvider2.ContainerControl = this;
+            // 
             // DodajPrzystanekDoTrasy
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -253,6 +259,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -277,5 +284,6 @@
         private System.Windows.Forms.ComboBox comboBox_przystanek;
         private System.Windows.Forms.ComboBox comboBox_miasto;
         private System.Windows.Forms.Label label_kierunek;
+        private System.Windows.Forms.ErrorProvider errorProvider2;
     }
 }
