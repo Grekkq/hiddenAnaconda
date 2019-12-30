@@ -14,7 +14,9 @@ namespace hiddenAnaconda {
         public const string MenagerPermission = "Menedżer";
         public const string RoutePlannerPermission = "Układacz Tras";
         public const string DateElementForArrivalTime = "01.01.1900 ";
+        public const string OneWayStop = "jednokierunkowy";
         public static readonly Regex FindArrivalTimeInString = new Regex(@"\d[0-9]([^\d]|$)");
+        public static readonly Regex ValidateTimeFormat = new Regex(@"^(?:0?[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$");
         public static int TranslatePermissionLevel(string permission) {
             switch (permission) {
                 case (AdminPermission):

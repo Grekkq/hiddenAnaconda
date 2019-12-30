@@ -23,11 +23,13 @@ namespace hiddenAnaconda.Views {
             this.busStop.Name = data.Name;
             this.busStop.City = data.City;
             this.busStop.ArrivalTime = data.ArrivalTime;
+            this.busStop.Way = data.Way;
             sharedView.LoadCitiesIntoComboBox(comboBox_miasto);
             sharedView.LoadBusStopsIntoComboBox(comboBox_przystanek, busStop.City);
             sharedView.LoadTrailDirectionIntoComboBox(comboBox_kierunek, busStop.Name, busStop.City);
             comboBox_miasto.SelectedIndex = comboBox_miasto.FindString(busStop.City);
             comboBox_przystanek.SelectedIndex = comboBox_przystanek.FindString(busStop.Name);
+            comboBox_kierunek.SelectedIndex = comboBox_kierunek.FindString(busStop.Way);
         }
 
         private void move_window(object sender, MouseEventArgs e) {
@@ -61,8 +63,6 @@ namespace hiddenAnaconda.Views {
         }
 
         private void DodajPrzystanekDoTrasy_Load(object sender, EventArgs e) {
-            // TODO: zdecydować co z kierunkiem
-            //comboBox_kierunek.SelectedIndex = 1;
             sharedView.LoadCitiesIntoComboBox(comboBox_miasto);
             comboBox_miasto.Focus();
         }
@@ -113,12 +113,10 @@ namespace hiddenAnaconda.Views {
         }
 
         private void arrivalTime_Validating(object sender, CancelEventArgs e) {
-            Regex r = new Regex(@"^(?:0?[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$");
-
             if (string.IsNullOrEmpty(textbox_time.Text)) {
                 errorProvider1.SetError(textbox_time, "Nie wpisano godziny");
                 ErrorIsOn = true;
-            } else if (!r.IsMatch(textbox_time.Text)) {
+            } else if (!Constants.ValidateTimeFormat.IsMatch(textbox_time.Text)) {
                 errorProvider1.SetError(textbox_time, "Niepoprawnie wpisana godzina. Akceptowany format czasu: GG:MM");
                 ErrorIsOn = true;
             } else {

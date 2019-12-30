@@ -98,7 +98,7 @@ namespace hiddenAnaconda.Models {
             this.order = order;
             this.trailId = trailId;
             this.arrivalTime = time.TimeOfDay;
-            this.way = way;
+            this.way = way==null?Constants.OneWayStop:way;
         }
     }
 }
