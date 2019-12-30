@@ -10,9 +10,14 @@ using System.Threading.Tasks;
 namespace hiddenAnaconda.Models {
     class TimeTable {
         Models.ReportDataContext dc;
+        private string city, stopName, way, fileName, filePath;
 
-        public TimeTable() {
+        public TimeTable(string city, string name, string way, string fileName, string filePath) {
             dc = new Models.ReportDataContext();
+            this.city = city;
+            this.stopName = name;
+            this.way = way;
+            this.fileName = fileName;
         }
 
         // Get rodzajKursu at specific day
@@ -62,7 +67,7 @@ namespace hiddenAnaconda.Models {
         // Get every stop for one line no matter what
         public List<StopInOrder> GetAllBusStops(int linia) {
             var data = from p in dc.przystaneks
-                       from t in dc.trasas 
+                       from t in dc.trasas
                        where t.id_linii == linia && p.id_przystanku == t.id_przystanku
                        orderby t.nr_trasy, t.kolejnosc_przystankow
                        select new {
@@ -82,22 +87,22 @@ namespace hiddenAnaconda.Models {
             return stopList;
         }
 
-        // Save file on disk
-        public void SaveToPdf(string content) {
+        // ::TESTED:: Save file on disk
+        private void SaveToPdf(string content) {
             var htmlToPdf = new HtmlToPdf();
             var pdf = htmlToPdf.RenderHtmlAsPdf(content);
-            pdf.SaveAs(Path.Combine(Directory.GetCurrentDirectory(), "Report" + ".pdf"));
+            pdf.SaveAs(Path.Combine(filePath, fileName.Trim() + ".pdf"));
         }
 
         // Main function generating timetable
         // TODO: many things xD
-        public void GenerateTimetable(string stopName, int kierunek) {
-            var idTrasyDlaWszystkichLinii = GetTrasaIdForReport(stopName, kierunek);
+        public void GenerateTimetable(string city, string stopName, string way, string path, string fileName) {
+            var idTrasyDlaWszystkichLinii = GetTrasaIdForReport();
             //znajdź wszystkie liniie na przystanku
             List<int> lineName = new List<int>();
             foreach (var item in idTrasyDlaWszystkichLinii) {
-                if (!lineName.Contains(item.id_linii))
-                    lineName.Add(item.id_linii);
+                if (!lineName.Contains(item.Item1))
+                    lineName.Add(item.Item1);
             }
 
             List<string> stops = new List<string>();
@@ -123,42 +128,44 @@ namespace hiddenAnaconda.Models {
 
                 idTrasyDlaLinii.Clear();
                 foreach (var item in idTrasyDlaWszystkichLinii) {
-                    if (item.id_linii.Equals(singleLine))
-                        idTrasyDlaLinii.Add(item.id_trasy);
+                    if (item.Item1.Equals(singleLine))
+                        idTrasyDlaLinii.Add(item.Item2);
                 }
                 sb.Append(ArrivalTimeInHtml(singleLine, idTrasyDlaLinii));
 
             }
+
+
             SaveToPdf(sb.ToString());
         }
 
-        public List<LiniaITrasa> GetTrasaIdForReport(string stopName, int kierunek) {
-            // najwpier id trasy i linii
-            var data = from p in dc.przystaneks
-                       join t in dc.trasas on p.id_przystanku equals t.id_przystanku
-                       join l in dc.linias on t.id_linii equals l.id_linii
-                       where p.nazwa.Contains(stopName)
-                       orderby t.id_linii
-                       select new {
-                           t.id_linii,
-                           t.id_trasy,
-                           t.nr_trasy,
-                           l.czy_zapetla,
-                       };
-            // jeśli jednokierunkowy zwróć wszystko, jeśli nie to zwróć co drugi chyba że linia się nie zapętla
-            //var isOneWay = dc.przystaneks.Where(p => p.nazwa == stopName).First().czy_jednokierunkowy;
-            //List<LiniaITrasa> list = new List<LiniaITrasa>();
-            //if (isOneWay) {
-            //    foreach (var item in data) {
-            //        list.Add(new LiniaITrasa(item.id_linii, item.id_trasy));
-            //    }
-            //} else {
-            //    data = data.Where(d => d.nr_trasy % 2 == kierunek || d.czy_zapetla == false);
-            //    foreach (var item in data) {
-            //        list.Add(new LiniaITrasa(item.id_linii, item.id_trasy));
-            //    }
-            //}
-            return null;
+        // ::TESTED:: wyciągnij informacje o wszystkich trasach na tym przystanku
+        public List<Tuple<int, int>> GetTrasaIdForReport() {
+            int busStopId = -1;
+            if (way.Equals(Constants.OneWayStop))
+                try {
+                    busStopId = dc.przystaneks
+                        .Where(p => p.miasto.Equals(city) && p.nazwa.Equals(stopName))
+                         .Select(p => p.id_przystanku).Single();
+                } catch (Exception e) {
+                    Debug.Print("Propably failed to get single stop for given input\n" + e);
+                } else
+                try {
+                    busStopId = dc.przystaneks
+                        .Where(p => p.miasto.Equals(city) && p.nazwa.Equals(stopName) && p.kierunek.Equals(way))
+                         .Select(p => p.id_przystanku).Single();
+                } catch (Exception e) {
+                    Debug.Print("Propably failed to get single stop for given input\n" + e);
+                }
+
+            var data = dc.trasas.Where(t => t.id_przystanku.Equals(busStopId)).Select(t => new { t.id_linii, t.id_trasy });
+            // linia, idTrasy
+            //Tuple<int, int> idTrasyDlaLinii = new Tuple<int, int>(1,1);
+            List<Tuple<int, int>> idTrasyDlaLinii = new List<Tuple<int, int>>();
+            foreach (var item in data) {
+                idTrasyDlaLinii.Add(Tuple.Create(item.id_linii, item.id_trasy));
+            }
+            return idTrasyDlaLinii;
         }
 
         // daj html'a z czsami przyjazdu dla danych idTrasy
@@ -177,14 +184,5 @@ namespace hiddenAnaconda.Models {
             sb.Append("</p>");
             return sb.ToString();
         }
-    }
-
-
-
-
-    class LiniaITrasa {
-        public int id_linii;
-        public int id_trasy;
-        public LiniaITrasa(int id_linii, int id_trasy) { this.id_linii = id_linii; this.id_trasy = id_trasy; }
     }
 }

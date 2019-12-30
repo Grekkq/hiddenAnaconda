@@ -122,11 +122,17 @@ namespace hiddenAnaconda.Views {
         }
 
         private void create_Click(object sender, EventArgs e) {
-            if (ErrorIsOn == false)
-                using (Views.ZapiszJako InnerForm = new Views.ZapiszJako()) {
+            if (ErrorIsOn == false) {
+                Dictionary<string, string> argsForTimeTableConstructor = new Dictionary<string, string>();
+                argsForTimeTableConstructor.Add(Constants.BusStopCityName, comboBox_miasto.Text);
+                argsForTimeTableConstructor.Add(Constants.BusStopName, comboBox_przystanek.Text);
+                argsForTimeTableConstructor.Add(Constants.BusStopWay, comboBox_kierunek.Text);
+                using (Views.ZapiszJako InnerForm = new Views.ZapiszJako(argsForTimeTableConstructor)) {
                     if (InnerForm.ShowDialog() == DialogResult.OK) {
+
                     }
                 };
+            }
         }
     }
 }
