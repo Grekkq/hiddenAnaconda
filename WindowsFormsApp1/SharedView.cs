@@ -80,14 +80,14 @@ namespace hiddenAnaconda {
             return dc.przystaneks.Where(p => p.miasto.Equals(city)).Select(p => p.nazwa).Distinct().ToList();
         }
 
-        public void LoadTrailDirectionIntoComboBox(ComboBox comboBox, string busStopName) {
+        public void LoadTrailDirectionIntoComboBox(ComboBox comboBox, string busStopName, string cityName) {
             comboBox.Items.Clear();
-            foreach (var trailDirection in GetTrailDirectionsFromDb(busStopName))
+            foreach (var trailDirection in GetTrailDirectionsFromDb(busStopName, cityName))
                 comboBox.Items.Add(trailDirection);
         }
 
-        private List<string> GetTrailDirectionsFromDb(string busStopName) {
-            var data = dc.przystaneks.Where(p => p.nazwa.Equals(busStopName)).Select(p => p.kierunek).ToList();
+        private List<string> GetTrailDirectionsFromDb(string busStopName, string cityName) {
+            var data = dc.przystaneks.Where(p => p.nazwa.Equals(busStopName) && p.miasto.Equals(cityName)).Select(p => p.kierunek).ToList();
             if (data.First() == null)
                 return new List<string>() { "Przystanek jednokierunkowy" };
             return data;

@@ -78,7 +78,7 @@ namespace hiddenAnaconda.Views {
             label_kierunek.Visible = true;
             comboBox_kierunek.Visible = true;
             comboBox_kierunek.Focus();
-            sharedView.LoadTrailDirectionIntoComboBox(comboBox_kierunek, comboBox_przystanek.Text);
+            sharedView.LoadTrailDirectionIntoComboBox(comboBox_kierunek, comboBox_przystanek.Text, comboBox_miasto.Text);
         }
 
         private void comboBox_miasto_SelectedIndexChanged(object sender, EventArgs e) {
