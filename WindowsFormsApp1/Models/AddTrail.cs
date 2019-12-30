@@ -76,7 +76,7 @@ namespace hiddenAnaconda.Models {
                 trasa trasa = new trasa();
                 trasa.id_linii = lineNumber;
                 trasa.nr_trasy = trailNumber;
-                trasa.id_przystanku = dc.przystaneks.Where(p => p.nazwa.Equals(item.name) && p.miasto.Equals(item.city)).Select(p => p.id_przystanku).First();
+                trasa.id_przystanku = dc.przystaneks.Where(p => p.nazwa.Equals(item.name) && p.miasto.Equals(item.city) && p.kierunek.Equals(item.way)).Select(p => p.id_przystanku).First();
                 trasa.kolejnosc_przystankow = order;
                 trasa.czas_odjazdus.Add(czas);
                 dc.trasas.InsertOnSubmit(trasa);
