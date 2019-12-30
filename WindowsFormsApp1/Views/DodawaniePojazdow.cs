@@ -18,6 +18,11 @@ namespace hiddenAnaconda.Views {
             }
         }
 
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData) {
+            return sharedView.EscKeyPressed(this, keyData);
+        }
+
+
         private void hover_exitbutton(object sender, EventArgs e) {
             sharedView.Hover_exitbutton(exit);
         }

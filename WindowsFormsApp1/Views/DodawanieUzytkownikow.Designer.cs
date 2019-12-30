@@ -118,7 +118,7 @@
             this.cancel.Location = new System.Drawing.Point(20, 335);
             this.cancel.Name = "cancel";
             this.cancel.Size = new System.Drawing.Size(80, 30);
-            this.cancel.TabIndex = 9;
+            this.cancel.TabIndex = 5;
             this.cancel.Text = "Anuluj";
             this.cancel.UseVisualStyleBackColor = true;
             this.cancel.Click += new System.EventHandler(this.cancel_Click);
@@ -128,7 +128,7 @@
             this.create.Location = new System.Drawing.Point(507, 335);
             this.create.Name = "create";
             this.create.Size = new System.Drawing.Size(80, 30);
-            this.create.TabIndex = 8;
+            this.create.TabIndex = 4;
             this.create.Text = "Utwórz";
             this.create.UseVisualStyleBackColor = true;
             this.create.Click += new System.EventHandler(this.create_Click);
@@ -200,7 +200,7 @@
             this.password_re.Name = "password_re";
             this.password_re.PasswordChar = '*';
             this.password_re.Size = new System.Drawing.Size(150, 20);
-            this.password_re.TabIndex = 3;
+            this.password_re.TabIndex = 2;
             this.password_re.TextChanged += new System.EventHandler(this.password_re_TextChanged);
             this.password_re.Validating += new System.ComponentModel.CancelEventHandler(this.password_re_Validating);
             // 
@@ -225,7 +225,7 @@
             this.permissions_level.Location = new System.Drawing.Point(18, 260);
             this.permissions_level.Name = "permissions_level";
             this.permissions_level.Size = new System.Drawing.Size(150, 21);
-            this.permissions_level.TabIndex = 4;
+            this.permissions_level.TabIndex = 3;
             this.permissions_level.SelectedIndexChanged += new System.EventHandler(this.permissions_level_SelectedIndexChanged);
             this.permissions_level.Validating += new System.ComponentModel.CancelEventHandler(this.permissions_level_Validating);
             // 
@@ -236,7 +236,7 @@
             this.username.MaxLength = 20;
             this.username.Name = "username";
             this.username.Size = new System.Drawing.Size(150, 20);
-            this.username.TabIndex = 1;
+            this.username.TabIndex = 0;
             this.username.Validating += new System.ComponentModel.CancelEventHandler(this.username_Validating);
             // 
             // label5
@@ -256,7 +256,7 @@
             this.password.Name = "password";
             this.password.PasswordChar = '*';
             this.password.Size = new System.Drawing.Size(150, 20);
-            this.password.TabIndex = 2;
+            this.password.TabIndex = 1;
             this.password.TextChanged += new System.EventHandler(this.password_TextChanged);
             this.password.Validated += new System.EventHandler(this.password_Validated);
             // 

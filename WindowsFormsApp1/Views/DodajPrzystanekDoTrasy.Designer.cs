@@ -189,7 +189,7 @@
             this.dodaj.Location = new System.Drawing.Point(241, 188);
             this.dodaj.Name = "dodaj";
             this.dodaj.Size = new System.Drawing.Size(90, 28);
-            this.dodaj.TabIndex = 3;
+            this.dodaj.TabIndex = 4;
             this.dodaj.Text = "Dodaj";
             this.dodaj.UseVisualStyleBackColor = true;
             this.dodaj.Click += new System.EventHandler(this.Dodaj_Click);
@@ -199,7 +199,7 @@
             this.anuluj.Location = new System.Drawing.Point(20, 188);
             this.anuluj.Name = "anuluj";
             this.anuluj.Size = new System.Drawing.Size(90, 28);
-            this.anuluj.TabIndex = 4;
+            this.anuluj.TabIndex = 5;
             this.anuluj.Text = "Anuluj";
             this.anuluj.UseVisualStyleBackColor = true;
             this.anuluj.Click += new System.EventHandler(this.cancel_Click);

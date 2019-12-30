@@ -17,6 +17,10 @@ namespace hiddenAnaconda.Views {
         bool ErrorIsOn = false;
         SharedView sharedView = new SharedView();
 
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData) {
+            return sharedView.EscKeyPressed(this, keyData);
+        }
+
         private void Move_window(object sender, MouseEventArgs e) {
             if (e.Button == MouseButtons.Left) {
                 sharedView.MoveWindow(sender, e, Handle);

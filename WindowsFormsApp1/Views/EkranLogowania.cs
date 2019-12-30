@@ -13,7 +13,16 @@ namespace hiddenAnaconda.Views {
         public EkranLogowania() {
             InitializeComponent();
         }
+
         SharedView sharedView = new SharedView();
+
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData) {
+            return sharedView.EscKeyPressed(this,keyData);
+        }
+
+        private void TurnoffFocus(object sender, EventArgs e) {
+            ActiveControl = null;
+        }
 
         private void exit_Click(object sender, EventArgs e) {
             this.Close();

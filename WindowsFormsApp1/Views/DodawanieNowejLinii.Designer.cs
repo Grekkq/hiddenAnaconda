@@ -134,7 +134,7 @@
             this.yes.Location = new System.Drawing.Point(31, 32);
             this.yes.Name = "yes";
             this.yes.Size = new System.Drawing.Size(44, 17);
-            this.yes.TabIndex = 0;
+            this.yes.TabIndex = 1;
             this.yes.TabStop = true;
             this.yes.Text = "Tak";
             this.yes.UseVisualStyleBackColor = true;

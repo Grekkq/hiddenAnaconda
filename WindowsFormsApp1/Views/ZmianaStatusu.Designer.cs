@@ -264,7 +264,7 @@
             "Man - ST 12985, niesprawny"});
             this.pojazdSelectionComboBox.Location = new System.Drawing.Point(18, 210);
             this.pojazdSelectionComboBox.Name = "pojazdSelectionComboBox";
-            this.pojazdSelectionComboBox.Size = new System.Drawing.Size(250, 21);
+            this.pojazdSelectionComboBox.Size = new System.Drawing.Size(220, 21);
             this.pojazdSelectionComboBox.TabIndex = 1;
             this.pojazdSelectionComboBox.Visible = false;
             this.pojazdSelectionComboBox.SelectedIndexChanged += new System.EventHandler(this.pojazdSelectionComboBox_SelectedIndexChanged);
@@ -289,7 +289,7 @@
             "Gawron Małgorzata, chorobowe"});
             this.kierowcaSelectionComboBox.Location = new System.Drawing.Point(18, 210);
             this.kierowcaSelectionComboBox.Name = "kierowcaSelectionComboBox";
-            this.kierowcaSelectionComboBox.Size = new System.Drawing.Size(250, 21);
+            this.kierowcaSelectionComboBox.Size = new System.Drawing.Size(160, 21);
             this.kierowcaSelectionComboBox.TabIndex = 2;
             this.kierowcaSelectionComboBox.Visible = false;
             this.kierowcaSelectionComboBox.SelectedIndexChanged += new System.EventHandler(this.kierowcaSelectionComboBox_SelectedIndexChanged);

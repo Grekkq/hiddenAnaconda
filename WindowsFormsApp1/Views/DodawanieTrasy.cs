@@ -16,6 +16,10 @@ namespace hiddenAnaconda.Views {
         SharedView sharedView = new SharedView();
         AddTrail trail;
 
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData) {
+            return sharedView.EscKeyPressed(this, keyData);
+        }
+
         private void Move_window(object sender, MouseEventArgs e) {
             if (e.Button == MouseButtons.Left) {
                 sharedView.MoveWindow(sender, e, Handle);
@@ -153,6 +157,7 @@ namespace hiddenAnaconda.Views {
             label_trasa.Visible = true;
             comboBoxTrasa.Visible = true;
             sharedView.LoadRouteNumberIntoComboBox(comboBoxTrasa, Int32.Parse(linia_comboBox.Text));
+            comboBoxTrasa.Focus();
         }
 
         private void ComboBoxTrasa_SelectedIndexChanged(object sender, EventArgs e) {

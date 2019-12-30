@@ -128,7 +128,7 @@
             this.year_number.Location = new System.Drawing.Point(18, 300);
             this.year_number.Name = "year_number";
             this.year_number.Size = new System.Drawing.Size(47, 20);
-            this.year_number.TabIndex = 21;
+            this.year_number.TabIndex = 4;
             this.year_number.Validating += new System.ComponentModel.CancelEventHandler(this.year_number_Validating);
             // 
             // pictureBox2
@@ -388,6 +388,7 @@
             this.ForeColor = System.Drawing.SystemColors.MenuText;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
             this.Name = "DodawaniePojazdow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Kreator Dodawanie Pojazdu";

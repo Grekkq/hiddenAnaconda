@@ -18,6 +18,10 @@ namespace hiddenAnaconda.Views {
             InitializeComponent();
         }
 
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData) {
+            return sharedView.EscKeyPressed(this, keyData);
+        }
+
         public DodajPrzystanekDoTrasy(Models.routeElementModel data) {
             InitializeComponent();
             this.busStop.Name = data.Name;

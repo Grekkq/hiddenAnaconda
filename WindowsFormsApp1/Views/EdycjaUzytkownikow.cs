@@ -20,6 +20,10 @@ namespace hiddenAnaconda.Views {
 
         SharedView sharedView = new SharedView();
 
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData) {
+            return sharedView.EscKeyPressed(this, keyData);
+        }
+
         private void turnoffFocus(object sender, EventArgs e)
         {
             this.ActiveControl = null;

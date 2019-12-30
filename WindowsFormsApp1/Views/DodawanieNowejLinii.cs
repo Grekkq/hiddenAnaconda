@@ -15,6 +15,10 @@ namespace hiddenAnaconda.Views {
         // funkcje wspólne dla widoków
         SharedView sharedView = new SharedView();
 
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData) {
+            return sharedView.EscKeyPressed(this, keyData);
+        }
+
         private void MoveWindow(object sender, MouseEventArgs e) {
             if (e.Button == MouseButtons.Left) {
                 sharedView.MoveWindow(sender, e, Handle);

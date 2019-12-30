@@ -93,7 +93,7 @@
             this.powrot.Margin = new System.Windows.Forms.Padding(2);
             this.powrot.Name = "powrot";
             this.powrot.Size = new System.Drawing.Size(80, 30);
-            this.powrot.TabIndex = 6;
+            this.powrot.TabIndex = 4;
             this.powrot.Text = "Anuluj";
             this.powrot.UseVisualStyleBackColor = true;
             this.powrot.Click += new System.EventHandler(this.powrot_Click);
@@ -176,7 +176,7 @@
             this.Zapisz.Margin = new System.Windows.Forms.Padding(2);
             this.Zapisz.Name = "Zapisz";
             this.Zapisz.Size = new System.Drawing.Size(80, 30);
-            this.Zapisz.TabIndex = 4;
+            this.Zapisz.TabIndex = 3;
             this.Zapisz.Text = "Dodaj";
             this.Zapisz.UseVisualStyleBackColor = true;
             this.Zapisz.Click += new System.EventHandler(this.Zapisz_Click);

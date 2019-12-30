@@ -59,7 +59,7 @@
             this.cancel.Location = new System.Drawing.Point(20, 335);
             this.cancel.Name = "cancel";
             this.cancel.Size = new System.Drawing.Size(80, 30);
-            this.cancel.TabIndex = 9;
+            this.cancel.TabIndex = 4;
             this.cancel.Text = "Anuluj";
             this.cancel.UseVisualStyleBackColor = true;
             this.cancel.Click += new System.EventHandler(this.cancel_Click);
@@ -69,8 +69,8 @@
             this.create.Location = new System.Drawing.Point(507, 335);
             this.create.Name = "create";
             this.create.Size = new System.Drawing.Size(80, 30);
-            this.create.TabIndex = 8;
-            this.create.Text = "Utwórz";
+            this.create.TabIndex = 3;
+            this.create.Text = "Zapisz";
             this.create.UseVisualStyleBackColor = true;
             this.create.Click += new System.EventHandler(this.create_Click);
             // 
@@ -105,7 +105,7 @@
             this.comboBox_uprawnienia.Location = new System.Drawing.Point(18, 260);
             this.comboBox_uprawnienia.Name = "comboBox_uprawnienia";
             this.comboBox_uprawnienia.Size = new System.Drawing.Size(150, 21);
-            this.comboBox_uprawnienia.TabIndex = 24;
+            this.comboBox_uprawnienia.TabIndex = 2;
             this.comboBox_uprawnienia.SelectedIndexChanged += new System.EventHandler(this.comboBox_uprawnienia_SelectedIndexChanged);
             this.comboBox_uprawnienia.Validating += new System.ComponentModel.CancelEventHandler(this.comboBox_uprawnienia_Validating);
             // 
@@ -116,7 +116,7 @@
             this.groupBox_status.Location = new System.Drawing.Point(16, 226);
             this.groupBox_status.Name = "groupBox_status";
             this.groupBox_status.Size = new System.Drawing.Size(174, 68);
-            this.groupBox_status.TabIndex = 23;
+            this.groupBox_status.TabIndex = 2;
             this.groupBox_status.TabStop = false;
             this.groupBox_status.Text = "Zmień status konta na:";
             // 
@@ -126,7 +126,7 @@
             this.radioButton_nieaktywne.Location = new System.Drawing.Point(90, 32);
             this.radioButton_nieaktywne.Name = "radioButton_nieaktywne";
             this.radioButton_nieaktywne.Size = new System.Drawing.Size(81, 17);
-            this.radioButton_nieaktywne.TabIndex = 1;
+            this.radioButton_nieaktywne.TabIndex = 2;
             this.radioButton_nieaktywne.TabStop = true;
             this.radioButton_nieaktywne.Text = "Nieaktywne";
             this.radioButton_nieaktywne.UseVisualStyleBackColor = true;
@@ -149,7 +149,7 @@
             this.groupBox_status_uprawnienia.Location = new System.Drawing.Point(16, 140);
             this.groupBox_status_uprawnienia.Name = "groupBox_status_uprawnienia";
             this.groupBox_status_uprawnienia.Size = new System.Drawing.Size(243, 80);
-            this.groupBox_status_uprawnienia.TabIndex = 23;
+            this.groupBox_status_uprawnienia.TabIndex = 1;
             this.groupBox_status_uprawnienia.TabStop = false;
             this.groupBox_status_uprawnienia.Text = "Edycja dotyczy:";
             // 
@@ -183,7 +183,7 @@
             this.comboBox_uzytkownik.Location = new System.Drawing.Point(18, 110);
             this.comboBox_uzytkownik.Name = "comboBox_uzytkownik";
             this.comboBox_uzytkownik.Size = new System.Drawing.Size(120, 21);
-            this.comboBox_uzytkownik.TabIndex = 22;
+            this.comboBox_uzytkownik.TabIndex = 0;
             this.comboBox_uzytkownik.SelectedIndexChanged += new System.EventHandler(this.comboBox_uzytkownik_SelectedIndexChanged);
             this.comboBox_uzytkownik.Validating += new System.ComponentModel.CancelEventHandler(this.comboBox_uzytkownik_Validating);
             // 

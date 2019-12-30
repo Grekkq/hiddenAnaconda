@@ -29,6 +29,10 @@ namespace hiddenAnaconda.Views
         // funkcje wspólne dla widoków
         SharedView sharedView = new SharedView();
 
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData) {
+            return sharedView.EscKeyPressed(this, keyData);
+        }
+
         // przesuwanie okna
         private void Move_window(object sender, MouseEventArgs e)
         {

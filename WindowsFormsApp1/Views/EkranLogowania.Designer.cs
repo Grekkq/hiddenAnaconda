@@ -30,13 +30,13 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EkranLogowania));
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.button3 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.help = new System.Windows.Forms.Button();
@@ -48,8 +48,8 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.panel3.SuspendLayout();
@@ -70,17 +70,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(508, 144);
             this.panel1.TabIndex = 10;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.BackColor = System.Drawing.Color.LightGray;
-            this.pictureBox3.Image = global::hiddenAnaconda.Properties.Resources._1268;
-            this.pictureBox3.Location = new System.Drawing.Point(-43, -33);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(47, 40);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox3.TabIndex = 12;
-            this.pictureBox3.TabStop = false;
             // 
             // label1
             // 
@@ -146,6 +135,17 @@
             this.textBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckEnter);
             this.textBox1.Leave += new System.EventHandler(this.textBox1_Leave);
             // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackColor = System.Drawing.Color.LightGray;
+            this.pictureBox3.Image = global::hiddenAnaconda.Properties.Resources._1268;
+            this.pictureBox3.Location = new System.Drawing.Point(-43, -33);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(47, 40);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.TabIndex = 12;
+            this.pictureBox3.TabStop = false;
+            // 
             // button3
             // 
             this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
@@ -171,7 +171,7 @@
             this.panel2.Controls.Add(this.exit);
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.pictureBox4);
-            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Location = new System.Drawing.Point(0, 1);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(509, 33);
             this.panel2.TabIndex = 57;
@@ -294,11 +294,12 @@
             this.Name = "EkranLogowania";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "EkranLogowania";
+            this.Activated += new System.EventHandler(this.TurnoffFocus);
             this.Load += new System.EventHandler(this.EkranLogowania_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();

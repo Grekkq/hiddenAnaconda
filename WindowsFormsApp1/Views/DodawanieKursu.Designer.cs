@@ -137,7 +137,7 @@
             this.cancel.Location = new System.Drawing.Point(20, 325);
             this.cancel.Name = "cancel";
             this.cancel.Size = new System.Drawing.Size(80, 40);
-            this.cancel.TabIndex = 5;
+            this.cancel.TabIndex = 4;
             this.cancel.Text = "Anuluj";
             this.cancel.UseVisualStyleBackColor = true;
             this.cancel.Click += new System.EventHandler(this.Close_on_click);
@@ -147,7 +147,7 @@
             this.create.Location = new System.Drawing.Point(506, 325);
             this.create.Name = "create";
             this.create.Size = new System.Drawing.Size(80, 40);
-            this.create.TabIndex = 4;
+            this.create.TabIndex = 3;
             this.create.Text = "Utwórz";
             this.create.UseVisualStyleBackColor = true;
             this.create.Click += new System.EventHandler(this.Create_Click);

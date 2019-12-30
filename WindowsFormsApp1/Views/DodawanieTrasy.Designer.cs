@@ -93,7 +93,7 @@
             this.cancel.Location = new System.Drawing.Point(20, 335);
             this.cancel.Name = "cancel";
             this.cancel.Size = new System.Drawing.Size(80, 30);
-            this.cancel.TabIndex = 6;
+            this.cancel.TabIndex = 7;
             this.cancel.Text = "Anuluj";
             this.cancel.UseVisualStyleBackColor = false;
             this.cancel.Click += new System.EventHandler(this.Cancel_Click);
@@ -104,7 +104,7 @@
             this.create.Location = new System.Drawing.Point(507, 335);
             this.create.Name = "create";
             this.create.Size = new System.Drawing.Size(80, 30);
-            this.create.TabIndex = 3;
+            this.create.TabIndex = 6;
             this.create.Text = "Utwórz";
             this.create.UseVisualStyleBackColor = false;
             this.create.Click += new System.EventHandler(this.Create_Click);
@@ -150,7 +150,7 @@
             this.checkBox_czyUtworzycNowaTrase.Location = new System.Drawing.Point(313, 98);
             this.checkBox_czyUtworzycNowaTrase.Name = "checkBox_czyUtworzycNowaTrase";
             this.checkBox_czyUtworzycNowaTrase.Size = new System.Drawing.Size(273, 17);
-            this.checkBox_czyUtworzycNowaTrase.TabIndex = 28;
+            this.checkBox_czyUtworzycNowaTrase.TabIndex = 2;
             this.checkBox_czyUtworzycNowaTrase.Text = "Utwórz nową trasę na podstawie zedytowanej tabeli.";
             this.checkBox_czyUtworzycNowaTrase.UseVisualStyleBackColor = true;
             this.checkBox_czyUtworzycNowaTrase.CheckedChanged += new System.EventHandler(this.checkBox_czyUtworzycNowaTrase_CheckedChanged);
@@ -256,7 +256,7 @@
             this.addButton.Location = new System.Drawing.Point(410, 335);
             this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(80, 30);
-            this.addButton.TabIndex = 2;
+            this.addButton.TabIndex = 3;
             this.addButton.Text = "Dodaj";
             this.addButton.UseVisualStyleBackColor = true;
             this.addButton.Click += new System.EventHandler(this.AddButton_Click);
@@ -282,7 +282,7 @@
             this.comboBoxTrasa.Location = new System.Drawing.Point(160, 96);
             this.comboBoxTrasa.Name = "comboBoxTrasa";
             this.comboBoxTrasa.Size = new System.Drawing.Size(120, 21);
-            this.comboBoxTrasa.TabIndex = 0;
+            this.comboBoxTrasa.TabIndex = 1;
             this.comboBoxTrasa.SelectedIndexChanged += new System.EventHandler(this.ComboBoxTrasa_SelectedIndexChanged);
             this.comboBoxTrasa.Validating += new System.ComponentModel.CancelEventHandler(this.LineSelectionComboBox_Validating);
             // 

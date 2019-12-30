@@ -93,6 +93,20 @@ namespace hiddenAnaconda {
             return data;
         }
 
+        public bool EscKeyPressed(Form form,Keys keydata) {
+            if (keydata == Keys.Escape) {
+                form.Close();
+                return true;
+            }
+            return false;
+        }
+
+        public void EscapePressed(Form form, KeyPressEventArgs e) {
+            if (e.KeyChar == 27) {
+                form.Close();
+            }
+        }
+
         // przesuwanie okna
         public void MoveWindow(object sender, MouseEventArgs e, IntPtr Handle) {
             if (e.Button == MouseButtons.Left) {

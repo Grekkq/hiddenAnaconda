@@ -18,6 +18,10 @@ namespace hiddenAnaconda.Views {
         // funkcje wspólne dla widoków
         SharedView sharedView = new SharedView();
 
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData) {
+            return sharedView.EscKeyPressed(this, keyData);
+        }
+
         // wyłączenie fokusu na pola tekstowe przy uruchomieniu formularza
         private void TurnoffFocus(object sender, EventArgs e) {
             ActiveControl = null;

@@ -18,6 +18,12 @@ namespace hiddenAnaconda.Views
             InitializeComponent();
         }
 
+        SharedView sharedView = new SharedView();
+
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData) {
+            return sharedView.EscKeyPressed(this, keyData);
+        }
+
         bool ErrorIsOn,ErrorKierIsOn = true;
 
         public const int WM_NCLBUTTONDOWN = 0xA1;                                               // stałe do funkcji przesuwania okna

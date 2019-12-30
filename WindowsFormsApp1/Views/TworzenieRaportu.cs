@@ -14,9 +14,6 @@ namespace hiddenAnaconda.Views {
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e) {
-        }
-
         private void turnoffFocus(object sender, EventArgs e) {
             this.ActiveControl = null;
         }
@@ -24,6 +21,11 @@ namespace hiddenAnaconda.Views {
         bool ErrorIsOn = false;
 
         SharedView sharedView = new SharedView();
+
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData) {
+            return sharedView.EscKeyPressed(this, keyData);
+        }
+
         private void move_window(object sender, MouseEventArgs e) {
             if (e.Button == MouseButtons.Left) {
                 sharedView.MoveWindow(sender, e, Handle);
