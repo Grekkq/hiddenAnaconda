@@ -13,13 +13,6 @@ namespace hiddenAnaconda.Models {
         int lineNumber, trailNumber;
         List<StopInTrail> trail = new List<StopInTrail>();
 
-        //public AddTrail(int lineNumber, int trailNumber) {
-        //    this.lineNumber = lineNumber;
-        //    this.trailNumber = trailNumber;
-        //    dc = new ReportDataContext();
-        //    GetTrailFromDb();
-        //}
-
         public AddTrail(int lineNumber, int trailNumber, bool isNew) {
             dc = new ReportDataContext();
             this.lineNumber = lineNumber;
@@ -50,7 +43,6 @@ namespace hiddenAnaconda.Models {
         }
 
         public void AddNewTrail(ListBox listBox) {
-            Regex MatchArrivalTimeInString = new Regex(@"^(?:0?[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$");
             List<StopInTrail> toAdd = new List<StopInTrail>();
             foreach (var item in listBox.Items) {
                 string row = item.ToString();
@@ -66,10 +58,10 @@ namespace hiddenAnaconda.Models {
                 row = row.Substring(row.IndexOf(", ") + 1).TrimStart();
 
                 // wyszukiwanie HH:mm
-                int index = MatchArrivalTimeInString.Match(row).Index;
+                int index = Constants.FindArrivalTimeInString.Match(row).Index;
                 string way = row.Substring(0, index).Trim();
 
-                DateTime time = DateTime.Parse(row.Substring(index, index+5));
+                DateTime time = DateTime.Parse(Constants.DateElementForArrivalTime + row.Substring(index));
                 toAdd.Add(new StopInTrail(city, name, order, 0, time, way));
             }
             PutTrailIntoDb(toAdd);
@@ -84,7 +76,7 @@ namespace hiddenAnaconda.Models {
                 trasa trasa = new trasa();
                 trasa.id_linii = lineNumber;
                 trasa.nr_trasy = trailNumber;
-                trasa.id_przystanku = dc.przystaneks.Where(p => p.nazwa.Equals(item.name) && p.miasto.Equals(item.city)).Select(p => p.id_przystanku).First();
+                trasa.id_przystanku = dc.przystaneks.Where(p => p.nazwa.Equals(item.name) && p.miasto.Equals(item.city) && p.kierunek.Equals(item.way)).Select(p => p.id_przystanku).First();
                 trasa.kolejnosc_przystankow = order;
                 trasa.czas_odjazdus.Add(czas);
                 dc.trasas.InsertOnSubmit(trasa);
@@ -106,7 +98,7 @@ namespace hiddenAnaconda.Models {
             this.order = order;
             this.trailId = trailId;
             this.arrivalTime = time.TimeOfDay;
-            this.way = way;
+            this.way = way==null?Constants.OneWayStop:way;
         }
     }
 }

@@ -171,15 +171,13 @@ namespace hiddenAnaconda.Views {
             addButton.Visible = true;
             create.Visible = true;
             deleteButton.Visible = true;
-            if (checkBox_czyUtworzycNowaTrase.Checked)
-                trail = new AddTrail(Int32.Parse(this.linia_comboBox.Text), Int32.Parse(this.comboBoxTrasa.Text), true);
-            else
-                trail = new AddTrail(Int32.Parse(this.linia_comboBox.Text), Int32.Parse(this.comboBoxTrasa.Text), false);
+            trail = new AddTrail(Int32.Parse(this.linia_comboBox.Text), Int32.Parse(this.comboBoxTrasa.Text), false);
             trail.LoadTrailIntoListBox(this.mainListBox);
         }
 
         private void checkBox_czyUtworzycNowaTrase_CheckedChanged(object sender, EventArgs e) {
-
+            if (checkBox_czyUtworzycNowaTrase.Checked)
+                trail = new AddTrail(Int32.Parse(this.linia_comboBox.Text), Int32.Parse(this.comboBoxTrasa.Text), true);
         }
     }
 }

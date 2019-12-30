@@ -494,7 +494,7 @@ go
 
 alter table czas_odjazdu
    add constraint FK_CZAS_ODJ_T2CZ_O_TRASA foreign key (id_trasy)
-      references trasa (id_trasy)
+      references trasa (id_trasy) on delete cascade
 go
 
 alter table czas_realizacji

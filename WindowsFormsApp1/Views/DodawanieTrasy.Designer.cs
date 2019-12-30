@@ -232,9 +232,9 @@
             "1)   Gliwice, Plac Piastów            07:15",
             "2)   Zabrze, Plac Kroczkaa            08:00",
             "3)   Zabrze, Rokietnica               08:30"});
-            this.mainListBox.Location = new System.Drawing.Point(69, 157);
+            this.mainListBox.Location = new System.Drawing.Point(20, 157);
             this.mainListBox.Name = "mainListBox";
-            this.mainListBox.Size = new System.Drawing.Size(468, 148);
+            this.mainListBox.Size = new System.Drawing.Size(566, 148);
             this.mainListBox.TabIndex = 1;
             this.mainListBox.DragDrop += new System.Windows.Forms.DragEventHandler(this.MainListBox_DragDrop);
             this.mainListBox.DragOver += new System.Windows.Forms.DragEventHandler(this.MainListBox_DragOver);
