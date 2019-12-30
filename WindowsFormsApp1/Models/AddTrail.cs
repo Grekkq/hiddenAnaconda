@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static hiddenAnaconda.Constants;
 
 namespace hiddenAnaconda.Models {
     class AddTrail {
@@ -11,11 +12,21 @@ namespace hiddenAnaconda.Models {
         int lineNumber, trailNumber;
         List<StopInTrail> trail = new List<StopInTrail>();
 
-        public AddTrail(int lineNumber, int trailNumber) {
+        //public AddTrail(int lineNumber, int trailNumber) {
+        //    this.lineNumber = lineNumber;
+        //    this.trailNumber = trailNumber;
+        //    dc = new ReportDataContext();
+        //    GetTrailFromDb();
+        //}
+
+        public AddTrail(int lineNumber, int trailNumber, bool isNew) {
+            dc = new ReportDataContext();
             this.lineNumber = lineNumber;
             this.trailNumber = trailNumber;
-            dc = new ReportDataContext();
             GetTrailFromDb();
+            // find highest index of trailNumber and add one to it
+            if (isNew)
+                this.trailNumber = dc.trasas.Where(t=> t.id_linii.Equals(lineNumber)).Select(t=> t.nr_trasy).Distinct().OrderByDescending(t => t).First()+1;
         }
 
         public void LoadTrailIntoListBox(ListBox listBox) {
@@ -61,8 +72,19 @@ namespace hiddenAnaconda.Models {
 
         private void PutTrailIntoDb(List<StopInTrail> trail) {
             // wstawiać po elemencie trasę i czas
+            int order = 0;
             foreach (var item in trail) {
-                //dc.trasas.InsertOnSubmit();
+                czas_odjazdu czas = new czas_odjazdu();
+                czas.czas_odjazdu1 = DateTime.Parse(Constants.DateElementForArrivalTime + item.arrivalTime.ToString());
+                trasa trasa = new trasa();
+                trasa.id_linii = lineNumber;
+                trasa.nr_trasy = trailNumber;
+                trasa.id_przystanku = dc.przystaneks.Where(p => p.nazwa.Equals(item.name) && p.miasto.Equals(item.city)).Select(p => p.id_przystanku).First();
+                trasa.kolejnosc_przystankow = order;
+                trasa.czas_odjazdus.Add(czas);
+                dc.trasas.InsertOnSubmit(trasa);
+                dc.SubmitChanges();
+                order++;
             }
 
         }

@@ -14,6 +14,7 @@ namespace hiddenAnaconda
         public const string DriverPermission = "Kierowca";
         public const string MenagerPermission = "Menedżer";
         public const string RoutePlannerPermission = "Układacz Tras";
+        public const string DateElementForArrivalTime = "01.01.1900 ";
         public static int TranslatePermissionLevel(string permission)
         {
             switch (permission) {

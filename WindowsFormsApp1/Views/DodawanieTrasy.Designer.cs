@@ -153,6 +153,7 @@
             this.checkBox_czyUtworzycNowaTrase.TabIndex = 28;
             this.checkBox_czyUtworzycNowaTrase.Text = "Utwórz nową trasę na podstawie zedytowanej tabeli.";
             this.checkBox_czyUtworzycNowaTrase.UseVisualStyleBackColor = true;
+            this.checkBox_czyUtworzycNowaTrase.CheckedChanged += new System.EventHandler(this.checkBox_czyUtworzycNowaTrase_CheckedChanged);
             // 
             // label_lokalizacja
             // 
