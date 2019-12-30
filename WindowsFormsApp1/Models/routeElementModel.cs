@@ -56,14 +56,14 @@ namespace hiddenAnaconda.Models {
         // Add new record in ListBox
         public void putInListBox(ListBox listBox) {
             int index = listBox.Items.Count + 1;
-            string newcontent = " " + (index + ".").PadRight(5, ' ') + City + ",".PadRight(5, ' ') + Name + ", " + Way;
+            string newcontent = " " + (index + ".").PadRight(5, ' ') + (City + ",").PadRight(10, ' ') + Name + ", " + Way;
             newcontent = newcontent.PadRight(55, ' ') + ArrivalTime;
             listBox.Items.Add(newcontent);
         }
 
         // Add new record in ListBox at index
         public void putInListBoxAt(ListBox listBox, int index) {
-            string newcontent = (index + 1 + ".").PadRight(5, ' ') + City + ",".PadRight(5, ' ') + Name + ", " + Way;
+            string newcontent = (index + 1 + ".").PadRight(5, ' ') + (City + ",").PadRight(10, ' ') + Name + ", " + Way;
             newcontent = "             " + ArrivalTime;
             listBox.Items.Insert(index, newcontent);
         }
