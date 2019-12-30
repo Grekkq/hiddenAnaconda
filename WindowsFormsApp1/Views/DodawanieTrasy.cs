@@ -122,6 +122,7 @@ namespace hiddenAnaconda.Views {
             addButton.Visible = false;
             deleteButton.Visible = false;
             create.Visible = false;
+            label_przystanek.Visible = false;
 
 
             //visability of datagrid
@@ -164,6 +165,7 @@ namespace hiddenAnaconda.Views {
             mainListBox.Visible = true;
             label_godzina.Visible = true;
             label_lokalizacja.Visible = true;
+            label_przystanek.Visible = true;
             label_nr.Visible = true;
             checkBox_czyUtworzycNowaTrase.Visible = true;
             checkBox_czyUtworzycNowaTrase.Focus();

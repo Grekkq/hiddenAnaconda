@@ -36,6 +36,7 @@
             this.create = new System.Windows.Forms.Button();
             this.lineSelectionLabel = new System.Windows.Forms.Label();
             this.bgPanel = new System.Windows.Forms.Panel();
+            this.label_przystanek = new System.Windows.Forms.Label();
             this.checkBox_czyUtworzycNowaTrase = new System.Windows.Forms.CheckBox();
             this.label_lokalizacja = new System.Windows.Forms.Label();
             this.label_godzina = new System.Windows.Forms.Label();
@@ -54,7 +55,6 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.label1 = new System.Windows.Forms.Label();
             this.bgPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -123,7 +123,7 @@
             // bgPanel
             // 
             this.bgPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.bgPanel.Controls.Add(this.label1);
+            this.bgPanel.Controls.Add(this.label_przystanek);
             this.bgPanel.Controls.Add(this.checkBox_czyUtworzycNowaTrase);
             this.bgPanel.Controls.Add(this.label_lokalizacja);
             this.bgPanel.Controls.Add(this.label_godzina);
@@ -145,6 +145,18 @@
             this.bgPanel.Name = "bgPanel";
             this.bgPanel.Size = new System.Drawing.Size(606, 377);
             this.bgPanel.TabIndex = 0;
+            // 
+            // label_przystanek
+            // 
+            this.label_przystanek.BackColor = System.Drawing.Color.Silver;
+            this.label_przystanek.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label_przystanek.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label_przystanek.Location = new System.Drawing.Point(160, 136);
+            this.label_przystanek.Name = "label_przystanek";
+            this.label_przystanek.Size = new System.Drawing.Size(337, 22);
+            this.label_przystanek.TabIndex = 28;
+            this.label_przystanek.Text = "Przystanek";
+            this.label_przystanek.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // checkBox_czyUtworzycNowaTrase
             // 
@@ -359,18 +371,6 @@
             this.errorProvider1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.errorProvider1.ContainerControl = this;
             // 
-            // label1
-            // 
-            this.label1.BackColor = System.Drawing.Color.Silver;
-            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.Location = new System.Drawing.Point(160, 136);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(337, 22);
-            this.label1.TabIndex = 28;
-            this.label1.Text = "Przystanek";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // DodawanieTrasy
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -428,6 +428,6 @@
         private System.Windows.Forms.ComboBox comboBoxTrasa;
         private System.Windows.Forms.Label label_trasa;
         private System.Windows.Forms.CheckBox checkBox_czyUtworzycNowaTrase;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label_przystanek;
     }
 }
