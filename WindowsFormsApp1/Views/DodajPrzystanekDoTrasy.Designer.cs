@@ -41,7 +41,6 @@
             this.comboBox_kierunek = new System.Windows.Forms.ComboBox();
             this.comboBox_przystanek = new System.Windows.Forms.ComboBox();
             this.comboBox_miasto = new System.Windows.Forms.ComboBox();
-            this.label_timedescription = new System.Windows.Forms.Label();
             this.dodaj = new System.Windows.Forms.Button();
             this.anuluj = new System.Windows.Forms.Button();
             this.cancel = new System.Windows.Forms.Button();
@@ -142,7 +141,6 @@
             this.panel1.Controls.Add(this.comboBox_przystanek);
             this.panel1.Controls.Add(this.comboBox_miasto);
             this.panel1.Controls.Add(this.label_miasto);
-            this.panel1.Controls.Add(this.label_timedescription);
             this.panel1.Controls.Add(this.dodaj);
             this.panel1.Controls.Add(this.anuluj);
             this.panel1.Controls.Add(this.cancel);
@@ -163,6 +161,7 @@
             this.comboBox_kierunek.Name = "comboBox_kierunek";
             this.comboBox_kierunek.Size = new System.Drawing.Size(150, 21);
             this.comboBox_kierunek.TabIndex = 2;
+            this.comboBox_kierunek.SelectedIndexChanged += new System.EventHandler(this.comboBox_kierunek_SelectedIndexChanged_1);
             this.comboBox_kierunek.Validating += new System.ComponentModel.CancelEventHandler(this.comboBox_kierunek_Validating);
             // 
             // comboBox_przystanek
@@ -184,17 +183,6 @@
             this.comboBox_miasto.TabIndex = 0;
             this.comboBox_miasto.SelectedIndexChanged += new System.EventHandler(this.comboBox_miasto_SelectedIndexChanged);
             this.comboBox_miasto.Validating += new System.ComponentModel.CancelEventHandler(this.comboBox_miasto_Validating);
-            // 
-            // label_timedescription
-            // 
-            this.label_timedescription.AutoSize = true;
-            this.label_timedescription.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.label_timedescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label_timedescription.Location = new System.Drawing.Point(137, 134);
-            this.label_timedescription.Name = "label_timedescription";
-            this.label_timedescription.Size = new System.Drawing.Size(136, 13);
-            this.label_timedescription.TabIndex = 18;
-            this.label_timedescription.Text = "Format czasu - GG:MM";
             // 
             // dodaj
             // 
@@ -279,7 +267,6 @@
         private System.Windows.Forms.Label label_przystanek;
         private System.Windows.Forms.Label label_miasto;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label_timedescription;
         private System.Windows.Forms.ComboBox comboBox_kierunek;
         private System.Windows.Forms.ComboBox comboBox_przystanek;
         private System.Windows.Forms.ComboBox comboBox_miasto;

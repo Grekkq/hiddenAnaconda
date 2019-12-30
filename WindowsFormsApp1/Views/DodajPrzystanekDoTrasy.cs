@@ -61,28 +61,10 @@ namespace hiddenAnaconda.Views {
         }
 
         private void DodajPrzystanekDoTrasy_Load(object sender, EventArgs e) {
-            //przykładowe dane
-            //this.comboBox_miasto.Items.Clear();
-            //this.comboBox_miasto.Items.Add("Sosnowiec");
-            //this.comboBox_przystanek.Items.Clear();
-            //this.comboBox_przystanek.Items.Add("Remiza");
-            //this.comboBox_kierunek.Items.Clear();
-            //this.comboBox_kierunek.Items.Add("Sosnowiec-Katowice");
-            //this.comboBox_kierunek.Items.Add("Katowice-Sosnowiec");
-
-            
             // TODO: zdecydować co z kierunkiem
             //comboBox_kierunek.SelectedIndex = 1;
-
+            sharedView.LoadCitiesIntoComboBox(comboBox_miasto);
             comboBox_miasto.Focus();
-            label_przystanek.Visible = false;
-            label_kierunek.Visible = false;
-            label_czas.Visible = false;
-            label_timedescription.Visible = false;
-
-            comboBox_przystanek.Visible = false;
-            comboBox_kierunek.Visible = false;
-            textbox_time.Visible = false;
         }
 
         private void Dodaj_Click(object sender, EventArgs e) {
@@ -137,7 +119,7 @@ namespace hiddenAnaconda.Views {
                 errorProvider1.SetError(textbox_time, "Nie wpisano godziny");
                 ErrorIsOn = true;
             } else if (!r.IsMatch(textbox_time.Text)) {
-                errorProvider1.SetError(textbox_time, "Niepoprawnie wpisana godzina");
+                errorProvider1.SetError(textbox_time, "Niepoprawnie wpisana godzina. Akceptowany format czasu: GG:MM");
                 ErrorIsOn = true;
             } else {
                 errorProvider1.SetError(textbox_time, null);
@@ -146,18 +128,13 @@ namespace hiddenAnaconda.Views {
         }
 
         private void comboBox_miasto_SelectedIndexChanged(object sender, EventArgs e) {
-            label_przystanek.Visible = true;
-            comboBox_przystanek.Visible = true;
+            sharedView.LoadBusStopsIntoComboBox(comboBox_przystanek, comboBox_miasto.GetItemText(comboBox_miasto.SelectedItem));
             comboBox_przystanek.Focus();
-            comboBox_kierunek.Focus();
-            comboBox_kierunek.Visible = true;
-            label_kierunek.Visible = true;
         }
 
         private void comboBox_przystanek_SelectedIndexChanged(object sender, EventArgs e) {
-            label_czas.Visible = true;
-            textbox_time.Visible = true;
-            label_timedescription.Visible = true;
+            sharedView.LoadTrailDirectionIntoComboBox(comboBox_kierunek, comboBox_przystanek.GetItemText(comboBox_przystanek.SelectedItem), comboBox_miasto.GetItemText(comboBox_miasto.SelectedItem));
+            comboBox_kierunek.Focus();
         }
 
         private void comboBox_przystanek_Validating(object sender, CancelEventArgs e) {
@@ -194,5 +171,8 @@ namespace hiddenAnaconda.Views {
             }
         }
 
+        private void comboBox_kierunek_SelectedIndexChanged_1(object sender, EventArgs e) {
+            textbox_time.Focus();
+        }
     }
 }
