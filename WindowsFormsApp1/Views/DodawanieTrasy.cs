@@ -99,7 +99,7 @@ namespace hiddenAnaconda.Views {
 
         private void DeleteButton_Click(object sender, EventArgs e) {
             if (this.mainListBox.SelectedIndex == -1)
-                MessageBox.Show("Musisz najpierw zanzaczyć który element chcesz usunąć.");
+                MessageBox.Show("Musisz najpierw zaznaczyć element, który chcesz usunąć.","Błąd",MessageBoxButtons.OK,MessageBoxIcon.Warning);
             else {
                 this.mainListBox.Items.RemoveAt(this.mainListBox.SelectedIndex);
                 sharedView.FixIndex(this.mainListBox);
@@ -166,6 +166,7 @@ namespace hiddenAnaconda.Views {
             label_lokalizacja.Visible = true;
             label_nr.Visible = true;
             checkBox_czyUtworzycNowaTrase.Visible = true;
+            checkBox_czyUtworzycNowaTrase.Focus();
 
             clearButton.Visible = true;
             addButton.Visible = true;
