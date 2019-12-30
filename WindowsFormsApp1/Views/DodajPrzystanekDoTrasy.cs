@@ -23,6 +23,11 @@ namespace hiddenAnaconda.Views {
             this.busStop.Name = data.Name;
             this.busStop.City = data.City;
             this.busStop.ArrivalTime = data.ArrivalTime;
+            sharedView.LoadCitiesIntoComboBox(comboBox_miasto);
+            sharedView.LoadBusStopsIntoComboBox(comboBox_przystanek, busStop.City);
+            sharedView.LoadTrailDirectionIntoComboBox(comboBox_kierunek, busStop.Name, busStop.City);
+            comboBox_miasto.SelectedIndex = comboBox_miasto.FindString(busStop.City);
+            comboBox_przystanek.SelectedIndex = comboBox_przystanek.FindString(busStop.Name);
         }
 
         private void move_window(object sender, MouseEventArgs e) {
@@ -57,19 +62,15 @@ namespace hiddenAnaconda.Views {
 
         private void DodajPrzystanekDoTrasy_Load(object sender, EventArgs e) {
             //przykładowe dane
-            this.comboBox_miasto.Items.Clear();
-            this.comboBox_miasto.Items.Add("Sosnowiec");
-            this.comboBox_przystanek.Items.Clear();
-            this.comboBox_przystanek.Items.Add("Remiza");
-            this.comboBox_kierunek.Items.Clear();
-            this.comboBox_kierunek.Items.Add("Sosnowiec-Katowice");
-            this.comboBox_kierunek.Items.Add("Katowice-Sosnowiec");
+            //this.comboBox_miasto.Items.Clear();
+            //this.comboBox_miasto.Items.Add("Sosnowiec");
+            //this.comboBox_przystanek.Items.Clear();
+            //this.comboBox_przystanek.Items.Add("Remiza");
+            //this.comboBox_kierunek.Items.Clear();
+            //this.comboBox_kierunek.Items.Add("Sosnowiec-Katowice");
+            //this.comboBox_kierunek.Items.Add("Katowice-Sosnowiec");
 
-            sharedView.LoadCitiesIntoComboBox(comboBox_miasto);
-            sharedView.LoadBusStopsIntoComboBox(comboBox_przystanek, busStop.City);
-            sharedView.LoadTrailDirectionIntoComboBox(comboBox_kierunek, busStop.Name, busStop.City);
-            comboBox_miasto.SelectedIndex = comboBox_miasto.FindString(busStop.City);
-            comboBox_przystanek.SelectedIndex = comboBox_przystanek.FindString(busStop.Name);
+            
             // TODO: zdecydować co z kierunkiem
             //comboBox_kierunek.SelectedIndex = 1;
 
