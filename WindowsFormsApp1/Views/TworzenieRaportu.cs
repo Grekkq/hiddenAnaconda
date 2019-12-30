@@ -88,6 +88,7 @@ namespace hiddenAnaconda.Views {
             comboBox_przystanek.Visible = true;
             comboBox_przystanek.Focus();
             sharedView.LoadBusStopsIntoComboBox(comboBox_przystanek, comboBox_miasto.Text);
+            comboBox_kierunek.Items.Clear();
         }
 
         private void comboBox_miasto_Validating(object sender, CancelEventArgs e) {
