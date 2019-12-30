@@ -70,7 +70,7 @@ namespace hiddenAnaconda.Views {
         private void Dodaj_Click(object sender, EventArgs e) {
             if ((!string.IsNullOrEmpty(textbox_time.Text) && !string.IsNullOrEmpty(comboBox_kierunek.Text) && !string.IsNullOrEmpty(comboBox_przystanek.Text) && !string.IsNullOrEmpty(comboBox_miasto.Text) && ErrorIsOn == false)) {
                 if (MessageBox.Show("Na pewno chcesz dodać przystanek?", "Dodanie przystanku", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) {
-                    busStop = new Models.routeElementModel(this.comboBox_przystanek.Text, this.comboBox_miasto.Text, this.textbox_time.Text);
+                    busStop = new Models.routeElementModel(this.comboBox_przystanek.Text, this.comboBox_miasto.Text, this.textbox_time.Text, this.comboBox_kierunek.Text);
                     this.DialogResult = DialogResult.OK;
                     this.Close();
                 }

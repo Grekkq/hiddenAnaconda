@@ -2,12 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace hiddenAnaconda
-{
-    public static class Constants
-    {
+namespace hiddenAnaconda {
+    public static class Constants {
         public const int NumberOfSecondSInDay = 86400;
         public const string DateFormat = "yyy.MM.dd";
         public const string AdminPermission = "Administrator";
@@ -15,8 +14,7 @@ namespace hiddenAnaconda
         public const string MenagerPermission = "Menedżer";
         public const string RoutePlannerPermission = "Układacz Tras";
         public const string DateElementForArrivalTime = "01.01.1900 ";
-        public static int TranslatePermissionLevel(string permission)
-        {
+        public static int TranslatePermissionLevel(string permission) {
             switch (permission) {
                 case (AdminPermission):
                     return 6;

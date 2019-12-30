@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static hiddenAnaconda.Constants;
@@ -26,13 +27,13 @@ namespace hiddenAnaconda.Models {
             GetTrailFromDb();
             // find highest index of trailNumber and add one to it
             if (isNew)
-                this.trailNumber = dc.trasas.Where(t=> t.id_linii.Equals(lineNumber)).Select(t=> t.nr_trasy).Distinct().OrderByDescending(t => t).First()+1;
+                this.trailNumber = dc.trasas.Where(t => t.id_linii.Equals(lineNumber)).Select(t => t.nr_trasy).Distinct().OrderByDescending(t => t).First() + 1;
         }
 
         public void LoadTrailIntoListBox(ListBox listBox) {
             listBox.Items.Clear();
             foreach (var item in trail)
-                new routeElementModel(item.name, item.city, item.arrivalTime).putInListBox(listBox);
+                new routeElementModel(item.name, item.city, item.arrivalTime, item.way).putInListBox(listBox);
         }
 
         private void GetTrailFromDb() {
@@ -40,7 +41,7 @@ namespace hiddenAnaconda.Models {
             foreach (var item in data) {
                 var busStop = dc.przystaneks.Where(p => p.id_przystanku == item.id_przystanku).First();
                 var timeStamp = dc.czas_odjazdus.Where(c => c.id_trasy == item.id_trasy).First();
-                trail.Add(new StopInTrail(busStop.miasto, busStop.nazwa, item.kolejnosc_przystankow, item.id_trasy, timeStamp.czas_odjazdu1));
+                trail.Add(new StopInTrail(busStop.miasto, busStop.nazwa, item.kolejnosc_przystankow, item.id_trasy, timeStamp.czas_odjazdu1, busStop.kierunek));
             }
         }
 
@@ -49,23 +50,27 @@ namespace hiddenAnaconda.Models {
         }
 
         public void AddNewTrail(ListBox listBox) {
+            Regex MatchArrivalTimeInString = new Regex(@"^(?:0?[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$");
             List<StopInTrail> toAdd = new List<StopInTrail>();
-            foreach(var item in listBox.Items) {
+            foreach (var item in listBox.Items) {
                 string row = item.ToString();
 
                 int order = Int32.Parse(row.Substring(0, row.IndexOf(')')));
-                row = row.Substring(row.IndexOf(')')+1).TrimStart();
+                row = row.Substring(row.IndexOf(')') + 1).TrimStart();
 
                 string city = row.Substring(0, row.IndexOf(','));
-                row = row.Substring(row.IndexOf(',')+1).TrimStart();
+                row = row.Substring(row.IndexOf(',') + 1).TrimStart();
 
-                // tu będzie problem jak pomiędzy nazwą a godziną nie będzie 3 spacji odstępu
-                // w wolnej chwili zmienić na wyszukiwanie HH:mm
-                string name = row.Substring(0, row.IndexOf("   ")).TrimEnd();
-                row = row.Substring(row.IndexOf("   ") + 3).Trim();
 
-                DateTime time = DateTime.Parse(row.Substring(0, 5));
-                toAdd.Add(new StopInTrail(city, name, order, 0, time));
+                string name = row.Substring(0, row.IndexOf(", ")).TrimEnd();
+                row = row.Substring(row.IndexOf(", ") + 1).TrimStart();
+
+                // wyszukiwanie HH:mm
+                int index = MatchArrivalTimeInString.Match(row).Index;
+                string way = row.Substring(0, index).Trim();
+
+                DateTime time = DateTime.Parse(row.Substring(index, index+5));
+                toAdd.Add(new StopInTrail(city, name, order, 0, time, way));
             }
             PutTrailIntoDb(toAdd);
         }
@@ -91,16 +96,17 @@ namespace hiddenAnaconda.Models {
     }
 
     class StopInTrail {
-        public string city, name;
+        public string city, name, way;
         public TimeSpan arrivalTime;
         public int order, trailId;
 
-        public StopInTrail(string city, string name, int order, int trailId, DateTime time) {
+        public StopInTrail(string city, string name, int order, int trailId, DateTime time, string way) {
             this.city = city;
             this.name = name;
             this.order = order;
             this.trailId = trailId;
             this.arrivalTime = time.TimeOfDay;
+            this.way = way;
         }
     }
 }
