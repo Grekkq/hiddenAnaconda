@@ -65,7 +65,7 @@ namespace hiddenAnaconda.Models {
             }
         }
 
-        
+
 
 
         // daj html'a z czsami przyjazdu dla danych idTrasy
@@ -85,6 +85,33 @@ namespace hiddenAnaconda.Models {
             return sb.ToString();
         }
 
+        // ::TESTED::
+        private int GetTrailNumberFromTrailId(int trailId) {
+            return dc.trasas.Where(t => t.id_trasy.Equals(trailId)).Select(t => t.nr_trasy).Single();
+        }
+
+        // ::TESTED::
+        private trasa GetFirstStopInTrail(int trailNumber, int line) {
+            return dc.trasas.Where(t => t.id_linii.Equals(line) && t.nr_trasy.Equals(trailNumber)).OrderBy(t => t.nr_trasy).First();
+        }
+
+        // bez pozwalania na ten sam kurs w różne rodzaje dni
+        //public kur GetKursFromTrailId(int trailId, int line) {
+        //    int trailIdForKurs = GetFirstStopInTrail(GetTrailNumberFromTrailId(trailId), line).id_trasy;
+        //    return dc.kurs.Where(k => k.id_trasy.Equals(trailIdForKurs)).Single();
+        //}
+
+        // z pozwalaniem na tą sama trasę dla różnych dni
+        public kur GetKursFromTrailId(int trailId, int line, string dayType) {
+            int trailIdForKurs = GetFirstStopInTrail(GetTrailNumberFromTrailId(trailId), line).id_trasy;
+            return dc.kurs.Where(k => k.id_trasy.Equals(trailIdForKurs) && k.rodzaj_kursu.Equals(dayType)).Single();
+        }
+
+        // ::TESTED::
+        private DateTime GetArrivalTime(int arrivalTimeId) {
+            return dc.czas_odjazdus.Where(c => c.id_czasu_odjazdu.Equals(arrivalTimeId)).Single().czas_odjazdu1;
+        }
+
         // Main function generating timetable
         // TODO: many things xD
         public void GenerateTimetable() {
@@ -96,7 +123,6 @@ namespace hiddenAnaconda.Models {
                     lineName.Add(item.Item1);
             }
 
-            List<int> idTrasyDlaLinii = new List<int>();
             StringBuilder sb = new StringBuilder();
             sb.Append("<h1>");
             sb.Append(city);
@@ -107,6 +133,8 @@ namespace hiddenAnaconda.Models {
                 sb.Append(way);
             }
             sb.Append("</h1>");
+
+            List<int> idTrasyDlaLinii = new List<int>();
             // dla każdej linii na przystanku
             foreach (var singleLine in lineName) {
                 sb.Append("<p>");
@@ -115,27 +143,45 @@ namespace hiddenAnaconda.Models {
                 sb.Append("</b></h3><br/>");
                 // przystanki dla najdłuższej trasy
                 foreach (var stop in GetAllBusStops(singleLine)) {
-                        sb.Append(stop.miasto);
-                        sb.Append(", ");
-                        sb.Append(stop.nazwa);
-                        sb.Append("&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp");
+                    sb.Append(stop.miasto);
+                    sb.Append(", ");
+                    sb.Append(stop.nazwa);
+                    sb.Append("&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp");
                 }
                 // koniec drukowania trasy teraz czasy z podzialem na dni specjalne
 
 
+                idTrasyDlaLinii = idTrasyDlaWszystkichLinii.Where(t => t.Item1.Equals(singleLine)).Select(t => t.Item2).ToList();
 
-
-
-                //idTrasyDlaLinii.Clear();
-                //foreach (var item in idTrasyDlaWszystkichLinii) {
-                //    if (item.Item1.Equals(singleLine))
-                //        idTrasyDlaLinii.Add(item.Item2);
-                //}
-                //sb.Append(ArrivalTimeInHtml(singleLine, idTrasyDlaLinii));
+                foreach (var dayType in GetAllDayTypeForLine(singleLine)) {
+                    sb.Append("<h4>");
+                    sb.Append(dayType);
+                    sb.Append("</h4>");
+                    // weź z lisy sprawdź czy jest w danym rodzaju dnia jeśli tak wypisz // i wyrzuć z listy
+                    List<ArrivalTimeInOrder> arrivalTimeInOrder = new List<ArrivalTimeInOrder>();
+                    foreach (var kurs in idTrasyDlaLinii) {
+                        var temp = GetKursFromTrailId(kurs, singleLine, dayType);
+                        if (temp.rodzaj_kursu.Equals(dayType)) {
+                            // jak chcemy optymalizować to można by usuwać te elementy po kazdym rodzaju dnia
+                            //idTrasyDlaLinii.Remove(kurs);
+                            arrivalTimeInOrder.Add(new ArrivalTimeInOrder(temp.ktory_kurs_danego_dnia, GetArrivalTime(temp.id_czasu_odjazdu)));
+                        }
+                    }
+                    //arrivalTimeInOrder.Add(new ArrivalTimeInOrder(4, DateTime.Today));
+                    //arrivalTimeInOrder.Add(new ArrivalTimeInOrder(2, DateTime.Today));
+                    //arrivalTimeInOrder.Add(new ArrivalTimeInOrder(3, DateTime.Today));
+                    //sortowanie przetestowane działa w teorii korzysta tylko z kolejności i olewa datę ale nie jestem pewny :D
+                    arrivalTimeInOrder.Sort((pair1, pair2) => pair1.order.CompareTo(pair2.order));
+                    sb.Append("<br />");
+                    foreach(var timestamp in arrivalTimeInOrder) {
+                        sb.Append(timestamp.time.Hour);
+                        sb.Append(":");
+                        sb.Append(timestamp.time.Minute);
+                        sb.Append("&nbsp &nbsp");
+                    }
+                }
                 sb.Append("</p>");
             }
-
-
             SaveToPdf(sb.ToString());
         }
 
@@ -198,11 +244,26 @@ namespace hiddenAnaconda.Models {
             return dc.przystaneks.Where(p => stopsId.Contains(p.id_przystanku)).ToList();
         }
 
+        // ::TESTED:: zwróć wszystkie rodziaje dni dla których są kursy
+        private List<string> GetAllDayTypeForLine(int line) {
+            return dc.kurs.Where(k => k.id_linii.Equals(line)).Select(k => k.rodzaj_kursu).Distinct().ToList();
+        }
+
         // ::TESTED:: Save file on disk
         private void SaveToPdf(string content) {
             var htmlToPdf = new HtmlToPdf();
             var pdf = htmlToPdf.RenderHtmlAsPdf(content);
             pdf.SaveAs(Path.Combine(filePath, fileName.Trim() + ".pdf"));
         }
+    }
+
+    class ArrivalTimeInOrder {
+        public int order;
+        public DateTime time;
+        public ArrivalTimeInOrder(int order, DateTime time) {
+            this.time = time;
+            this.order = order;
+        }
+
     }
 }
