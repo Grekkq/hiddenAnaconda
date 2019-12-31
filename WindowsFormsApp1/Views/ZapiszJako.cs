@@ -49,7 +49,7 @@ namespace hiddenAnaconda.Views {
                 if (!regex.IsMatch(textBox_name.Text)) {
                     MessageBox.Show("Nieprawidłowa nazwa pliku.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 } else {
-                    new TimeTable(CityName, BusStopName, Way, textBox_path.Text, textBox_name.Text).GetAllBusStops(710);
+                    new TimeTable(CityName, BusStopName, Way, textBox_name.Text, textBox_path.Text).GenerateTimetable();
                     MessageBox.Show("Raport został pomyślnie wygenerowany.", "Sukces", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Close();
                 }
