@@ -22,14 +22,14 @@ namespace hiddenAnaconda.Models {
         }
 
         // Get rodzajKursu at specific day
-        private string CheckDayTypeAtDate(DateTime date) {
+        public string CheckDayTypeAtDate(DateTime date) {
             var result = dc.dni_kursowanias.Where(dni => dni.od_dnia <= date & dni.do_dnia >= date);
             return result.First().rodzaj_kursu;
         }
 
         // Get all trasaId for specific line at specific day
         // to chyba wyciąga tylko pierwszy przystanek?
-        private List<int> GetTrasasNumberAtDay(DateTime date, int linia) {
+        public List<int> GetTrasasNumberAtDay(DateTime date, int linia) {
             var data = from k in dc.kurs
                        from t in dc.trasas
                        where k.id_linii == linia &&
@@ -65,41 +65,24 @@ namespace hiddenAnaconda.Models {
             }
         }
 
-        // ::TESTED:: Get every stop for one line no matter what
-        public List<przystanek> GetAllBusStops(int line) {
+        
 
-            var allTrasasInLane = dc.trasas.Where(t => t.id_linii.Equals(line))
-                .Select(t => new { t.kolejnosc_przystankow, t.nr_trasy, t.id_przystanku })
-                .OrderBy(t => t.nr_trasy);
 
-            //znajduje najdluzsza linie
-            int maxNumber = 0, maxId = -1;
-            int tempNumber = 0, tempId = allTrasasInLane.First().nr_trasy;
-            foreach (var item in allTrasasInLane) {
-                if (item.nr_trasy.Equals(tempId)) {
-                    tempNumber++;
-                } else {
-                    if (tempNumber > maxNumber) {
-                        maxNumber = tempNumber;
-                        maxId = tempId;
-                    }
-                    tempNumber = 0;
-                    tempId = item.nr_trasy;
-                }
+        // daj html'a z czsami przyjazdu dla danych idTrasy
+        public string ArrivalTimeInHtml(int lineId, List<int> routeId) {
+            var times = from c in dc.czas_odjazdus
+                        where routeId.Contains(c.id_trasy)
+                        select new { c.id_czasu_odjazdu, c.czas_odjazdu1 };
+            StringBuilder sb = new StringBuilder();
+            sb.Append("<p>");
+            foreach (var item in times) {
+                sb.Append("\t");
+                sb.Append(item.czas_odjazdu1.TimeOfDay.Hours);
+                sb.Append(":");
+                sb.Append(item.czas_odjazdu1.TimeOfDay.Minutes);
             }
-
-            var stopsId = allTrasasInLane.Where(t => t.nr_trasy.Equals(maxId))
-                .OrderBy(t => t.kolejnosc_przystankow)
-                .Select(t=> t.id_przystanku);
-
-            return dc.przystaneks.Where(p => stopsId.Contains(p.id_przystanku)).ToList();
-        }
-
-        // ::TESTED:: Save file on disk
-        private void SaveToPdf(string content) {
-            var htmlToPdf = new HtmlToPdf();
-            var pdf = htmlToPdf.RenderHtmlAsPdf(content);
-            pdf.SaveAs(Path.Combine(filePath, fileName.Trim() + ".pdf"));
+            sb.Append("</p>");
+            return sb.ToString();
         }
 
         // Main function generating timetable
@@ -126,6 +109,7 @@ namespace hiddenAnaconda.Models {
             sb.Append("</h1>");
             // dla każdej linii na przystanku
             foreach (var singleLine in lineName) {
+                sb.Append("<p>");
                 sb.Append("<h3><b>");
                 sb.Append(singleLine);
                 sb.Append("</b></h3><br/>");
@@ -136,6 +120,11 @@ namespace hiddenAnaconda.Models {
                         sb.Append(stop.nazwa);
                         sb.Append("&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp");
                 }
+                // koniec drukowania trasy teraz czasy z podzialem na dni specjalne
+
+
+
+
 
                 //idTrasyDlaLinii.Clear();
                 //foreach (var item in idTrasyDlaWszystkichLinii) {
@@ -143,7 +132,7 @@ namespace hiddenAnaconda.Models {
                 //        idTrasyDlaLinii.Add(item.Item2);
                 //}
                 //sb.Append(ArrivalTimeInHtml(singleLine, idTrasyDlaLinii));
-
+                sb.Append("</p>");
             }
 
 
@@ -179,21 +168,41 @@ namespace hiddenAnaconda.Models {
             return idTrasyDlaLinii;
         }
 
-        // daj html'a z czsami przyjazdu dla danych idTrasy
-        public string ArrivalTimeInHtml(int lineId, List<int> routeId) {
-            var times = from c in dc.czas_odjazdus
-                        where routeId.Contains(c.id_trasy)
-                        select new { c.id_czasu_odjazdu, c.czas_odjazdu1 };
-            StringBuilder sb = new StringBuilder();
-            sb.Append("<p>");
-            foreach (var item in times) {
-                sb.Append("\t");
-                sb.Append(item.czas_odjazdu1.TimeOfDay.Hours);
-                sb.Append(":");
-                sb.Append(item.czas_odjazdu1.TimeOfDay.Minutes);
+        // ::TESTED:: Get every stop for one line from logest trail
+        private List<przystanek> GetAllBusStops(int line) {
+
+            var allTrasasInLane = dc.trasas.Where(t => t.id_linii.Equals(line))
+                .Select(t => new { t.kolejnosc_przystankow, t.nr_trasy, t.id_przystanku })
+                .OrderBy(t => t.nr_trasy);
+
+            //znajduje najdluzsza linie
+            int maxNumber = 0, maxId = -1;
+            int tempNumber = 0, tempId = allTrasasInLane.First().nr_trasy;
+            foreach (var item in allTrasasInLane) {
+                if (item.nr_trasy.Equals(tempId)) {
+                    tempNumber++;
+                } else {
+                    if (tempNumber > maxNumber) {
+                        maxNumber = tempNumber;
+                        maxId = tempId;
+                    }
+                    tempNumber = 0;
+                    tempId = item.nr_trasy;
+                }
             }
-            sb.Append("</p>");
-            return sb.ToString();
+
+            var stopsId = allTrasasInLane.Where(t => t.nr_trasy.Equals(maxId))
+                .OrderBy(t => t.kolejnosc_przystankow)
+                .Select(t => t.id_przystanku);
+
+            return dc.przystaneks.Where(p => stopsId.Contains(p.id_przystanku)).ToList();
+        }
+
+        // ::TESTED:: Save file on disk
+        private void SaveToPdf(string content) {
+            var htmlToPdf = new HtmlToPdf();
+            var pdf = htmlToPdf.RenderHtmlAsPdf(content);
+            pdf.SaveAs(Path.Combine(filePath, fileName.Trim() + ".pdf"));
         }
     }
 }
