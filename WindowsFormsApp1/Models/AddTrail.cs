@@ -47,8 +47,8 @@ namespace hiddenAnaconda.Models {
             foreach (var item in listBox.Items) {
                 string row = item.ToString();
 
-                int order = Int32.Parse(row.Substring(0, row.IndexOf(')')));
-                row = row.Substring(row.IndexOf(')') + 1).TrimStart();
+                int order = Int32.Parse(row.Substring(0, row.IndexOf(Constants.ListBoxNumberDelimiter)));
+                row = row.Substring(row.IndexOf(ListBoxNumberDelimiter) + 1).TrimStart();
 
                 string city = row.Substring(0, row.IndexOf(','));
                 row = row.Substring(row.IndexOf(',') + 1).TrimStart();
@@ -76,7 +76,10 @@ namespace hiddenAnaconda.Models {
                 trasa trasa = new trasa();
                 trasa.id_linii = lineNumber;
                 trasa.nr_trasy = trailNumber;
-                trasa.id_przystanku = dc.przystaneks.Where(p => p.nazwa.Equals(item.name) && p.miasto.Equals(item.city) && p.kierunek.Equals(item.way)).Select(p => p.id_przystanku).First();
+                if (item.way.Equals(Constants.OneWayStop))
+                    trasa.id_przystanku = dc.przystaneks.Where(p => p.nazwa.Equals(item.name) && p.miasto.Equals(item.city)).Select(p => p.id_przystanku).First();
+                else
+                    trasa.id_przystanku = dc.przystaneks.Where(p => p.nazwa.Equals(item.name) && p.miasto.Equals(item.city) && p.kierunek.Equals(item.way)).Select(p => p.id_przystanku).First();
                 trasa.kolejnosc_przystankow = order;
                 trasa.czas_odjazdus.Add(czas);
                 dc.trasas.InsertOnSubmit(trasa);

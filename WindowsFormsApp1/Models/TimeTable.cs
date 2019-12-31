@@ -64,27 +64,50 @@ namespace hiddenAnaconda.Models {
             }
         }
 
+        //znajdz najdluzsza linie i ja zwroc
         // Get every stop for one line no matter what
-        public List<StopInOrder> GetAllBusStops(int linia) {
-            var data = from p in dc.przystaneks
-                       from t in dc.trasas
-                       where t.id_linii == linia && p.id_przystanku == t.id_przystanku
-                       orderby t.nr_trasy, t.kolejnosc_przystankow
-                       select new {
-                           p.nazwa,
-                           p.miasto,
-                           t.nr_trasy,
-                           t.kolejnosc_przystankow,
-                       };
+        public List<StopInOrder> GetAllBusStops(int line) {
 
-            List<Models.StopInOrder> stopList = new List<StopInOrder>();
-            Debug.Print("List all stops for line number: {0}", linia);
-            foreach (var item in data) {
-                Models.StopInOrder singleStop = new StopInOrder(item.nazwa, item.miasto, item.nr_trasy, item.kolejnosc_przystankow);
-                stopList.Add(singleStop);
-                Debug.Print("\tPrzystanek: {0}, {1}; Trasa: {2}, Kolejność: {3}", item.miasto, item.nazwa, item.nr_trasy, item.kolejnosc_przystankow);
+            var allTrasasInLane = dc.trasas.Where(t => t.id_linii.Equals(line))
+                .Select(t => new { t.kolejnosc_przystankow, t.nr_trasy })
+                .OrderBy(t => t.nr_trasy);
+
+            int maxNumber = 0, maxId = -1;
+            int tempNumber = 1, tempId = allTrasasInLane.First().nr_trasy;
+            foreach (var item in allTrasasInLane) {
+                if (item.nr_trasy.Equals(tempId)) {
+                    tempNumber++;
+                } else {
+                    if (tempNumber > maxNumber) {
+                        maxNumber = tempNumber;
+                        maxId = tempId;
+                    }
+                    tempNumber = 1;
+                    tempId = item.nr_trasy;
+                }
             }
-            return stopList;
+
+            return null;
+
+            //var data = from p in dc.przystaneks
+            //           from t in dc.trasas
+            //           where t.id_linii == linia && p.id_przystanku == t.id_przystanku
+            //           orderby t.nr_trasy, t.kolejnosc_przystankow
+            //           select new {
+            //               p.nazwa,
+            //               p.miasto,
+            //               t.nr_trasy,
+            //               t.kolejnosc_przystankow,
+            //           };
+
+            //List<Models.StopInOrder> stopList = new List<StopInOrder>();
+            //Debug.Print("List all stops for line number: {0}", linia);
+            //foreach (var item in data) {
+            //    Models.StopInOrder singleStop = new StopInOrder(item.nazwa, item.miasto, item.nr_trasy, item.kolejnosc_przystankow);
+            //    stopList.Add(singleStop);
+            //    Debug.Print("\tPrzystanek: {0}, {1}; Trasa: {2}, Kolejność: {3}", item.miasto, item.nazwa, item.nr_trasy, item.kolejnosc_przystankow);
+            //}
+            //return stopList;
         }
 
         // ::TESTED:: Save file on disk
@@ -114,8 +137,8 @@ namespace hiddenAnaconda.Models {
                 sb.Append("<b>");
                 sb.Append(singleLine);
                 sb.Append("</b><br/>");
-                // lista przystnaków niezależnie od dnia...
                 stops.Clear();
+                // lista przystnaków niezależnie od dnia...
                 foreach (var stop in GetAllBusStops(singleLine)) {
                     if (!stops.Contains(stop.cityName + stop.stopName)) {
                         stops.Add(stop.cityName + stop.stopName);

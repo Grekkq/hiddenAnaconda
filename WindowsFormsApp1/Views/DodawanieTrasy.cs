@@ -138,6 +138,9 @@ namespace hiddenAnaconda.Views {
                 if (result == DialogResult.Yes) {
                     //WPISANIE DO BD
                     trail.AddNewTrail(mainListBox);
+                    //jak chcemy go nie zamykać to trzeba ogarnąc buga że przy podwójnym dodaniu nie przeliczy jeszcze raz numeru trasy i się zdubluje
+                    //ewentualnie jeszcze można odznaczać checkboxa to powinno się samo przeliczyć 
+                    this.Close();
                 } else {
                     linia_comboBox.Focus();
                 }
