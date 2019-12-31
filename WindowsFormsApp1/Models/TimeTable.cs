@@ -21,70 +21,6 @@ namespace hiddenAnaconda.Models {
             this.filePath = filePath;
         }
 
-        // Get rodzajKursu at specific day
-        public string CheckDayTypeAtDate(DateTime date) {
-            var result = dc.dni_kursowanias.Where(dni => dni.od_dnia <= date & dni.do_dnia >= date);
-            return result.First().rodzaj_kursu;
-        }
-
-        // Get all trasaId for specific line at specific day
-        // to chyba wyciąga tylko pierwszy przystanek?
-        public List<int> GetTrasasNumberAtDay(DateTime date, int linia) {
-            var data = from k in dc.kurs
-                       from t in dc.trasas
-                       where k.id_linii == linia &&
-                       k.rodzaj_kursu.Equals(CheckDayTypeAtDate(date)) &&
-                       t.id_trasy == k.id_trasy
-                       select t.nr_trasy;
-
-            List<int> list = new List<int>();
-            foreach (var item in data)
-                list.Add(item);
-            return list;
-        }
-
-        // juz nie pamiętam :/
-        public void GetTimeTable(int linia, string przystanek, DateTime date, int kierunek) {
-            var petla = from l in dc.linias
-                        where l.id_linii == linia
-                        select l.czy_zapetla;
-            int[] trasyDnia;
-            if (petla.First() == true)
-                trasyDnia = GetTrasasNumberAtDay(date, linia).Where(x => x % 2 == kierunek).ToArray();
-            else
-                trasyDnia = GetTrasasNumberAtDay(date, linia).ToArray();
-
-            var data = from t in dc.trasas
-                       from p in dc.przystaneks
-                       from c in dc.czas_odjazdus
-                       where trasyDnia.Contains(t.nr_trasy) && p.id_przystanku == t.id_przystanku && c.id_trasy == t.id_trasy
-                       && t.id_linii == linia && p.nazwa == przystanek
-                       select c;
-            foreach (var item in data) {
-                Console.WriteLine("Czas odjazdu: " + item.czas_odjazdu1);
-            }
-        }
-
-
-
-
-        // daj html'a z czsami przyjazdu dla danych idTrasy
-        public string ArrivalTimeInHtml(int lineId, List<int> routeId) {
-            var times = from c in dc.czas_odjazdus
-                        where routeId.Contains(c.id_trasy)
-                        select new { c.id_czasu_odjazdu, c.czas_odjazdu1 };
-            StringBuilder sb = new StringBuilder();
-            sb.Append("<p>");
-            foreach (var item in times) {
-                sb.Append("\t");
-                sb.Append(item.czas_odjazdu1.TimeOfDay.Hours);
-                sb.Append(":");
-                sb.Append(item.czas_odjazdu1.TimeOfDay.Minutes);
-            }
-            sb.Append("</p>");
-            return sb.ToString();
-        }
-
         // ::TESTED::
         private int GetTrailNumberFromTrailId(int trailId) {
             return dc.trasas.Where(t => t.id_trasy.Equals(trailId)).Select(t => t.nr_trasy).Single();
@@ -104,7 +40,12 @@ namespace hiddenAnaconda.Models {
         // z pozwalaniem na tą sama trasę dla różnych dni
         public kur GetKursFromTrailId(int trailId, int line, string dayType) {
             int trailIdForKurs = GetFirstStopInTrail(GetTrailNumberFromTrailId(trailId), line).id_trasy;
+            try {
             return dc.kurs.Where(k => k.id_trasy.Equals(trailIdForKurs) && k.rodzaj_kursu.Equals(dayType)).Single();
+            } catch (InvalidOperationException e) {
+                Debug.Print("Trasa {0}nie została przypisana do kursu", trailIdForKurs);
+                return null;
+            }
         }
 
         // ::TESTED::
@@ -161,6 +102,9 @@ namespace hiddenAnaconda.Models {
                     List<ArrivalTimeInOrder> arrivalTimeInOrder = new List<ArrivalTimeInOrder>();
                     foreach (var kurs in idTrasyDlaLinii) {
                         var temp = GetKursFromTrailId(kurs, singleLine, dayType);
+                        // skip record if trail is not assigned to any kurs
+                        if (temp == null)
+                            continue;
                         if (temp.rodzaj_kursu.Equals(dayType)) {
                             // jak chcemy optymalizować to można by usuwać te elementy po kazdym rodzaju dnia
                             //idTrasyDlaLinii.Remove(kurs);
