@@ -137,7 +137,10 @@ namespace hiddenAnaconda.Views {
                 var result = MessageBox.Show("Na pewno chcesz utworzyć trasę?", "Czy na pewno?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.Yes) {
                     //WPISANIE DO BD
-                    trail.AddNewTrail(mainListBox);
+                    if (checkBox_czyUtworzycNowaTrase.Checked)
+                        trail.AddNewTrail(mainListBox);
+                    else
+                        trail.EditExistingTrail(mainListBox);
                     //jak chcemy go nie zamykać to trzeba ogarnąc buga że przy podwójnym dodaniu nie przeliczy jeszcze raz numeru trasy i się zdubluje
                     //ewentualnie jeszcze można odznaczać checkboxa to powinno się samo przeliczyć 
                     checkBox_czyUtworzycNowaTrase.Checked = false; 
@@ -177,15 +180,11 @@ namespace hiddenAnaconda.Views {
             addButton.Visible = true;
             create.Visible = true;
             deleteButton.Visible = true;
-            trail = new AddTrail(Int32.Parse(this.linia_comboBox.Text), Int32.Parse(this.comboBoxTrasa.Text), false);
+            trail = new AddTrail(Int32.Parse(this.linia_comboBox.Text), Int32.Parse(this.comboBoxTrasa.Text));
             trail.LoadTrailIntoListBox(this.mainListBox);
         }
 
         private void checkBox_czyUtworzycNowaTrase_CheckedChanged(object sender, EventArgs e) {
-            if (checkBox_czyUtworzycNowaTrase.Checked)
-                trail = new AddTrail(Int32.Parse(this.linia_comboBox.Text), Int32.Parse(this.comboBoxTrasa.Text), true);
-            else
-                trail = new AddTrail(Int32.Parse(this.linia_comboBox.Text), Int32.Parse(this.comboBoxTrasa.Text), false);
         }
     }
 }

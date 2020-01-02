@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -13,14 +14,14 @@ namespace hiddenAnaconda.Models {
         int lineNumber, trailNumber;
         List<StopInTrail> trail = new List<StopInTrail>();
 
-        public AddTrail(int lineNumber, int trailNumber, bool isNew) {
+        public AddTrail(int lineNumber, int trailNumber) {
             dc = new ReportDataContext();
             this.lineNumber = lineNumber;
             this.trailNumber = trailNumber;
             GetTrailFromDb();
-            // find highest index of trailNumber and add one to it
-            if (isNew)
-                this.trailNumber = dc.trasas.Where(t => t.id_linii.Equals(lineNumber)).Select(t => t.nr_trasy).Distinct().OrderByDescending(t => t).First() + 1;
+            
+            //if (isNew)
+            //    this.trailNumber = dc.trasas.Where(t => t.id_linii.Equals(lineNumber)).Select(t => t.nr_trasy).Distinct().OrderByDescending(t => t).First() + 1;
         }
 
         public void LoadTrailIntoListBox(ListBox listBox) {
@@ -38,11 +39,21 @@ namespace hiddenAnaconda.Models {
             }
         }
 
-        public void EditExistingTrail() {
-
+        public void EditExistingTrail(ListBox listBox) {
+            if (!DeleteTrailFromDb()) {
+                MessageBox.Show("Nie udało się zedytować trasy sprawdź czy nie jest przypisana do jakiegoś kursu.");
+                return;
+            }
+            PutTrailIntoDb(ParseDataFromListBox(listBox));
         }
 
         public void AddNewTrail(ListBox listBox) {
+            // find highest index of trailNumber and add one to it
+            this.trailNumber = dc.trasas.Where(t => t.id_linii.Equals(lineNumber)).Select(t => t.nr_trasy).Distinct().OrderByDescending(t => t).First() + 1;
+            PutTrailIntoDb(ParseDataFromListBox(listBox));
+        }
+
+        private List<StopInTrail> ParseDataFromListBox(ListBox listBox) {
             List<StopInTrail> toAdd = new List<StopInTrail>();
             foreach (var item in listBox.Items) {
                 string row = item.ToString();
@@ -64,7 +75,7 @@ namespace hiddenAnaconda.Models {
                 DateTime time = DateTime.Parse(Constants.DateElementForArrivalTime + row.Substring(index));
                 toAdd.Add(new StopInTrail(city, name, order, 0, time, way));
             }
-            PutTrailIntoDb(toAdd);
+            return toAdd;
         }
 
         private void PutTrailIntoDb(List<StopInTrail> trail) {
@@ -87,6 +98,17 @@ namespace hiddenAnaconda.Models {
                 order++;
             }
 
+        }
+
+        private bool DeleteTrailFromDb() {
+            try {
+                dc.trasas.DeleteAllOnSubmit(dc.trasas.Where(t => t.id_linii.Equals(lineNumber) && t.nr_trasy.Equals(trailNumber)).ToList());
+                dc.SubmitChanges();
+            } catch (Exception e) {
+                Debug.Print("Cannot delete trail. \n{0}", e);
+                return false;
+            }
+            return true;
         }
     }
 
