@@ -19,9 +19,6 @@ namespace hiddenAnaconda.Models {
             this.lineNumber = lineNumber;
             this.trailNumber = trailNumber;
             GetTrailFromDb();
-            
-            //if (isNew)
-            //    this.trailNumber = dc.trasas.Where(t => t.id_linii.Equals(lineNumber)).Select(t => t.nr_trasy).Distinct().OrderByDescending(t => t).First() + 1;
         }
 
         public void LoadTrailIntoListBox(ListBox listBox) {

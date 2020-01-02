@@ -82,6 +82,7 @@
     <Compile Include="Models\StatusChange.cs" />
     <Compile Include="Models\StopsInOrder.cs" />
     <Compile Include="Models\TimeTable.cs" />
+    <Compile Include="Models\TrailAssignment.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
