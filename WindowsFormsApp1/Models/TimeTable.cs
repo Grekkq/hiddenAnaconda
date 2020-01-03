@@ -65,15 +65,21 @@ namespace hiddenAnaconda.Models {
             }
 
             StringBuilder sb = new StringBuilder();
-            sb.Append("<h1>");
+            sb.Append("<html><head><style> .CityBusStop{ font - size: 20px; color: gainsboro; } #busstop{font - weight: bolder;font - size: 25px;color:white;} .przystanek{ font-size: 18px; color: white; text-align: left; }th{background-color: black; color: white; } #lineName{ width: 70px; font-size: 30px; } #arrows{font-size: 28px; color: white; } #way{color: white; } </style></head>");
+            sb.Append("<body> <table> <tr> <th id=\"lineName\" style='font-family: MS PGothic'>&nbsp;");
+            sb.Append("710");    
+            sb.Append("&nbsp; </th> <th> <div class=\"przystanek\" style='font-family: MS PGothic'>&nbsp przystanek: <br> </div> <span class=\"CityBusStop\" id=\"city\" style='font-family: MS PGothic'> &nbsp;");
+            sb.Append("  ");
             sb.Append(city);
-            sb.Append(", ");
+            sb.Append(" ");
+            sb.Append("<span id=\"busstop\">");
             sb.Append(stopName);
             if (!way.Equals(Constants.OneWayStop)) {
-                sb.Append(", ");
+                sb.Append("</span> <span id=\"arrows\" style='font-family: Bahnschrift Condensed'> &nbsp;&nbsp;>&nbsp;>&nbsp;&nbsp; </span> <br> </span> </th> <th> <div class=\"przystanek\" style='font-family: MS PGothic'>&nbsp kierunek: </div> <span class=\"CityBusStop\" id=\"way\" style='font-family: MS PGothic'> &nbsp;");
+                sb.Append("  ");
                 sb.Append(way);
+                sb.Append("<span id=\"arrows\"> &nbsp; </span> <br> </span> </th> </tr> </table><br><br>KONIEC HTML'a </body>");
             }
-            sb.Append("</h1>");
 
             List<int> idTrasyDlaLinii = new List<int>();
             // dla każdej linii na przystanku
