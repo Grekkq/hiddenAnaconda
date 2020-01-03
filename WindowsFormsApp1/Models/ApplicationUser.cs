@@ -10,11 +10,15 @@ using System.Diagnostics;
 namespace hiddenAnaconda.Models {
     class ApplicationUser {
 
+        private List<String> users;
         ReportDataContext dc;
 
         public ApplicationUser() {
             dc = new ReportDataContext();
+            users = new List<string>();
+            
         }
+
 
         public void createUser(string login, string password, int permission_level) {
             string salt = generateSalt();
@@ -95,6 +99,45 @@ namespace hiddenAnaconda.Models {
                 return "0";
             }
             return data.hasz;
+        }
+
+  
+
+        public bool ChangeUserPermission(string login, int status)
+        {
+            int userId = Int32.Parse(login.Split('.')[0]);
+            var update = dc.logowanies.Single(p => p.id_uzytkownika == userId);
+            update.poziom_uprawnien = status;
+            dc.SubmitChanges();
+            return true;
+        }
+
+        public bool ChangeUserStatus(string login, bool status)
+        {
+            int userId = Int32.Parse(login.Split('.')[0]);
+            var update = dc.logowanies.Single(p => p.id_uzytkownika == userId);
+            update.czy_aktywny = status;
+            dc.SubmitChanges();
+            return true;
+        }
+
+    
+        public void LoadDataToUserComboBox(ComboBox comboBox)
+        {
+            comboBox.Items.Clear();
+            if (users.Count() == 0)
+                GetUserData();
+            foreach (var user in users)
+                comboBox.Items.Add(user);
+        }
+
+        private void GetUserData()
+        {
+            foreach( var item in dc.logowanies.Select(p => new  {p.id_uzytkownika, p.login, p.poziom_uprawnien, p.czy_aktywny }))
+            {
+                users.Add(item.id_uzytkownika + "." + item.login + ", " + item.poziom_uprawnien + ", " +(item.czy_aktywny ? "aktywny" : "nieaktywny"));
+            }
+
         }
     }
 }

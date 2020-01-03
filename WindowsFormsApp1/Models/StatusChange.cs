@@ -50,7 +50,7 @@ namespace hiddenAnaconda.Models {
 
         private void GetVehicleData() {
             foreach (var item in dc.pojazds.Select(p => new { p.id_pojazdu, p.marka, p.model, p.czy_sprawny, p.nr_rejestracyjny })) {
-                vehicles.Add(item.id_pojazdu + ". " + item.marka + " " + item.model + " " + item.nr_rejestracyjny + ", " + (item.czy_sprawny ? "sprawny" : "nie sprawny"));
+                vehicles.Add(item.id_pojazdu + ". " + item.marka + " " + item.model + " " + item.nr_rejestracyjny + ", " + (item.czy_sprawny ? "sprawny" : "niesprawny"));
             }
         }
 

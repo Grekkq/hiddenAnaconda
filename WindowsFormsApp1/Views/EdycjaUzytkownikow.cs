@@ -19,6 +19,7 @@ namespace hiddenAnaconda.Views {
         bool ErrorIsOn, ErrorUprawnieIsOn = true;
 
         SharedView sharedView = new SharedView();
+        Models.ApplicationUser ApplicationUser = new Models.ApplicationUser();
 
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData) {
             return sharedView.EscKeyPressed(this, keyData);
@@ -50,10 +51,11 @@ namespace hiddenAnaconda.Views {
         private void EdycjaUżytkowników_Load(object sender, EventArgs e)
         {
             this.comboBox_uzytkownik.Items.Clear();
-            this.comboBox_uzytkownik.Items.Add("Grekkq");
-            this.comboBox_uzytkownik.Items.Add("nieDam");
-            this.comboBox_uzytkownik.Items.Add("h1mit");
-
+            /*  this.comboBox_uzytkownik.Items.Add("Grekkq");
+              this.comboBox_uzytkownik.Items.Add("nieDam");
+              this.comboBox_uzytkownik.Items.Add("h1mit");
+              */
+            ApplicationUser.LoadDataToUserComboBox(this.comboBox_uzytkownik);
             groupBox_status_uprawnienia.Visible = false;
             radio_status.Visible = false;
             radio_uprawnienia.Visible = false;
@@ -144,8 +146,8 @@ namespace hiddenAnaconda.Views {
                         if (result == DialogResult.Yes)
                         {
                             //DOANIE DO BAZY
-                            // Models.AddingLine addingLine = new Models.AddingLine();
-                            // addingLine.AddLine(lineNumber, isLooping);
+                          ApplicationUser.ChangeUserPermission(comboBox_uzytkownik.Text, comboBox_uprawnienia.SelectedIndex);
+                           
                         }
                         else
                         {
@@ -153,25 +155,35 @@ namespace hiddenAnaconda.Views {
                             comboBox_uzytkownik.Focus();
                             comboBox_uprawnienia.Focus();
                         }
-                        //Wpisz do bazy
                     }
                 }
                 else if (radio_status.Checked == true && radio_uprawnienia.Checked == false)
                 {
-                    if ((radioButton_aktywne.Checked == true || radioButton_nieaktywne.Checked == true))
+                    if (radioButton_aktywne.Checked == true)
                     {
-                        var result = MessageBox.Show("Na pewno chcesz zmienić status konta ''" + comboBox_uzytkownik.Text + "''?", "Zmiana statusu", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        var result = MessageBox.Show("Na pewno chcesz zmienić status konta ''" + comboBox_uzytkownik.Text + "'' na aktywne?", "Zmiana statusu", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                         if (result == DialogResult.Yes)
                         {
                             //DOANIE DO BAZY
-                            // Models.AddingLine addingLine = new Models.AddingLine();
-                            // addingLine.AddLine(lineNumber, isLooping);
+                            ApplicationUser.ChangeUserStatus(comboBox_uzytkownik.Text, true);
                         }
                         else
                         {
                             comboBox_uzytkownik.Focus();
                         }
                         //Wpisz do bazy
+                    }else if(radioButton_nieaktywne.Checked == true)
+                    {
+                        var result = MessageBox.Show("Na pewno chcesz zmienić status konta ''" + comboBox_uzytkownik.Text + "'' na nieaktywne?", "Zmiana statusu", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        if (result == DialogResult.Yes)
+                        {
+                            //DOANIE DO BAZY
+                            ApplicationUser.ChangeUserStatus(comboBox_uzytkownik.Text, false);
+                        }
+                        else
+                        {
+                            comboBox_uzytkownik.Focus();
+                        }
                     }
                     else
                         if (radioButton_nieaktywne.Checked == false && radioButton_aktywne.Checked == false)
