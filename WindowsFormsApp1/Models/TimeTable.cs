@@ -49,8 +49,8 @@ namespace hiddenAnaconda.Models {
         }
 
         // ::TESTED::
-        private DateTime GetArrivalTime(int arrivalTimeId) {
-            return dc.czas_odjazdus.Where(c => c.id_czasu_odjazdu.Equals(arrivalTimeId)).Single().czas_odjazdu1;
+        private DateTime GetArrivalTime(int trailId) {
+            return dc.czas_odjazdus.Where(c => c.id_trasy.Equals(trailId)).Single().czas_odjazdu1;
         }
 
         // Main function generating timetable
@@ -138,7 +138,7 @@ namespace hiddenAnaconda.Models {
                         if (temp.rodzaj_kursu.Equals(dayType)) {
                             // jak chcemy optymalizować to można by usuwać te elementy po kazdym rodzaju dnia
                             //idTrasyDlaLinii.Remove(kurs);
-                            arrivalTimeInOrder.Add(new ArrivalTimeInOrder(temp.ktory_kurs_danego_dnia, GetArrivalTime(temp.id_czasu_odjazdu)));
+                            arrivalTimeInOrder.Add(new ArrivalTimeInOrder(temp.ktory_kurs_danego_dnia, GetArrivalTime(kurs)));
                         }
                     }
                     //arrivalTimeInOrder.Add(new ArrivalTimeInOrder(4, DateTime.Today));
@@ -169,7 +169,7 @@ namespace hiddenAnaconda.Models {
         }
 
         // ::TESTED:: wyciągnij informacje o wszystkich trasach na tym przystanku
-        public List<Tuple<int, int>> GetTrasaIdForReport() {
+        private List<Tuple<int, int>> GetTrasaIdForReport() {
             int busStopId = -1;
             if (way.Equals(Constants.OneWayStop))
                 try {
