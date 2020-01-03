@@ -100,6 +100,10 @@ namespace hiddenAnaconda {
             return data;
         }
 
+        public string CheckDayType(DateTime date) {
+            return dc.dni_kursowanias.Where(d => d.od_dnia <= date && d.do_dnia >= date).Select(d=>d.rodzaj_kursu).Single();
+        }
+
         public bool EscKeyPressed(Form form,Keys keydata) {
             if (keydata == Keys.Escape) {
                 form.Close();
