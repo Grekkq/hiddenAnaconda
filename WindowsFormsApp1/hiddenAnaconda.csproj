@@ -257,6 +257,7 @@
     <EmbeddedResource Include="Views\ZmianaStatusu.resx">
       <DependentUpon>ZmianaStatusu.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="ClassDiagram5.cd" />
     <None Include="Models\Report.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>Report.designer.cs</LastGenOutput>
