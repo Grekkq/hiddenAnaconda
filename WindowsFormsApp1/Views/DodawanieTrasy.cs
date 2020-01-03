@@ -1,12 +1,7 @@
 ﻿using hiddenAnaconda.Models;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace hiddenAnaconda.Views {
@@ -34,7 +29,7 @@ namespace hiddenAnaconda.Views {
             sharedView.Leave_exitbutton(this.exit);
         }
 
-        private void Turnoff_focus(object sender, EventArgs e) {  //wyłączenie fokusu na pola tekstowe przy uruchomieniu 
+        private void Turnoff_focus(object sender, EventArgs e) { 
             this.ActiveControl = null;
         }
 
@@ -143,7 +138,8 @@ namespace hiddenAnaconda.Views {
                         trail.EditExistingTrail(mainListBox);
                     //jak chcemy go nie zamykać to trzeba ogarnąc buga że przy podwójnym dodaniu nie przeliczy jeszcze raz numeru trasy i się zdubluje
                     //ewentualnie jeszcze można odznaczać checkboxa to powinno się samo przeliczyć 
-                    checkBox_czyUtworzycNowaTrase.Checked = false; 
+                    checkBox_czyUtworzycNowaTrase.Checked = false;
+                    trail.LoadTrailIntoListBox(mainListBox);
                 } else {
                     linia_comboBox.Focus();
                 }

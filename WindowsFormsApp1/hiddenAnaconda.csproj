@@ -80,7 +80,6 @@
     </Compile>
     <Compile Include="Models\routeElementModel.cs" />
     <Compile Include="Models\StatusChange.cs" />
-    <Compile Include="Models\StopsInOrder.cs" />
     <Compile Include="Models\TimeTable.cs" />
     <Compile Include="Models\TrailAssignment.cs" />
     <Compile Include="Program.cs" />

@@ -36,7 +36,6 @@ namespace hiddenAnaconda.Models {
             return db.kurs.Where(k => k.id_linii.Equals(LineNumber)).Count();
         }
 
-        // TODO: Sortować jakoś te kursy :D
         private void SortArrivalTime() {
             var data = from k in db.kurs
                        from a in db.czas_odjazdus
