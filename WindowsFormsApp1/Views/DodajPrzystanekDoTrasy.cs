@@ -34,6 +34,7 @@ namespace hiddenAnaconda.Views {
             comboBox_miasto.SelectedIndex = comboBox_miasto.FindString(busStop.City);
             comboBox_przystanek.SelectedIndex = comboBox_przystanek.FindString(busStop.Name);
             comboBox_kierunek.SelectedIndex = comboBox_kierunek.FindString(busStop.Way);
+            textbox_time.Text = busStop.ArrivalTime;
         }
 
         private void move_window(object sender, MouseEventArgs e) {

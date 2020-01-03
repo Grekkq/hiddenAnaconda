@@ -70,9 +70,8 @@ namespace hiddenAnaconda.Views {
             comboBox_trasa.Focus();
             if (!string.IsNullOrEmpty(comboBox_linia.Text) && !string.IsNullOrEmpty(comboBox_trasa.Text) && !string.IsNullOrEmpty(comboBox_rodzajKursu.Text) && ErrorIsOn == false) {
                 if (MessageBox.Show("Na pewno chcesz dodać kurs?", "Dodanie kursu", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) {
-                    const string message = "Pomyślnie utworzono nowy kurs";
-                    const string caption = "Sukces";
-                    var result = MessageBox.Show(message, caption, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    new Models.TrailAssignment(Int32.Parse(comboBox_linia.Text), Int32.Parse(comboBox_trasa.Text), comboBox_rodzajKursu.Text).AddTrailAssignment();
+                    var result = MessageBox.Show("Pomyślnie utworzono nowy kurs", "Sukces", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     if (result == DialogResult.OK) {
                         this.Close();
                     }

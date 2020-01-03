@@ -36,6 +36,7 @@
             this.create = new System.Windows.Forms.Button();
             this.lineSelectionLabel = new System.Windows.Forms.Label();
             this.bgPanel = new System.Windows.Forms.Panel();
+            this.label_przystanek = new System.Windows.Forms.Label();
             this.checkBox_czyUtworzycNowaTrase = new System.Windows.Forms.CheckBox();
             this.label_lokalizacja = new System.Windows.Forms.Label();
             this.label_godzina = new System.Windows.Forms.Label();
@@ -122,6 +123,7 @@
             // bgPanel
             // 
             this.bgPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.bgPanel.Controls.Add(this.label_przystanek);
             this.bgPanel.Controls.Add(this.checkBox_czyUtworzycNowaTrase);
             this.bgPanel.Controls.Add(this.label_lokalizacja);
             this.bgPanel.Controls.Add(this.label_godzina);
@@ -144,6 +146,18 @@
             this.bgPanel.Size = new System.Drawing.Size(606, 377);
             this.bgPanel.TabIndex = 0;
             // 
+            // label_przystanek
+            // 
+            this.label_przystanek.BackColor = System.Drawing.Color.Silver;
+            this.label_przystanek.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label_przystanek.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label_przystanek.Location = new System.Drawing.Point(160, 136);
+            this.label_przystanek.Name = "label_przystanek";
+            this.label_przystanek.Size = new System.Drawing.Size(337, 22);
+            this.label_przystanek.TabIndex = 28;
+            this.label_przystanek.Text = "Przystanek";
+            this.label_przystanek.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // checkBox_czyUtworzycNowaTrase
             // 
             this.checkBox_czyUtworzycNowaTrase.AutoSize = true;
@@ -157,27 +171,27 @@
             // 
             // label_lokalizacja
             // 
-            this.label_lokalizacja.AutoSize = true;
             this.label_lokalizacja.BackColor = System.Drawing.Color.Silver;
             this.label_lokalizacja.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label_lokalizacja.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label_lokalizacja.Location = new System.Drawing.Point(109, 136);
+            this.label_lokalizacja.Location = new System.Drawing.Point(62, 136);
             this.label_lokalizacja.Name = "label_lokalizacja";
-            this.label_lokalizacja.Size = new System.Drawing.Size(313, 22);
+            this.label_lokalizacja.Size = new System.Drawing.Size(100, 22);
             this.label_lokalizacja.TabIndex = 27;
-            this.label_lokalizacja.Text = "                              Lokalizacja                          ";
+            this.label_lokalizacja.Text = "Miasto";
+            this.label_lokalizacja.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label_godzina
             // 
-            this.label_godzina.AutoSize = true;
             this.label_godzina.BackColor = System.Drawing.Color.Silver;
             this.label_godzina.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label_godzina.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label_godzina.Location = new System.Drawing.Point(422, 136);
+            this.label_godzina.Location = new System.Drawing.Point(496, 136);
             this.label_godzina.Name = "label_godzina";
-            this.label_godzina.Size = new System.Drawing.Size(115, 22);
+            this.label_godzina.Size = new System.Drawing.Size(90, 22);
             this.label_godzina.TabIndex = 27;
-            this.label_godzina.Text = "      Godzina     ";
+            this.label_godzina.Text = "Godzina";
+            this.label_godzina.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label_nr
             // 
@@ -185,11 +199,12 @@
             this.label_nr.BackColor = System.Drawing.Color.Silver;
             this.label_nr.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label_nr.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label_nr.Location = new System.Drawing.Point(69, 136);
+            this.label_nr.Location = new System.Drawing.Point(20, 136);
             this.label_nr.Name = "label_nr";
             this.label_nr.Size = new System.Drawing.Size(43, 22);
             this.label_nr.TabIndex = 27;
             this.label_nr.Text = "  Nr. ";
+            this.label_nr.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pictureBox2
             // 
@@ -225,16 +240,16 @@
             // mainListBox
             // 
             this.mainListBox.AllowDrop = true;
-            this.mainListBox.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.mainListBox.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.mainListBox.FormattingEnabled = true;
-            this.mainListBox.ItemHeight = 18;
+            this.mainListBox.ItemHeight = 19;
             this.mainListBox.Items.AddRange(new object[] {
             "1)   Gliwice, Plac Piastów            07:15",
             "2)   Zabrze, Plac Kroczkaa            08:00",
             "3)   Zabrze, Rokietnica               08:30"});
             this.mainListBox.Location = new System.Drawing.Point(20, 157);
             this.mainListBox.Name = "mainListBox";
-            this.mainListBox.Size = new System.Drawing.Size(566, 148);
+            this.mainListBox.Size = new System.Drawing.Size(566, 137);
             this.mainListBox.TabIndex = 1;
             this.mainListBox.DragDrop += new System.Windows.Forms.DragEventHandler(this.MainListBox_DragDrop);
             this.mainListBox.DragOver += new System.Windows.Forms.DragEventHandler(this.MainListBox_DragOver);
@@ -373,6 +388,7 @@
             this.Name = "DodawanieTrasy";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Formularz tworzenia trasy";
+            this.Activated += new System.EventHandler(this.Turnoff_focus);
             this.Load += new System.EventHandler(this.DodawanieTrasy_Load);
             this.Enter += new System.EventHandler(this.Turnoff_focus);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Move_window);
@@ -412,5 +428,6 @@
         private System.Windows.Forms.ComboBox comboBoxTrasa;
         private System.Windows.Forms.Label label_trasa;
         private System.Windows.Forms.CheckBox checkBox_czyUtworzycNowaTrase;
+        private System.Windows.Forms.Label label_przystanek;
     }
 }

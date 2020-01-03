@@ -36,7 +36,7 @@ namespace hiddenAnaconda.Models {
         // Parse record from ListBox
         public routeElementModel(string element) {
 
-            String newcontent = element.Substring(element.IndexOf(") ") + 2);
+            String newcontent = element.Substring(element.IndexOf(Constants.ListBoxNumberDelimiter) + 2);
 
             this.City = newcontent.Substring(0, newcontent.IndexOf(", ")).Trim();
             newcontent = newcontent.Substring(newcontent.IndexOf(", ") + 2).TrimStart();
@@ -56,15 +56,15 @@ namespace hiddenAnaconda.Models {
         // Add new record in ListBox
         public void putInListBox(ListBox listBox) {
             int index = listBox.Items.Count + 1;
-            string newcontent = (index + ") ").PadRight(5, ' ') + City + ", " + Name + ", " + Way;
-            newcontent = newcontent.PadRight(50, ' ') + ArrivalTime;
+            string newcontent = " " + (index + Constants.ListBoxNumberDelimiter).PadRight(5, ' ') + (City + ",").PadRight(10, ' ') + Name + ", " + Way;
+            newcontent = newcontent.PadRight(55, ' ') + ArrivalTime;
             listBox.Items.Add(newcontent);
         }
 
         // Add new record in ListBox at index
         public void putInListBoxAt(ListBox listBox, int index) {
-            string newcontent = (index + 1 + ") ").PadRight(5, ' ') + City + ", " + Name + ", " + Way;
-            newcontent = newcontent.PadRight(50, ' ') + ArrivalTime;
+            string newcontent = " " + (index + 1 + Constants.ListBoxNumberDelimiter).PadRight(5, ' ') + (City + ",").PadRight(10, ' ') + Name + ", " + Way;
+            newcontent = newcontent.PadRight(55, ' ') + ArrivalTime;
             listBox.Items.Insert(index, newcontent);
         }
     }

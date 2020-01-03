@@ -178,8 +178,10 @@
             // dataKursuPicker
             // 
             this.dataKursuPicker.Location = new System.Drawing.Point(317, 110);
+            this.dataKursuPicker.MaxSelectionCount = 1;
             this.dataKursuPicker.Name = "dataKursuPicker";
             this.dataKursuPicker.TabIndex = 4;
+            this.dataKursuPicker.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.dataKursuPicker_DateChanged);
             // 
             // kursSelectionComboBox
             // 

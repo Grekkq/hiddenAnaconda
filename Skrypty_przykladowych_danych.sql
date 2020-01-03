@@ -63,19 +63,19 @@ SET IDENTITY_INSERT [dbo].[przystanek] OFF
 
 -- Dane dla tras
 SET IDENTITY_INSERT [dbo].[trasa] ON
-INSERT INTO [dbo].[trasa] ([id_trasy], [id_linii], [id_przystanku], [kolejnosc_przystankow], [nr_trasy]) VALUES (0, 710, 4, 1, 0)
-INSERT INTO [dbo].[trasa] ([id_trasy], [id_linii], [id_przystanku], [kolejnosc_przystankow], [nr_trasy]) VALUES (1, 710, 11, 2, 0)
-INSERT INTO [dbo].[trasa] ([id_trasy], [id_linii], [id_przystanku], [kolejnosc_przystankow], [nr_trasy]) VALUES (2, 710, 21, 3, 0)
-INSERT INTO [dbo].[trasa] ([id_trasy], [id_linii], [id_przystanku], [kolejnosc_przystankow], [nr_trasy]) VALUES (3, 710, 32, 4, 0)
-INSERT INTO [dbo].[trasa] ([id_trasy], [id_linii], [id_przystanku], [kolejnosc_przystankow], [nr_trasy]) VALUES (4, 710, 62, 5, 0)
-INSERT INTO [dbo].[trasa] ([id_trasy], [id_linii], [id_przystanku], [kolejnosc_przystankow], [nr_trasy]) VALUES (5, 710, 72, 6, 0)
-INSERT INTO [dbo].[trasa] ([id_trasy], [id_linii], [id_przystanku], [kolejnosc_przystankow], [nr_trasy]) VALUES (6, 710, 82, 7, 0)
-INSERT INTO [dbo].[trasa] ([id_trasy], [id_linii], [id_przystanku], [kolejnosc_przystankow], [nr_trasy]) VALUES (7, 710, 81, 1, 1)
-INSERT INTO [dbo].[trasa] ([id_trasy], [id_linii], [id_przystanku], [kolejnosc_przystankow], [nr_trasy]) VALUES (8, 710, 71, 2, 1)
-INSERT INTO [dbo].[trasa] ([id_trasy], [id_linii], [id_przystanku], [kolejnosc_przystankow], [nr_trasy]) VALUES (9, 710, 61, 3, 1)
-INSERT INTO [dbo].[trasa] ([id_trasy], [id_linii], [id_przystanku], [kolejnosc_przystankow], [nr_trasy]) VALUES (10, 710, 31, 4, 1)
-INSERT INTO [dbo].[trasa] ([id_trasy], [id_linii], [id_przystanku], [kolejnosc_przystankow], [nr_trasy]) VALUES (11, 710, 111, 5, 1)
-INSERT INTO [dbo].[trasa] ([id_trasy], [id_linii], [id_przystanku], [kolejnosc_przystankow], [nr_trasy]) VALUES (12, 710, 3, 6, 1)
+INSERT INTO [dbo].[trasa] ([id_trasy], [id_linii], [id_przystanku], [kolejnosc_przystankow], [nr_trasy]) VALUES (0, 710, 4, 0, 0)
+INSERT INTO [dbo].[trasa] ([id_trasy], [id_linii], [id_przystanku], [kolejnosc_przystankow], [nr_trasy]) VALUES (1, 710, 11, 1, 0)
+INSERT INTO [dbo].[trasa] ([id_trasy], [id_linii], [id_przystanku], [kolejnosc_przystankow], [nr_trasy]) VALUES (2, 710, 21, 2, 0)
+INSERT INTO [dbo].[trasa] ([id_trasy], [id_linii], [id_przystanku], [kolejnosc_przystankow], [nr_trasy]) VALUES (3, 710, 32, 3, 0)
+INSERT INTO [dbo].[trasa] ([id_trasy], [id_linii], [id_przystanku], [kolejnosc_przystankow], [nr_trasy]) VALUES (4, 710, 62, 4, 0)
+INSERT INTO [dbo].[trasa] ([id_trasy], [id_linii], [id_przystanku], [kolejnosc_przystankow], [nr_trasy]) VALUES (5, 710, 72, 5, 0)
+INSERT INTO [dbo].[trasa] ([id_trasy], [id_linii], [id_przystanku], [kolejnosc_przystankow], [nr_trasy]) VALUES (6, 710, 82, 6, 0)
+INSERT INTO [dbo].[trasa] ([id_trasy], [id_linii], [id_przystanku], [kolejnosc_przystankow], [nr_trasy]) VALUES (7, 710, 81, 0, 1)
+INSERT INTO [dbo].[trasa] ([id_trasy], [id_linii], [id_przystanku], [kolejnosc_przystankow], [nr_trasy]) VALUES (8, 710, 71, 1, 1)
+INSERT INTO [dbo].[trasa] ([id_trasy], [id_linii], [id_przystanku], [kolejnosc_przystankow], [nr_trasy]) VALUES (9, 710, 61, 2, 1)
+INSERT INTO [dbo].[trasa] ([id_trasy], [id_linii], [id_przystanku], [kolejnosc_przystankow], [nr_trasy]) VALUES (10, 710, 31, 3, 1)
+INSERT INTO [dbo].[trasa] ([id_trasy], [id_linii], [id_przystanku], [kolejnosc_przystankow], [nr_trasy]) VALUES (11, 710, 111, 4, 1)
+INSERT INTO [dbo].[trasa] ([id_trasy], [id_linii], [id_przystanku], [kolejnosc_przystankow], [nr_trasy]) VALUES (12, 710, 3, 5, 1)
 
 SET IDENTITY_INSERT [dbo].[trasa] OFF
 
