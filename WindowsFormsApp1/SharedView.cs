@@ -19,25 +19,32 @@ namespace hiddenAnaconda {
         public static extern bool ReleaseCapture();
 
         ReportDataContext dc;
-        private List<String> lines;
+        
         public SharedView() {
             dc = new ReportDataContext();
-            lines = new List<string>();
+        }
+
+        // ::TESTED::
+        public int GetTrailNumberFromTrailId(int trailId) {
+            return dc.trasas.Where(t => t.id_trasy.Equals(trailId)).Select(t => t.nr_trasy).Single();
+        }
+        // ::TESTED::
+        public trasa GetFirstStopInTrail(int trailNumber, int line) {
+            return dc.trasas.Where(t => t.id_linii.Equals(line) && t.nr_trasy.Equals(trailNumber)).OrderBy(t => t.nr_trasy).First();
         }
 
         public void LoadLinesIntoComboBox(ComboBox comboBox) {
             comboBox.Items.Clear();
-            if (lines.Count == 0)
-                GetLinesFromDb();
-            foreach (var line in lines)
+            foreach (var line in GetLinesFromDb())
                 comboBox.Items.Add(line);
         }
 
-        private void GetLinesFromDb() {
-            var data = dc.linias;
-            foreach (var item in data) {
+        private List<String> GetLinesFromDb() {
+            List<String> lines = new List<string>();
+            foreach (var item in dc.linias) {
                 lines.Add(item.id_linii.ToString());
             }
+            return lines;
         }
 
         public void LoadRouteNumberIntoComboBox(ComboBox comboBox, int lineNumber) {

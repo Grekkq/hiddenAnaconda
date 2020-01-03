@@ -54,7 +54,6 @@ namespace hiddenAnaconda.Models {
         }
 
         // Main function generating timetable
-        // TODO: many things xD
         public void GenerateTimetable() {
             var idTrasyDlaWszystkichLinii = GetTrasaIdForReport();
             //znajdź wszystkie liniie na przystanku
@@ -156,7 +155,6 @@ namespace hiddenAnaconda.Models {
 
             var data = dc.trasas.Where(t => t.id_przystanku.Equals(busStopId)).Select(t => new { t.id_linii, t.id_trasy });
             // linia, idTrasy
-            //Tuple<int, int> idTrasyDlaLinii = new Tuple<int, int>(1,1);
             List<Tuple<int, int>> idTrasyDlaLinii = new List<Tuple<int, int>>();
             foreach (var item in data) {
                 idTrasyDlaLinii.Add(Tuple.Create(item.id_linii, item.id_trasy));
