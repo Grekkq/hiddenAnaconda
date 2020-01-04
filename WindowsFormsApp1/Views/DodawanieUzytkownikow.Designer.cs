@@ -201,7 +201,6 @@
             this.password_re.PasswordChar = '*';
             this.password_re.Size = new System.Drawing.Size(150, 20);
             this.password_re.TabIndex = 2;
-            this.password_re.TextChanged += new System.EventHandler(this.password_re_TextChanged);
             this.password_re.Validating += new System.ComponentModel.CancelEventHandler(this.password_re_Validating);
             // 
             // label8
@@ -226,7 +225,6 @@
             this.permissions_level.Name = "permissions_level";
             this.permissions_level.Size = new System.Drawing.Size(150, 21);
             this.permissions_level.TabIndex = 3;
-            this.permissions_level.SelectedIndexChanged += new System.EventHandler(this.permissions_level_SelectedIndexChanged);
             this.permissions_level.Validating += new System.ComponentModel.CancelEventHandler(this.permissions_level_Validating);
             // 
             // username
@@ -238,6 +236,7 @@
             this.username.Size = new System.Drawing.Size(150, 20);
             this.username.TabIndex = 0;
             this.username.Validating += new System.ComponentModel.CancelEventHandler(this.username_Validating);
+            this.username.Validated += new System.EventHandler(this.username_Validated);
             // 
             // label5
             // 
@@ -257,7 +256,6 @@
             this.password.PasswordChar = '*';
             this.password.Size = new System.Drawing.Size(150, 20);
             this.password.TabIndex = 1;
-            this.password.TextChanged += new System.EventHandler(this.password_TextChanged);
             this.password.Validated += new System.EventHandler(this.password_Validated);
             // 
             // label3
