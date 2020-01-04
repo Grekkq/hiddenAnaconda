@@ -193,7 +193,7 @@
             "4"});
             this.kursSelectionComboBox.Location = new System.Drawing.Point(18, 160);
             this.kursSelectionComboBox.Name = "kursSelectionComboBox";
-            this.kursSelectionComboBox.Size = new System.Drawing.Size(119, 21);
+            this.kursSelectionComboBox.Size = new System.Drawing.Size(150, 21);
             this.kursSelectionComboBox.TabIndex = 1;
             this.kursSelectionComboBox.SelectedIndexChanged += new System.EventHandler(this.KursSelectionComboBox_SelectedIndexChanged);
             this.kursSelectionComboBox.Validating += new System.ComponentModel.CancelEventHandler(this.KursSelectionComboBox_Validating);

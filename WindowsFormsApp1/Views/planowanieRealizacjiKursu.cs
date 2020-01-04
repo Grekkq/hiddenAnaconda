@@ -13,6 +13,7 @@ namespace hiddenAnaconda.Views {
     public partial class planowanieRealizacjiKursu : Form {
 
         bool ErrorIsOn, ErrorKursIsOn, ErrorKierIsOn, ErrorPojIsOn = true;
+        string selectetDayType;
 
         public planowanieRealizacjiKursu() {
             InitializeComponent();
@@ -22,8 +23,9 @@ namespace hiddenAnaconda.Views {
             kierowcaSelectionComboBox.Hide();
             pojazdSelectionLabel.Hide();
             pojazdSelectionComboBox.Hide();
+            sharedView.LoadLinesIntoComboBox(this.liniaSelectionComboBox);
             try {
-                sharedView.CheckDayType(dataKursuPicker.SelectionRange.Start);
+                selectetDayType = sharedView.CheckDayType(dataKursuPicker.SelectionRange.Start);
             } catch (Exception exception) {
                 Debug.Print("Failed to read day type for picked date.\n{0}", exception);
                 MessageBox.Show("Uwaga! \nDla dzisiejszego dnia nie został przypisany jego rodzaj.");
@@ -57,7 +59,6 @@ namespace hiddenAnaconda.Views {
         private void Exit_Click(object sender, EventArgs e) => this.Close();
 
         private void PrzypisywanieKierowcowPojazdowDoRealizacji_Load(object sender, EventArgs e) {
-            sharedView.LoadLinesIntoComboBox(this.liniaSelectionComboBox);
             
         }
 
@@ -90,6 +91,8 @@ namespace hiddenAnaconda.Views {
         private void LiniaSelectionComboBox_SelectedIndexChanged(object sender, EventArgs e) {
             kursSelectionLabel.Show();
             kursSelectionComboBox.Show();
+            kursSelectionComboBox.SelectedIndex = -1;
+            sharedView.LoadTrailAssignmentIntoComboBox(kursSelectionComboBox, Int32.Parse(liniaSelectionComboBox.Text), selectetDayType);
         }
 
         private void kierowcaSelectionComboBox_SelectedIndexChanged(object sender, EventArgs e) {
@@ -122,11 +125,13 @@ namespace hiddenAnaconda.Views {
 
         private void dataKursuPicker_DateChanged(object sender, DateRangeEventArgs e) {
             try {
-                sharedView.CheckDayType(dataKursuPicker.SelectionRange.Start);
+                selectetDayType = sharedView.CheckDayType(dataKursuPicker.SelectionRange.Start);
             } catch (Exception exception) {
                 Debug.Print("Failed to read day type for picked date.\n{0}", exception);
                 MessageBox.Show("Upewnij się że do wybranego dnia został przypisany rodzaj dnia.");
             }
+            kursSelectionComboBox.SelectedIndex = -1;
+            sharedView.LoadTrailAssignmentIntoComboBox(kursSelectionComboBox, Int32.Parse(liniaSelectionComboBox.Text), selectetDayType);
         }
 
         private void LiniaSelectionComboBox_Validating(object sender, CancelEventArgs e) {

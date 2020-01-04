@@ -39,6 +39,20 @@ namespace hiddenAnaconda {
                 comboBox.Items.Add(line);
         }
 
+        public void LoadTrailAssignmentIntoComboBox(ComboBox comboBox, int lineNumber, string dayType) {
+            comboBox.Items.Clear();
+            foreach (var item in GetTrailAssignmentFromDb(lineNumber, dayType))
+                comboBox.Items.Add(item.ktory_kurs_danego_dnia + ", godz. rozpoczęcia: " + GetArrivalTime(item.id_trasy).czas_odjazdu1.ToString("HH:mm"));
+        }
+
+        private czas_odjazdu GetArrivalTime(int trailId) {
+            return dc.czas_odjazdus.Where(c => c.id_trasy.Equals(trailId)).Single();
+        }
+
+        private List<kur> GetTrailAssignmentFromDb(int lineNumber, string dayType) {
+            return dc.kurs.Where(k => k.id_linii.Equals(lineNumber) && k.rodzaj_kursu.Equals(dayType)).OrderBy(k=>k.ktory_kurs_danego_dnia).ToList();
+        }
+
         private List<String> GetLinesFromDb() {
             List<String> lines = new List<string>();
             foreach (var item in dc.linias) {
