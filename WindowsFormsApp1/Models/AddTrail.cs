@@ -50,6 +50,11 @@ namespace hiddenAnaconda.Models {
             PutTrailIntoDb(ParseDataFromListBox(listBox));
         }
 
+        public void AddFirstTrail(ListBox listBox) {
+            this.trailNumber = 0;
+            PutTrailIntoDb(ParseDataFromListBox(listBox));
+        }
+
         private List<StopInTrail> ParseDataFromListBox(ListBox listBox) {
             List<StopInTrail> toAdd = new List<StopInTrail>();
             foreach (var item in listBox.Items) {

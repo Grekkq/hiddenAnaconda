@@ -133,13 +133,19 @@ namespace hiddenAnaconda.Views {
                 if (result == DialogResult.Yes) {
                     //WPISANIE DO BD
                     if (checkBox_czyUtworzycNowaTrase.Checked)
-                        trail.AddNewTrail(mainListBox);
+                        if(checkBox_czyUtworzycNowaTrase.Visible)
+                            trail.AddNewTrail(mainListBox);
+                    else {
+                            trail = new AddTrail(Int32.Parse(linia_comboBox.Text), 0);
+                            trail.AddFirstTrail(mainListBox);
+                        }
                     else
                         trail.EditExistingTrail(mainListBox);
                     //jak chcemy go nie zamykać to trzeba ogarnąc buga że przy podwójnym dodaniu nie przeliczy jeszcze raz numeru trasy i się zdubluje
                     //ewentualnie jeszcze można odznaczać checkboxa to powinno się samo przeliczyć 
                     checkBox_czyUtworzycNowaTrase.Checked = false;
                     trail.LoadTrailIntoListBox(mainListBox);
+                    this.Close();
                 } else {
                     linia_comboBox.Focus();
                 }
@@ -157,9 +163,29 @@ namespace hiddenAnaconda.Views {
         }
 
         private void Linia_comboBox_SelectedIndexChanged(object sender, EventArgs e) {
+            // clear all forms if line has changed
+            comboBoxTrasa.Items.Clear();
+            checkBox_czyUtworzycNowaTrase.Checked = true;
+            checkBox_czyUtworzycNowaTrase.Visible = false;
+            comboBoxTrasa.Text = "";
+            mainListBox.Items.Clear();
+
             label_trasa.Visible = true;
             comboBoxTrasa.Visible = true;
             sharedView.LoadRouteNumberIntoComboBox(comboBoxTrasa, Int32.Parse(linia_comboBox.Text));
+            // if no trasa is present display empty listbox
+            if (comboBoxTrasa.Items.Count==0) {
+                trail = new AddTrail(Int32.Parse(this.linia_comboBox.Text), 0);
+                mainListBox.Visible = true;
+                label_godzina.Visible = true;
+                label_lokalizacja.Visible = true;
+                label_przystanek.Visible = true;
+                label_nr.Visible = true;
+                clearButton.Visible = true;
+                addButton.Visible = true;
+                create.Visible = true;
+                deleteButton.Visible = true;
+            }
             comboBoxTrasa.Focus();
         }
 
