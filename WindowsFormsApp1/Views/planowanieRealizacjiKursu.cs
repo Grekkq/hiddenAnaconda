@@ -92,7 +92,7 @@ namespace hiddenAnaconda.Views {
             kursSelectionLabel.Show();
             kursSelectionComboBox.Show();
             kursSelectionComboBox.SelectedIndex = -1;
-            sharedView.LoadTrailAssignmentIntoComboBox(kursSelectionComboBox, Int32.Parse(liniaSelectionComboBox.Text), selectetDayType);
+            sharedView.LoadTrailAssignmentIntoComboBox(kursSelectionComboBox, Int32.Parse(liniaSelectionComboBox.Text), selectetDayType, dataKursuPicker.SelectionRange.Start);
         }
 
         private void kierowcaSelectionComboBox_SelectedIndexChanged(object sender, EventArgs e) {
@@ -131,7 +131,7 @@ namespace hiddenAnaconda.Views {
                 MessageBox.Show("Upewnij się że do wybranego dnia został przypisany rodzaj dnia.");
             }
             kursSelectionComboBox.SelectedIndex = -1;
-            sharedView.LoadTrailAssignmentIntoComboBox(kursSelectionComboBox, Int32.Parse(liniaSelectionComboBox.Text), selectetDayType);
+            sharedView.LoadTrailAssignmentIntoComboBox(kursSelectionComboBox, Int32.Parse(liniaSelectionComboBox.Text), selectetDayType, dataKursuPicker.SelectionRange.Start);
         }
 
         private void LiniaSelectionComboBox_Validating(object sender, CancelEventArgs e) {
