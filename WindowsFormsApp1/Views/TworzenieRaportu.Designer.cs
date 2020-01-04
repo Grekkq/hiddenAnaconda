@@ -36,13 +36,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.comboBox_kierunek = new System.Windows.Forms.ComboBox();
             this.comboBox_przystanek = new System.Windows.Forms.ComboBox();
             this.comboBox_miasto = new System.Windows.Forms.ComboBox();
             this.label_kierunek = new System.Windows.Forms.Label();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
@@ -186,6 +186,16 @@
             this.panel1.Size = new System.Drawing.Size(606, 377);
             this.panel1.TabIndex = 51;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(426, 339);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 16;
+            this.button1.Text = "Debug";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // comboBox_kierunek
             // 
             this.comboBox_kierunek.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -232,16 +242,6 @@
             // 
             this.errorProvider1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.errorProvider1.ContainerControl = this;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(349, 305);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 16;
-            this.button1.Text = "Debug";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // TworzenieRaportu
             // 
