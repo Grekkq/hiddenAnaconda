@@ -131,7 +131,6 @@ namespace hiddenAnaconda.Models {
             return users;
         }
     }
-    //(item.czy_aktywny? "aktywny" : "nieaktywny")
 
     class UserData {
         private int userId;

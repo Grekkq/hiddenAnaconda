@@ -104,7 +104,7 @@
             "Administrator"});
             this.comboBox_uprawnienia.Location = new System.Drawing.Point(18, 260);
             this.comboBox_uprawnienia.Name = "comboBox_uprawnienia";
-            this.comboBox_uprawnienia.Size = new System.Drawing.Size(150, 21);
+            this.comboBox_uprawnienia.Size = new System.Drawing.Size(166, 21);
             this.comboBox_uprawnienia.TabIndex = 2;
             this.comboBox_uprawnienia.SelectedIndexChanged += new System.EventHandler(this.comboBox_uprawnienia_SelectedIndexChanged);
             this.comboBox_uprawnienia.Validating += new System.ComponentModel.CancelEventHandler(this.comboBox_uprawnienia_Validating);
@@ -182,7 +182,7 @@
             this.comboBox_uzytkownik.FormattingEnabled = true;
             this.comboBox_uzytkownik.Location = new System.Drawing.Point(18, 110);
             this.comboBox_uzytkownik.Name = "comboBox_uzytkownik";
-            this.comboBox_uzytkownik.Size = new System.Drawing.Size(120, 21);
+            this.comboBox_uzytkownik.Size = new System.Drawing.Size(166, 21);
             this.comboBox_uzytkownik.TabIndex = 0;
             this.comboBox_uzytkownik.SelectedIndexChanged += new System.EventHandler(this.comboBox_uzytkownik_SelectedIndexChanged);
             this.comboBox_uzytkownik.Validating += new System.ComponentModel.CancelEventHandler(this.comboBox_uzytkownik_Validating);
