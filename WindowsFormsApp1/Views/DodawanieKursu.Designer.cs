@@ -81,6 +81,7 @@
             this.comboBox_rodzajKursu.Name = "comboBox_rodzajKursu";
             this.comboBox_rodzajKursu.Size = new System.Drawing.Size(150, 21);
             this.comboBox_rodzajKursu.TabIndex = 2;
+            this.comboBox_rodzajKursu.SelectedIndexChanged += new System.EventHandler(this.comboBox_rodzajKursu_SelectedIndexChanged);
             this.comboBox_rodzajKursu.Validating += new System.ComponentModel.CancelEventHandler(this.ComboBox_rodzajKursu_Validating);
             // 
             // comboBox_trasa

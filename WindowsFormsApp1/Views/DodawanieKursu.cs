@@ -96,7 +96,10 @@ namespace hiddenAnaconda.Views {
             label_trasa.Visible = true;
             comboBox_trasa.Visible = true;
             comboBox_trasa.Focus();
+            comboBox_rodzajKursu.SelectedIndex = -1;
+            comboBox_trasa.SelectedIndex = -1;
             sharedView.LoadRouteNumberIntoComboBox(comboBox_trasa, Int32.Parse(comboBox_linia.Text));
+
         }
 
         private void ComboBox_trasa_SelectedIndexChanged(object sender, EventArgs e) {
@@ -133,6 +136,10 @@ namespace hiddenAnaconda.Views {
                 errorProvider1.SetError(comboBox_rodzajKursu, null);
                 ErrorIsOn = false;
             }
+        }
+
+        private void comboBox_rodzajKursu_SelectedIndexChanged(object sender, EventArgs e) {
+            create.Focus();
         }
     }
 }

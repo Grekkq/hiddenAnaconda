@@ -72,6 +72,7 @@ namespace hiddenAnaconda.Views {
 
         private void comboBox_uzytkownik_SelectedIndexChanged(object sender, EventArgs e) {
             groupBox_status_uprawnienia.Visible = true;
+            groupBox_status_uprawnienia.Focus();
             radio_status.Visible = true;
             radio_uprawnienia.Visible = true;
         }

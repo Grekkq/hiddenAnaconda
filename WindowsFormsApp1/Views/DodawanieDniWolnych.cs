@@ -159,7 +159,7 @@ namespace hiddenAnaconda.Views {
 
         private void type_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            Aktualizuj.Focus();
         }
         private void type_SelectedIndexChanged_Validating(object sender, CancelEventArgs e)
         {
