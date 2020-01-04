@@ -100,17 +100,17 @@ namespace hiddenAnaconda.Models {
 
 
 
-        public bool ChangeUserPermission(string login, int status) {
-            int userId = Int32.Parse(login.Split('.')[0]);
-            var update = dc.logowanies.Single(p => p.id_uzytkownika == userId);
-            update.poziom_uprawnien = status;
+        public bool ChangeUserPermission(string login, int permissionLevel) {
+            string username = login.Substring(0, login.IndexOf(' '));
+            var update = dc.logowanies.Single(p => p.login == username);
+            update.poziom_uprawnien = permissionLevel;
             dc.SubmitChanges();
             return true;
         }
 
         public bool ChangeUserStatus(string login, bool status) {
-            int userId = Int32.Parse(login.Split('.')[0]);
-            var update = dc.logowanies.Single(p => p.id_uzytkownika == userId);
+            string username = login.Substring(0, login.IndexOf(' '));
+            var update = dc.logowanies.Single(p => p.login == username);
             update.czy_aktywny = status;
             dc.SubmitChanges();
             return true;
