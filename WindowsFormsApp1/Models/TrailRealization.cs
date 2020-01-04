@@ -16,16 +16,26 @@ namespace hiddenAnaconda.Models {
 
         public List<String> GetAvailableDrivers(int lineNumber, int order, DateTime date) {
             var selectedTrailHours = GetTrailHours(GetTrailAssignment(lineNumber, order, CheckDayType(date)).id_kursu);
-
+            List<string> drivers = new List<string>();
+            bool isFree = true;
             foreach (var driver in GetAllActiveDrivers()) {
-
+                isFree = true;
+                var driverAssignmentsId = GetAllTrailAssignmentIdForDriver(driver.id_kierowcy, date);
+                foreach (var driverAssignmentId in driverAssignmentsId) {
+                    if (GetTrailHours(driverAssignmentId).CheckIfHoursCollide(selectedTrailHours))
+                        isFree = false;
+                }
+                if (isFree)
+                    drivers.Add(driver.nazwisko + " " + driver.imie);
             }
-
-            return null;
+            return drivers;
         }
 
 
 
+        private List<int> GetAllTrailAssignmentIdForDriver(int driverId, DateTime date) {
+            return db.realizacja_kursus.Where(r => r.id_przypisanego_kierowcy.Equals(driverId) && r.data_realizacji.Equals(date)).Select(r => r.id_kursu).ToList();
+        }
 
 
         // ::TESTED::
@@ -65,18 +75,24 @@ namespace hiddenAnaconda.Models {
     }
 
     class TrailTime {
-        private DateTime startStime;
+        private DateTime startTime;
         private DateTime endTime;
         private int trailAssignmentId;
 
         public TrailTime(DateTime startStime, DateTime endTime, int trailAssignmentId) {
-            this.StartStime = startStime;
+            this.StartTime = startStime;
             this.EndTime = endTime;
             this.TrailAssignmentId = trailAssignmentId;
         }
 
-        public DateTime StartStime { get => startStime; set => startStime = value; }
+        public DateTime StartTime { get => startTime; set => startTime = value; }
         public DateTime EndTime { get => endTime; set => endTime = value; }
         public int TrailAssignmentId { get => trailAssignmentId; set => trailAssignmentId = value; }
+
+        public bool CheckIfHoursCollide(TrailTime otherTime) {
+            if (StartTime < otherTime.EndTime && otherTime.StartTime < EndTime) 
+                return true;
+            return false;
+        }
     }
 }
