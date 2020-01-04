@@ -18,19 +18,19 @@ namespace hiddenAnaconda {
         [System.Runtime.InteropServices.DllImport("user32.dll")]
         public static extern bool ReleaseCapture();
 
-        ReportDataContext dc;
-        
+        ReportDataContext db;
+
         public SharedView() {
-            dc = new ReportDataContext();
+            db = new ReportDataContext();
         }
 
         // ::TESTED::
         public int GetTrailNumberFromTrailId(int trailId) {
-            return dc.trasas.Where(t => t.id_trasy.Equals(trailId)).Select(t => t.nr_trasy).Single();
+            return db.trasas.Where(t => t.id_trasy.Equals(trailId)).Select(t => t.nr_trasy).Single();
         }
         // ::TESTED::
         public trasa GetFirstStopInTrail(int trailNumber, int line) {
-            return dc.trasas.Where(t => t.id_linii.Equals(line) && t.nr_trasy.Equals(trailNumber)).OrderBy(t => t.nr_trasy).First();
+            return db.trasas.Where(t => t.id_linii.Equals(line) && t.nr_trasy.Equals(trailNumber)).OrderBy(t => t.nr_trasy).First();
         }
 
         public void LoadLinesIntoComboBox(ComboBox comboBox) {
@@ -49,20 +49,20 @@ namespace hiddenAnaconda {
         }
 
         private bool IsAssigned(int trailId, DateTime date) {
-            return dc.realizacja_kursus.Where(r => r.id_kursu.Equals(trailId) && r.data_realizacji.Equals(date)).Count()==0 ? false:true;
+            return db.realizacja_kursus.Where(r => r.id_kursu.Equals(trailId) && r.data_realizacji.Equals(date)).Count() == 0 ? false : true;
         }
 
         private czas_odjazdu GetArrivalTime(int trailId) {
-            return dc.czas_odjazdus.Where(c => c.id_trasy.Equals(trailId)).Single();
+            return db.czas_odjazdus.Where(c => c.id_trasy.Equals(trailId)).Single();
         }
 
         private List<kur> GetTrailAssignmentFromDb(int lineNumber, string dayType) {
-            return dc.kurs.Where(k => k.id_linii.Equals(lineNumber) && k.rodzaj_kursu.Equals(dayType)).OrderBy(k=>k.ktory_kurs_danego_dnia).ToList();
+            return db.kurs.Where(k => k.id_linii.Equals(lineNumber) && k.rodzaj_kursu.Equals(dayType)).OrderBy(k => k.ktory_kurs_danego_dnia).ToList();
         }
 
         private List<String> GetLinesFromDb() {
             List<String> lines = new List<string>();
-            foreach (var item in dc.linias) {
+            foreach (var item in db.linias) {
                 lines.Add(item.id_linii.ToString());
             }
             return lines;
@@ -75,7 +75,7 @@ namespace hiddenAnaconda {
         }
 
         private List<string> GetRouteNumberFromDb(int lineNumber) {
-            return dc.trasas.Where(t => t.id_linii == lineNumber).Select(t => t.nr_trasy.ToString()).Distinct().ToList();
+            return db.trasas.Where(t => t.id_linii == lineNumber).Select(t => t.nr_trasy.ToString()).Distinct().ToList();
         }
 
         public void LoadCitiesIntoComboBox(ComboBox comboBox) {
@@ -85,7 +85,7 @@ namespace hiddenAnaconda {
         }
 
         private List<string> GetAllCitiesFromDb() {
-            return dc.przystaneks.Select(p => p.miasto).Distinct().ToList();
+            return db.przystaneks.Select(p => p.miasto).Distinct().ToList();
         }
 
         public void LoadDayTypesIntoComboBox(ComboBox comboBox) {
@@ -95,7 +95,7 @@ namespace hiddenAnaconda {
         }
 
         private List<string> GetAllDayTypesFromDb() {
-            return dc.dni_kursowanias.Select(d => d.rodzaj_kursu).Distinct().ToList();
+            return db.dni_kursowanias.Select(d => d.rodzaj_kursu).Distinct().ToList();
         }
 
         public void LoadBusStopsIntoComboBox(ComboBox comboBox, string city) {
@@ -105,7 +105,7 @@ namespace hiddenAnaconda {
         }
 
         private List<string> GetBusStopsFromDb(string city) {
-            return dc.przystaneks.Where(p => p.miasto.Equals(city)).Select(p => p.nazwa).Distinct().ToList();
+            return db.przystaneks.Where(p => p.miasto.Equals(city)).Select(p => p.nazwa).Distinct().ToList();
         }
 
         public void LoadTrailDirectionIntoComboBox(ComboBox comboBox, string busStopName, string cityName) {
@@ -115,17 +115,17 @@ namespace hiddenAnaconda {
         }
 
         private List<string> GetTrailDirectionsFromDb(string busStopName, string cityName) {
-            var data = dc.przystaneks.Where(p => p.nazwa.Equals(busStopName) && p.miasto.Equals(cityName)).Select(p => p.kierunek).ToList();
+            var data = db.przystaneks.Where(p => p.nazwa.Equals(busStopName) && p.miasto.Equals(cityName)).Select(p => p.kierunek).ToList();
             if (data.First() == null)
                 return new List<string>() { Constants.OneWayStop };
             return data;
         }
 
         public string CheckDayType(DateTime date) {
-            return dc.dni_kursowanias.Where(d => d.od_dnia <= date && d.do_dnia >= date).Select(d=>d.rodzaj_kursu).Single();
+            return db.dni_kursowanias.Where(d => d.od_dnia <= date && d.do_dnia >= date).Select(d => d.rodzaj_kursu).Single();
         }
 
-        public bool EscKeyPressed(Form form,Keys keydata) {
+        public bool EscKeyPressed(Form form, Keys keydata) {
             if (keydata == Keys.Escape) {
                 form.Close();
                 return true;

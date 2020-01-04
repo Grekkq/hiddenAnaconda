@@ -1,4 +1,5 @@
-﻿using System;
+﻿using hiddenAnaconda.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,6 +15,7 @@ namespace hiddenAnaconda.Views {
 
         bool ErrorIsOn, ErrorKursIsOn, ErrorKierIsOn, ErrorPojIsOn = true;
         string selectetDayType;
+        TrailRealization trailRealization = new TrailRealization();
 
         public planowanieRealizacjiKursu() {
             InitializeComponent();
@@ -30,6 +32,7 @@ namespace hiddenAnaconda.Views {
                 Debug.Print("Failed to read day type for picked date.\n{0}", exception);
                 MessageBox.Show("Uwaga! \nDla dzisiejszego dnia nie został przypisany jego rodzaj.");
             }
+
         }
 
         // funkcje wspólne dla widoków
@@ -73,7 +76,8 @@ namespace hiddenAnaconda.Views {
             if ((!string.IsNullOrEmpty(pojazdSelectionComboBox.Text) && !string.IsNullOrEmpty(kierowcaSelectionComboBox.Text) && !string.IsNullOrEmpty(liniaSelectionComboBox.Text) && !string.IsNullOrEmpty(kursSelectionComboBox.Text)) && ErrorPojIsOn == false && ErrorKursIsOn == false && ErrorKierIsOn == false && ErrorIsOn == false) {
                 var result = MessageBox.Show("Czy na pewno chcesz przypisać linię: ''" + liniaSelectionComboBox.Text + "'' z kierowcą: ''" + kierowcaSelectionComboBox.Text + "'' o pojeździe: ''" + pojazdSelectionComboBox.Text + "'' do kursu: ''" + kursSelectionComboBox.Text + "'' w dniu " + dataKursuPicker.SelectionStart + "?", "Czy na pewno?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.Yes) {
-                    //WPISANIE DO BD
+                    //WPISANIE DO 
+                    
                     this.Close();
                 }
             } else {
@@ -149,6 +153,7 @@ namespace hiddenAnaconda.Views {
             kierowcaSelectionComboBox.Show();
             pojazdSelectionLabel.Show();
             pojazdSelectionComboBox.Show();
+            trailRealization.GetAvailableDrivers(Int32.Parse(liniaSelectionComboBox.Text), Int32.Parse(kursSelectionComboBox.Text.Substring(0, kursSelectionComboBox.Text.IndexOf(','))), dataKursuPicker.SelectionRange.Start);
         }
 
         private void KursSelectionComboBox_Validating(object sender, CancelEventArgs e) {
