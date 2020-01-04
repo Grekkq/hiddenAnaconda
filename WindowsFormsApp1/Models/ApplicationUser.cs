@@ -10,13 +10,10 @@ using System.Diagnostics;
 namespace hiddenAnaconda.Models {
     class ApplicationUser {
 
-        private List<String> users;
         ReportDataContext dc;
 
         public ApplicationUser() {
             dc = new ReportDataContext();
-            users = new List<string>();
-            
         }
 
 
@@ -56,7 +53,7 @@ namespace hiddenAnaconda.Models {
             string hash = GetHashFromDb(login);
             if (hash.Equals("0"))
                 return false;
-            string salt = hash.Substring(0,32);
+            string salt = hash.Substring(0, 32);
             if (hash.Equals(GetSaltedHashedPassword(password, salt))) {
                 Debug.Print("Successfully loged in user: {0}", login);
                 return true;
@@ -101,10 +98,9 @@ namespace hiddenAnaconda.Models {
             return data.hasz;
         }
 
-  
 
-        public bool ChangeUserPermission(string login, int status)
-        {
+
+        public bool ChangeUserPermission(string login, int status) {
             int userId = Int32.Parse(login.Split('.')[0]);
             var update = dc.logowanies.Single(p => p.id_uzytkownika == userId);
             update.poziom_uprawnien = status;
@@ -112,8 +108,7 @@ namespace hiddenAnaconda.Models {
             return true;
         }
 
-        public bool ChangeUserStatus(string login, bool status)
-        {
+        public bool ChangeUserStatus(string login, bool status) {
             int userId = Int32.Parse(login.Split('.')[0]);
             var update = dc.logowanies.Single(p => p.id_uzytkownika == userId);
             update.czy_aktywny = status;
@@ -121,23 +116,39 @@ namespace hiddenAnaconda.Models {
             return true;
         }
 
-    
-        public void LoadDataToUserComboBox(ComboBox comboBox)
-        {
+
+        public void LoadDataToUserComboBox(ComboBox comboBox) {
             comboBox.Items.Clear();
-            if (users.Count() == 0)
-                GetUserData();
-            foreach (var user in users)
-                comboBox.Items.Add(user);
+            foreach (var user in GetUserData())
+                comboBox.Items.Add(user.Login + " " + (user.IsActive ? "aktywny" : "nieaktywny") + ", " + Constants.TranslatePermissionLevel(user.AccessLevel));
         }
 
-        private void GetUserData()
-        {
-            foreach( var item in dc.logowanies.Select(p => new  {p.id_uzytkownika, p.login, p.poziom_uprawnien, p.czy_aktywny }))
-            {
-                users.Add(item.id_uzytkownika + "." + item.login + ", " + item.poziom_uprawnien + ", " +(item.czy_aktywny ? "aktywny" : "nieaktywny"));
+        private List<UserData> GetUserData() {
+            List<UserData> users = new List<UserData>();
+            foreach (var item in dc.logowanies.Select(p => new { p.id_uzytkownika, p.login, p.poziom_uprawnien, p.czy_aktywny })) {
+                users.Add(new UserData(item.id_uzytkownika, item.login, item.poziom_uprawnien, item.czy_aktywny));
             }
-
+            return users;
         }
+    }
+    //(item.czy_aktywny? "aktywny" : "nieaktywny")
+
+    class UserData {
+        private int userId;
+        private int accessLevel;
+        private bool isActive;
+        private string login;
+
+        public UserData(int userId, string login, int accessLevel, bool isActive) {
+            this.UserId = userId;
+            this.AccessLevel = accessLevel;
+            this.IsActive = isActive;
+            this.Login = login;
+        }
+
+        public int UserId { get => userId; set => userId = value; }
+        public int AccessLevel { get => accessLevel; set => accessLevel = value; }
+        public bool IsActive { get => isActive; set => isActive = value; }
+        public string Login { get => login; set => login = value; }
     }
 }

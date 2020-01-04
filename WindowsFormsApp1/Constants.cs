@@ -21,6 +21,7 @@ namespace hiddenAnaconda {
         public const string ListBoxNumberDelimiter = ".";
         public static readonly Regex FindArrivalTimeInString = new Regex(@"\d[0-9]([^\d]|$)");
         public static readonly Regex ValidateTimeFormat = new Regex(@"^(?:0?[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$");
+
         public static int TranslatePermissionLevel(string permission) {
             switch (permission) {
                 case (AdminPermission):
@@ -33,6 +34,20 @@ namespace hiddenAnaconda {
                     return 0;
             }
             return 0;
+        }
+
+        public static string TranslatePermissionLevel(int permission) {
+            switch (permission) {
+                case (6):
+                    return AdminPermission;
+                case (4):
+                    return RoutePlannerPermission;
+                case (2):
+                    return MenagerPermission;
+                case (0):
+                    return DriverPermission;
+            }
+            return DriverPermission;
         }
     }
 
