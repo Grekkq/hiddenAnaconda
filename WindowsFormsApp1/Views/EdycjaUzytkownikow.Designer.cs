@@ -104,7 +104,7 @@
             "Administrator"});
             this.comboBox_uprawnienia.Location = new System.Drawing.Point(18, 260);
             this.comboBox_uprawnienia.Name = "comboBox_uprawnienia";
-            this.comboBox_uprawnienia.Size = new System.Drawing.Size(166, 21);
+            this.comboBox_uprawnienia.Size = new System.Drawing.Size(82, 21);
             this.comboBox_uprawnienia.TabIndex = 2;
             this.comboBox_uprawnienia.SelectedIndexChanged += new System.EventHandler(this.comboBox_uprawnienia_SelectedIndexChanged);
             this.comboBox_uprawnienia.Validating += new System.ComponentModel.CancelEventHandler(this.comboBox_uprawnienia_Validating);
