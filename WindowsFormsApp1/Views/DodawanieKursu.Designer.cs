@@ -212,6 +212,7 @@
             this.label7.Size = new System.Drawing.Size(264, 21);
             this.label7.TabIndex = 23;
             this.label7.Text = "Formularz tworzenia nowego kursu";
+            this.label7.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Move_window);
             // 
             // help
             // 

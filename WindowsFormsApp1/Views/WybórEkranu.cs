@@ -141,8 +141,15 @@ namespace hiddenAnaconda.Views {
             //timeTable.GenerateTimetable("Aleja Korfantego", 0);
         }
 
-        private void Button1_Click(object sender, EventArgs e) {
+        private void button3_Click(object sender, EventArgs e) {
             using (Views.EdycjaUzytkownikow InnerForm = new Views.EdycjaUzytkownikow()) {
+                if (InnerForm.ShowDialog() == DialogResult.OK) {
+                }
+            };
+        }
+
+        private void button1_Click(object sender, EventArgs e) {
+            using (Views.DodawanieUzytkownikow InnerForm = new Views.DodawanieUzytkownikow()) {
                 if (InnerForm.ShowDialog() == DialogResult.OK) {
                 }
             };
