@@ -77,7 +77,7 @@ namespace hiddenAnaconda.Views {
                 var result = MessageBox.Show("Czy na pewno chcesz przypisać linię: ''" + liniaSelectionComboBox.Text + "'' z kierowcą: ''" + kierowcaSelectionComboBox.Text + "'' o pojeździe: ''" + pojazdSelectionComboBox.Text + "'' do kursu: ''" + kursSelectionComboBox.Text + "'' w dniu " + dataKursuPicker.SelectionStart + "?", "Czy na pewno?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.Yes) {
                     //WPISANIE DO 
-                    
+                    trailRealization.AddTrailRealizationToDb(Int32.Parse(liniaSelectionComboBox.Text), Int32.Parse(kursSelectionComboBox.Text.Substring(0, kursSelectionComboBox.Text.IndexOf(','))), kierowcaSelectionComboBox.Text, pojazdSelectionComboBox.Text, dataKursuPicker.SelectionRange.Start);
                     this.Close();
                 }
             } else {
@@ -111,10 +111,6 @@ namespace hiddenAnaconda.Views {
                 errorProvider1.SetError(kierowcaSelectionComboBox, null);
                 ErrorKierIsOn = false;
             }
-        }
-
-        private void pojazdSelectionComboBox_SelectedIndexChanged(object sender, EventArgs e) {
-
         }
 
         private void pojazdSelectionComboBox_Validating(object sender, CancelEventArgs e) {

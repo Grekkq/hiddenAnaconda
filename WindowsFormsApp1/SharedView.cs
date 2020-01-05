@@ -43,13 +43,13 @@ namespace hiddenAnaconda {
             comboBox.Items.Clear();
             foreach (var item in GetTrailAssignmentFromDb(lineNumber, dayType)) {
                 // odrzuć kursy które są przypisane tego dnia
-                if (!IsAssigned(item.id_trasy, date))
+                if (!IsRealized(item.id_kursu, date))
                     comboBox.Items.Add(item.ktory_kurs_danego_dnia + ", godz. rozpoczęcia: " + GetArrivalTime(item.id_trasy).czas_odjazdu1.ToString("HH:mm"));
             }
         }
 
-        private bool IsAssigned(int trailId, DateTime date) {
-            return db.realizacja_kursus.Where(r => r.id_kursu.Equals(trailId) && r.data_realizacji.Equals(date)).Count() == 0 ? false : true;
+        private bool IsRealized(int trailAssignmentId, DateTime date) {
+            return db.realizacja_kursus.Where(r => r.id_kursu.Equals(trailAssignmentId) && r.data_realizacji.Equals(date)).Count() == 0 ? false : true;
         }
 
         private czas_odjazdu GetArrivalTime(int trailId) {

@@ -138,9 +138,8 @@
             "Man - ST 12985"});
             this.pojazdSelectionComboBox.Location = new System.Drawing.Point(18, 260);
             this.pojazdSelectionComboBox.Name = "pojazdSelectionComboBox";
-            this.pojazdSelectionComboBox.Size = new System.Drawing.Size(150, 21);
+            this.pojazdSelectionComboBox.Size = new System.Drawing.Size(119, 21);
             this.pojazdSelectionComboBox.TabIndex = 3;
-            this.pojazdSelectionComboBox.SelectedIndexChanged += new System.EventHandler(this.pojazdSelectionComboBox_SelectedIndexChanged);
             this.pojazdSelectionComboBox.Validating += new System.ComponentModel.CancelEventHandler(this.pojazdSelectionComboBox_Validating);
             // 
             // pojazdSelectionLabel
@@ -161,7 +160,7 @@
             "Gawron Małgorzata"});
             this.kierowcaSelectionComboBox.Location = new System.Drawing.Point(18, 210);
             this.kierowcaSelectionComboBox.Name = "kierowcaSelectionComboBox";
-            this.kierowcaSelectionComboBox.Size = new System.Drawing.Size(150, 21);
+            this.kierowcaSelectionComboBox.Size = new System.Drawing.Size(119, 21);
             this.kierowcaSelectionComboBox.TabIndex = 2;
             this.kierowcaSelectionComboBox.SelectedIndexChanged += new System.EventHandler(this.kierowcaSelectionComboBox_SelectedIndexChanged);
             this.kierowcaSelectionComboBox.Validating += new System.ComponentModel.CancelEventHandler(this.kierowcaSelectionComboBox_Validating);

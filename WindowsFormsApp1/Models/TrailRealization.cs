@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
 namespace hiddenAnaconda.Models {
     class TrailRealization {
         private ReportDataContext db;
@@ -12,6 +11,20 @@ namespace hiddenAnaconda.Models {
             db = new ReportDataContext();
         }
 
+        public void AddTrailRealizationToDb(int lineNumber, int order, string driver, string vehicle, DateTime date) {
+            var parsedVehiclePlateNumber = vehicle.Substring(vehicle.IndexOf(Constants.ComboBoxVehicleDelimiter) + Constants.ComboBoxVehicleDelimiter.Length).Trim();
+            var parsedDriverSurname = driver.Substring(0, driver.IndexOf(' ')).Trim();
+            var parsedDriverName = driver.Substring(driver.IndexOf(' ')).Trim();
+            realizacja_kursu trailRealization = new realizacja_kursu();
+            trailRealization.id_kursu = GetTrailAssignment(lineNumber, order, CheckDayType(date)).id_kursu;
+            trailRealization.id_przypisanego_kierowcy = db.kierowcas.Where(k=>k.imie.Equals(parsedDriverName) && k.nazwisko.Equals(parsedDriverSurname)).Single().id_kierowcy;
+            trailRealization.id_pojazdu = db.pojazds.Where(p=>p.nr_rejestracyjny.Equals(parsedVehiclePlateNumber)).Single().id_pojazdu;
+            trailRealization.data_realizacji = date;
+            db.realizacja_kursus.InsertOnSubmit(trailRealization);
+            db.SubmitChanges();
+        }
+
+        // ::TESTED::
 
         public void LoadVehiclesIntoComboBox(ComboBox comboBox, int lineNumber, int order, DateTime date) {
             comboBox.Items.Clear();
@@ -30,7 +43,7 @@ namespace hiddenAnaconda.Models {
                         isFree = false;
                 }
                 if (isFree)
-                    vehicles.Add(vehicle.model + " " + vehicle.marka + ", " + vehicle.nr_rejestracyjny);
+                    vehicles.Add(vehicle.model + " " + vehicle.marka + " " + Constants.ComboBoxVehicleDelimiter + " " + vehicle.nr_rejestracyjny);
             }
             return vehicles;
         }
@@ -43,7 +56,6 @@ namespace hiddenAnaconda.Models {
             return db.realizacja_kursus.Where(r => r.id_pojazdu.Equals(vehicleId) && r.data_realizacji.Equals(date)).Select(r => r.id_kursu).ToList();
         }
 
-        // ::TESTED::
         public void LoadDriversIntoComboBox(ComboBox comboBox, int lineNumber, int order, DateTime date) {
             comboBox.Items.Clear();
             comboBox.Items.AddRange(GetAvailableDrivers(lineNumber, order, date).ToArray());

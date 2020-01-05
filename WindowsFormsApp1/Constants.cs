@@ -19,6 +19,7 @@ namespace hiddenAnaconda {
         public const string BusStopCityName = "BusStopCityName";
         public const string BusStopWay = "BusStopWay";
         public const string ListBoxNumberDelimiter = ".";
+        public const string ComboBoxVehicleDelimiter = "-";
         //generacja raportu
         public const string WorkDays = "roboczy";
         public const string WorkDaysAlias = "Od Poniedziałku do Piątku";
