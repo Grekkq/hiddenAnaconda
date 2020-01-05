@@ -154,8 +154,10 @@ namespace hiddenAnaconda.Views {
             kierowcaSelectionComboBox.Show();
             pojazdSelectionLabel.Show();
             pojazdSelectionComboBox.Show();
-            if(kursSelectionComboBox.SelectedIndex!=-1)
+            if(kursSelectionComboBox.SelectedIndex!=-1) {
                 trailRealization.LoadDriversIntoComboBox(kierowcaSelectionComboBox, Int32.Parse(liniaSelectionComboBox.Text), Int32.Parse(kursSelectionComboBox.Text.Substring(0, kursSelectionComboBox.Text.IndexOf(','))), dataKursuPicker.SelectionRange.Start);
+                trailRealization.LoadVehiclesIntoComboBox(pojazdSelectionComboBox, Int32.Parse(liniaSelectionComboBox.Text), Int32.Parse(kursSelectionComboBox.Text.Substring(0, kursSelectionComboBox.Text.IndexOf(','))), dataKursuPicker.SelectionRange.Start);
+            }
         }
 
         private void KursSelectionComboBox_Validating(object sender, CancelEventArgs e) {
