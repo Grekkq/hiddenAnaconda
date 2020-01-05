@@ -63,6 +63,7 @@ namespace hiddenAnaconda.Views {
 
         private void ZapiszJako_Load(object sender, EventArgs e) {
             textBox_path.Text = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            this.AcceptButton = button_zapisz;
         }
     }
 }

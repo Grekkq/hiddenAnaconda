@@ -69,18 +69,18 @@ namespace hiddenAnaconda.Models {
             List<int> idTrasyDlaLinii = new List<int>();
             // dla każdej linii na przystanku
             foreach (var singleLine in lineName) {
-                sb.Append("<table> <tr> <th id=\"lineName\" style='font-family: MS PGothic'>");
+                sb.Append("<table> <tr> <th id='lineName' style='font-family: MS PGothic'>");
                 sb.Append("&nbsp");
                 sb.Append(singleLine);
                 sb.Append("&nbsp");
-                sb.Append("</th> <th> <div class=\"przystanek\" style='font-family: MS PGothic'> &nbsp przystanek: <br> </div> <span class=\"CityBusStop\" id=\"city\" style='font-family: MS PGothic'> &nbsp;");
+                sb.Append("</th> <th> <div class='przystanek' style='font-family: MS PGothic'> &nbsp przystanek: <br> </div> <span class='CityBusStop' id='city' style='font-family: MS PGothic'> &nbsp;");
                 sb.Append("&nbsp");
                 sb.Append(city);
                 sb.Append("&nbsp");
-                sb.Append("<span id=\"busstop\">");
+                sb.Append("<span id='busstop'>");
                 sb.Append(stopName);
                 sb.Append("&nbsp");
-                sb.Append("</span> <span id=\"arrows\" style='font-family: Bahnschrift Condensed'> &nbsp;&nbsp;> >&nbsp;&nbsp; </span> <br> </span> </th> <th> <div class=\"przystanek\" style='font-family: MS PGothic'>&nbsp kierunek: </div> <div class=\"CityBusStop\" id=\"way\" style='font-family: MS PGothic'> &nbsp;");
+                sb.Append("</span> <span id='arrows' style='font-family: Bahnschrift Condensed'> &nbsp;&nbsp;> >&nbsp;&nbsp; </span> <br> </span> </th> <th> <div class='przystanek' style='font-family: MS PGothic'>&nbsp kierunek: </div> <div class='CityBusStop' id='way' style='font-family: MS PGothic'> &nbsp;");
                 if (!way.Equals(Constants.OneWayStop)) {
                     sb.Append("&nbsp");
                     sb.Append(way);
@@ -88,16 +88,16 @@ namespace hiddenAnaconda.Models {
                     sb.Append("&nbsp");
                     sb.Append("Jednokierunkowy");
                 }
-                sb.Append("<span id=\"arrows\"> &nbsp; </span> <br> </div> </th> </tr> </table><br><br> <br>");
-                sb.Append("<table id=\"przys\"> <tr>");
+                sb.Append("<span id='arrows'> &nbsp; </span> <br> </div> </th> </tr> </table><br><br> <br>");
+                sb.Append("<table id='przys'> <tr>");
 
 
                 // przystanki dla najdłuższej trasy
                 int counter = 0;
                 foreach (var stop in GetAllBusStops(singleLine)) {
-                    sb.Append("<th class=\"rotate\">");
+                    sb.Append("<th class='rotate'>");
                     if (stop.nazwa == stopName) { //jesli przystanek jest tym, dla ktorego generuje raport to ostaczam go koloruje go na zolto
-                        sb.Append("<div><span id=\"selected\" style='font-family: MS PGothic'>");
+                        sb.Append("<div><span id='selected' style='font-family: MS PGothic'>");
                     } else {
                         sb.Append("<div><span style='font-family: MS PGothic'>");
                     }
@@ -107,25 +107,31 @@ namespace hiddenAnaconda.Models {
                     sb.Append("</span></div></th>");
                     counter++;
                 }
-                counter = counter - 2;
                 sb.Append("</tr>");
-                sb.Append("<th class=\"ar\" id=\"first\"> <div><span></span></div> </th> <th class=\"ar\" id=\"firstb\"> <div><span>></span></div> </th>"); //niewidzialny element przed paskiem, pierwszy kawalek paska z zaokraglonymi rogami
+                sb.Append("<th class='ar' id='first'> <div><span></span></div> </th> "); //niewidzialny element przed paskiem, pierwszy kawalek paska z zaokraglonymi rogami
                 for (int i = 0; i < counter; i++) { //rysowanie kolejnych czesci paska
-                    sb.Append("<th class=\"ar\"><div><span>></span></div></th>");
+                    if (counter == 1) {
+                        sb.Append("<th class='ar' id='firstb'> <div><span>></span></div> </th>");
+                    } else if (i == counter - 1) {
+                        sb.Append("<th class='ar' id='lastb'> <div><span>></span></div> </th>");
+                    } else
+                        sb.Append("<th class='ar'><div><span>></span></div></th>");
                 }
-                sb.Append("<th class=\"ar\" id=\"lastb\"> <div><span>></span></div> </th> </tr> </table> <br> <br>"); // ostatni element paska z zaokraglonymi rogami
+                sb.Append("</tr></table><br><br>"); // ostatni element paska z zaokraglonymi rogami
                 // koniec drukowania trasy teraz czasy z podzialem na dni specjalne
 
-                
+
                 idTrasyDlaLinii = idTrasyDlaWszystkichLinii.Where(t => t.Item1.Equals(singleLine)).Select(t => t.Item2).ToList();
 
                 foreach (var dayType in GetAllDayTypeForLine(singleLine)) {
                     sb.Append("<table><tr>");
-                    sb.Append("<p id=\"period\" style='font-family: Arial'>");
+                    sb.Append("<p id='period' style='font-family: Arial'>");
                     if (dayType == "roboczy") {
                         sb.Append("Od Poniedziałku do Piątku");
-                    }else if (dayType == "wolny") {
-                        sb.Append("Wolne i Święta");
+                    } else if (dayType == "wolny") {
+                        sb.Append("Wolne");
+                    } else if (dayType == "świąteczny") {
+                        sb.Append("Święta");
                     }
                     sb.Append("</p></tr>");
                     // weź z lisy sprawdź czy jest w danym rodzaju dnia jeśli tak wypisz // i wyrzuć z listy
@@ -154,7 +160,7 @@ namespace hiddenAnaconda.Models {
                             timeCounter = 0;
                             sb.Append("</tr><tr>");
                         }
-                        sb.Append("<th class=\"time\" style='font-family: MS PGothic'>");
+                        sb.Append("<th class='time' style='font-family: MS PGothic'>");
                         sb.Append(timestamp.time.Hour);
                         sb.Append("<sup>");
                         sb.Append(timestamp.time.Minute);
@@ -162,7 +168,7 @@ namespace hiddenAnaconda.Models {
                     }
                     sb.Append("</tr>");
                 }
-                sb.Append("</table>");
+                sb.Append("</table><br><br><br>");
             }
             sb.Append("</body></html>");
             SaveToPdf(sb.ToString());
