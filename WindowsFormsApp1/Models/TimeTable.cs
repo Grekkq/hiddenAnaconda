@@ -126,12 +126,12 @@ namespace hiddenAnaconda.Models {
                 foreach (var dayType in GetAllDayTypeForLine(singleLine)) {
                     sb.Append("<table><tr>");
                     sb.Append("<p id='period' style='font-family: Arial'>");
-                    if (dayType == "roboczy") {
-                        sb.Append("Od Poniedziałku do Piątku");
-                    } else if (dayType == "wolny") {
-                        sb.Append("Wolne");
-                    } else if (dayType == "świąteczny") {
-                        sb.Append("Święta");
+                    if (dayType == Constants.WorkDays) {
+                        sb.Append(Constants.WorkDaysAlias);
+                    } else if (dayType == Constants.DaysOff) {
+                        sb.Append(Constants.DaysOffAlias);
+                    } else if (dayType == Constants.Holidays) {
+                        sb.Append(Constants.HolidaysAlias);
                     }
                     sb.Append("</p></tr>");
                     // weź z lisy sprawdź czy jest w danym rodzaju dnia jeśli tak wypisz // i wyrzuć z listy

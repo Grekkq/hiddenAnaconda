@@ -19,6 +19,14 @@ namespace hiddenAnaconda {
         public const string BusStopCityName = "BusStopCityName";
         public const string BusStopWay = "BusStopWay";
         public const string ListBoxNumberDelimiter = ".";
+        //generacja raportu
+        public const string WorkDays = "roboczy";
+        public const string WorkDaysAlias = "Od Poniedziałku do Piątku";
+        public const string DaysOff = "wolny";
+        public const string DaysOffAlias = "Wolne";
+        public const string Holidays = "świąteczny";
+        public const string HolidaysAlias = "Święta";
+
         public static readonly Regex FindArrivalTimeInString = new Regex(@"\d[0-9]([^\d]|$)");
         public static readonly Regex ValidateTimeFormat = new Regex(@"^(?:0?[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$");
 
