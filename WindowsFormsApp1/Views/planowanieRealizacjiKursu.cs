@@ -135,7 +135,8 @@ namespace hiddenAnaconda.Views {
                 MessageBox.Show("Upewnij się że do wybranego dnia został przypisany rodzaj dnia.");
             }
             kursSelectionComboBox.SelectedIndex = -1;
-            sharedView.LoadTrailAssignmentIntoComboBox(kursSelectionComboBox, Int32.Parse(liniaSelectionComboBox.Text), selectetDayType, dataKursuPicker.SelectionRange.Start);
+            if (liniaSelectionComboBox.SelectedIndex!=-1)
+                sharedView.LoadTrailAssignmentIntoComboBox(kursSelectionComboBox, Int32.Parse(liniaSelectionComboBox.Text), selectetDayType, dataKursuPicker.SelectionRange.Start);
         }
 
         private void LiniaSelectionComboBox_Validating(object sender, CancelEventArgs e) {
@@ -153,7 +154,8 @@ namespace hiddenAnaconda.Views {
             kierowcaSelectionComboBox.Show();
             pojazdSelectionLabel.Show();
             pojazdSelectionComboBox.Show();
-            trailRealization.GetAvailableDrivers(Int32.Parse(liniaSelectionComboBox.Text), Int32.Parse(kursSelectionComboBox.Text.Substring(0, kursSelectionComboBox.Text.IndexOf(','))), dataKursuPicker.SelectionRange.Start);
+            if(kursSelectionComboBox.SelectedIndex!=-1)
+                trailRealization.LoadDriversIntoComboBox(kierowcaSelectionComboBox, Int32.Parse(liniaSelectionComboBox.Text), Int32.Parse(kursSelectionComboBox.Text.Substring(0, kursSelectionComboBox.Text.IndexOf(','))), dataKursuPicker.SelectionRange.Start);
         }
 
         private void KursSelectionComboBox_Validating(object sender, CancelEventArgs e) {

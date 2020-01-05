@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace hiddenAnaconda.Models {
     class TrailRealization {
@@ -11,10 +12,14 @@ namespace hiddenAnaconda.Models {
             db = new ReportDataContext();
         }
 
+        public void LoadDriversIntoComboBox(ComboBox comboBox, int lineNumber, int order, DateTime date) {
+            comboBox.Items.Clear();
+            comboBox.Items.AddRange(GetAvailableDrivers(lineNumber, order, date).ToArray());
+        }
 
         //public checkAvalabilityForDriver()
 
-        public List<String> GetAvailableDrivers(int lineNumber, int order, DateTime date) {
+        private List<String> GetAvailableDrivers(int lineNumber, int order, DateTime date) {
             var selectedTrailHours = GetTrailHours(GetTrailAssignment(lineNumber, order, CheckDayType(date)).id_kursu);
             List<string> drivers = new List<string>();
             bool isFree = true;
