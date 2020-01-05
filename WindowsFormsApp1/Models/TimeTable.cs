@@ -224,6 +224,10 @@ namespace hiddenAnaconda.Models {
                     tempId = item.nr_trasy;
                 }
             }
+            if (tempNumber > maxNumber) {
+                maxNumber = tempNumber;
+                maxId = tempId;
+            }
 
             var stopsId = allTrasasInLane.Where(t => t.nr_trasy.Equals(maxId))
                 .OrderBy(t => t.kolejnosc_przystankow)
