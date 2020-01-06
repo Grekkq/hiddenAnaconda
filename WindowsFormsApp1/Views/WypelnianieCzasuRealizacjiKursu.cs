@@ -8,14 +8,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
+using hiddenAnaconda.Models;
 
-namespace hiddenAnaconda.Views
-{
-    public partial class WypelnianieCzasuRealizacjiKursu : Form
-    {
-        public WypelnianieCzasuRealizacjiKursu()
-        {
+namespace hiddenAnaconda.Views {
+    public partial class WypelnianieCzasuRealizacjiKursu : Form {
+        RealizationTime realizationTime;
+        public WypelnianieCzasuRealizacjiKursu() {
             InitializeComponent();
+            realizationTime = new RealizationTime();
+            realizationTime.LoadTrailRealizationIntoComboBox(TrailAssignmentComboBox);
+            realizationTime.LoadDriversIntoComboBox(DriverComboBox);
         }
 
         SharedView sharedView = new SharedView();
@@ -24,7 +26,7 @@ namespace hiddenAnaconda.Views
             return sharedView.EscKeyPressed(this, keyData);
         }
 
-        bool ErrorIsOn,ErrorKierIsOn = true;
+        bool ErrorIsOn, ErrorKierIsOn = true;
 
         public const int WM_NCLBUTTONDOWN = 0xA1;                                               // stałe do funkcji przesuwania okna
         public const int HT_CAPTION = 0x2;                                                      //
@@ -33,21 +35,18 @@ namespace hiddenAnaconda.Views
         [System.Runtime.InteropServices.DllImport("user32.dll")]                                //
         public static extern bool ReleaseCapture();
 
-        private void move_window(object sender, MouseEventArgs e)
-        {                             // metoda do przesuwania okna
+        private void move_window(object sender, MouseEventArgs e) {                             // metoda do przesuwania okna
             if (e.Button == MouseButtons.Left) {
                 ReleaseCapture();
                 SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }
         }
 
-        private void hover_exitbutton(object sender, EventArgs e)
-        {
+        private void hover_exitbutton(object sender, EventArgs e) {
             exit.BackColor = Color.FromArgb(218, 83, 44);
         }
 
-        private void leave_exitbutton(object sender, EventArgs e)
-        {
+        private void leave_exitbutton(object sender, EventArgs e) {
             exit.BackColor = Color.FromArgb(0, 99, 183);
         }
 
@@ -56,73 +55,58 @@ namespace hiddenAnaconda.Views
             this.ActiveControl = null;
         }
 
-        private void close_on_click(object sender, EventArgs e)
-        {
+        private void close_on_click(object sender, EventArgs e) {
             this.Close();
         }
 
-        private void assign_Click(object sender, EventArgs e)
-        {
+        private void assign_Click(object sender, EventArgs e) {
             //Regex regex = new Regex(@"^(0[0-9]|1[0-9]|2[0-3]|[0-9]):[0-5][0-9]$");
             //bool isValid = regex.IsMatch(czas_realizacji.Text.Trim());
-            kurs.Focus();
-            driver.Focus();
-            kurs.Focus();
-            if (ErrorKierIsOn == false && ErrorIsOn == false)
-            { 
+            TrailAssignmentComboBox.Focus();
+            DriverComboBox.Focus();
+            TrailAssignmentComboBox.Focus();
+            if (ErrorKierIsOn == false && ErrorIsOn == false) {
                 var result = MessageBox.Show("Czy na pewno chcesz przypisać czas realizacji danego kursu?", "Czy na pewno?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (result == DialogResult.Yes)
-                {
+                if (result == DialogResult.Yes) {
                     //WPISANIE DO BD
                     this.Close();
                 }
-             
+
             }
-      
+
         }
 
-        private void ComboBox1_KeyPress(object sender, KeyPressEventArgs e)
-        {
+        private void ComboBox1_KeyPress(object sender, KeyPressEventArgs e) {
             e.Handled = true;
         }
 
-        private void kurs_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (kurs.SelectedIndex > -1) {
+        private void kurs_SelectedIndexChanged(object sender, EventArgs e) {
+            if (TrailAssignmentComboBox.SelectedIndex > -1) {
                 tabela.Visible = true;
                 alert.Visible = true;
                 alertpic.Visible = true;
             }
         }
-        private void kurs_SelectedIndexChanged_Validating(object sender, CancelEventArgs e)
-        {
-            if (kurs.SelectedIndex == -1)
-            {
-                errorProvider1.SetError(kurs, "Nie wybrano kursu");
+        private void kurs_SelectedIndexChanged_Validating(object sender, CancelEventArgs e) {
+            if (TrailAssignmentComboBox.SelectedIndex == -1) {
+                errorProvider1.SetError(TrailAssignmentComboBox, "Nie wybrano kursu");
                 ErrorIsOn = true;
-            }
-            else
-            {
-                errorProvider1.SetError(kurs, null);
+            } else {
+                errorProvider1.SetError(TrailAssignmentComboBox, null);
                 ErrorIsOn = false;
             }
         }
 
-        private void driver_SelectedIndexChanged(object sender, EventArgs e)
-        {
+        private void driver_SelectedIndexChanged(object sender, EventArgs e) {
             ErrorKierIsOn = true;
         }
 
-        private void driver_SelectedIndexChanged_Validating(object sender, CancelEventArgs e)
-        {
-            if (driver.SelectedIndex == -1)
-            {
-                errorProvider1.SetError(driver, "Nie wybrano kierowcy");
+        private void driver_SelectedIndexChanged_Validating(object sender, CancelEventArgs e) {
+            if (DriverComboBox.SelectedIndex == -1) {
+                errorProvider1.SetError(DriverComboBox, "Nie wybrano kierowcy");
                 ErrorKierIsOn = true;
-            }
-            else
-            {
-                errorProvider1.SetError(driver, null);
+            } else {
+                errorProvider1.SetError(DriverComboBox, null);
                 ErrorKierIsOn = false;
             }
         }

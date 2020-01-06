@@ -32,7 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WypelnianieCzasuRealizacjiKursu));
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.driver = new System.Windows.Forms.ComboBox();
+            this.DriverComboBox = new System.Windows.Forms.ComboBox();
             this.alertpic = new System.Windows.Forms.PictureBox();
             this.alert = new System.Windows.Forms.Label();
             this.tabela = new System.Windows.Forms.DataGridView();
@@ -40,7 +40,7 @@
             this.Czas = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.kurs = new System.Windows.Forms.ComboBox();
+            this.TrailAssignmentComboBox = new System.Windows.Forms.ComboBox();
             this.cancel = new System.Windows.Forms.Button();
             this.create = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
@@ -64,13 +64,13 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.panel1.Controls.Add(this.pictureBox2);
-            this.panel1.Controls.Add(this.driver);
+            this.panel1.Controls.Add(this.DriverComboBox);
             this.panel1.Controls.Add(this.alertpic);
             this.panel1.Controls.Add(this.alert);
             this.panel1.Controls.Add(this.tabela);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.kurs);
+            this.panel1.Controls.Add(this.TrailAssignmentComboBox);
             this.panel1.Controls.Add(this.cancel);
             this.panel1.Controls.Add(this.create);
             this.panel1.Controls.Add(this.label4);
@@ -92,20 +92,20 @@
             this.pictureBox2.TabIndex = 28;
             this.pictureBox2.TabStop = false;
             // 
-            // driver
+            // DriverComboBox
             // 
-            this.driver.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.driver.FormattingEnabled = true;
-            this.driver.Items.AddRange(new object[] {
+            this.DriverComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.DriverComboBox.FormattingEnabled = true;
+            this.DriverComboBox.Items.AddRange(new object[] {
             "Jan Kowalski",
             "Adam Meller",
             "Łukasz Nowak"});
-            this.driver.Location = new System.Drawing.Point(18, 260);
-            this.driver.Name = "driver";
-            this.driver.Size = new System.Drawing.Size(121, 21);
-            this.driver.TabIndex = 2;
-            this.driver.SelectedIndexChanged += new System.EventHandler(this.driver_SelectedIndexChanged);
-            this.driver.Validating += new System.ComponentModel.CancelEventHandler(this.driver_SelectedIndexChanged_Validating);
+            this.DriverComboBox.Location = new System.Drawing.Point(18, 260);
+            this.DriverComboBox.Name = "DriverComboBox";
+            this.DriverComboBox.Size = new System.Drawing.Size(121, 21);
+            this.DriverComboBox.TabIndex = 2;
+            this.DriverComboBox.SelectedIndexChanged += new System.EventHandler(this.driver_SelectedIndexChanged);
+            this.DriverComboBox.Validating += new System.ComponentModel.CancelEventHandler(this.driver_SelectedIndexChanged_Validating);
             // 
             // alertpic
             // 
@@ -171,15 +171,15 @@
             this.label5.TabIndex = 11;
             this.label5.Text = "Wybierz kierowcę:";
             // 
-            // kurs
+            // TrailAssignmentComboBox
             // 
-            this.kurs.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.kurs.DropDownHeight = 5;
-            this.kurs.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
-            this.kurs.DropDownWidth = 5;
-            this.kurs.FormattingEnabled = true;
-            this.kurs.IntegralHeight = false;
-            this.kurs.Items.AddRange(new object[] {
+            this.TrailAssignmentComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.TrailAssignmentComboBox.DropDownHeight = 5;
+            this.TrailAssignmentComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
+            this.TrailAssignmentComboBox.DropDownWidth = 5;
+            this.TrailAssignmentComboBox.FormattingEnabled = true;
+            this.TrailAssignmentComboBox.IntegralHeight = false;
+            this.TrailAssignmentComboBox.Items.AddRange(new object[] {
             "15.11.2019 - 194 - 4",
             "15.11.2019 - 47 - 1",
             "15.11.2019 - 47 - 2",
@@ -188,14 +188,14 @@
             "15.11.2019 - 710 - 2",
             "16.11.2019 - 710 - 1",
             "16.11.2019 - 710 - 2"});
-            this.kurs.Location = new System.Drawing.Point(18, 110);
-            this.kurs.Name = "kurs";
-            this.kurs.Size = new System.Drawing.Size(127, 119);
-            this.kurs.Sorted = true;
-            this.kurs.TabIndex = 0;
-            this.kurs.SelectedIndexChanged += new System.EventHandler(this.kurs_SelectedIndexChanged);
-            this.kurs.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ComboBox1_KeyPress);
-            this.kurs.Validating += new System.ComponentModel.CancelEventHandler(this.kurs_SelectedIndexChanged_Validating);
+            this.TrailAssignmentComboBox.Location = new System.Drawing.Point(18, 110);
+            this.TrailAssignmentComboBox.Name = "TrailAssignmentComboBox";
+            this.TrailAssignmentComboBox.Size = new System.Drawing.Size(242, 119);
+            this.TrailAssignmentComboBox.Sorted = true;
+            this.TrailAssignmentComboBox.TabIndex = 0;
+            this.TrailAssignmentComboBox.SelectedIndexChanged += new System.EventHandler(this.kurs_SelectedIndexChanged);
+            this.TrailAssignmentComboBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ComboBox1_KeyPress);
+            this.TrailAssignmentComboBox.Validating += new System.ComponentModel.CancelEventHandler(this.kurs_SelectedIndexChanged_Validating);
             // 
             // cancel
             // 
@@ -356,7 +356,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button exit;
-        private System.Windows.Forms.ComboBox kurs;
+        private System.Windows.Forms.ComboBox TrailAssignmentComboBox;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DataGridView tabela;
@@ -365,7 +365,7 @@
         private System.Windows.Forms.Label alert;
         private System.Windows.Forms.PictureBox alertpic;
         private System.Windows.Forms.ImageList imageList1;
-        private System.Windows.Forms.ComboBox driver;
+        private System.Windows.Forms.ComboBox DriverComboBox;
         private System.Windows.Forms.Button help;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;

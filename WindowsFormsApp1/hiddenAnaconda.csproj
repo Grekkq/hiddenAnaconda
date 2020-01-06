@@ -72,6 +72,7 @@
     <Compile Include="Models\AddTrail.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
     <Compile Include="Models\DayType.cs" />
+    <Compile Include="Models\RealizationTime.cs" />
     <Compile Include="Models\Report.cs">
       <DependentUpon>Report.dbml</DependentUpon>
     </Compile>
