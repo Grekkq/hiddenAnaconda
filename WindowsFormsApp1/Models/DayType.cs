@@ -20,6 +20,11 @@ namespace hiddenAnaconda.Models {
             dni.od_dnia = start;
             dni.do_dnia = end;
             dni.rodzaj_kursu = type;
+            var inserting = new DayTypeModel(start, end);
+            foreach(var item in GetAllDays()) {
+                if (item.CheckIfDaysCollide(inserting))
+                    return false;
+            }
             try {
                 dc.dni_kursowanias.InsertOnSubmit(dni);
                 dc.SubmitChanges();
@@ -40,6 +45,32 @@ namespace hiddenAnaconda.Models {
                 Debug.Print("Failed to get data from: dni_kursowania");
                 return null;
             }
+        }
+
+        public List<DayTypeModel> GetAllDays() {
+            var data = dc.dni_kursowanias.Select(d=> new { d.od_dnia, d.do_dnia });
+            List<DayTypeModel> list = new List<DayTypeModel>();
+            foreach (var item in data)
+                list.Add(new DayTypeModel(item.od_dnia, item.do_dnia));
+            return list;
+        }
+    }
+    class DayTypeModel {
+        private DateTime startTime;
+        private DateTime endTime;
+
+        public DayTypeModel(DateTime startStime, DateTime endTime) {
+            this.StartTime = startStime;
+            this.EndTime = endTime;
+        }
+
+        public DateTime StartTime { get => startTime; set => startTime = value; }
+        public DateTime EndTime { get => endTime; set => endTime = value; }
+
+        public bool CheckIfDaysCollide(DayTypeModel otherTime) {
+            if (StartTime < otherTime.EndTime && otherTime.StartTime < EndTime)
+                return true;
+            return false;
         }
     }
 }

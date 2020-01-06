@@ -119,7 +119,7 @@ namespace hiddenAnaconda.Views {
                         Models.DayType dayType = new Models.DayType();
                         if (!dayType.addDate(dayKind, startDate, endDate))
                         {
-                            MessageBox.Show("Nie udało dodać dnia.\nSpróbuj ponownie.", "Błąd!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("Wybrana data koliduje z inną.\n Spróbuj jeszcze raz.", "Błąd!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             return;
                         }
                         ReloadDataInDataGrid();
