@@ -61,10 +61,6 @@ namespace hiddenAnaconda.Views {
         // akcje po kliknięciu przycisku X
         private void Exit_Click(object sender, EventArgs e) => this.Close();
 
-        private void PrzypisywanieKierowcowPojazdowDoRealizacji_Load(object sender, EventArgs e) {
-            
-        }
-
         // akcje po kliknięciu Przypisz
         private void Save_Click(object sender, EventArgs e) {
             pojazdSelectionComboBox.Focus();
@@ -77,7 +73,7 @@ namespace hiddenAnaconda.Views {
                 var result = MessageBox.Show("Czy na pewno chcesz przypisać linię: ''" + liniaSelectionComboBox.Text + "'' z kierowcą: ''" + kierowcaSelectionComboBox.Text + "'' o pojeździe: ''" + pojazdSelectionComboBox.Text + "'' do kursu: ''" + kursSelectionComboBox.Text + "'' w dniu " + dataKursuPicker.SelectionStart + "?", "Czy na pewno?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.Yes) {
                     //WPISANIE DO 
-                    
+
                     this.Close();
                 }
             } else {
@@ -128,13 +124,15 @@ namespace hiddenAnaconda.Views {
         }
 
         private void dataKursuPicker_DateChanged(object sender, DateRangeEventArgs e) {
+            kierowcaSelectionComboBox.ResetText();
+            pojazdSelectionComboBox.ResetText();
+            kursSelectionComboBox.ResetText();
             try {
                 selectetDayType = sharedView.CheckDayType(dataKursuPicker.SelectionRange.Start);
             } catch (Exception exception) {
                 Debug.Print("Failed to read day type for picked date.\n{0}", exception);
                 MessageBox.Show("Upewnij się że do wybranego dnia został przypisany rodzaj dnia.");
             }
-            kursSelectionComboBox.SelectedIndex = -1;
             sharedView.LoadTrailAssignmentIntoComboBox(kursSelectionComboBox, Int32.Parse(liniaSelectionComboBox.Text), selectetDayType, dataKursuPicker.SelectionRange.Start);
         }
 
