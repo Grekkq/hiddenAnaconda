@@ -95,8 +95,8 @@ namespace hiddenAnaconda.Views {
                 RealizationTimeDataGridView.Visible = true;
                 alert.Visible = true;
                 alertpic.Visible = true;
-                
-                RealizationTimeDataGridView.Rows.Add("plac piastów 123123123", "18:20", "18:15");
+
+                realizationTime.LoadDataIntoDataGridView(RealizationTimeDataGridView, TrailAssignmentComboBox.Text);
             }
         }
         private void kurs_SelectedIndexChanged_Validating(object sender, CancelEventArgs e) {

@@ -21,6 +21,7 @@ namespace hiddenAnaconda {
         public const string ListBoxNumberDelimiter = ".";
         public const string ComboBoxVehicleDelimiter = "-";
         public const string ComboBoxRealizationTimeDelimiter = ",";
+        public const string ComboBoxRealizationTimeDateDelimiter = "-";
         //generacja raportu
         public const string WorkDays = "roboczy";
         public const string WorkDaysAlias = "Od Poniedziałku do Piątku";
