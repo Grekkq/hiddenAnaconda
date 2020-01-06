@@ -140,7 +140,6 @@
             this.pojazdSelectionComboBox.Name = "pojazdSelectionComboBox";
             this.pojazdSelectionComboBox.Size = new System.Drawing.Size(119, 21);
             this.pojazdSelectionComboBox.TabIndex = 3;
-            this.pojazdSelectionComboBox.SelectedIndexChanged += new System.EventHandler(this.pojazdSelectionComboBox_SelectedIndexChanged);
             this.pojazdSelectionComboBox.Validating += new System.ComponentModel.CancelEventHandler(this.pojazdSelectionComboBox_Validating);
             // 
             // pojazdSelectionLabel

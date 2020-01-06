@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Windows.Forms;
 namespace hiddenAnaconda.Models {
     class TrailRealization {
         private ReportDataContext db;
@@ -11,10 +11,57 @@ namespace hiddenAnaconda.Models {
             db = new ReportDataContext();
         }
 
+        public void AddTrailRealizationToDb(int lineNumber, int order, string driver, string vehicle, DateTime date) {
+            var parsedVehiclePlateNumber = vehicle.Substring(vehicle.IndexOf(Constants.ComboBoxVehicleDelimiter) + Constants.ComboBoxVehicleDelimiter.Length).Trim();
+            var parsedDriverSurname = driver.Substring(0, driver.IndexOf(' ')).Trim();
+            var parsedDriverName = driver.Substring(driver.IndexOf(' ')).Trim();
+            realizacja_kursu trailRealization = new realizacja_kursu();
+            trailRealization.id_kursu = GetTrailAssignment(lineNumber, order, CheckDayType(date)).id_kursu;
+            trailRealization.id_przypisanego_kierowcy = db.kierowcas.Where(k=>k.imie.Equals(parsedDriverName) && k.nazwisko.Equals(parsedDriverSurname)).Single().id_kierowcy;
+            trailRealization.id_pojazdu = db.pojazds.Where(p=>p.nr_rejestracyjny.Equals(parsedVehiclePlateNumber)).Single().id_pojazdu;
+            trailRealization.data_realizacji = date;
+            db.realizacja_kursus.InsertOnSubmit(trailRealization);
+            db.SubmitChanges();
+        }
 
-        //public checkAvalabilityForDriver()
+        // ::TESTED::
 
-        public List<String> GetAvailableDrivers(int lineNumber, int order, DateTime date) {
+        public void LoadVehiclesIntoComboBox(ComboBox comboBox, int lineNumber, int order, DateTime date) {
+            comboBox.Items.Clear();
+            comboBox.Items.AddRange(GetAvailableVehicles(lineNumber, order, date).ToArray());
+        }
+
+        private List<String> GetAvailableVehicles(int lineNumber, int order, DateTime date) {
+            var selectedTrailHours = GetTrailHours(GetTrailAssignment(lineNumber, order, CheckDayType(date)).id_kursu);
+            List<string> vehicles = new List<string>();
+            bool isFree = true;
+            foreach (var vehicle in GetAllActiveVehicles()) {
+                isFree = true;
+                var vehicleAssignmentsId = GetAllTrailAssignmentIdForDriver(vehicle.id_pojazdu, date);
+                foreach (var vehicleAssignmentId in vehicleAssignmentsId) {
+                    if (GetTrailHours(vehicleAssignmentId).CheckIfHoursCollide(selectedTrailHours))
+                        isFree = false;
+                }
+                if (isFree)
+                    vehicles.Add(vehicle.model + " " + vehicle.marka + " " + Constants.ComboBoxVehicleDelimiter + " " + vehicle.nr_rejestracyjny);
+            }
+            return vehicles;
+        }
+
+        private List<pojazd> GetAllActiveVehicles() {
+            return db.pojazds.Where(k => k.czy_sprawny.Equals(true)).ToList();
+        }
+
+        private List<int> GetAllTrailAssignmentIdForVehicle(int vehicleId, DateTime date) {
+            return db.realizacja_kursus.Where(r => r.id_pojazdu.Equals(vehicleId) && r.data_realizacji.Equals(date)).Select(r => r.id_kursu).ToList();
+        }
+
+        public void LoadDriversIntoComboBox(ComboBox comboBox, int lineNumber, int order, DateTime date) {
+            comboBox.Items.Clear();
+            comboBox.Items.AddRange(GetAvailableDrivers(lineNumber, order, date).ToArray());
+        }
+
+        private List<String> GetAvailableDrivers(int lineNumber, int order, DateTime date) {
             var selectedTrailHours = GetTrailHours(GetTrailAssignment(lineNumber, order, CheckDayType(date)).id_kursu);
             List<string> drivers = new List<string>();
             bool isFree = true;
@@ -31,17 +78,14 @@ namespace hiddenAnaconda.Models {
             return drivers;
         }
 
-
-
         private List<int> GetAllTrailAssignmentIdForDriver(int driverId, DateTime date) {
             return db.realizacja_kursus.Where(r => r.id_przypisanego_kierowcy.Equals(driverId) && r.data_realizacji.Equals(date)).Select(r => r.id_kursu).ToList();
         }
 
-
-        // ::TESTED::
         private List<kierowca> GetAllActiveDrivers() {
             return db.kierowcas.Where(k => k.czy_pracuje.Equals(true)).ToList();
         }
+
         private kur GetTrailAssignment(int lineNumber, int order, string dayType) {
             return db.kurs.Where(k => k.id_linii.Equals(lineNumber) && k.ktory_kurs_danego_dnia.Equals(order) && k.rodzaj_kursu.Equals(dayType)).Single();
         }
@@ -90,7 +134,7 @@ namespace hiddenAnaconda.Models {
         public int TrailAssignmentId { get => trailAssignmentId; set => trailAssignmentId = value; }
 
         public bool CheckIfHoursCollide(TrailTime otherTime) {
-            if (StartTime < otherTime.EndTime && otherTime.StartTime < EndTime) 
+            if (StartTime < otherTime.EndTime && otherTime.StartTime < EndTime)
                 return true;
             return false;
         }
