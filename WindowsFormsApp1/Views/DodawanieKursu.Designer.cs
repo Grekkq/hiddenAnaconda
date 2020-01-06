@@ -77,7 +77,7 @@
             // comboBox_rodzajKursu
             // 
             this.comboBox_rodzajKursu.FormattingEnabled = true;
-            this.comboBox_rodzajKursu.Location = new System.Drawing.Point(18, 210);
+            this.comboBox_rodzajKursu.Location = new System.Drawing.Point(18, 160);
             this.comboBox_rodzajKursu.Name = "comboBox_rodzajKursu";
             this.comboBox_rodzajKursu.Size = new System.Drawing.Size(150, 21);
             this.comboBox_rodzajKursu.TabIndex = 2;
@@ -87,7 +87,7 @@
             // comboBox_trasa
             // 
             this.comboBox_trasa.FormattingEnabled = true;
-            this.comboBox_trasa.Location = new System.Drawing.Point(18, 160);
+            this.comboBox_trasa.Location = new System.Drawing.Point(18, 210);
             this.comboBox_trasa.Name = "comboBox_trasa";
             this.comboBox_trasa.Size = new System.Drawing.Size(150, 21);
             this.comboBox_trasa.TabIndex = 1;
@@ -118,7 +118,7 @@
             // label_rodzajKursu
             // 
             this.label_rodzajKursu.AutoSize = true;
-            this.label_rodzajKursu.Location = new System.Drawing.Point(16, 190);
+            this.label_rodzajKursu.Location = new System.Drawing.Point(16, 140);
             this.label_rodzajKursu.Name = "label_rodzajKursu";
             this.label_rodzajKursu.Size = new System.Drawing.Size(108, 13);
             this.label_rodzajKursu.TabIndex = 13;
@@ -127,7 +127,7 @@
             // label_trasa
             // 
             this.label_trasa.AutoSize = true;
-            this.label_trasa.Location = new System.Drawing.Point(16, 140);
+            this.label_trasa.Location = new System.Drawing.Point(16, 190);
             this.label_trasa.Name = "label_trasa";
             this.label_trasa.Size = new System.Drawing.Size(74, 13);
             this.label_trasa.TabIndex = 13;
