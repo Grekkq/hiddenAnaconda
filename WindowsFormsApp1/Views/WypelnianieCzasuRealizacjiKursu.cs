@@ -18,6 +18,16 @@ namespace hiddenAnaconda.Views {
             realizationTime = new RealizationTime();
             realizationTime.LoadTrailRealizationIntoComboBox(TrailAssignmentComboBox);
             realizationTime.LoadDriversIntoComboBox(DriverComboBox);
+            RealizationTimeDataGridView.Columns.Clear();
+            RealizationTimeDataGridView.Columns.Add("stopName", "Przystanek");
+            RealizationTimeDataGridView.Columns.Add("realizationTime", "Faktyczny Czas");
+            RealizationTimeDataGridView.Columns.Add("scheduledTime", "Planowy Czas");
+            RealizationTimeDataGridView.RowHeadersVisible = false;
+            RealizationTimeDataGridView.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            RealizationTimeDataGridView.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            RealizationTimeDataGridView.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            RealizationTimeDataGridView.Columns[2].Width = 60;
+            RealizationTimeDataGridView.Columns[1].Width = 60;
         }
 
         SharedView sharedView = new SharedView();
@@ -82,9 +92,11 @@ namespace hiddenAnaconda.Views {
 
         private void kurs_SelectedIndexChanged(object sender, EventArgs e) {
             if (TrailAssignmentComboBox.SelectedIndex > -1) {
-                tabela.Visible = true;
+                RealizationTimeDataGridView.Visible = true;
                 alert.Visible = true;
                 alertpic.Visible = true;
+                
+                RealizationTimeDataGridView.Rows.Add("plac piastów 123123123", "18:20", "18:15");
             }
         }
         private void kurs_SelectedIndexChanged_Validating(object sender, CancelEventArgs e) {
