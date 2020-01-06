@@ -46,6 +46,8 @@ namespace hiddenAnaconda.Models {
             int lineNumebr = Int32.Parse(selectedTrailAssignment.Substring(0, selectedTrailAssignment.IndexOf(Constants.ComboBoxRealizationTimeDelimiter)).Trim());
             int trailNumber = Int32.Parse(selectedTrailAssignment.Substring(selectedTrailAssignment.IndexOf(Constants.ComboBoxRealizationTimeDelimiter) + Constants.ComboBoxRealizationTimeDelimiter.Length).Trim());
             dataGridView.Rows.Clear();
+            dataInDataGrid.Clear();
+
             GetStopAndAssignedTime(lineNumebr, trailNumber);
             foreach (var row in dataInDataGrid)
                 dataGridView.Rows.Add(row.City + ", " + row.Name, "", row.Time.ToString("HH:mm"));
@@ -65,6 +67,7 @@ namespace hiddenAnaconda.Models {
 
         public void LoadTrailRealizationIntoComboBox(ComboBox comboBox) {
             comboBox.Items.Clear();
+            timeAssignments.Clear();
             GetTrailRealizationFromDb();
             foreach (var item in timeAssignments) {
                 comboBox.Items.Add(
