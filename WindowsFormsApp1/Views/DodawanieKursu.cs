@@ -1,13 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Text.RegularExpressions;
 
 
 
@@ -37,6 +30,8 @@ namespace hiddenAnaconda.Views {
 
         public DodawanieKursu() {
             InitializeComponent();
+            sharedView.LoadLinesIntoComboBox(comboBox_linia);
+            sharedView.LoadDayTypesIntoComboBox(comboBox_rodzajKursu);
         }
         private void TurnoffFocus(object sender, EventArgs e) {
             this.ActiveControl = null;
@@ -59,9 +54,6 @@ namespace hiddenAnaconda.Views {
             //dane testowe
             this.comboBox_trasa.Items.Clear();
             this.comboBox_trasa.Items.Add("1");
-            // wczytaj linie do wyboru
-            sharedView.LoadLinesIntoComboBox(comboBox_linia);
-            sharedView.LoadDayTypesIntoComboBox(comboBox_rodzajKursu);
         }
 
         private void Create_Click(object sender, EventArgs e) {
@@ -98,7 +90,7 @@ namespace hiddenAnaconda.Views {
             comboBox_rodzajKursu.Focus();
             comboBox_rodzajKursu.SelectedIndex = -1;
             comboBox_trasa.SelectedIndex = -1;
-            sharedView.LoadRouteNumberIntoComboBox(comboBox_trasa, Int32.Parse(comboBox_linia.Text));
+            
 
         }
 
@@ -140,6 +132,7 @@ namespace hiddenAnaconda.Views {
             label_trasa.Visible = true;
             comboBox_trasa.Visible = true;
             create.Focus();
+            sharedView.LoadRouteNumberIntoComboBox(comboBox_trasa, Int32.Parse(comboBox_linia.Text), comboBox_rodzajKursu.Text);
         }
     }
 }

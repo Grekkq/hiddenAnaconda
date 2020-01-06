@@ -73,9 +73,22 @@ namespace hiddenAnaconda {
             foreach (var busStop in GetRouteNumberFromDb(lineNumber))
                 comboBox.Items.Add(busStop);
         }
+        public void LoadRouteNumberIntoComboBox(ComboBox comboBox, int lineNumber, string dayType) {
+            comboBox.Items.Clear();
+            foreach (var busStop in GetRouteNumberFromDb(lineNumber, dayType))
+                comboBox.Items.Add(busStop);
+        }
 
         private List<string> GetRouteNumberFromDb(int lineNumber) {
             return db.trasas.Where(t => t.id_linii == lineNumber).Select(t => t.nr_trasy.ToString()).Distinct().ToList();
+        }
+
+        private List<string> GetRouteNumberFromDb(int lineNumber, string dayType) {
+            var alreadyAssigned = from k in db.kurs
+                                  from t in db.trasas
+                                  where t.id_trasy == k.id_trasy && t.id_linii == lineNumber && k.rodzaj_kursu.Equals(dayType)
+                                  select t.nr_trasy;
+            return db.trasas.Where(t => t.id_linii == lineNumber && !alreadyAssigned.Contains(t.nr_trasy)).Select(t => t.nr_trasy.ToString()).Distinct().ToList();
         }
 
         public void LoadCitiesIntoComboBox(ComboBox comboBox) {
