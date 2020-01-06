@@ -1,15 +1,44 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace hiddenAnaconda.Models {
     class RealizationTime {
         ReportDataContext db;
+        List<DataInDataGrid> dataInDataGrid;
+        List<TimeAssignmentComboBox> timeAssignments;
+        List<kierowca> drivers;
         public RealizationTime() {
             db = new ReportDataContext();
+            dataInDataGrid = new List<DataInDataGrid>();
+            timeAssignments = new List<TimeAssignmentComboBox>();
+            drivers = new List<kierowca>();
+        }
+
+        public void AddRealizationTime(DataGridView dataGridView, ComboBox driverComboBox, ComboBox timeAssignmentComboBox) {
+            int dataGridIterator = 0;
+            DateTime parsedRealizationTime;
+            foreach (DataGridViewRow row in dataGridView.Rows) {
+                parsedRealizationTime = DateTime.Parse(row.Cells[1].Value.ToString());
+                dataInDataGrid.ElementAt(dataGridIterator).RealizationTime = parsedRealizationTime;
+                dataGridIterator++;
+            }
+            SetCarryOutDriver(drivers.ElementAt(driverComboBox.SelectedIndex).id_kierowcy, timeAssignments.ElementAt(timeAssignmentComboBox.SelectedIndex).TrailRealizationId);
+            czas_realizacji temp;
+            foreach(var timeAssignment in dataInDataGrid) {
+                temp = new czas_realizacji();
+                temp.id_czasu_odjazdu = timeAssignment.TimeId;
+                temp.id_realizacji_kursu = timeAssignments.ElementAt(timeAssignmentComboBox.SelectedIndex).TrailRealizationId;
+                temp.faktyczny_czas_odjazdu = timeAssignment.RealizationTime;
+                db.czas_realizacjis.InsertOnSubmit(temp);
+            }
+            db.SubmitChanges();
+        }
+
+        private void SetCarryOutDriver(int driverId, int trailRealizationId) {
+            db.realizacja_kursus.Where(r => r.id_realizacji_kursu.Equals(trailRealizationId)).Single().id_wykonujacego_kierowcy = driverId;
+            db.SubmitChanges();
         }
 
         public void LoadDataIntoDataGridView(DataGridView dataGridView, string selectedTrailAssignment) {
@@ -17,12 +46,12 @@ namespace hiddenAnaconda.Models {
             int lineNumebr = Int32.Parse(selectedTrailAssignment.Substring(0, selectedTrailAssignment.IndexOf(Constants.ComboBoxRealizationTimeDelimiter)).Trim());
             int trailNumber = Int32.Parse(selectedTrailAssignment.Substring(selectedTrailAssignment.IndexOf(Constants.ComboBoxRealizationTimeDelimiter) + Constants.ComboBoxRealizationTimeDelimiter.Length).Trim());
             dataGridView.Rows.Clear();
-            foreach (var row in GetStopAndAssignedTime(lineNumebr, trailNumber))
+            GetStopAndAssignedTime(lineNumebr, trailNumber);
+            foreach (var row in dataInDataGrid)
                 dataGridView.Rows.Add(row.City + ", " + row.Name, "", row.Time.ToString("HH:mm"));
         }
 
-        private List<DataInDataGrid> GetStopAndAssignedTime(int lineNumber, int trailNumber) {
-            List<DataInDataGrid> dataInDataGrid = new List<DataInDataGrid>();
+        private void GetStopAndAssignedTime(int lineNumber, int trailNumber) {
             var data = from p in db.przystaneks
                        from t in db.trasas
                        from c in db.czas_odjazdus
@@ -32,12 +61,12 @@ namespace hiddenAnaconda.Models {
                        select new { p.miasto, p.nazwa, c.czas_odjazdu1, c.id_czasu_odjazdu };
             foreach (var item in data)
                 dataInDataGrid.Add(new DataInDataGrid(item.miasto, item.nazwa, item.czas_odjazdu1, item.id_czasu_odjazdu));
-            return dataInDataGrid;
         }
 
         public void LoadTrailRealizationIntoComboBox(ComboBox comboBox) {
             comboBox.Items.Clear();
-            foreach(var item in GetTrailRealizationFromDb()) {
+            GetTrailRealizationFromDb();
+            foreach (var item in timeAssignments) {
                 comboBox.Items.Add(
                     item.Date.ToShortDateString() + " " + Constants.ComboBoxRealizationTimeDateDelimiter + " " 
                     + item.DayType + Constants.ComboBoxRealizationTimeDelimiter + " "
@@ -48,18 +77,17 @@ namespace hiddenAnaconda.Models {
 
         public void LoadDriversIntoComboBox(ComboBox comboBox) {
             comboBox.Items.Clear();
-            foreach (var driver in GetAllActiveDrivers())
+            GetAllActiveDrivers();
+            foreach (var driver in drivers)
                 comboBox.Items.Add(driver.nazwisko + " " + driver.imie);
         }
 
-        private List<TimeAssignmentComboBox> GetTrailRealizationFromDb() {
+        private void GetTrailRealizationFromDb() {
             var data = db.realizacja_kursus.Where(r => r.id_wykonujacego_kierowcy.HasValue != true);
-            List<TimeAssignmentComboBox> timeAssignments = new List<TimeAssignmentComboBox>();
             foreach (var item in data) {
                 timeAssignments.Add(new TimeAssignmentComboBox(item.data_realizacji, CheckDayType(item.data_realizacji)
-                    , GetTrailAssignment(item.id_kursu).id_linii, GetTrailNumberFromTrailId(GetTrailAssignment(item.id_kursu).id_trasy)));
+                    , GetTrailAssignment(item.id_kursu).id_linii, GetTrailNumberFromTrailId(GetTrailAssignment(item.id_kursu).id_trasy), item.id_realizacji_kursu));
             }
-            return timeAssignments;
         }
 
         private string CheckDayType(DateTime date) {
@@ -74,8 +102,8 @@ namespace hiddenAnaconda.Models {
             return db.trasas.Where(t => t.id_trasy.Equals(trailId)).Select(t => t.nr_trasy).Single();
         }
 
-        private List<kierowca> GetAllActiveDrivers() {
-            return db.kierowcas.Where(k => k.czy_pracuje.Equals(true)).ToList();
+        private void GetAllActiveDrivers() {
+            drivers = db.kierowcas.Where(k => k.czy_pracuje.Equals(true)).ToList();
         }
     }
     class TimeAssignmentComboBox {
@@ -83,18 +111,21 @@ namespace hiddenAnaconda.Models {
         private string dayType;
         private int lineNumber;
         private int trailNumber;
+        private int trailRealizationId;
 
-        public TimeAssignmentComboBox(DateTime date, string dayType, int lineNumber, int trailNumber) {
+        public TimeAssignmentComboBox(DateTime date, string dayType, int lineNumber, int trailNumber, int trailRealizationId) {
             this.Date = date;
             this.DayType = dayType;
             this.LineNumber = lineNumber;
             this.TrailNumber = trailNumber;
+            this.TrailRealizationId = trailRealizationId;
         }
 
         public DateTime Date { get => date; set => date = value; }
         public string DayType { get => dayType; set => dayType = value; }
         public int LineNumber { get => lineNumber; set => lineNumber = value; }
         public int TrailNumber { get => trailNumber; set => trailNumber = value; }
+        public int TrailRealizationId { get => trailRealizationId; set => trailRealizationId = value; }
     }
 
     class DataInDataGrid {
@@ -102,6 +133,7 @@ namespace hiddenAnaconda.Models {
         private string name;
         private DateTime time;
         private int timeId;
+        private DateTime realizationTime;
 
         public DataInDataGrid(string city, string name, DateTime time, int timeId) {
             this.city = city;
@@ -114,5 +146,6 @@ namespace hiddenAnaconda.Models {
         public string Name { get => name; set => name = value; }
         public DateTime Time { get => time; set => time = value; }
         public int TimeId { get => timeId; set => timeId = value; }
+        public DateTime RealizationTime { get => realizationTime; set => realizationTime = value; }
     }
 }

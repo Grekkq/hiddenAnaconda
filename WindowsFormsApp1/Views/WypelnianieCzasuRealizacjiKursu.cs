@@ -79,6 +79,7 @@ namespace hiddenAnaconda.Views {
                 var result = MessageBox.Show("Czy na pewno chcesz przypisać czas realizacji danego kursu?", "Czy na pewno?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.Yes) {
                     //WPISANIE DO BD
+                    realizationTime.AddRealizationTime(RealizationTimeDataGridView, DriverComboBox, TrailAssignmentComboBox);
                     this.Close();
                 }
 
