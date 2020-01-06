@@ -93,9 +93,9 @@ namespace hiddenAnaconda.Views {
         }
 
         private void ComboBox_linia_SelectedIndexChanged(object sender, EventArgs e) {
-            label_rodzajKursu.Visible = true;
-            comboBox_rodzajKursu.Visible = true;
-            comboBox_rodzajKursu.Focus();
+            label_trasa.Visible = true;
+            comboBox_trasa.Visible = true;
+            comboBox_trasa.Focus();
             comboBox_rodzajKursu.SelectedIndex = -1;
             comboBox_trasa.SelectedIndex = -1;
             sharedView.LoadRouteNumberIntoComboBox(comboBox_trasa, Int32.Parse(comboBox_linia.Text));
@@ -103,7 +103,9 @@ namespace hiddenAnaconda.Views {
         }
 
         private void ComboBox_trasa_SelectedIndexChanged(object sender, EventArgs e) {
-            create.Focus();
+            label_rodzajKursu.Visible = true;
+            comboBox_rodzajKursu.Visible = true;
+            comboBox_rodzajKursu.Focus();
         }
 
         private void Line_choose_Validating(object sender, CancelEventArgs e) {
@@ -137,9 +139,7 @@ namespace hiddenAnaconda.Views {
         }
 
         private void comboBox_rodzajKursu_SelectedIndexChanged(object sender, EventArgs e) {
-            label_trasa.Visible = true;
-            comboBox_trasa.Visible = true;
-            comboBox_trasa.Focus();
+            create.Focus();
         }
     }
 }

@@ -138,7 +138,7 @@
             "Man - ST 12985"});
             this.pojazdSelectionComboBox.Location = new System.Drawing.Point(18, 260);
             this.pojazdSelectionComboBox.Name = "pojazdSelectionComboBox";
-            this.pojazdSelectionComboBox.Size = new System.Drawing.Size(200, 21);
+            this.pojazdSelectionComboBox.Size = new System.Drawing.Size(119, 21);
             this.pojazdSelectionComboBox.TabIndex = 3;
             this.pojazdSelectionComboBox.SelectedIndexChanged += new System.EventHandler(this.pojazdSelectionComboBox_SelectedIndexChanged);
             this.pojazdSelectionComboBox.Validating += new System.ComponentModel.CancelEventHandler(this.pojazdSelectionComboBox_Validating);
@@ -161,7 +161,7 @@
             "Gawron Małgorzata"});
             this.kierowcaSelectionComboBox.Location = new System.Drawing.Point(18, 210);
             this.kierowcaSelectionComboBox.Name = "kierowcaSelectionComboBox";
-            this.kierowcaSelectionComboBox.Size = new System.Drawing.Size(140, 21);
+            this.kierowcaSelectionComboBox.Size = new System.Drawing.Size(119, 21);
             this.kierowcaSelectionComboBox.TabIndex = 2;
             this.kierowcaSelectionComboBox.SelectedIndexChanged += new System.EventHandler(this.kierowcaSelectionComboBox_SelectedIndexChanged);
             this.kierowcaSelectionComboBox.Validating += new System.ComponentModel.CancelEventHandler(this.kierowcaSelectionComboBox_Validating);
@@ -193,7 +193,7 @@
             "4"});
             this.kursSelectionComboBox.Location = new System.Drawing.Point(18, 160);
             this.kursSelectionComboBox.Name = "kursSelectionComboBox";
-            this.kursSelectionComboBox.Size = new System.Drawing.Size(160, 21);
+            this.kursSelectionComboBox.Size = new System.Drawing.Size(150, 21);
             this.kursSelectionComboBox.TabIndex = 1;
             this.kursSelectionComboBox.SelectedIndexChanged += new System.EventHandler(this.KursSelectionComboBox_SelectedIndexChanged);
             this.kursSelectionComboBox.Validating += new System.ComponentModel.CancelEventHandler(this.KursSelectionComboBox_Validating);
@@ -216,7 +216,7 @@
             "A4"});
             this.liniaSelectionComboBox.Location = new System.Drawing.Point(18, 110);
             this.liniaSelectionComboBox.Name = "liniaSelectionComboBox";
-            this.liniaSelectionComboBox.Size = new System.Drawing.Size(140, 21);
+            this.liniaSelectionComboBox.Size = new System.Drawing.Size(120, 21);
             this.liniaSelectionComboBox.TabIndex = 0;
             this.liniaSelectionComboBox.SelectedIndexChanged += new System.EventHandler(this.LiniaSelectionComboBox_SelectedIndexChanged);
             this.liniaSelectionComboBox.Validating += new System.ComponentModel.CancelEventHandler(this.LiniaSelectionComboBox_Validating);
@@ -315,6 +315,8 @@
             this.Name = "planowanieRealizacjiKursu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "przypisywanieKierowcowPojazdowDoRealizacji";
+            this.Activated += new System.EventHandler(this.PrzypisywanieKierowcowPojazdowDoRealizacji_Load);
+            this.Load += new System.EventHandler(this.PrzypisywanieKierowcowPojazdowDoRealizacji_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Move_window);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
