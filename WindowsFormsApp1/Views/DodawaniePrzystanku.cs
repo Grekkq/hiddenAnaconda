@@ -50,21 +50,20 @@ namespace hiddenAnaconda.Views {
             p_miasto.Focus();
             if (yes.Checked == false && no.Checked == false) {
                 MessageBox.Show("Nie zaznaczono odpowiedz na pytanie.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-               
+
             } else if (ErrorIsOn == false && ErrorNazwaIsOn == false) {
                 var nazwa = p_nazwa.Text;
                 var miasto = p_miasto.Text;
                 string direction = null;
 
                 if (yes.Checked == true) {
-                   
-                    var result = MessageBox.Show("Czy na pewno chcesz dodać w mieście " + miasto + " przystanek \"" + nazwa +"\"?", "Dodanie przystanku", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                        if (result == DialogResult.Yes)
-                        {
-                            Models.AddingBusStops addingBusStops = new Models.AddingBusStops();
-                            addingBusStops.AddBusStop(nazwa, miasto, direction);
-                        }
-                     else {
+
+                    var result = MessageBox.Show("Czy na pewno chcesz dodać w mieście " + miasto + " przystanek \"" + nazwa + "\"?", "Dodanie przystanku", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (result == DialogResult.Yes) {
+                        Models.AddingBusStops addingBusStops = new Models.AddingBusStops();
+                        addingBusStops.AddBusStop(nazwa, miasto, direction);
+                        this.Close();
+                    } else {
                         p_miasto.Focus();
                         p_nazwa.Focus();
                         p_miasto.Focus();
@@ -72,16 +71,17 @@ namespace hiddenAnaconda.Views {
                 } else {
                     textbox_kierunekZ.Focus();
                     textBox_kierunekDo.Focus();
-                    if ((!string.IsNullOrEmpty(p_miasto.Text) && !string.IsNullOrEmpty(p_nazwa.Text) && !string.IsNullOrEmpty(textBox_kierunekDo.Text) && !string.IsNullOrEmpty(textbox_kierunekZ.Text) && ErrorKierIsOn == false && ErrorIsOn == false))
-                    {
+                    if ((!string.IsNullOrEmpty(p_miasto.Text) && !string.IsNullOrEmpty(p_nazwa.Text) && !string.IsNullOrEmpty(textBox_kierunekDo.Text) && !string.IsNullOrEmpty(textbox_kierunekZ.Text) && ErrorKierIsOn == false && ErrorIsOn == false)) {
                         direction = textbox_kierunekZ.Text + "-" + textBox_kierunekDo.Text;
-                    var directionTo = textBox_kierunekDo.Text;
-                    var directionFrom = textbox_kierunekZ.Text;
-                    var result2 = MessageBox.Show("Czy na pewno chcesz dodać w mieście " + miasto + " przystanek \"" + nazwa + "\" kierunek " + direction + "?", "Dodawanie przystanku", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                        if (result2 == DialogResult.Yes)
-                        {
+                        var directionTo = textBox_kierunekDo.Text;
+                        var directionFrom = textbox_kierunekZ.Text;
+                        var result2 = MessageBox.Show("Czy na pewno chcesz dodać w mieście " + miasto + " przystanek \"" + nazwa + "\" kierunek " + direction + "?", "Dodawanie przystanku", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        if (result2 == DialogResult.Yes) {
                             Models.AddingBusStops addingBusStops = new Models.AddingBusStops();
                             addingBusStops.AddDoubleBusStop(nazwa, miasto, directionTo, directionFrom);
+                            p_miasto.Clear();
+                            p_nazwa.Clear();
+
                         }
                     } else {
                         p_miasto.Focus();
@@ -169,32 +169,26 @@ namespace hiddenAnaconda.Views {
             textbox_kierunekZ.Visible = false;
         }
 
-        private void textbox_kierunekZ_TextChanged(object sender, EventArgs e)
-        {
+        private void textbox_kierunekZ_TextChanged(object sender, EventArgs e) {
             textbox_kierunekZ.Text = System.Threading.Thread.CurrentThread.CurrentCulture.TextInfo.ToTitleCase(this.textbox_kierunekZ.Text);
             textbox_kierunekZ.Select(textbox_kierunekZ.Text.Length, 0);
 
         }
-        private void textbox_kierunekZ_Validating(object sender, CancelEventArgs e)
-        {
-            if (string.IsNullOrEmpty(textbox_kierunekZ.Text))
-            {
+        private void textbox_kierunekZ_Validating(object sender, CancelEventArgs e) {
+            if (string.IsNullOrEmpty(textbox_kierunekZ.Text)) {
                 errorProvider1.SetError(textbox_kierunekZ, "Nie wpisano miasta wyjściowego");
                 ErrorIsOn = true;
-            }
-            else
-            {
+            } else {
                 errorProvider1.SetError(textbox_kierunekZ, null);
                 ErrorIsOn = false;
             }
         }
 
-            private void textBox_kierunekDo_TextChanged(object sender, EventArgs e)
-            {
+        private void textBox_kierunekDo_TextChanged(object sender, EventArgs e) {
             textBox_kierunekDo.Text = System.Threading.Thread.CurrentThread.CurrentCulture.TextInfo.ToTitleCase(this.textBox_kierunekDo.Text);
             textBox_kierunekDo.Select(textBox_kierunekDo.Text.Length, 0);
 
-             }
+        }
 
         private void label7_Click(object sender, EventArgs e) {
 
@@ -244,15 +238,11 @@ namespace hiddenAnaconda.Views {
 
         }
 
-        private void textBox_kierunekDo_Validating(object sender, CancelEventArgs e)
-        {
-            if (string.IsNullOrEmpty(textBox_kierunekDo.Text))
-            {
+        private void textBox_kierunekDo_Validating(object sender, CancelEventArgs e) {
+            if (string.IsNullOrEmpty(textBox_kierunekDo.Text)) {
                 errorProvider1.SetError(textBox_kierunekDo, "Nie wpisano miasta docelowego");
                 ErrorKierIsOn = true;
-            }
-            else
-            {
+            } else {
                 errorProvider1.SetError(textBox_kierunekDo, null);
                 ErrorKierIsOn = false;
             }

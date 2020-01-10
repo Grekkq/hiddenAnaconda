@@ -33,9 +33,9 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.DriverComboBox = new System.Windows.Forms.ComboBox();
-            this.alertpic = new System.Windows.Forms.PictureBox();
-            this.alert = new System.Windows.Forms.Label();
             this.RealizationTimeDataGridView = new System.Windows.Forms.DataGridView();
+            this.Przystanek = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Czas = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.TrailAssignmentComboBox = new System.Windows.Forms.ComboBox();
@@ -50,11 +50,8 @@
             this.help = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.Przystanek = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Czas = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.alertpic)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RealizationTimeDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
@@ -65,8 +62,6 @@
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.panel1.Controls.Add(this.pictureBox2);
             this.panel1.Controls.Add(this.DriverComboBox);
-            this.panel1.Controls.Add(this.alertpic);
-            this.panel1.Controls.Add(this.alert);
             this.panel1.Controls.Add(this.RealizationTimeDataGridView);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.label5);
@@ -107,29 +102,6 @@
             this.DriverComboBox.SelectedIndexChanged += new System.EventHandler(this.driver_SelectedIndexChanged);
             this.DriverComboBox.Validating += new System.ComponentModel.CancelEventHandler(this.driver_SelectedIndexChanged_Validating);
             // 
-            // alertpic
-            // 
-            this.alertpic.Image = global::hiddenAnaconda.Properties.Resources.Alert_Download_PNG;
-            this.alertpic.Location = new System.Drawing.Point(284, 280);
-            this.alertpic.Name = "alertpic";
-            this.alertpic.Size = new System.Drawing.Size(27, 26);
-            this.alertpic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.alertpic.TabIndex = 18;
-            this.alertpic.TabStop = false;
-            this.alertpic.Visible = false;
-            // 
-            // alert
-            // 
-            this.alert.AutoSize = true;
-            this.alert.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.alert.Location = new System.Drawing.Point(317, 280);
-            this.alert.Name = "alert";
-            this.alert.Size = new System.Drawing.Size(260, 26);
-            this.alert.TabIndex = 17;
-            this.alert.Text = "Lista przystanków będzie zczytywana z bazy danych. \r\nKolumna czas będzie wypełnia" +
-    "na przez użytkownika.";
-            this.alert.Visible = false;
-            // 
             // RealizationTimeDataGridView
             // 
             this.RealizationTimeDataGridView.AllowUserToAddRows = false;
@@ -143,6 +115,18 @@
             this.RealizationTimeDataGridView.Size = new System.Drawing.Size(293, 172);
             this.RealizationTimeDataGridView.TabIndex = 3;
             this.RealizationTimeDataGridView.Visible = false;
+            // 
+            // Przystanek
+            // 
+            this.Przystanek.HeaderText = "Przystanek";
+            this.Przystanek.Name = "Przystanek";
+            this.Przystanek.Width = 40;
+            // 
+            // Czas
+            // 
+            this.Czas.HeaderText = "Faktyczny Czas";
+            this.Czas.Name = "Czas";
+            this.Czas.Width = 60;
             // 
             // label6
             // 
@@ -180,7 +164,7 @@
             "16.11.2019 - 710 - 2"});
             this.TrailAssignmentComboBox.Location = new System.Drawing.Point(18, 110);
             this.TrailAssignmentComboBox.Name = "TrailAssignmentComboBox";
-            this.TrailAssignmentComboBox.Size = new System.Drawing.Size(242, 119);
+            this.TrailAssignmentComboBox.Size = new System.Drawing.Size(190, 119);
             this.TrailAssignmentComboBox.Sorted = true;
             this.TrailAssignmentComboBox.TabIndex = 0;
             this.TrailAssignmentComboBox.SelectedIndexChanged += new System.EventHandler(this.kurs_SelectedIndexChanged);
@@ -306,18 +290,6 @@
             this.errorProvider1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.errorProvider1.ContainerControl = this;
             // 
-            // Przystanek
-            // 
-            this.Przystanek.HeaderText = "Przystanek";
-            this.Przystanek.Name = "Przystanek";
-            this.Przystanek.Width = 40;
-            // 
-            // Czas
-            // 
-            this.Czas.HeaderText = "Faktyczny Czas";
-            this.Czas.Name = "Czas";
-            this.Czas.Width = 60;
-            // 
             // WypelnianieCzasuRealizacjiKursu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -339,7 +311,6 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.alertpic)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RealizationTimeDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
@@ -362,8 +333,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DataGridView RealizationTimeDataGridView;
-        private System.Windows.Forms.Label alert;
-        private System.Windows.Forms.PictureBox alertpic;
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.ComboBox DriverComboBox;
         private System.Windows.Forms.Button help;

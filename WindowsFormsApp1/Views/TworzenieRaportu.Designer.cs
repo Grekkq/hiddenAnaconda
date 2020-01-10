@@ -36,7 +36,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
             this.comboBox_kierunek = new System.Windows.Forms.ComboBox();
             this.comboBox_przystanek = new System.Windows.Forms.ComboBox();
             this.comboBox_miasto = new System.Windows.Forms.ComboBox();
@@ -170,7 +169,6 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.comboBox_kierunek);
             this.panel1.Controls.Add(this.comboBox_przystanek);
             this.panel1.Controls.Add(this.comboBox_miasto);
@@ -185,16 +183,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(606, 377);
             this.panel1.TabIndex = 51;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(426, 339);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 16;
-            this.button1.Text = "Debug";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // comboBox_kierunek
             // 
@@ -289,6 +277,5 @@
         private System.Windows.Forms.Label label_kierunek;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
         private System.Windows.Forms.ErrorProvider errorProvider1;
-        private System.Windows.Forms.Button button1;
     }
 }

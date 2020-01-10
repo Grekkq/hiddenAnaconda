@@ -56,6 +56,7 @@ namespace hiddenAnaconda.Views {
                 {
                     Models.AddingDrivers addingDrivers = new Models.AddingDrivers();
                     addingDrivers.AddDriver(name, surname, Int64.Parse(pesel));
+                    this.Close();
                 }
             }
             else

@@ -110,7 +110,7 @@ namespace hiddenAnaconda.Models {
                 sb.Append("</tr>");
                 sb.Append("<th class='ar' id='first'> <div><span></span></div> </th> "); //niewidzialny element przed paskiem, pierwszy kawalek paska z zaokraglonymi rogami
                 for (int i = 0; i < counter; i++) { //rysowanie kolejnych czesci paska
-                    if (counter == 1) {
+                    if (i == 0) {
                         sb.Append("<th class='ar' id='firstb'> <div><span>></span></div> </th>");
                     } else if (i == counter - 1) {
                         sb.Append("<th class='ar' id='lastb'> <div><span>></span></div> </th>");

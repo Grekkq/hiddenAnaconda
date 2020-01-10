@@ -69,6 +69,7 @@ namespace hiddenAnaconda.Views {
                 if (result == DialogResult.Yes) {
                     Models.AddingLine addingLine = new Models.AddingLine();
                     addingLine.AddLine(lineNumber, isLooping);
+                    this.Close();
                 } else {
                     line_name.Focus();
                     groupBox1.Focus();

@@ -14,7 +14,7 @@ namespace hiddenAnaconda.Views {
         public DodawanieDniWolnych() {
             InitializeComponent();
         }
-        bool ErrorIsOn,ErrorStartIsOn,ErrorEndIsOn = true;
+        bool ErrorIsOn, ErrorStartIsOn, ErrorEndIsOn = true;
 
         SharedView sharedView = new SharedView();
 
@@ -79,68 +79,56 @@ namespace hiddenAnaconda.Views {
                 dateTimeStart.Value = DateTime.Today;
             }*/
         }
-        private void dateTimeStart_ValueChanged_Validating(object sender, CancelEventArgs e)
-        {
-            if (dateTimeStart.Value < DateTime.Today)
-            {
+        private void dateTimeStart_ValueChanged_Validating(object sender, CancelEventArgs e) {
+            if (dateTimeStart.Value < DateTime.Today) {
                 errorProvider1.SetError(dateTimeStart, "Wybrana data była wcześniejsza niż dzisiejsza data, błąd poprawiono");
                 dateTimeStart.Value = DateTime.Today;
 
-            }
-            else
-            {
+            } else {
                 errorProvider1.SetError(dateTimeStart, null);
 
             }
         }
 
         private void Aktualizuj_Click(object sender, EventArgs e) {
-           
             type.Focus();
             label1.Focus();
             type.Focus();
             var startDate = dateTimeStart.Value.Date;
             var endDate = dateTimeEnd.Value.Date.AddSeconds(NumberOfSecondSInDay - 1);
             var dayKind = type.Text;
-            if(!string.IsNullOrEmpty(type.Text) && ErrorIsOn == false)
-            {
-                if (endDate < startDate)
-                {
+            if (!string.IsNullOrEmpty(type.Text) && ErrorIsOn == false) {
+                if (endDate < startDate) {
                     MessageBox.Show("Data początkowa nie może być późniejsza niż data końcowa.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-                else
-                {
+                } else {
                     var result = MessageBox.Show
                         ("Czy na pewno chcesz dodać dzień " + dayKind + " od dnia: " + startDate.ToString(DateFormat) + " do dnia: " + endDate.ToString(DateFormat) + "?",
                         "Czy na pewno?",
                         MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                    if (result == DialogResult.Yes)
-                    {
+                    if (result == DialogResult.Yes) {
                         Models.DayType dayType = new Models.DayType();
-                        if (!dayType.addDate(dayKind, startDate, endDate))
-                        {
+                        if (!dayType.addDate(dayKind, startDate, endDate)) {
                             MessageBox.Show("Wybrana data koliduje z inną.\n Spróbuj jeszcze raz.", "Błąd!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             return;
                         }
                         ReloadDataInDataGrid();
+                        this.Close();
                     }
                 }
             }
-         
-           
+
+
         }
 
         private void dateTimeEnd_ValueChanged(object sender, EventArgs e) {
-           /* if (dateTimeEnd.Value < DateTime.Today) {
-                MessageBox.Show("Wybrana data jest wcześniejsza niż dzisiejsza data", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                dateTimeEnd.Value = DateTime.Now;
-            }*/
+            /* if (dateTimeEnd.Value < DateTime.Today) {
+                 MessageBox.Show("Wybrana data jest wcześniejsza niż dzisiejsza data", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                 dateTimeEnd.Value = DateTime.Now;
+             }*/
         }
 
-        private void dateTimeEnd_ValueChanged_Validating(object sender, CancelEventArgs e)
-        {
-            if (dateTimeEnd.Value < DateTime.Today)
-            {
+        private void dateTimeEnd_ValueChanged_Validating(object sender, CancelEventArgs e) {
+            if (dateTimeEnd.Value < DateTime.Today) {
                 errorProvider1.SetError(dateTimeEnd, "Wybrana data była wcześniejsza niż dzisiejsza data, błąd poprawiono");
                 dateTimeEnd.Value = DateTime.Now;
             }
@@ -157,19 +145,14 @@ namespace hiddenAnaconda.Views {
             type.SelectedIndex = -1;
         }
 
-        private void type_SelectedIndexChanged(object sender, EventArgs e)
-        {
+        private void type_SelectedIndexChanged(object sender, EventArgs e) {
             Aktualizuj.Focus();
         }
-        private void type_SelectedIndexChanged_Validating(object sender, CancelEventArgs e)
-        {
-            if (string.IsNullOrEmpty(type.Text))
-            {
+        private void type_SelectedIndexChanged_Validating(object sender, CancelEventArgs e) {
+            if (string.IsNullOrEmpty(type.Text)) {
                 errorProvider1.SetError(type, "Nie wprowadzono rodzaju okresu");
                 ErrorIsOn = true;
-            }
-            else
-            {
+            } else {
                 errorProvider1.SetError(type, null);
                 ErrorIsOn = false;
             }

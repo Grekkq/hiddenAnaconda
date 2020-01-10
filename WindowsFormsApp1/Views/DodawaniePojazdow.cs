@@ -102,6 +102,7 @@ namespace hiddenAnaconda.Views {
                 if (result == DialogResult.Yes) {
                     Models.AddingVehicles addingVehicles = new Models.AddingVehicles();
                     addingVehicles.AddVehicle(plate, vin, modelNumber, brand, year, isLow, isWork);
+                    this.Close();
                 } else {
                     model_name.Focus();
                     vin_number.Focus();

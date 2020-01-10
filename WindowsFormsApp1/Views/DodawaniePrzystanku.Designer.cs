@@ -87,7 +87,7 @@
             // p_nazwa
             // 
             this.p_nazwa.Location = new System.Drawing.Point(18, 160);
-            this.p_nazwa.MaxLength = 15;
+            this.p_nazwa.MaxLength = 30;
             this.p_nazwa.Name = "p_nazwa";
             this.p_nazwa.Size = new System.Drawing.Size(150, 20);
             this.p_nazwa.TabIndex = 1;

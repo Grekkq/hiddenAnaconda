@@ -82,7 +82,6 @@ namespace hiddenAnaconda.Views {
                     realizationTime.AddRealizationTime(RealizationTimeDataGridView, DriverComboBox, TrailAssignmentComboBox);
                     this.Close();
                 }
-
             }
 
         }
@@ -94,9 +93,6 @@ namespace hiddenAnaconda.Views {
         private void kurs_SelectedIndexChanged(object sender, EventArgs e) {
             if (TrailAssignmentComboBox.SelectedIndex > -1) {
                 RealizationTimeDataGridView.Visible = true;
-                alert.Visible = true;
-                alertpic.Visible = true;
-
                 realizationTime.LoadDataIntoDataGridView(RealizationTimeDataGridView, TrailAssignmentComboBox.Text);
             }
         }
