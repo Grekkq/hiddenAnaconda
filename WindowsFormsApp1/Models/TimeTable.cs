@@ -205,7 +205,27 @@ namespace hiddenAnaconda.Models {
         // ::TESTED:: Get every stop for one line from logest trail
         private List<przystanek> GetAllBusStops(int line) {
 
-            var allTrasasInLane = dc.trasas.Where(t => t.id_linii.Equals(line))
+            int busStopId = -1;
+            if (way.Equals(Constants.OneWayStop))
+                try {
+                    busStopId = dc.przystaneks
+                        .Where(p => p.miasto.Equals(city) && p.nazwa.Equals(stopName))
+                         .Select(p => p.id_przystanku).Single();
+                } catch (Exception e) {
+                    Debug.Print("Propably failed to get single stop for given input\n" + e);
+                } else
+                try {
+                    busStopId = dc.przystaneks
+                        .Where(p => p.miasto.Equals(city) && p.nazwa.Equals(stopName) && p.kierunek.Equals(way))
+                         .Select(p => p.id_przystanku).Single();
+                } catch (Exception e) {
+                    Debug.Print("Propably failed to get single stop for given input\n" + e);
+                }
+
+            var tempTrasa = dc.trasas.Where(t => t.id_linii.Equals(line) && t.id_przystanku.Equals(busStopId)).Select(t => t.nr_trasy).ToList();
+
+            // wyciągnij tylko te trasy które zawierają przystanek
+            var allTrasasInLane = dc.trasas.Where(t => t.id_linii.Equals(line) && tempTrasa.Contains(t.nr_trasy))
                 .Select(t => new { t.kolejnosc_przystankow, t.nr_trasy, t.id_przystanku })
                 .OrderBy(t => t.nr_trasy);
 
@@ -231,9 +251,9 @@ namespace hiddenAnaconda.Models {
 
             var stopsId = allTrasasInLane.Where(t => t.nr_trasy.Equals(maxId))
                 .OrderBy(t => t.kolejnosc_przystankow)
-                .Select(t => t.id_przystanku);
+                .Select(t => t.id_przystanku).ToList();
 
-            return dc.przystaneks.Where(p => stopsId.Contains(p.id_przystanku)).ToList();
+            return dc.przystaneks.Where(p => stopsId.Contains(p.id_przystanku)).AsEnumerable().OrderBy(p => stopsId.IndexOf(p.id_przystanku)).ToList();
         }
 
         // ::TESTED:: zwróć wszystkie rodziaje dni dla których są kursy
