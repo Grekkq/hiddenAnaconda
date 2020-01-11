@@ -56,6 +56,7 @@ namespace hiddenAnaconda.Views {
                 {
                     Models.AddingDrivers addingDrivers = new Models.AddingDrivers();
                     addingDrivers.AddDriver(name, surname, Int64.Parse(pesel));
+                    this.Close();
                 }
             }
             else
@@ -150,5 +151,8 @@ namespace hiddenAnaconda.Views {
             }
         }
 
+        private void DodawanieKierowcy_Load(object sender, EventArgs e) {
+            this.AcceptButton = Dodaj;
+        }
     }
 }

@@ -102,6 +102,7 @@ namespace hiddenAnaconda.Views {
                 if (result == DialogResult.Yes) {
                     Models.AddingVehicles addingVehicles = new Models.AddingVehicles();
                     addingVehicles.AddVehicle(plate, vin, modelNumber, brand, year, isLow, isWork);
+                    this.Close();
                 } else {
                     model_name.Focus();
                     vin_number.Focus();
@@ -177,6 +178,10 @@ namespace hiddenAnaconda.Views {
                 errorProvider1.SetError(plate_numer, null);
                 ErrorIsOn = false;
             }
+        }
+
+        private void DodawaniePojazdow_Load(object sender, EventArgs e) {
+            this.AcceptButton = create;
         }
     }
 }

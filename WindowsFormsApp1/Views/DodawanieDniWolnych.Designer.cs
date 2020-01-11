@@ -42,7 +42,7 @@
             this.dateTimeEnd = new System.Windows.Forms.DateTimePicker();
             this.dateTimeStart = new System.Windows.Forms.DateTimePicker();
             this.powrot = new System.Windows.Forms.Button();
-            this.Aktualizuj = new System.Windows.Forms.Button();
+            this.Dodaj = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -84,7 +84,7 @@
             this.panel1.Controls.Add(this.dateTimeEnd);
             this.panel1.Controls.Add(this.dateTimeStart);
             this.panel1.Controls.Add(this.powrot);
-            this.panel1.Controls.Add(this.Aktualizuj);
+            this.panel1.Controls.Add(this.Dodaj);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(2, 31);
@@ -198,16 +198,16 @@
             this.powrot.UseVisualStyleBackColor = true;
             this.powrot.Click += new System.EventHandler(this.powrot_Click);
             // 
-            // Aktualizuj
+            // Dodaj
             // 
-            this.Aktualizuj.Location = new System.Drawing.Point(507, 335);
-            this.Aktualizuj.Margin = new System.Windows.Forms.Padding(2);
-            this.Aktualizuj.Name = "Aktualizuj";
-            this.Aktualizuj.Size = new System.Drawing.Size(80, 30);
-            this.Aktualizuj.TabIndex = 4;
-            this.Aktualizuj.Text = "Dodaj";
-            this.Aktualizuj.UseVisualStyleBackColor = true;
-            this.Aktualizuj.Click += new System.EventHandler(this.Aktualizuj_Click);
+            this.Dodaj.Location = new System.Drawing.Point(507, 335);
+            this.Dodaj.Margin = new System.Windows.Forms.Padding(2);
+            this.Dodaj.Name = "Dodaj";
+            this.Dodaj.Size = new System.Drawing.Size(80, 30);
+            this.Dodaj.TabIndex = 4;
+            this.Dodaj.Text = "Dodaj";
+            this.Dodaj.UseVisualStyleBackColor = true;
+            this.Dodaj.Click += new System.EventHandler(this.Aktualizuj_Click);
             // 
             // label2
             // 
@@ -311,7 +311,7 @@
         private System.Windows.Forms.Button help;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button powrot;
-        private System.Windows.Forms.Button Aktualizuj;
+        private System.Windows.Forms.Button Dodaj;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;

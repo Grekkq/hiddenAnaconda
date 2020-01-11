@@ -15,6 +15,8 @@ namespace hiddenAnaconda.Views {
         }
 
         SharedView sharedView = new SharedView();
+        public static string permissionLevel;
+        public static string AccountName;
 
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData) {
             return sharedView.EscKeyPressed(this,keyData);
@@ -106,11 +108,18 @@ namespace hiddenAnaconda.Views {
             } else {
                 Models.ApplicationUser login = new Models.ApplicationUser();
                 if (login.LoginUser(username, password)) {
-                    this.Hide();
-                    new WybórEkranu().ShowDialog();
-                    this.Close();
+                    if (login.GetUserStatus(username)) {
+                        AccountName = username;
+                        permissionLevel = Constants.TranslatePermissionLevel(login.GetPremissionLevel(username));
+                        this.Hide();
+                        Form frm = new WybórEkranu();
+                        frm.ShowDialog();
+                        this.Close();
+                    } else {
+                        MessageBox.Show("Użytkownik, na którego konto próbujesz się zalogować jest nieaktywny. Aby odzyskać dostęp skontaktuj się z administratorem.", "Błąd logowania", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 } else {
-                    MessageBox.Show("Niepoprawna nazwa użytkownika lub hasło!", ":(", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Niepoprawna nazwa użytkownika lub hasło!", "Błąd logowania", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
 

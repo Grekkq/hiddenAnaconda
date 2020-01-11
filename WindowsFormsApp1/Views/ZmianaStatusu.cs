@@ -147,6 +147,10 @@ namespace hiddenAnaconda.Views {
             }
         }
 
+        private void ZmianaStatusu_Load(object sender, EventArgs e) {
+            this.AcceptButton = Aktualizuj;
+        }
+
         // TODO: zmienne z aktualnie zaznaczonym statusem
         private void Aktualizuj_Click(object sender, EventArgs e) {
 
@@ -164,11 +168,13 @@ namespace hiddenAnaconda.Views {
                             var result = MessageBox.Show("Na pewno chcesz zmienić status kierowcy na: " + radioButton4.Text + "?", "Zmiana statusu", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                             if (result == DialogResult.Yes) {
                                 statusChange.ChangeDriverStatus(kierowcaSelectionComboBox.Text, true);
+                                this.Close();
                             }
                         } else {
                             var result = MessageBox.Show("Na pewno chcesz zmienić status kierowcy na: " + radioButton3.Text + "?", "Zmiana statusu", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                             if (result == DialogResult.Yes) {
                                 statusChange.ChangeDriverStatus(kierowcaSelectionComboBox.Text, false);
+                                this.Close();
                             }
                         }
                     } else {
@@ -185,11 +191,13 @@ namespace hiddenAnaconda.Views {
                             var result = MessageBox.Show("Na pewno chcesz zmienić status pojazdu na: " + radioButton1.Text + "?", "Zmiana statusu", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                             if (result == DialogResult.Yes) {
                                 statusChange.ChangeVehicleStatus(pojazdSelectionComboBox.Text, true);
+                                this.Close();
                             }
                         } else {
                             var result = MessageBox.Show("Na pewno chcesz zmienić status pojazdu na: " + radioButton2.Text + "?", "Zmiana statusu", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                             if (result == DialogResult.Yes) {
                                 statusChange.ChangeVehicleStatus(pojazdSelectionComboBox.Text, false);
+                                this.Close();
                             }
                         }
 

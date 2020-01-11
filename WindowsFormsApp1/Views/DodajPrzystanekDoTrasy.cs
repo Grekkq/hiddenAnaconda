@@ -70,6 +70,7 @@ namespace hiddenAnaconda.Views {
         private void DodajPrzystanekDoTrasy_Load(object sender, EventArgs e) {
             sharedView.LoadCitiesIntoComboBox(comboBox_miasto);
             comboBox_miasto.Focus();
+            this.AcceptButton = dodaj;
         }
 
         private void Dodaj_Click(object sender, EventArgs e) {

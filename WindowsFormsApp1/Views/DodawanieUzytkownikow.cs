@@ -99,10 +99,7 @@ namespace hiddenAnaconda.Views {
                     var result = MessageBox.Show("Czy na pewno chcesz utworzyć użytkownika: " + username.Text + "?", "Czy na pewno?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (result == DialogResult.Yes) {
                         applicationUser.createUser(username.Text, password.Text, Constants.TranslatePermissionLevel(permissions_level.Text));
-                        username.ResetText();
-                        password.ResetText();
-                        password_re.ResetText();
-                        permissions_level.ResetText();
+                        this.Close();
                     }
                 }
             }
@@ -123,6 +120,7 @@ namespace hiddenAnaconda.Views {
             this.permissions_level.Items.Add(Constants.RoutePlannerPermission);
             this.permissions_level.Items.Add(Constants.MenagerPermission);
             this.permissions_level.Items.Add(Constants.DriverPermission);
+            this.AcceptButton = create;
         }
 
         private void username_Validated(object sender, EventArgs e) {

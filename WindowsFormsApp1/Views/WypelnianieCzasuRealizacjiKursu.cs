@@ -155,7 +155,6 @@ namespace hiddenAnaconda.Views
                     realizationTime.AddRealizationTime(RealizationTimeDataGridView, DriverComboBox, TrailAssignmentComboBox);
                     this.Close();
                 }
-
             }
         }
             
@@ -171,9 +170,6 @@ namespace hiddenAnaconda.Views
             if (TrailAssignmentComboBox.SelectedIndex > -1)
             {
                 RealizationTimeDataGridView.Visible = true;
-                alert.Visible = true;
-                alertpic.Visible = true;
-
                 realizationTime.LoadDataIntoDataGridView(RealizationTimeDataGridView, TrailAssignmentComboBox.Text);
             }
         }
@@ -202,10 +198,12 @@ namespace hiddenAnaconda.Views
             ErrorKierIsOn = true;
         }
 
-        private void driver_SelectedIndexChanged_Validating(object sender, CancelEventArgs e)
-        {
-            if (DriverComboBox.SelectedIndex == -1)
-            {
+        private void WypelnianieCzasuRealizacjiKursu_Load(object sender, EventArgs e) {
+            this.AcceptButton = create;
+        }
+
+        private void driver_SelectedIndexChanged_Validating(object sender, CancelEventArgs e) {
+            if (DriverComboBox.SelectedIndex == -1) {
                 errorProvider1.SetError(DriverComboBox, "Nie wybrano kierowcy");
                 ErrorKierIsOn = true;
             }

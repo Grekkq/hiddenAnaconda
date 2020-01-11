@@ -62,7 +62,7 @@ namespace hiddenAnaconda.Views {
         private void Exit_Click(object sender, EventArgs e) => this.Close();
 
         private void PrzypisywanieKierowcowPojazdowDoRealizacji_Load(object sender, EventArgs e) {
-            
+            this.AcceptButton = save;
         }
 
         // akcje po kliknięciu Przypisz

@@ -182,7 +182,7 @@
             this.comboBox_uzytkownik.FormattingEnabled = true;
             this.comboBox_uzytkownik.Location = new System.Drawing.Point(18, 110);
             this.comboBox_uzytkownik.Name = "comboBox_uzytkownik";
-            this.comboBox_uzytkownik.Size = new System.Drawing.Size(241, 21);
+            this.comboBox_uzytkownik.Size = new System.Drawing.Size(250, 21);
             this.comboBox_uzytkownik.TabIndex = 0;
             this.comboBox_uzytkownik.SelectedIndexChanged += new System.EventHandler(this.comboBox_uzytkownik_SelectedIndexChanged);
             this.comboBox_uzytkownik.Validating += new System.ComponentModel.CancelEventHandler(this.comboBox_uzytkownik_Validating);

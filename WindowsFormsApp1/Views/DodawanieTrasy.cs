@@ -118,7 +118,7 @@ namespace hiddenAnaconda.Views {
             deleteButton.Visible = false;
             create.Visible = false;
             label_przystanek.Visible = false;
-
+            this.AcceptButton = create;
 
             //visability of datagrid
             label_lokalizacja.Visible = false;

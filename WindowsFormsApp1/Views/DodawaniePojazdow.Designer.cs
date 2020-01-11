@@ -393,6 +393,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Kreator Dodawanie Pojazdu";
             this.Activated += new System.EventHandler(this.turnoffFocus);
+            this.Load += new System.EventHandler(this.DodawaniePojazdow_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.move_window);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

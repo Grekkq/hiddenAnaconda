@@ -259,6 +259,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Kreator dodawania nowej linii";
             this.Activated += new System.EventHandler(this.TurnoffFocus);
+            this.Load += new System.EventHandler(this.DodawanieNowejLinii_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MoveWindow);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

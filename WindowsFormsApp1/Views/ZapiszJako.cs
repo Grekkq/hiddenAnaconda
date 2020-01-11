@@ -50,7 +50,6 @@ namespace hiddenAnaconda.Views {
                     MessageBox.Show("Nieprawidłowa nazwa pliku.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 } else {
                     new TimeTable(CityName, BusStopName, Way, textBox_name.Text, textBox_path.Text).GenerateTimetable();
-                    //new TimeTable(CityName, BusStopName, Way, textBox_name.Text, textBox_path.Text).GetAllDayTypeForLine(710);
                     MessageBox.Show("Raport został pomyślnie wygenerowany.", "Sukces", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Close();
                 }
@@ -63,6 +62,7 @@ namespace hiddenAnaconda.Views {
 
         private void ZapiszJako_Load(object sender, EventArgs e) {
             textBox_path.Text = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            folderBrowserDialog.Description="Wybierz miejsce zapisu raportu.";
             this.AcceptButton = button_zapisz;
         }
     }
