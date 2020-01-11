@@ -98,6 +98,27 @@ namespace hiddenAnaconda.Models {
             return data.hasz;
         }
 
+        public int GetPremissionLevel(string login) {
+            logowanie data = null;
+            try {
+                data = dc.logowanies.Single(l => l.login == login);
+            }catch(Exception e) {
+                Debug.Print("Failed to get permision level from database for login: {0}\n Reason {1}", (object) login, e);
+                return 0;
+            }
+            return data.poziom_uprawnien;
+        }
+
+        public bool GetUserStatus(string login) {
+            logowanie data = null;
+            try {
+                data = dc.logowanies.Single(l => l.login == login);
+            }catch(Exception e) {
+                Debug.Print("Failed to get user account status from database for login: {0}\n Reason {1}", (object) login, e);
+                return false;
+            }
+            return data.czy_aktywny;
+        }
 
 
         public bool ChangeUserPermission(string login, int permissionLevel) {

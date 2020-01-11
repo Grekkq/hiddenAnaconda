@@ -103,5 +103,9 @@ namespace hiddenAnaconda.Views {
         private void panel1_Paint(object sender, PaintEventArgs e) {
 
         }
+
+        private void DodawanieNowejLinii_Load(object sender, EventArgs e) {
+            this.AcceptButton = create;
+        }
     }
 }

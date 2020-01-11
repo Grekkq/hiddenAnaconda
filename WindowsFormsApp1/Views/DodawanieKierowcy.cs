@@ -151,5 +151,8 @@ namespace hiddenAnaconda.Views {
             }
         }
 
+        private void DodawanieKierowcy_Load(object sender, EventArgs e) {
+            this.AcceptButton = Dodaj;
+        }
     }
 }

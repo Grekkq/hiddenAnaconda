@@ -179,5 +179,9 @@ namespace hiddenAnaconda.Views {
                 ErrorIsOn = false;
             }
         }
+
+        private void DodawaniePojazdow_Load(object sender, EventArgs e) {
+            this.AcceptButton = create;
+        }
     }
 }

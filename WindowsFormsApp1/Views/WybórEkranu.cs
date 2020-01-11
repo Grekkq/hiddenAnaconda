@@ -13,6 +13,7 @@ namespace hiddenAnaconda.Views {
 
         public WybórEkranu() {
             InitializeComponent();
+            timer1.Start();
         }
 
         // funkcje wspólne dla widoków
@@ -130,15 +131,6 @@ namespace hiddenAnaconda.Views {
                 if (InnerForm.ShowDialog() == DialogResult.OK) {
                 }
             };
-            //Models.TimeTable timeTable = new Models.TimeTable();
-            //DateTime date = DateTime.Parse("29.11.2020");
-            //date = date.AddHours(2);
-            //timeTable.GetTimeTable(101, "Skalka", date, 1);
-            //GenerateReport();
-            //timeTable.GetAllBusStops(164);
-            // test pdf'a
-            //timeTable.SaveToPdf("<p>Przykładowa zawartość</p><br /><p><table style='width:100%'><tr><th>Firstname</th><th>Lastname</th><th>Age</th></tr><tr><td>Jill</td><td>Smith</td><td>50</td></tr><tr><td>Eve</td><td>Jackson</td><td>94</td></tr></table></p>");
-            //timeTable.GenerateTimetable("Aleja Korfantego", 0);
         }
 
         private void button3_Click(object sender, EventArgs e) {
@@ -153,6 +145,50 @@ namespace hiddenAnaconda.Views {
                 if (InnerForm.ShowDialog() == DialogResult.OK) {
                 }
             };
+        }
+
+        private void WybórEkranu_Load(object sender, EventArgs e) {
+            string permLvl = EkranLogowania.permissionLevel;
+            hello.Text = "Witaj, " + EkranLogowania.AccountName+"!";
+            if (permLvl == Constants.DriverPermission) { //wylaczanie buttonow dla kierowcy
+                pojazdy.Enabled = false;
+                przystanki.Enabled = false;
+                linie.Enabled = false;
+                kursy.Enabled = false;
+                terminyKursowania.Enabled = false;
+                kursyPrzypisanie.Enabled = false;
+                kierowcy.Enabled = false;
+                statusZmiana.Enabled = false;
+                Raport.Enabled = false;
+                trasyZarzadzanie.Enabled = false;
+                uzytkownicy.Enabled = false;
+                uzytkownicyEdycja.Enabled = false;
+            }else if(permLvl==Constants.MenagerPermission){ //wylaczanie buttonow dla menedzera
+                uzytkownicy.Enabled = false;
+                uzytkownicyEdycja.Enabled = false;
+            }else if (permLvl == Constants.RoutePlannerPermission) { //wylaczanie buttonów dla ukladacza tras
+                pojazdy.Enabled = false;
+                czasyRealizacje.Enabled = false;
+                kierowcy.Enabled = false;
+                statusZmiana.Enabled = false;   
+                uzytkownicy.Enabled = false;
+                uzytkownicyEdycja.Enabled = false;
+            }
+        }
+
+        private void Wyloguj_Click(object sender, EventArgs e) {
+            var result = MessageBox.Show("Czy na pewno chcesz się wylogować?", "Czy na pewno?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes) {
+                this.Hide();
+                Form frm = new EkranLogowania();
+                frm.ShowDialog();
+                this.Close();
+            }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e) {
+            DateTime dateTime = DateTime.Now;
+            Time.Text = dateTime.ToString();
         }
     }
 }

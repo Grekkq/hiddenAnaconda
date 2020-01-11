@@ -41,6 +41,7 @@ namespace hiddenAnaconda.Views {
         }
 
         private void TworzenieRaportu_Load(object sender, EventArgs e) {
+            this.AcceptButton = create;
             label_przystanek.Visible = false;
             comboBox_przystanek.Visible = false;
             label_kierunek.Visible = false;

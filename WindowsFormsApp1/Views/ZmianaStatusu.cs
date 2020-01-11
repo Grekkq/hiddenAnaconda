@@ -147,6 +147,10 @@ namespace hiddenAnaconda.Views {
             }
         }
 
+        private void ZmianaStatusu_Load(object sender, EventArgs e) {
+            this.AcceptButton = Aktualizuj;
+        }
+
         // TODO: zmienne z aktualnie zaznaczonym statusem
         private void Aktualizuj_Click(object sender, EventArgs e) {
 

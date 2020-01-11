@@ -52,6 +52,7 @@ namespace hiddenAnaconda.Views {
             type.MaxLength = 30;
             ReloadDataInDataGrid();
             sharedView.LoadDayTypesIntoComboBox(type);
+            this.AcceptButton = Dodaj;
         }
 
         private void ReloadDataInDataGrid() {
@@ -146,7 +147,7 @@ namespace hiddenAnaconda.Views {
         }
 
         private void type_SelectedIndexChanged(object sender, EventArgs e) {
-            Aktualizuj.Focus();
+            Dodaj.Focus();
         }
         private void type_SelectedIndexChanged_Validating(object sender, CancelEventArgs e) {
             if (string.IsNullOrEmpty(type.Text)) {

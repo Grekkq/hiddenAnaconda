@@ -307,6 +307,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "WypelnianieCzasuRealizacjiKursu";
             this.Activated += new System.EventHandler(this.turnoff_focus);
+            this.Load += new System.EventHandler(this.WypelnianieCzasuRealizacjiKursu_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.move_window);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

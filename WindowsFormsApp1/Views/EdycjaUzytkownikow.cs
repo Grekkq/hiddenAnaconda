@@ -42,6 +42,7 @@ namespace hiddenAnaconda.Views {
         }
 
         private void EdycjaUżytkowników_Load(object sender, EventArgs e) {
+            this.AcceptButton = create;
             this.comboBox_uzytkownik.Items.Clear();
             /*  this.comboBox_uzytkownik.Items.Add("Grekkq");
               this.comboBox_uzytkownik.Items.Add("nieDam");
@@ -123,6 +124,7 @@ namespace hiddenAnaconda.Views {
                         if (result == DialogResult.Yes) {
                             //DOANIE DO BAZY
                             ApplicationUser.ChangeUserPermission(comboBox_uzytkownik.Text, Constants.TranslatePermissionLevel(comboBox_uprawnienia.Text));
+                            MessageBox.Show("Pełna zmiana uprawnień nastąpi po ponownym zalogowaniu.","Uwaga!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             this.Close();
                         } else {
                             comboBox_uprawnienia.Focus();

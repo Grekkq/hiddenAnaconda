@@ -54,6 +54,8 @@ namespace hiddenAnaconda.Views {
             //dane testowe
             this.comboBox_trasa.Items.Clear();
             this.comboBox_trasa.Items.Add("1");
+
+            this.AcceptButton = create;
         }
 
         private void Create_Click(object sender, EventArgs e) {

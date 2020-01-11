@@ -31,13 +31,13 @@
             this.label3 = new System.Windows.Forms.Label();
             this.exit = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -90,6 +90,32 @@
             this.panel1.Size = new System.Drawing.Size(376, 306);
             this.panel1.TabIndex = 10;
             // 
+            // label5
+            // 
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label5.ForeColor = System.Drawing.Color.Black;
+            this.label5.Location = new System.Drawing.Point(56, 272);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(252, 20);
+            this.label5.TabIndex = 1;
+            this.label5.Text = "designed by Freepik";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label6
+            // 
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label6.ForeColor = System.Drawing.Color.Black;
+            this.label6.Location = new System.Drawing.Point(10, 208);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(356, 38);
+            this.label6.TabIndex = 1;
+            this.label6.Text = "Grafiki wykorzystane w projekcie pochodzą ze strony www.freepik.com";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // label4
             // 
             this.label4.BackColor = System.Drawing.Color.Transparent;
@@ -136,7 +162,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(377, 65);
             this.label1.TabIndex = 1;
-            this.label1.Text = "\r\nProjekt realizowany w ramach przedmiotu Bazy Danych\r\n";
+            this.label1.Text = "\r\nProjekt realizowany w ramach przedmiotu \r\nBazy Danych\r\n";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // pictureBox3
@@ -148,32 +174,6 @@
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox3.TabIndex = 49;
             this.pictureBox3.TabStop = false;
-            // 
-            // label5
-            // 
-            this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(56, 272);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(252, 20);
-            this.label5.TabIndex = 1;
-            this.label5.Text = "designed by Freepik";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label6
-            // 
-            this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(10, 208);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(356, 38);
-            this.label6.TabIndex = 1;
-            this.label6.Text = "Grafiki wykorzystane w projekcie pochodzą ze strony www.freepik.com";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // AboutProject
             // 

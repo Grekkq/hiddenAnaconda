@@ -40,7 +40,7 @@
             this.DriverPesel = new System.Windows.Forms.TextBox();
             this.DriverLastName = new System.Windows.Forms.TextBox();
             this.DriverFirstName = new System.Windows.Forms.TextBox();
-            this.Zapisz = new System.Windows.Forms.Button();
+            this.Dodaj = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.exit = new System.Windows.Forms.Button();
@@ -68,7 +68,7 @@
             this.panel1.Controls.Add(this.DriverPesel);
             this.panel1.Controls.Add(this.DriverLastName);
             this.panel1.Controls.Add(this.DriverFirstName);
-            this.panel1.Controls.Add(this.Zapisz);
+            this.panel1.Controls.Add(this.Dodaj);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(2, 31);
@@ -170,16 +170,16 @@
             this.DriverFirstName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DriverName_TextChanged);
             this.DriverFirstName.Validating += new System.ComponentModel.CancelEventHandler(this.DriverFirstName_Validating);
             // 
-            // Zapisz
+            // Dodaj
             // 
-            this.Zapisz.Location = new System.Drawing.Point(507, 335);
-            this.Zapisz.Margin = new System.Windows.Forms.Padding(2);
-            this.Zapisz.Name = "Zapisz";
-            this.Zapisz.Size = new System.Drawing.Size(80, 30);
-            this.Zapisz.TabIndex = 3;
-            this.Zapisz.Text = "Dodaj";
-            this.Zapisz.UseVisualStyleBackColor = true;
-            this.Zapisz.Click += new System.EventHandler(this.Zapisz_Click);
+            this.Dodaj.Location = new System.Drawing.Point(507, 335);
+            this.Dodaj.Margin = new System.Windows.Forms.Padding(2);
+            this.Dodaj.Name = "Dodaj";
+            this.Dodaj.Size = new System.Drawing.Size(80, 30);
+            this.Dodaj.TabIndex = 3;
+            this.Dodaj.Text = "Dodaj";
+            this.Dodaj.UseVisualStyleBackColor = true;
+            this.Dodaj.Click += new System.EventHandler(this.Zapisz_Click);
             // 
             // label2
             // 
@@ -288,6 +288,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dodawanie Kierowcy";
             this.Activated += new System.EventHandler(this.turnoffFocus);
+            this.Load += new System.EventHandler(this.DodawanieKierowcy_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.move_window);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -315,7 +316,7 @@
         private System.Windows.Forms.TextBox DriverPesel;
         private System.Windows.Forms.TextBox DriverLastName;
         private System.Windows.Forms.TextBox DriverFirstName;
-        private System.Windows.Forms.Button Zapisz;
+        private System.Windows.Forms.Button Dodaj;
         private System.Windows.Forms.Button help;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;

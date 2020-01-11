@@ -110,6 +110,10 @@ namespace hiddenAnaconda.Views {
             ErrorKierIsOn = true;
         }
 
+        private void WypelnianieCzasuRealizacjiKursu_Load(object sender, EventArgs e) {
+            this.AcceptButton = create;
+        }
+
         private void driver_SelectedIndexChanged_Validating(object sender, CancelEventArgs e) {
             if (DriverComboBox.SelectedIndex == -1) {
                 errorProvider1.SetError(DriverComboBox, "Nie wybrano kierowcy");

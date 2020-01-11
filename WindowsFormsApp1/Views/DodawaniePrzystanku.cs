@@ -167,6 +167,7 @@ namespace hiddenAnaconda.Views {
             label_Do.Visible = false;
             textBox_kierunekDo.Visible = false;
             textbox_kierunekZ.Visible = false;
+            this.AcceptButton = create;
         }
 
         private void textbox_kierunekZ_TextChanged(object sender, EventArgs e) {

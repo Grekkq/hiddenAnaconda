@@ -120,6 +120,7 @@ namespace hiddenAnaconda.Views {
             this.permissions_level.Items.Add(Constants.RoutePlannerPermission);
             this.permissions_level.Items.Add(Constants.MenagerPermission);
             this.permissions_level.Items.Add(Constants.DriverPermission);
+            this.AcceptButton = create;
         }
 
         private void username_Validated(object sender, EventArgs e) {
