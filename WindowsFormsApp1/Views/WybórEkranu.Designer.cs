@@ -336,7 +336,7 @@
             // 
             // create
             // 
-            this.create.Location = new System.Drawing.Point(20, 335);
+            this.create.Location = new System.Drawing.Point(16, 339);
             this.create.Name = "create";
             this.create.Size = new System.Drawing.Size(80, 30);
             this.create.TabIndex = 14;
@@ -407,7 +407,7 @@
             // 
             // Wyloguj
             // 
-            this.Wyloguj.Location = new System.Drawing.Point(105, 335);
+            this.Wyloguj.Location = new System.Drawing.Point(102, 339);
             this.Wyloguj.Name = "Wyloguj";
             this.Wyloguj.Size = new System.Drawing.Size(80, 30);
             this.Wyloguj.TabIndex = 35;
