@@ -36,6 +36,8 @@
             this.alertpic = new System.Windows.Forms.PictureBox();
             this.alert = new System.Windows.Forms.Label();
             this.RealizationTimeDataGridView = new System.Windows.Forms.DataGridView();
+            this.Przystanek = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Czas = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.TrailAssignmentComboBox = new System.Windows.Forms.ComboBox();
@@ -50,14 +52,16 @@
             this.help = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.Przystanek = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Czas = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.errorProvider2 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider3 = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.alertpic)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RealizationTimeDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider3)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -143,6 +147,21 @@
             this.RealizationTimeDataGridView.Size = new System.Drawing.Size(293, 172);
             this.RealizationTimeDataGridView.TabIndex = 3;
             this.RealizationTimeDataGridView.Visible = false;
+            this.RealizationTimeDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.RealizationTimeDataGridView_CellContentClick);
+            this.RealizationTimeDataGridView.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Control_KeyPress);
+            // 
+            // Przystanek
+            // 
+            this.Przystanek.HeaderText = "Przystanek";
+            this.Przystanek.Name = "Przystanek";
+            this.Przystanek.Width = 40;
+            // 
+            // Czas
+            // 
+            this.Czas.HeaderText = "Faktyczny Czas";
+            this.Czas.MaxInputLength = 5;
+            this.Czas.Name = "Czas";
+            this.Czas.Width = 60;
             // 
             // label6
             // 
@@ -306,17 +325,15 @@
             this.errorProvider1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.errorProvider1.ContainerControl = this;
             // 
-            // Przystanek
+            // errorProvider2
             // 
-            this.Przystanek.HeaderText = "Przystanek";
-            this.Przystanek.Name = "Przystanek";
-            this.Przystanek.Width = 40;
+            this.errorProvider2.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.errorProvider2.ContainerControl = this;
             // 
-            // Czas
+            // errorProvider3
             // 
-            this.Czas.HeaderText = "Faktyczny Czas";
-            this.Czas.Name = "Czas";
-            this.Czas.Width = 60;
+            this.errorProvider3.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.errorProvider3.ContainerControl = this;
             // 
             // WypelnianieCzasuRealizacjiKursu
             // 
@@ -343,6 +360,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.RealizationTimeDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -370,7 +389,9 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.ErrorProvider errorProvider2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Przystanek;
         private System.Windows.Forms.DataGridViewTextBoxColumn Czas;
+        private System.Windows.Forms.ErrorProvider errorProvider3;
     }
 }

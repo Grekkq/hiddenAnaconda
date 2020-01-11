@@ -13,7 +13,7 @@ namespace hiddenAnaconda.Views {
     public partial class DodajPrzystanekDoTrasy : Form {
         Models.routeElementModel busStop = new Models.routeElementModel();
         SharedView sharedView = new SharedView();
-        bool ErrorIsOn = false;
+        bool ErrorIsOn, Error2IsOn = false;
         public DodajPrzystanekDoTrasy() {
             InitializeComponent();
         }
@@ -73,7 +73,7 @@ namespace hiddenAnaconda.Views {
         }
 
         private void Dodaj_Click(object sender, EventArgs e) {
-            if ((!string.IsNullOrEmpty(textbox_time.Text) && !string.IsNullOrEmpty(comboBox_kierunek.Text) && !string.IsNullOrEmpty(comboBox_przystanek.Text) && !string.IsNullOrEmpty(comboBox_miasto.Text) && ErrorIsOn == false)) {
+            if ((!string.IsNullOrEmpty(textbox_time.Text) && !string.IsNullOrEmpty(comboBox_kierunek.Text) && !string.IsNullOrEmpty(comboBox_przystanek.Text) && !string.IsNullOrEmpty(comboBox_miasto.Text) && ErrorIsOn == false && Error2IsOn == false)) {
                 if (MessageBox.Show("Na pewno chcesz dodać przystanek?", "Dodanie przystanku", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) {
                     busStop = new Models.routeElementModel(this.comboBox_przystanek.Text, this.comboBox_miasto.Text, this.textbox_time.Text, this.comboBox_kierunek.Text);
                     this.DialogResult = DialogResult.OK;
@@ -94,18 +94,18 @@ namespace hiddenAnaconda.Views {
         }
 
         private void arrivalTime_TextChanged(object sender, KeyPressEventArgs e) {
-            if (char.IsDigit(e.KeyChar) || e.KeyChar == (char)Keys.Back || (e.KeyChar == ':') || (e.KeyChar == '.'))
-                base.OnKeyPress(e);
-            else
-                e.Handled = true;
+                if (char.IsDigit(e.KeyChar) || e.KeyChar == (char)Keys.Back || (e.KeyChar == ':') || (e.KeyChar == '.'))
+                    base.OnKeyPress(e);
+                else
+                    e.Handled = true;
 
-            // pozwala na tylko jeden przecinek w słowie
-            if ((e.KeyChar == '.' && (sender as TextBox).Text.Contains('.')) || (e.KeyChar == ':' && (sender as TextBox).Text.Contains(':')) || (e.KeyChar == '.' && (sender as TextBox).Text.Contains(':')) || (e.KeyChar == ':' && (sender as TextBox).Text.Contains('.')))
-                e.Handled = true;
+                // pozwala na tylko jeden przecinek w słowie
+                if ((e.KeyChar == '.' && (sender as TextBox).Text.Contains('.')) || (e.KeyChar == ':' && (sender as TextBox).Text.Contains(':')) || (e.KeyChar == '.' && (sender as TextBox).Text.Contains(':')) || (e.KeyChar == ':' && (sender as TextBox).Text.Contains('.')))
+                    e.Handled = true;
 
-            // nie pozwala na przecinek na początku
-            if ((e.KeyChar == '.' && textbox_time.SelectionStart == 0) || (e.KeyChar == ':' && textbox_time.SelectionStart == 0))
-                e.Handled = true;
+                // nie pozwala na przecinek na początku
+                if ((e.KeyChar == '.' && textbox_time.SelectionStart == 0) || (e.KeyChar == ':' && textbox_time.SelectionStart == 0))
+                    e.Handled = true;
 
         }
 
@@ -123,10 +123,11 @@ namespace hiddenAnaconda.Views {
                 ErrorIsOn = true;
             } else if (!Constants.ValidateTimeFormat.IsMatch(textbox_time.Text)) {
                 errorProvider1.SetError(textbox_time, "Niepoprawnie wpisana godzina. Akceptowany format czasu: GG:MM");
-                ErrorIsOn = true;
+                Error2IsOn = true;
             } else {
                 errorProvider1.SetError(textbox_time, null);
                 ErrorIsOn = false;
+                Error2IsOn = false;
             }
         }
 
@@ -176,6 +177,11 @@ namespace hiddenAnaconda.Views {
 
         private void comboBox_kierunek_SelectedIndexChanged_1(object sender, EventArgs e) {
             textbox_time.Focus();
+        }
+
+        private void textbox_time_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

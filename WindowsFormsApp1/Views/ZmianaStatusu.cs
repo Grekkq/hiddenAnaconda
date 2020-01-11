@@ -198,40 +198,6 @@ namespace hiddenAnaconda.Views {
                     }
                 }
             }
-            /*     
-                else
-                 {
-
-                 }
-                 //////
-                 if (pojazd.Checked == false & kierowca.Checked == false) {
-                     MessageBox.Show("Nie wypełniono formularza.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                 } else if (pojazd.Checked == true & pojazdSelectionComboBox.SelectedIndex == -1) {
-                     MessageBox.Show("Nie wybrano pojazdu.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                 } else if (kierowca.Checked == true & kierowcaSelectionComboBox.SelectedIndex == -1) {
-                     MessageBox.Show("Nie wybrano kierowcy.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                 } else if (kierowcaSelectionComboBox.SelectedIndex != -1 & (radioButton3.Checked == false & radioButton4.Checked == false)) {
-                     MessageBox.Show("Nie wybrano statusu kierowcy.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                 } else if (pojazdSelectionComboBox.SelectedIndex != -1 & (radioButton1.Checked == false & radioButton2.Checked == false)) {
-                     MessageBox.Show("Nie wybrano statusu pojazdu.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                 } else {
-                     string obiekt = "";
-                     if (pojazd.Checked == true) {
-                         obiekt = "pojazdu";
-                         if (radioButton1.Checked == true)
-                             statusChange.ChangeVehicleStatus(pojazdSelectionComboBox.Text, true);
-                         else
-                             statusChange.ChangeVehicleStatus(pojazdSelectionComboBox.Text, false);
-                     } else {
-                         obiekt = "kierowcy";
-                         if (radioButton4.Checked == true)
-                             statusChange.ChangeDriverStatus(kierowcaSelectionComboBox.Text, true);
-                         else
-                             statusChange.ChangeDriverStatus(kierowcaSelectionComboBox.Text, false);
-                     }
-                     MessageBox.Show("Pomyślnie zmieniono status " + obiekt + ".", "Sukces", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                     this.Close();
-                 }*/
         }
     }
 }

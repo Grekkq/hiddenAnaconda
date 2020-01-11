@@ -122,6 +122,7 @@
             this.textbox_time.Name = "textbox_time";
             this.textbox_time.Size = new System.Drawing.Size(120, 20);
             this.textbox_time.TabIndex = 3;
+            this.textbox_time.TextChanged += new System.EventHandler(this.textbox_time_TextChanged);
             this.textbox_time.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.arrivalTime_TextChanged);
             this.textbox_time.Validating += new System.ComponentModel.CancelEventHandler(this.arrivalTime_Validating);
             // 
