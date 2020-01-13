@@ -179,6 +179,10 @@ namespace hiddenAnaconda.Views
 
         }
 
+        private void help_Click(object sender, EventArgs e) {
+            Help.ShowHelp(this, Constants.HelpPath, HelpNavigator.Topic, "Czas%20realizacji%20kursu.htm");
+        }
+
         private void kurs_SelectedIndexChanged_Validating(object sender, CancelEventArgs e)
         {
             if (TrailAssignmentComboBox.SelectedIndex == -1)

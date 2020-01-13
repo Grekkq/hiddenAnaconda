@@ -154,5 +154,9 @@ namespace hiddenAnaconda.Views {
         private void DodawanieKierowcy_Load(object sender, EventArgs e) {
             this.AcceptButton = Dodaj;
         }
+
+        private void help_Click(object sender, EventArgs e) {
+            Help.ShowHelp(this, Constants.HelpPath, HelpNavigator.Topic, "Dodanie%20kierowcow.htm");
+        }
     }
 }

@@ -107,5 +107,9 @@ namespace hiddenAnaconda.Views {
         private void DodawanieNowejLinii_Load(object sender, EventArgs e) {
             this.AcceptButton = create;
         }
+
+        private void help_Click(object sender, EventArgs e) {
+            Help.ShowHelp(this, Constants.HelpPath, HelpNavigator.Topic, "Tworzenie%20lini%20autobusowych.htm");
+        }
     }
 }

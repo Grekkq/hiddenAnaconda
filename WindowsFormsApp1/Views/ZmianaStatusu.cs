@@ -151,6 +151,10 @@ namespace hiddenAnaconda.Views {
             this.AcceptButton = Aktualizuj;
         }
 
+        private void help_Click(object sender, EventArgs e) {
+            Help.ShowHelp(this, Constants.HelpPath, HelpNavigator.Topic, "Zmiana%20statusu.htm");
+        }
+
         // TODO: zmienne z aktualnie zaznaczonym statusem
         private void Aktualizuj_Click(object sender, EventArgs e) {
 

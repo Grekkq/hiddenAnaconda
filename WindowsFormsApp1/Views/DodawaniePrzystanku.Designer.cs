@@ -70,7 +70,6 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "Aby utworzyć nowy przystanek autobusowy wypełnij poniższy formularz a następnie k" +
     "liknij utwórz.";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label1
             // 
@@ -82,7 +81,6 @@
             this.label1.Size = new System.Drawing.Size(608, 68);
             this.label1.TabIndex = 3;
             this.label1.Text = " \r\n      Tworzenie nowego przystanku";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // p_nazwa
             // 
@@ -106,7 +104,6 @@
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Czy utworzony przystanek jest pojedynczy?";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // no
             // 
@@ -162,7 +159,6 @@
             this.label5.Size = new System.Drawing.Size(70, 13);
             this.label5.TabIndex = 15;
             this.label5.Text = "Podaj miasto:";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // create
             // 
@@ -208,7 +204,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(606, 377);
             this.panel1.TabIndex = 0;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // label_Do
             // 
@@ -218,7 +213,6 @@
             this.label_Do.TabIndex = 22;
             this.label_Do.Text = "Miasto docelowe:";
             this.label_Do.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label_Do.Click += new System.EventHandler(this.label_Do_Click);
             // 
             // label_Z
             // 
@@ -228,7 +222,6 @@
             this.label_Z.TabIndex = 22;
             this.label_Z.Text = "Miasto wyjściowe:";
             this.label_Z.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label_Z.Click += new System.EventHandler(this.label_Z_Click);
             // 
             // textBox_kierunekDo
             // 
@@ -258,7 +251,6 @@
             this.label_kierunek.Size = new System.Drawing.Size(81, 13);
             this.label_kierunek.TabIndex = 21;
             this.label_kierunek.Text = "Podaj kierunek:";
-            this.label_kierunek.Click += new System.EventHandler(this.label_kierunek_Click);
             // 
             // pictureBox2
             // 
@@ -270,7 +262,6 @@
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 20;
             this.pictureBox2.TabStop = false;
-            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // exit
             // 
@@ -301,7 +292,6 @@
             this.label7.Size = new System.Drawing.Size(303, 21);
             this.label7.TabIndex = 22;
             this.label7.Text = "Formularz tworzenia nowego przystanku";
-            this.label7.Click += new System.EventHandler(this.label7_Click);
             this.label7.MouseDown += new System.Windows.Forms.MouseEventHandler(this.move_window);
             // 
             // help
@@ -329,7 +319,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 50;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // errorProvider1
             // 

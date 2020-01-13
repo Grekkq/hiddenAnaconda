@@ -29,7 +29,7 @@ namespace hiddenAnaconda.Views {
             sharedView.Leave_exitbutton(this.exit);
         }
 
-        private void Turnoff_focus(object sender, EventArgs e) { 
+        private void Turnoff_focus(object sender, EventArgs e) {
             this.ActiveControl = null;
         }
 
@@ -94,7 +94,7 @@ namespace hiddenAnaconda.Views {
 
         private void DeleteButton_Click(object sender, EventArgs e) {
             if (this.mainListBox.SelectedIndex == -1)
-                MessageBox.Show("Musisz najpierw zaznaczyć element, który chcesz usunąć.","Błąd",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                MessageBox.Show("Musisz najpierw zaznaczyć element, który chcesz usunąć.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             else {
                 this.mainListBox.Items.RemoveAt(this.mainListBox.SelectedIndex);
                 sharedView.FixIndex(this.mainListBox);
@@ -133,13 +133,12 @@ namespace hiddenAnaconda.Views {
                 if (result == DialogResult.Yes) {
                     //WPISANIE DO BD
                     if (checkBox_czyUtworzycNowaTrase.Checked)
-                        if(checkBox_czyUtworzycNowaTrase.Visible)
+                        if (checkBox_czyUtworzycNowaTrase.Visible)
                             trail.AddNewTrail(mainListBox);
-                    else {
+                        else {
                             trail = new AddTrail(Int32.Parse(linia_comboBox.Text), 0);
                             trail.AddFirstTrail(mainListBox);
-                        }
-                    else
+                        } else
                         trail.EditExistingTrail(mainListBox);
                     //jak chcemy go nie zamykać to trzeba ogarnąc buga że przy podwójnym dodaniu nie przeliczy jeszcze raz numeru trasy i się zdubluje
                     //ewentualnie jeszcze można odznaczać checkboxa to powinno się samo przeliczyć 
@@ -174,7 +173,7 @@ namespace hiddenAnaconda.Views {
             comboBoxTrasa.Visible = true;
             sharedView.LoadRouteNumberIntoComboBox(comboBoxTrasa, Int32.Parse(linia_comboBox.Text));
             // if no trasa is present display empty listbox
-            if (comboBoxTrasa.Items.Count==0) {
+            if (comboBoxTrasa.Items.Count == 0) {
                 trail = new AddTrail(Int32.Parse(this.linia_comboBox.Text), 0);
                 mainListBox.Visible = true;
                 label_godzina.Visible = true;
@@ -206,7 +205,8 @@ namespace hiddenAnaconda.Views {
             trail.LoadTrailIntoListBox(this.mainListBox);
         }
 
-        private void checkBox_czyUtworzycNowaTrase_CheckedChanged(object sender, EventArgs e) {
+        private void help_Click(object sender, EventArgs e) {
+            Help.ShowHelp(this, Constants.HelpPath, HelpNavigator.Topic, "Zarzadzanie%20trasami.htm");
         }
     }
 }

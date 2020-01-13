@@ -80,6 +80,7 @@
             this.help.TabStop = false;
             this.help.Text = "?";
             this.help.UseVisualStyleBackColor = false;
+            this.help.Click += new System.EventHandler(this.help_Click);
             // 
             // label7
             // 

@@ -191,52 +191,8 @@ namespace hiddenAnaconda.Views {
 
         }
 
-        private void label7_Click(object sender, EventArgs e) {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e) {
-
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e) {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e) {
-
-        }
-
-        private void label_Do_Click(object sender, EventArgs e) {
-
-        }
-
-        private void label_Z_Click(object sender, EventArgs e) {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e) {
-
-        }
-
-        private void label_kierunek_Click(object sender, EventArgs e) {
-
-        }
-
-        private void pictureBox2_Click(object sender, EventArgs e) {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e) {
-
-        }
-
         private void help_Click(object sender, EventArgs e) {
-
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e) {
-
+            Help.ShowHelp(this, Constants.HelpPath, HelpNavigator.Topic, "Tworzenie%20przystanków.htm");
         }
 
         private void textBox_kierunekDo_Validating(object sender, CancelEventArgs e) {

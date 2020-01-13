@@ -183,5 +183,9 @@ namespace hiddenAnaconda.Views {
         private void DodawaniePojazdow_Load(object sender, EventArgs e) {
             this.AcceptButton = create;
         }
+
+        private void help_Click(object sender, EventArgs e) {
+            Help.ShowHelp(this, Constants.HelpPath, HelpNavigator.Topic, "Tworzenie%20pojazdow.htm");
+        }
     }
 }

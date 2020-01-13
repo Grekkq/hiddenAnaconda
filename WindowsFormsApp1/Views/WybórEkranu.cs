@@ -149,7 +149,7 @@ namespace hiddenAnaconda.Views {
 
         private void WybórEkranu_Load(object sender, EventArgs e) {
             string permLvl = EkranLogowania.permissionLevel;
-            hello.Text = "Witaj, " + EkranLogowania.AccountName+"!";
+            hello.Text = "Witaj, " + EkranLogowania.AccountName + "!";
             if (permLvl == Constants.DriverPermission) { //wylaczanie buttonow dla kierowcy
                 pojazdy.Enabled = false;
                 przystanki.Enabled = false;
@@ -163,14 +163,14 @@ namespace hiddenAnaconda.Views {
                 trasyZarzadzanie.Enabled = false;
                 uzytkownicy.Enabled = false;
                 uzytkownicyEdycja.Enabled = false;
-            }else if(permLvl==Constants.MenagerPermission){ //wylaczanie buttonow dla menedzera
+            } else if (permLvl == Constants.MenagerPermission) { //wylaczanie buttonow dla menedzera
                 uzytkownicy.Enabled = false;
                 uzytkownicyEdycja.Enabled = false;
-            }else if (permLvl == Constants.RoutePlannerPermission) { //wylaczanie buttonów dla ukladacza tras
+            } else if (permLvl == Constants.RoutePlannerPermission) { //wylaczanie buttonów dla ukladacza tras
                 pojazdy.Enabled = false;
                 czasyRealizacje.Enabled = false;
                 kierowcy.Enabled = false;
-                statusZmiana.Enabled = false;   
+                statusZmiana.Enabled = false;
                 uzytkownicy.Enabled = false;
                 uzytkownicyEdycja.Enabled = false;
             }
@@ -189,6 +189,10 @@ namespace hiddenAnaconda.Views {
         private void timer1_Tick(object sender, EventArgs e) {
             DateTime dateTime = DateTime.Now;
             Time.Text = dateTime.ToString();
+        }
+
+        private void help_Click(object sender, EventArgs e) {
+            Help.ShowHelp(this, Constants.HelpPath, HelpNavigator.Topic, "Ekran%20wyboru%20widoków.htm");
         }
     }
 }

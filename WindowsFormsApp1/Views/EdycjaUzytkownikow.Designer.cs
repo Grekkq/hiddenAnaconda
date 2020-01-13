@@ -106,7 +106,6 @@
             this.comboBox_uprawnienia.Name = "comboBox_uprawnienia";
             this.comboBox_uprawnienia.Size = new System.Drawing.Size(82, 21);
             this.comboBox_uprawnienia.TabIndex = 2;
-            this.comboBox_uprawnienia.SelectedIndexChanged += new System.EventHandler(this.comboBox_uprawnienia_SelectedIndexChanged);
             this.comboBox_uprawnienia.Validating += new System.ComponentModel.CancelEventHandler(this.comboBox_uprawnienia_Validating);
             // 
             // groupBox_status
@@ -252,6 +251,7 @@
             this.help.TabStop = false;
             this.help.Text = "?";
             this.help.UseVisualStyleBackColor = false;
+            this.help.Click += new System.EventHandler(this.help_Click);
             // 
             // label7
             // 

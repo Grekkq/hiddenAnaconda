@@ -229,6 +229,7 @@
             this.help.TabIndex = 1;
             this.help.Text = "?";
             this.help.UseVisualStyleBackColor = false;
+            this.help.Click += new System.EventHandler(this.help_Click);
             // 
             // pictureBox1
             // 

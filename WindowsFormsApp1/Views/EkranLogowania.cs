@@ -139,9 +139,7 @@ namespace hiddenAnaconda.Views {
         }
 
         private void help_Click(object sender, EventArgs e) {
-
-            Help.ShowHelp(this, "../../Resources/Help/Pomoc.chm");
-            
+            Help.ShowHelp(this, Constants.HelpPath ,HelpNavigator.Topic, "Pierwsze%20kroki%20w%20porgramie.htm");   
         }
     }
 }

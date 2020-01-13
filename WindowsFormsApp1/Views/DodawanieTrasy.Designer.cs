@@ -167,7 +167,6 @@
             this.checkBox_czyUtworzycNowaTrase.TabIndex = 2;
             this.checkBox_czyUtworzycNowaTrase.Text = "Utwórz nową trasę na podstawie zedytowanej tabeli.";
             this.checkBox_czyUtworzycNowaTrase.UseVisualStyleBackColor = true;
-            this.checkBox_czyUtworzycNowaTrase.CheckedChanged += new System.EventHandler(this.checkBox_czyUtworzycNowaTrase_CheckedChanged);
             // 
             // label_lokalizacja
             // 
@@ -346,6 +345,7 @@
             this.help.TabIndex = 1;
             this.help.Text = "?";
             this.help.UseVisualStyleBackColor = false;
+            this.help.Click += new System.EventHandler(this.help_Click);
             // 
             // pictureBox1
             // 

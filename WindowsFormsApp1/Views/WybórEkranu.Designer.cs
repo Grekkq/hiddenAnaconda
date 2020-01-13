@@ -26,6 +26,12 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WybórEkranu));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.Time = new System.Windows.Forms.Label();
+            this.hello = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.Wyloguj = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
@@ -53,14 +59,10 @@
             this.label3 = new System.Windows.Forms.Label();
             this.help = new System.Windows.Forms.Button();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.Wyloguj = new System.Windows.Forms.Button();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.hello = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.Time = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
+            this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.panel3.SuspendLayout();
@@ -68,8 +70,6 @@
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -85,6 +85,69 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(606, 377);
             this.panel1.TabIndex = 0;
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.White;
+            this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel5.Controls.Add(this.label1);
+            this.panel5.Controls.Add(this.Time);
+            this.panel5.Controls.Add(this.hello);
+            this.panel5.Controls.Add(this.pictureBox2);
+            this.panel5.Location = new System.Drawing.Point(-1, 0);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(608, 56);
+            this.panel5.TabIndex = 36;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(59, 29);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(163, 13);
+            this.label1.TabIndex = 30;
+            this.label1.Text = "Wybierz formularz i zacznij pracę.";
+            // 
+            // Time
+            // 
+            this.Time.AutoSize = true;
+            this.Time.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.Time.Location = new System.Drawing.Point(461, 3);
+            this.Time.Name = "Time";
+            this.Time.Size = new System.Drawing.Size(139, 15);
+            this.Time.TabIndex = 29;
+            this.Time.Text = "10.04.2013 22:50:44";
+            // 
+            // hello
+            // 
+            this.hello.AutoSize = true;
+            this.hello.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.hello.Location = new System.Drawing.Point(59, 10);
+            this.hello.Name = "hello";
+            this.hello.Size = new System.Drawing.Size(51, 16);
+            this.hello.TabIndex = 28;
+            this.hello.Text = "label1";
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.White;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(54, 48);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 27;
+            this.pictureBox2.TabStop = false;
+            // 
+            // Wyloguj
+            // 
+            this.Wyloguj.Location = new System.Drawing.Point(102, 339);
+            this.Wyloguj.Name = "Wyloguj";
+            this.Wyloguj.Size = new System.Drawing.Size(80, 30);
+            this.Wyloguj.TabIndex = 35;
+            this.Wyloguj.Text = "Wyloguj";
+            this.Wyloguj.UseVisualStyleBackColor = true;
+            this.Wyloguj.Click += new System.EventHandler(this.Wyloguj_Click);
             // 
             // panel4
             // 
@@ -392,6 +455,7 @@
             this.help.TabStop = false;
             this.help.Text = "?";
             this.help.UseVisualStyleBackColor = false;
+            this.help.Click += new System.EventHandler(this.help_Click);
             this.help.MouseEnter += new System.EventHandler(this.Hover_helpbutton);
             this.help.MouseLeave += new System.EventHandler(this.Leave_helpbutton);
             // 
@@ -405,72 +469,9 @@
             this.pictureBox3.TabIndex = 48;
             this.pictureBox3.TabStop = false;
             // 
-            // Wyloguj
-            // 
-            this.Wyloguj.Location = new System.Drawing.Point(102, 339);
-            this.Wyloguj.Name = "Wyloguj";
-            this.Wyloguj.Size = new System.Drawing.Size(80, 30);
-            this.Wyloguj.TabIndex = 35;
-            this.Wyloguj.Text = "Wyloguj";
-            this.Wyloguj.UseVisualStyleBackColor = true;
-            this.Wyloguj.Click += new System.EventHandler(this.Wyloguj_Click);
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.Color.White;
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(3, 3);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(54, 48);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 27;
-            this.pictureBox2.TabStop = false;
-            // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.Color.White;
-            this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel5.Controls.Add(this.label1);
-            this.panel5.Controls.Add(this.Time);
-            this.panel5.Controls.Add(this.hello);
-            this.panel5.Controls.Add(this.pictureBox2);
-            this.panel5.Location = new System.Drawing.Point(-1, 0);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(608, 56);
-            this.panel5.TabIndex = 36;
-            // 
-            // hello
-            // 
-            this.hello.AutoSize = true;
-            this.hello.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.hello.Location = new System.Drawing.Point(59, 10);
-            this.hello.Name = "hello";
-            this.hello.Size = new System.Drawing.Size(51, 16);
-            this.hello.TabIndex = 28;
-            this.hello.Text = "label1";
-            // 
             // timer1
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // Time
-            // 
-            this.Time.AutoSize = true;
-            this.Time.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.Time.Location = new System.Drawing.Point(461, 3);
-            this.Time.Name = "Time";
-            this.Time.Size = new System.Drawing.Size(139, 15);
-            this.Time.TabIndex = 29;
-            this.Time.Text = "10.04.2013 22:50:44";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(59, 29);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(163, 13);
-            this.label1.TabIndex = 30;
-            this.label1.Text = "Wybierz formularz i zacznij pracę.";
             // 
             // WybórEkranu
             // 
@@ -493,6 +494,9 @@
             this.Load += new System.EventHandler(this.WybórEkranu_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Move_window);
             this.panel1.ResumeLayout(false);
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.panel3.ResumeLayout(false);
@@ -500,9 +504,6 @@
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

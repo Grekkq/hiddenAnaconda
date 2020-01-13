@@ -136,5 +136,9 @@ namespace hiddenAnaconda.Views {
             create.Focus();
             sharedView.LoadRouteNumberIntoComboBox(comboBox_trasa, Int32.Parse(comboBox_linia.Text), comboBox_rodzajKursu.Text);
         }
+
+        private void help_Click(object sender, EventArgs e) {
+            Help.ShowHelp(this, Constants.HelpPath, HelpNavigator.Topic, "Tworzenie%20kursow.htm");
+        }
     }
 }

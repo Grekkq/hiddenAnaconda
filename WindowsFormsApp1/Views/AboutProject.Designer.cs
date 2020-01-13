@@ -126,7 +126,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(252, 20);
             this.label4.TabIndex = 1;
-            this.label4.Text = "© 2019 All Rights Reserved";
+            this.label4.Text = "© 2020 All Rights Reserved";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pictureBox1

@@ -44,10 +44,6 @@ namespace hiddenAnaconda.Views {
         private void EdycjaUżytkowników_Load(object sender, EventArgs e) {
             this.AcceptButton = create;
             this.comboBox_uzytkownik.Items.Clear();
-            /*  this.comboBox_uzytkownik.Items.Add("Grekkq");
-              this.comboBox_uzytkownik.Items.Add("nieDam");
-              this.comboBox_uzytkownik.Items.Add("h1mit");
-              */
             ApplicationUser.LoadDataToUserComboBox(this.comboBox_uzytkownik);
             groupBox_status_uprawnienia.Visible = false;
             radio_status.Visible = false;
@@ -104,10 +100,6 @@ namespace hiddenAnaconda.Views {
             this.Close();
         }
 
-        private void comboBox_uprawnienia_SelectedIndexChanged(object sender, EventArgs e) {
-
-        }
-
         private void create_Click(object sender, EventArgs e) {
             comboBox_uzytkownik.Focus();
             label1.Focus();
@@ -124,7 +116,7 @@ namespace hiddenAnaconda.Views {
                         if (result == DialogResult.Yes) {
                             //DOANIE DO BAZY
                             ApplicationUser.ChangeUserPermission(comboBox_uzytkownik.Text, Constants.TranslatePermissionLevel(comboBox_uprawnienia.Text));
-                            MessageBox.Show("Pełna zmiana uprawnień nastąpi po ponownym zalogowaniu.","Uwaga!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            MessageBox.Show("Pełna zmiana uprawnień nastąpi po ponownym zalogowaniu.", "Uwaga!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             this.Close();
                         } else {
                             comboBox_uprawnienia.Focus();
@@ -160,8 +152,9 @@ namespace hiddenAnaconda.Views {
             }
         }
 
-
-
+        private void help_Click(object sender, EventArgs e) {
+            Help.ShowHelp(this, Constants.HelpPath, HelpNavigator.Topic, "Edycja%20uzytkownikow.htm");
+        }
 
         private void comboBox_uprawnienia_Validating(object sender, CancelEventArgs e) {
             if (string.IsNullOrEmpty(comboBox_uprawnienia.Text)) {

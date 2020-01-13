@@ -146,6 +146,10 @@ namespace hiddenAnaconda.Views {
             type.SelectedIndex = -1;
         }
 
+        private void help_Click(object sender, EventArgs e) {
+            Help.ShowHelp(this, Constants.HelpPath, HelpNavigator.Topic, "Tworzenie%20terminow%20kursowania.htm");
+        }
+
         private void type_SelectedIndexChanged(object sender, EventArgs e) {
             Dodaj.Focus();
         }

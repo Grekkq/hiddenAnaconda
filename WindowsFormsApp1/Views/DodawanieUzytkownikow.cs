@@ -123,6 +123,10 @@ namespace hiddenAnaconda.Views {
             this.AcceptButton = create;
         }
 
+        private void help_Click(object sender, EventArgs e) {
+            Help.ShowHelp(this, Constants.HelpPath, HelpNavigator.Topic, "Tworzenie%20uzytkownikow.htm");
+        }
+
         private void username_Validated(object sender, EventArgs e) {
             Regex r = new Regex("^[^ ]+$");
             if (!r.IsMatch(username.Text)) {

@@ -30,6 +30,7 @@ namespace hiddenAnaconda {
         public const string Holidays = "świąteczny";
         public const string HolidaysAlias = "Święta";
 
+        public const string HelpPath = "../../Resources/Help/Pomoc.chm";
         public static readonly Regex FindArrivalTimeInString = new Regex(@"\d[0-9]([^\d]|$)");
         public static readonly Regex ValidateTimeFormat = new Regex(@"^(?:0?[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$");
 

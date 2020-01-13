@@ -46,26 +46,6 @@ namespace hiddenAnaconda.Views {
             comboBox_przystanek.Visible = false;
             label_kierunek.Visible = false;
             comboBox_kierunek.Visible = false;
-
-            //przykladowe dane
-            this.comboBox_miasto.Items.Clear();
-            this.comboBox_przystanek.Items.Clear();
-            this.comboBox_kierunek.Items.Clear();
-            this.comboBox_miasto.Items.Add("Katowice");
-            this.comboBox_miasto.Items.Add("Gliwice");
-            this.comboBox_miasto.Items.Add("Knurów");
-            this.comboBox_miasto.Items.Add("Zabrze");
-            this.comboBox_miasto.Items.Add("Radzionków");
-            this.comboBox_przystanek.Items.Add("Szpitalna");
-            this.comboBox_przystanek.Items.Add("Cegielnia");
-            this.comboBox_przystanek.Items.Add("Wrocławska");
-            this.comboBox_przystanek.Items.Add("Nowy Świat");
-            this.comboBox_przystanek.Items.Add("Szpitalna");
-            this.comboBox_kierunek.Items.Add("Gliwice-Knurów");
-            this.comboBox_kierunek.Items.Add("Knurów-Gliwice");
-            this.comboBox_kierunek.Items.Add("Gliwice-Zabrze");
-            this.comboBox_kierunek.Items.Add("Zabrze-Gliwice");
-
             sharedView.LoadCitiesIntoComboBox(comboBox_miasto);
         }
 
@@ -134,6 +114,10 @@ namespace hiddenAnaconda.Views {
                     }
                 };
             }
+        }
+
+        private void help_Click(object sender, EventArgs e) {
+            Help.ShowHelp(this, Constants.HelpPath, HelpNavigator.Topic, "Tworzenie%20raportu.htm");
         }
     }
 }
