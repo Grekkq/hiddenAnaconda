@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"><?define hiddenAnaconda_TargetDir=$(var.hiddenAnaconda.TargetDir)?>
+	<Product Id="*" Name="hiddenAnaconda Installer" Language="1033" Version="1.0.0.0" Manufacturer="GreenGrass Studio" UpgradeCode="2dd8ff8f-4d12-4a47-aa8a-5d6d52b6ec1b">
+		<Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
+
+		<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+		<MediaTemplate />
+
+		<Feature Id="ProductFeature" Title="hiddenAnaconda Installer" Level="1">
+			<ComponentGroupRef Id="ProductComponents" />
+			<ComponentGroupRef Id="Resources_files" />
+			<ComponentGroupRef Id="ProgramFilesFolder_files" />
+		</Feature>
+	</Product>
+
+	<Fragment>
+		<Directory Id="TARGETDIR" Name="SourceDir">
+			<Directory Id="ProgramFilesFolder">
+				<Directory Id="INSTALLFOLDER" Name="hiddenAnacondaInstallerV2" />
+				<Directory Id="Resources" Name="Resources" />
+			</Directory>
+		</Directory>
+	</Fragment>
+
+	<Fragment>
+		<ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
+			<!-- TODO: Remove the comments around this Component element and the ComponentRef below in order to add resources to this installer. -->
+			<!-- <Component Id="ProductComponent"> -->
+				<!-- TODO: Insert files, registry keys, and other resources here. -->
+			<!-- </Component> -->
+		</ComponentGroup>
+	</Fragment>
+	<Fragment>
+	  <ComponentGroup Id="Resources_files" Directory="Resources">
+	    <Component Id="Resources_icon.ico" Guid="e8c6e9f5-394c-4935-97c4-6ecae5914c45">
+	      <File Id="Resources_icon.ico" Name="icon.ico" Source="$(var.hiddenAnaconda_TargetDir)Resources\icon.ico" />
+	    </Component>
+	  </ComponentGroup>
+	</Fragment>
+
+  <Fragment>
+    <ComponentGroup Id="ProgramFilesFolder_files" Directory="ProgramFilesFolder">
+      <Component Id="hiddenAnaconda.exe" Guid="edd22b9e-42bd-4313-a98c-29ab694dc381">
+        <File Id="hiddenAnaconda.exe" Name="hiddenAnaconda.exe" Source="$(var.hiddenAnaconda_TargetDir)hiddenAnaconda.exe" />
+      </Component>
+      <Component Id="IronPdf.dll" Guid="2ebfac8d-ed5c-47da-b3d3-14f05cc97753">
+        <File Id="IronPdf.dll" Name="IronPdf.dll" Source="$(var.hiddenAnaconda_TargetDir)IronPdf.dll" />
+      </Component>
+      <Component Id="hiddenAnaconda.exe.config" Guid="ba5f754c-a4f1-457d-886f-682e3aa79bda">
+        <File Id="hiddenAnaconda.exe.config" Name="hiddenAnaconda.exe.config" Source="$(var.hiddenAnaconda_TargetDir)hiddenAnaconda.exe.config" />
+      </Component>
+    </ComponentGroup>
+  </Fragment>
+</Wix>
