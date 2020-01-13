@@ -15,6 +15,86 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "hiddenAnacondaInstaller", "hiddenAnacondaInstaller\hiddenAnacondaInstaller.vdproj", "{922B0880-A1BD-46CC-81FC-6E1694A38B54}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Help", "Help", "{CEDC3CCA-6AFE-47E8-AE92-3C9A44EC0C68}"
+	ProjectSection(SolutionItems) = preProject
+		Help\1wybekran.jpg = Help\1wybekran.jpg
+		Help\2wybekran.jpg = Help\2wybekran.jpg
+		Help\3wybekran.jpg = Help\3wybekran.jpg
+		Help\czakurs.jpg = Help\czakurs.jpg
+		Help\Czas realizacji kursu.htm = Help\Czas realizacji kursu.htm
+		Help\Dodanie kierowcow.htm = Help\Dodanie kierowcow.htm
+		Help\dodkierowca.jpg = Help\dodkierowca.jpg
+		Help\dodpojazd.jpg = Help\dodpojazd.jpg
+		Help\dodterminkurs.jpg = Help\dodterminkurs.jpg
+		Help\dodterminkurs2.jpg = Help\dodterminkurs2.jpg
+		Help\Edycja uzytkownikow.htm = Help\Edycja uzytkownikow.htm
+		Help\Edycja użytkonikow.htm = Help\Edycja użytkonikow.htm
+		Help\edycja.jpg = Help\edycja.jpg
+		Help\edycja2.jpg = Help\edycja2.jpg
+		Help\Ekran wyboru widoków.htm = Help\Ekran wyboru widoków.htm
+		Help\ekranlog.jpg = Help\ekranlog.jpg
+		Help\etykieta.png = Help\etykieta.png
+		Help\etykieta2.jpg = Help\etykieta2.jpg
+		Help\Funckje programu.htm = Help\Funckje programu.htm
+		Help\Index.hhk = Help\Index.hhk
+		Help\Instalacja.htm = Help\Instalacja.htm
+		Help\Log1.log = Help\Log1.log
+		Help\Opis instalacji programu.htm = Help\Opis instalacji programu.htm
+		Help\Pierwsze kroki w porgramie.htm = Help\Pierwsze kroki w porgramie.htm
+		Help\Pomoc.chm = Help\Pomoc.chm
+		Help\Pomoc.hhp = Help\Pomoc.hhp
+		Help\Program instalacyjny.htm = Help\Program instalacyjny.htm
+		Help\przdokursu.jpg = Help\przdokursu.jpg
+		Help\Przypisanie do kursu.htm = Help\Przypisanie do kursu.htm
+		Help\raportt.jpg = Help\raportt.jpg
+		Help\Table of Contents.hhc = Help\Table of Contents.hhc
+		Help\Twirzenie.htm = Help\Twirzenie.htm
+		Help\twonowejlini.jpg = Help\twonowejlini.jpg
+		Help\twonowykurs.jpg = Help\twonowykurs.jpg
+		Help\twoprz1.jpg = Help\twoprz1.jpg
+		Help\tworaport.jpg = Help\tworaport.jpg
+		Help\Tworzenie kursow.htm = Help\Tworzenie kursow.htm
+		Help\Tworzenie lini autobusowych.htm = Help\Tworzenie lini autobusowych.htm
+		Help\Tworzenie pojazdow.htm = Help\Tworzenie pojazdow.htm
+		Help\Tworzenie przystanków.htm = Help\Tworzenie przystanków.htm
+		Help\Tworzenie raportu.htm = Help\Tworzenie raportu.htm
+		Help\Tworzenie terminow kursowania.htm = Help\Tworzenie terminow kursowania.htm
+		Help\Tworzenie uzytkownikow.htm = Help\Tworzenie uzytkownikow.htm
+		Help\Tworzenie użytkownikow.htm = Help\Tworzenie użytkownikow.htm
+		Help\Tworzenie użytkowników.htm = Help\Tworzenie użytkowników.htm
+		Help\Tworzenie.htm = Help\Tworzenie.htm
+		Help\twouzyt.jpg = Help\twouzyt.jpg
+		Help\Witaj w systemie.htm = Help\Witaj w systemie.htm
+		Help\Witaj.htm = Help\Witaj.htm
+		Help\wybekran.jpg = Help\wybekran.jpg
+		Help\wybekran1.jpg = Help\wybekran1.jpg
+		Help\wybekran10.jpg = Help\wybekran10.jpg
+		Help\wybekran11.jpg = Help\wybekran11.jpg
+		Help\wybekran12.jpg = Help\wybekran12.jpg
+		Help\wybekran13.jpg = Help\wybekran13.jpg
+		Help\wybekran2.jpg = Help\wybekran2.jpg
+		Help\wybekran3.jpg = Help\wybekran3.jpg
+		Help\wybekran4.jpg = Help\wybekran4.jpg
+		Help\wybekran5.jpg = Help\wybekran5.jpg
+		Help\wybekran6.jpg = Help\wybekran6.jpg
+		Help\wybekran7.jpg = Help\wybekran7.jpg
+		Help\wybekran8.jpg = Help\wybekran8.jpg
+		Help\wybekran9.jpg = Help\wybekran9.jpg
+		Help\Wymagania.htm = Help\Wymagania.htm
+		Help\zapis.jpg = Help\zapis.jpg
+		Help\Zarzadzanie trasami.htm = Help\Zarzadzanie trasami.htm
+		Help\Zarządzanie i raporty.htm = Help\Zarządzanie i raporty.htm
+		Help\Zarządzanie uzytkownikami.htm = Help\Zarządzanie uzytkownikami.htm
+		Help\Zmiana statusu.htm = Help\Zmiana statusu.htm
+		Help\zmstatusk.jpg = Help\zmstatusk.jpg
+		Help\zmstatusp.jpg = Help\zmstatusp.jpg
+		Help\zt1.jpg = Help\zt1.jpg
+		Help\zt2.jpg = Help\zt2.jpg
+		Help\zt3.jpg = Help\zt3.jpg
+		Help\zt4.jpg = Help\zt4.jpg
+		Help\zt5.jpg = Help\zt5.jpg
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -100,6 +180,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{CEDC3CCA-6AFE-47E8-AE92-3C9A44EC0C68} = {D9D80D5E-1F34-4025-80D0-15E60BBF6346}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3CBC16FD-188E-4D45-86CB-C6593EDD5C4B}
