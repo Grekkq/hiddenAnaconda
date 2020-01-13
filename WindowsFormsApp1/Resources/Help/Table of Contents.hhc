@@ -1,0 +1,127 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML>
+<HEAD>
+<meta name="GENERATOR" content="Microsoft&reg; HTML Help Workshop 4.1">
+<!-- Sitemap 1.0 -->
+</HEAD><BODY>
+<OBJECT type="text/site properties">
+	<param name="ImageType" value="Folder">
+</OBJECT>
+<UL>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Witaj w programie">
+		<param name="Local" value="Witaj w systemie.htm">
+		<param name="ImageNumber" value="2">
+		</OBJECT>
+	<UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Funkcje programu">
+			<param name="Local" value="Funckje programu.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Wymagania systemowe">
+			<param name="Local" value="Wymagania.htm">
+			</OBJECT>
+	</UL>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Instalacja">
+		<param name="Local" value="Instalacja.htm">
+		<param name="ImageNumber" value="2">
+		</OBJECT>
+	<UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Opis instalacji">
+			<param name="Local" value="Opis instalacji programu.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Program instalacyjny">
+			<param name="Local" value="Program instalacyjny.htm">
+			</OBJECT>
+	</UL>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Pierwsze kroki w programie">
+		<param name="Local" value="Pierwsze kroki w porgramie.htm">
+		<param name="ImageNumber" value="2">
+		</OBJECT>
+	<UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Ekran wyboru widok&oacute;w">
+			<param name="Local" value="Ekran wyboru widoków.htm">
+			</OBJECT>
+	</UL>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Tworzenie">
+		<param name="Local" value="Twirzenie.htm">
+		<param name="ImageNumber" value="2">
+		</OBJECT>
+	<UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Tworzenie pojazd&oacute;w">
+			<param name="Local" value="Tworzenie pojazdow.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Tworzenie przystank&oacute;w">
+			<param name="Local" value="Tworzenie przystanków.htm">
+			<param name="Local" value="Tworzenie przystankow.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Tworzenie lini autobusowych">
+			<param name="Local" value="Tworzenie lini autobusowych.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Tworzenie kurs&oacute;w">
+			<param name="Local" value="Tworzenie kursow.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Tworzenie termin&oacute;w kursowania">
+			<param name="Local" value="Tworzenie terminow kursowania.htm">
+			</OBJECT>
+	</UL>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Zarz&sup1;dzanie i raporty">
+		<param name="Local" value="Zarz¹dzanie i raporty.htm">
+		<param name="ImageNumber" value="2">
+		</OBJECT>
+	<UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Czas i realizacja kursu">
+			<param name="Local" value="Czas realizacji kursu.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Przypisanie do kursu">
+			<param name="Local" value="Przypisanie do kursu.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Dodawanie kierowc&oacute;w">
+			<param name="Local" value="Dodanie kierowcow.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Zmiana statusu">
+			<param name="Local" value="Zmiana statusu.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Tworzenie raportu">
+			<param name="Local" value="Tworzenie raportu.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Zarz&sup1;dzanie trasami">
+			<param name="Local" value="Zarzadzanie trasami.htm">
+			</OBJECT>
+	</UL>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Zarz&sup1;dzanie u&iquest;ytkownikami">
+		<param name="Local" value="Zarz¹dzanie uzytkownikami.htm">
+		<param name="ImageNumber" value="2">
+		</OBJECT>
+	<UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Tworzenie u&iquest;ytkownik&oacute;w">
+			<param name="Local" value="Tworzenie uzytkownikow.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Edycja u&iquest;ytkownik&oacute;w">
+			<param name="Local" value="Edycja uzytkownikow.htm">
+			</OBJECT>
+	</UL>
+</UL>
+</BODY></HTML>

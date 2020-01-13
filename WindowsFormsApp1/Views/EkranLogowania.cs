@@ -135,5 +135,9 @@ namespace hiddenAnaconda.Views {
                 button1_Click(this, new EventArgs());
             }
         }
+
+        private void help_Click(object sender, EventArgs e) {
+            Help.ShowHelp(this, "Pomoc.chm");
+        }
     }
 }

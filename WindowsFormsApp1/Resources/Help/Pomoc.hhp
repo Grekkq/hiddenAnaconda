@@ -1,0 +1,17 @@
+[OPTIONS]
+Compatibility=1.1 or later
+Compiled file=Pomoc.chm
+Contents file=Table of Contents.hhc
+Default Window=Witaj
+Default topic=Witaj w systemie.htm
+Display compile progress=No
+Full-text search=Yes
+Index file=Index.hhk
+Language=0x415 Polski (Polska)
+
+[WINDOWS]
+Witaj="Pomoc ","Table of Contents.hhc",,,,,,,,0x2520,200,0x3006,[25,25,575,465],,,,,,,0
+
+
+[INFOTYPES]
+
