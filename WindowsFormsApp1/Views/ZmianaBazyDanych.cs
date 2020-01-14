@@ -60,6 +60,7 @@ namespace hiddenAnaconda.Views {
         }
 
         private void ZmianaBazyDanych_Load(object sender, EventArgs e) {
+            textBoxPassword.PasswordChar = '⚫';
         }
 
         private void checkBoxLocal_CheckedChanged(object sender, EventArgs e) {
