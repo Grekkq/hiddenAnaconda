@@ -103,7 +103,7 @@
             "roboczy"});
             this.type.Location = new System.Drawing.Point(18, 210);
             this.type.Name = "type";
-            this.type.Size = new System.Drawing.Size(150, 66);
+            this.type.Size = new System.Drawing.Size(150, 105);
             this.type.TabIndex = 2;
             this.type.SelectedIndexChanged += new System.EventHandler(this.type_SelectedIndexChanged);
             this.type.Validating += new System.ComponentModel.CancelEventHandler(this.type_SelectedIndexChanged_Validating);

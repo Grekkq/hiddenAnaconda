@@ -13,7 +13,22 @@ namespace hiddenAnaconda.Views {
         public ZmianaBazyDanych() {
             InitializeComponent();
             var currentDb = Models.ChangeDb.GetCurentConnectionString();
-            
+            textBoxIpAdress.Text = currentDb.Single(c=>c.Key=="IP").Value;
+            textBoxDataBaseName.Text = currentDb.Single(c => c.Key == "DbName").Value;
+            if(currentDb.Single(c=>c.Key=="IP").Value.Contains("local")) {
+                textBoxIpAdress.Enabled = false;
+                checkBoxLocal.Checked = true;
+            }
+            textBoxUserName.Enabled = false;
+            textBoxPassword.Enabled = false;
+            checkBoxIntegratedSecurity.Checked = true;
+            if (!currentDb.Single(c => c.Key == "Security").Value.Contains("Integrated")) {
+                checkBoxIntegratedSecurity.Checked = false;
+                textBoxUserName.Enabled = true;
+                textBoxPassword.Enabled = true;
+                textBoxUserName.Text = currentDb.Single(c => c.Key == "UserName").Value;
+                textBoxPassword.Text = currentDb.Single(c => c.Key == "Password").Value;
+            }
         }
 
         SharedView sharedView = new SharedView();
@@ -45,11 +60,6 @@ namespace hiddenAnaconda.Views {
         }
 
         private void ZmianaBazyDanych_Load(object sender, EventArgs e) {
-            this.AcceptButton = SaveButton;
-            textBoxIpAdress.Enabled = false;
-            textBoxIpAdress.Text = "(localdb)\\MSSQLLocalDB";
-            textBoxUserName.Enabled = false;
-            textBoxPassword.Enabled = false;
         }
 
         private void checkBoxLocal_CheckedChanged(object sender, EventArgs e) {

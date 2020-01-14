@@ -160,8 +160,6 @@
             // 
             // checkBoxIntegratedSecurity
             // 
-            this.checkBoxIntegratedSecurity.Checked = true;
-            this.checkBoxIntegratedSecurity.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxIntegratedSecurity.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.checkBoxIntegratedSecurity.Location = new System.Drawing.Point(317, 34);
             this.checkBoxIntegratedSecurity.Name = "checkBoxIntegratedSecurity";
@@ -239,8 +237,6 @@
             // 
             // checkBoxLocal
             // 
-            this.checkBoxLocal.Checked = true;
-            this.checkBoxLocal.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxLocal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.checkBoxLocal.Location = new System.Drawing.Point(321, 33);
             this.checkBoxLocal.Name = "checkBoxLocal";

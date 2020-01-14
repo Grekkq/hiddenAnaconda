@@ -29,10 +29,10 @@ namespace hiddenAnaconda.Models {
             var connectionStringsSection = (ConnectionStringsSection)config.GetSection("connectionStrings");
             string rawConnectionString = connectionStringsSection.ConnectionStrings["hiddenAnaconda.Properties.Settings.hiddenAnacondaDBConnectionString"].ConnectionString;
 
-            string ip = rawConnectionString.Substring(rawConnectionString.IndexOf("Data Source=")+12, rawConnectionString.IndexOf(";"));
+            string ip = rawConnectionString.Substring(rawConnectionString.IndexOf("Data Source=")+12, rawConnectionString.IndexOf(";")-12);
             rawConnectionString = rawConnectionString.Substring(rawConnectionString.IndexOf(";")+1);
 
-            string dbName = rawConnectionString.Substring(rawConnectionString.IndexOf("Initial Catalog=") + 16, rawConnectionString.IndexOf(";"));
+            string dbName = rawConnectionString.Substring(rawConnectionString.IndexOf("Initial Catalog=") + 16, rawConnectionString.IndexOf(";")-16);
             rawConnectionString = rawConnectionString.Substring(rawConnectionString.IndexOf(";") + 1);
 
             data.Add("IP", ip);
@@ -40,11 +40,11 @@ namespace hiddenAnaconda.Models {
             if (rawConnectionString.Contains("Integrated Security")) {
                 data.Add("Security", "Integrated Security");
             } else {
-                string userName = rawConnectionString.Substring(rawConnectionString.IndexOf("UID=") + 4, rawConnectionString.IndexOf(";"));
+                string userName = rawConnectionString.Substring(rawConnectionString.IndexOf("UID=") + 4, rawConnectionString.IndexOf(";")-4);
                 rawConnectionString = rawConnectionString.Substring(rawConnectionString.IndexOf(";") + 1);
                 data.Add("UserName", userName);
-                string password = rawConnectionString.Substring(rawConnectionString.IndexOf("password=") + 9, rawConnectionString.IndexOf(";"));
-                data.Add("UserName", password);
+                string password = rawConnectionString.Substring(rawConnectionString.IndexOf("password=") + 9, rawConnectionString.IndexOf(";")-9);
+                data.Add("Password", password);
             }
 
             return data;
