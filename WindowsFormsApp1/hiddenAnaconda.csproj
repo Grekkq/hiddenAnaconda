@@ -48,6 +48,7 @@
     <Reference Include="System">
       <HintPath>..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\System.dll</HintPath>
     </Reference>
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Linq" />
     <Reference Include="System.DirectoryServices" />
@@ -71,6 +72,7 @@
     <Compile Include="Models\AddingVehicles.cs" />
     <Compile Include="Models\AddTrail.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
+    <Compile Include="Models\ChangeDb.cs" />
     <Compile Include="Models\DayType.cs" />
     <Compile Include="Models\RealizationTime.cs" />
     <Compile Include="Models\Report.cs">
@@ -93,6 +95,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Settings.cs" />
     <Compile Include="Views\AboutProject.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -272,7 +275,7 @@
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
+      <Generator>PublicSettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <Compile Include="Properties\Settings.Designer.cs">
