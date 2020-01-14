@@ -46,15 +46,6 @@ namespace hiddenAnaconda.Views {
             label_rodzajKursu.Visible = false;
             comboBox_trasa.Visible = false;
             comboBox_rodzajKursu.Visible = false;
-
-            this.comboBox_rodzajKursu.Items.Clear();
-            this.comboBox_rodzajKursu.Items.Add("wolny");
-            this.comboBox_rodzajKursu.Items.Add("roboczy");
-            this.comboBox_rodzajKursu.Items.Add("świąteczny");
-            //dane testowe
-            this.comboBox_trasa.Items.Clear();
-            this.comboBox_trasa.Items.Add("1");
-
             this.AcceptButton = create;
         }
 
