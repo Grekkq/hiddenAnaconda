@@ -12,6 +12,8 @@ namespace hiddenAnaconda.Views {
     public partial class ZmianaBazyDanych : Form {
         public ZmianaBazyDanych() {
             InitializeComponent();
+            var currentDb = Models.ChangeDb.GetCurentConnectionString();
+            
         }
 
         SharedView sharedView = new SharedView();
@@ -67,6 +69,16 @@ namespace hiddenAnaconda.Views {
             } else {
                 textBoxPassword.Enabled = true;
                 textBoxUserName.Enabled = true;
+            }
+        }
+
+        private void SaveButton_Click(object sender, EventArgs e) {
+            if(checkBoxIntegratedSecurity.Checked) {
+                Models.ChangeDb.ChangeCurrentDb(textBoxIpAdress.Text, textBoxDataBaseName.Text);
+                Application.Restart();
+            } else {
+                Models.ChangeDb.ChangeCurrentDb(textBoxIpAdress.Text, textBoxDataBaseName.Text, textBoxUserName.Text, textBoxPassword.Text);
+                Application.Restart();
             }
         }
     }
