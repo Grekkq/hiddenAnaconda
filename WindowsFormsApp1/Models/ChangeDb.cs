@@ -40,10 +40,15 @@ namespace hiddenAnaconda.Models {
             if (rawConnectionString.Contains("Integrated Security")) {
                 data.Add("Security", "Integrated Security");
             } else {
+                data.Add("Security", "User/Pass");
                 string userName = rawConnectionString.Substring(rawConnectionString.IndexOf("UID=") + 4, rawConnectionString.IndexOf(";")-4);
                 rawConnectionString = rawConnectionString.Substring(rawConnectionString.IndexOf(";") + 1);
                 data.Add("UserName", userName);
-                string password = rawConnectionString.Substring(rawConnectionString.IndexOf("password=") + 9, rawConnectionString.IndexOf(";")-9);
+                string password;
+                if (rawConnectionString.Contains(";"))
+                     password = rawConnectionString.Substring(rawConnectionString.IndexOf("password=") + 9, rawConnectionString.IndexOf(";"));
+                else
+                    password = rawConnectionString.Substring(rawConnectionString.IndexOf("password=") + 9);
                 data.Add("Password", password);
             }
 
