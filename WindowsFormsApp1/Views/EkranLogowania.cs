@@ -141,5 +141,12 @@ namespace hiddenAnaconda.Views {
         private void help_Click(object sender, EventArgs e) {
             Help.ShowHelp(this, Constants.HelpPath ,HelpNavigator.Topic, "Pierwsze%20kroki%20w%20porgramie.htm");   
         }
+
+        private void DatabaseButton_Click(object sender, EventArgs e) {
+            using (Views.ZmianaBazyDanych InnerForm = new Views.ZmianaBazyDanych()) {
+                if (InnerForm.ShowDialog() == DialogResult.OK) {
+                }
+            };
+        }
     }
 }

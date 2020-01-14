@@ -30,6 +30,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EkranLogowania));
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.DatabaseButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.button2 = new System.Windows.Forms.Button();
@@ -58,6 +59,7 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.DatabaseButton);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.pictureBox2);
             this.panel1.Controls.Add(this.button2);
@@ -68,6 +70,16 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(508, 144);
             this.panel1.TabIndex = 10;
+            // 
+            // DatabaseButton
+            // 
+            this.DatabaseButton.Location = new System.Drawing.Point(214, 102);
+            this.DatabaseButton.Name = "DatabaseButton";
+            this.DatabaseButton.Size = new System.Drawing.Size(90, 30);
+            this.DatabaseButton.TabIndex = 6;
+            this.DatabaseButton.Text = "Baza danych";
+            this.DatabaseButton.UseVisualStyleBackColor = true;
+            this.DatabaseButton.Click += new System.EventHandler(this.DatabaseButton_Click);
             // 
             // label1
             // 
@@ -82,7 +94,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = global::hiddenAnaconda.Properties.Resources.user;
-            this.pictureBox2.Location = new System.Drawing.Point(30, 44);
+            this.pictureBox2.Location = new System.Drawing.Point(30, 38);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(61, 50);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -114,7 +126,7 @@
             // textBox2
             // 
             this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.textBox2.Location = new System.Drawing.Point(97, 72);
+            this.textBox2.Location = new System.Drawing.Point(97, 66);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(172, 22);
             this.textBox2.TabIndex = 1;
@@ -125,7 +137,7 @@
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.textBox1.Location = new System.Drawing.Point(97, 44);
+            this.textBox1.Location = new System.Drawing.Point(97, 38);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(172, 22);
             this.textBox1.TabIndex = 0;
@@ -315,5 +327,6 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button DatabaseButton;
     }
 }

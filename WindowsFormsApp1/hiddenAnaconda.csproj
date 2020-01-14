@@ -199,6 +199,12 @@
     <Compile Include="Views\ZapiszJako.Designer.cs">
       <DependentUpon>ZapiszJako.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\ZmianaBazyDanych.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ZmianaBazyDanych.Designer.cs">
+      <DependentUpon>ZmianaBazyDanych.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\ZmianaStatusu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -260,6 +266,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\ZapiszJako.resx">
       <DependentUpon>ZapiszJako.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ZmianaBazyDanych.resx">
+      <DependentUpon>ZmianaBazyDanych.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\ZmianaStatusu.resx">
       <DependentUpon>ZmianaStatusu.cs</DependentUpon>
