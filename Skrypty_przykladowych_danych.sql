@@ -1,6 +1,6 @@
 ﻿--Dane dla logowania (admin,admin)
 SET IDENTITY_INSERT [dbo].[logowanie] ON
-INSERT INTO [dbo].[logowanie] ([id_uzytkownika], [login], [hasz], [poziom_uprawnien], [czy_aktywny]) VALUES (0, N'admin', N'3282a9ae9846b0c75f0faeb65905c28910a1dbd36d672437177c8a7b61a101c1d0722908', 1, 'TRUE')
+INSERT INTO [dbo].[logowanie] ([id_uzytkownika], [login], [hasz], [poziom_uprawnien], [czy_aktywny]) VALUES (0, N'admin', N'3282a9ae9846b0c75f0faeb65905c28910a1dbd36d672437177c8a7b61a101c1d0722908', 6, 'TRUE')
 SET IDENTITY_INSERT [dbo].[logowanie] OFF
 
 --Dane dla dni kursowania
