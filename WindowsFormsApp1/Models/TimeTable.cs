@@ -122,18 +122,18 @@ namespace hiddenAnaconda.Models {
 
 
                 idTrasyDlaLinii = idTrasyDlaWszystkichLinii.Where(t => t.Item1.Equals(singleLine)).Select(t => t.Item2).ToList();
-
+                StringBuilder daytypeString = new StringBuilder();
                 foreach (var dayType in GetAllDayTypeForLine(singleLine)) {
-                    sb.Append("<table><tr>");
-                    sb.Append("<p id='period' style='font-family: Arial'>");
+                    daytypeString.Append("<table><tr>");
+                    daytypeString.Append("<p id='period' style='font-family: Arial'>");
                     if (dayType == Constants.WorkDays) {
-                        sb.Append(Constants.WorkDaysAlias);
+                        daytypeString.Append(Constants.WorkDaysAlias);
                     } else if (dayType == Constants.DaysOff) {
-                        sb.Append(Constants.DaysOffAlias);
+                        daytypeString.Append(Constants.DaysOffAlias);
                     } else if (dayType == Constants.Holidays) {
-                        sb.Append(Constants.HolidaysAlias);
+                        daytypeString.Append(Constants.HolidaysAlias);
                     }
-                    sb.Append("</p></tr>");
+                    daytypeString.Append("</p></tr>");
                     // weź z lisy sprawdź czy jest w danym rodzaju dnia jeśli tak wypisz // i wyrzuć z listy
                     List<ArrivalTimeInOrder> arrivalTimeInOrder = new List<ArrivalTimeInOrder>();
                     foreach (var kurs in idTrasyDlaLinii) {
@@ -143,14 +143,14 @@ namespace hiddenAnaconda.Models {
                             continue;
                         if (temp.rodzaj_kursu.Equals(dayType)) {
                             // jak chcemy optymalizować to można by usuwać te elementy po kazdym rodzaju dnia
-                            //idTrasyDlaLinii.Remove(kurs);
                             arrivalTimeInOrder.Add(new ArrivalTimeInOrder(temp.ktory_kurs_danego_dnia, GetArrivalTime(kurs)));
                         }
                     }
-                    //arrivalTimeInOrder.Add(new ArrivalTimeInOrder(4, DateTime.Today));
-                    //arrivalTimeInOrder.Add(new ArrivalTimeInOrder(2, DateTime.Today));
-                    //arrivalTimeInOrder.Add(new ArrivalTimeInOrder(3, DateTime.Today));
-                    //sortowanie przetestowane działa w teorii korzysta tylko z kolejności i olewa datę ale nie jestem pewny :D
+                    if (arrivalTimeInOrder.Count == 0) {
+
+                        continue;
+                    }
+                    sb.Append(daytypeString);
                     arrivalTimeInOrder.Sort((pair1, pair2) => pair1.order.CompareTo(pair2.order));
                     int timeCounter = 0;
                     sb.Append("<tr>");
