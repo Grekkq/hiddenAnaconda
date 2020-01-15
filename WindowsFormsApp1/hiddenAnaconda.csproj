@@ -344,6 +344,7 @@
     <None Include="Resources\driver1.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\icon_8Ol_icon.ico" />
     <None Include="Resources\pngtree-manage-glyph-black-icon-png-image_4008318.jpg" />
     <None Include="Resources\img_381234.png" />
     <None Include="Resources\report.png" />

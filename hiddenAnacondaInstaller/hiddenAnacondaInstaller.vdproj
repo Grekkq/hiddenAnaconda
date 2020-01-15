@@ -3,7 +3,7 @@
 "VSVersion" = "3:800"
 "ProjectType" = "8:{978C614F-708E-4E1A-B201-565925725DBA}"
 "IsWebType" = "8:FALSE"
-"ProjectName" = "8:hiddenAnacondaInstaller"
+"ProjectName" = "8:HiddenAnacondaInstaller"
 "LanguageId" = "3:1045"
 "CodePage" = "3:1250"
 "UILanguageId" = "3:1045"
@@ -27,6 +27,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_631D5C9154D74DD1014372F7403781F7"
+        "OwnerKey" = "8:_633D3141942047979DD9226A0D032D44"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_633D3141942047979DD9226A0D032D44"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -39,8 +45,20 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_DD819B0345A644F1BEFFF9B7D68BED79"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_633D3141942047979DD9226A0D032D44"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_631D5C9154D74DD1014372F7403781F7"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -184,6 +202,37 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_631D5C9154D74DD1014372F7403781F7"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:IronPdf, Version=2019.8.9.21868, Culture=neutral, PublicKeyToken=94e1c31412563c75, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_631D5C9154D74DD1014372F7403781F7"
+                    {
+                    "Name" = "8:IronPdf.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:IronPdf.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_8D77CCB590294BFBBD107ABC35DA350C"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_B86CC67025B95C409970566E9CF00B6E"
             {
             "AssemblyRegister" = "3:1"
@@ -213,6 +262,26 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_DD819B0345A644F1BEFFF9B7D68BED79"
+            {
+            "SourcePath" = "8:..\\WindowsFormsApp1\\Resources\\icon_8Ol_icon.ico"
+            "TargetName" = "8:icon_8Ol_icon.ico"
+            "Tag" = "8:"
+            "Folder" = "8:_8D77CCB590294BFBBD107ABC35DA350C"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
         }
@@ -255,7 +324,7 @@
                 {
                     "{9EF0B969-E518-4E46-987F-47570745A589}:_8D77CCB590294BFBBD107ABC35DA350C"
                     {
-                    "Name" = "8:hiddenAnaconda"
+                    "Name" = "8:HiddenAnacondaProject"
                     "AlwaysCreate" = "11:FALSE"
                     "Condition" = "8:"
                     "Transitive" = "11:FALSE"
@@ -264,7 +333,7 @@
                         {
                             "{9EF0B969-E518-4E46-987F-47570745A589}:_C8915B701D4545E69B13DEBF6BCBB391"
                             {
-                            "Name" = "8:Pliki Źródłowe"
+                            "Name" = "8:Source"
                             "AlwaysCreate" = "11:FALSE"
                             "Condition" = "8:"
                             "Transitive" = "11:FALSE"
@@ -292,9 +361,9 @@
         "Product"
         {
         "Name" = "8:Microsoft Visual Studio"
-        "ProductName" = "8:hiddenAnaconda"
+        "ProductName" = "8:HiddenAnaconda Project"
         "ProductCode" = "8:{6DE3ADF7-529A-48EC-8DF1-0DD234B556DA}"
-        "PackageCode" = "8:{2584A702-75F8-4FD6-9B5B-C03ABB57964B}"
+        "PackageCode" = "8:{3DDE09E5-FC06-41A4-B094-564259C502D6}"
         "UpgradeCode" = "8:{8A3D004A-29A5-47A1-B675-B95B49ECE325}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -302,15 +371,15 @@
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
         "ProductVersion" = "8:1.0.0"
-        "Manufacturer" = "8:Projekt z BD"
+        "Manufacturer" = "8:HiddenAnaconda Team"
         "ARPHELPTELEPHONE" = "8:"
-        "ARPHELPLINK" = "8:"
-        "Title" = "8:hiddenAnacondaInstaller"
+        "ARPHELPLINK" = "8:https://github.com/Grekkq/hiddenAnaconda"
+        "Title" = "8:HiddenAnaconda Project Installer"
         "Subject" = "8:"
-        "ARPCONTACT" = "8:Ti1"
+        "ARPCONTACT" = "8:"
         "Keywords" = "8:"
-        "ARPCOMMENTS" = "8:"
-        "ARPURLINFOABOUT" = "8:"
+        "ARPCOMMENTS" = "8:System zarządzania komunikacją miejską"
+        "ARPURLINFOABOUT" = "8:https://github.com/Grekkq/hiddenAnaconda"
         "ARPPRODUCTICON" = "8:"
         "ARPIconIndex" = "3:0"
         "SearchPath" = "8:"
@@ -414,6 +483,20 @@
         }
         "Shortcut"
         {
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_8BDD768A928349069E30C62A105A3934"
+            {
+            "Name" = "8:HiddenAnaconda Project"
+            "Arguments" = "8:"
+            "Description" = "8:"
+            "ShowCmd" = "3:1"
+            "IconIndex" = "3:0"
+            "Transitive" = "11:FALSE"
+            "Target" = "8:_633D3141942047979DD9226A0D032D44"
+            "Folder" = "8:_052ACDF7A0334668A23D7A64F5BCF7F6"
+            "WorkingFolder" = "8:_8D77CCB590294BFBBD107ABC35DA350C"
+            "Icon" = "8:_DD819B0345A644F1BEFFF9B7D68BED79"
+            "Feature" = "8:"
+            }
         }
         "UserInterface"
         {

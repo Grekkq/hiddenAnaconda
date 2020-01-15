@@ -143,8 +143,9 @@ namespace hiddenAnaconda.Views {
         }
 
         private void DatabaseButton_Click(object sender, EventArgs e) {
-            this.Hide();
+            
             using (Views.ZmianaBazyDanych InnerForm = new Views.ZmianaBazyDanych()) {
+                this.Hide();
                 if (InnerForm.ShowDialog() == DialogResult.OK) {
                 }
             };

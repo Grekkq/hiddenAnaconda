@@ -15,10 +15,6 @@
 		</OBJECT>
 	<UL>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="Funkcje programu">
-			<param name="Local" value="Funckje programu.htm">
-			</OBJECT>
-		<LI> <OBJECT type="text/sitemap">
 			<param name="Name" value="Wymagania systemowe">
 			<param name="Local" value="Wymagania.htm">
 			</OBJECT>
@@ -33,10 +29,6 @@
 			<param name="Name" value="Opis instalacji">
 			<param name="Local" value="Opis instalacji programu.htm">
 			</OBJECT>
-		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="Program instalacyjny">
-			<param name="Local" value="Program instalacyjny.htm">
-			</OBJECT>
 	</UL>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Pierwsze kroki w programie">
@@ -45,7 +37,7 @@
 		</OBJECT>
 	<UL>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="Ekran wyboru widok&oacute;w">
+			<param name="Name" value="Widok wyboru ekran&oacute;w">
 			<param name="Local" value="Ekran wyboru widoków.htm">
 			</OBJECT>
 	</UL>
