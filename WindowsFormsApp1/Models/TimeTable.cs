@@ -124,6 +124,7 @@ namespace hiddenAnaconda.Models {
                 idTrasyDlaLinii = idTrasyDlaWszystkichLinii.Where(t => t.Item1.Equals(singleLine)).Select(t => t.Item2).ToList();
                 StringBuilder daytypeString = new StringBuilder();
                 foreach (var dayType in GetAllDayTypeForLine(singleLine)) {
+                    daytypeString.Clear();
                     daytypeString.Append("<table><tr>");
                     daytypeString.Append("<p id='period' style='font-family: Arial'>");
                     if (dayType == Constants.WorkDays) {
@@ -146,10 +147,8 @@ namespace hiddenAnaconda.Models {
                             arrivalTimeInOrder.Add(new ArrivalTimeInOrder(temp.ktory_kurs_danego_dnia, GetArrivalTime(kurs)));
                         }
                     }
-                    if (arrivalTimeInOrder.Count == 0) {
-
+                    if (arrivalTimeInOrder.Count == 0)
                         continue;
-                    }
                     sb.Append(daytypeString);
                     arrivalTimeInOrder.Sort((pair1, pair2) => pair1.order.CompareTo(pair2.order));
                     int timeCounter = 0;
