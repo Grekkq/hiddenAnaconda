@@ -119,5 +119,11 @@ namespace hiddenAnaconda.Views {
         private void help_Click(object sender, EventArgs e) {
             Help.ShowHelp(this, Constants.HelpPath, HelpNavigator.Topic, "Tworzenie%20raportu.htm");
         }
+
+        private void button1_Click(object sender, EventArgs e) {
+            IronPdf.HtmlToPdf Renderer = new IronPdf.HtmlToPdf();
+            // Render an HTML document or snippet as a string
+            Renderer.RenderHtmlAsPdf("<h1>Hello World</h1><div style='page-break-after: always;'></div><h1>Hello World</h1>").SaveAs("html-string.pdf");
+        }
     }
 }

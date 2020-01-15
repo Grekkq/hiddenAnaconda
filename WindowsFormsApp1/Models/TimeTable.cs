@@ -64,7 +64,7 @@ namespace hiddenAnaconda.Models {
             }
 
             StringBuilder sb = new StringBuilder();
-            sb.Append("<html><head><style>.CityBusStop{font-size:20px;color:gainsboro;}#busstop{font-weight:bolder;font-size:25px;color:white;}.przystanek{font-size:18px;color:white;text-align:left;}th{background-color:black;color:white;} #lineName{width:70px;font-size:30px;} #arrows{font-size:28px;color:white;} #way{color:white;text-align:left;width:280px;} th.rotate{background-color:white;height:140px;white-space:nowrap;} th.rotate>div{-webkit-transform: rotate(315deg) translate(-17px,54px);width:30px;} th.rotate>div>span{border-bottom:1px solid #ccc;padding:4px 15px;color:black;} th.arrow{width:40px;text-align:center;border-radius:2px;} .ar{padding-right:10px;width:22px;} #first{background-color:white;} #przys{border-collapse:separate;border-spacing:0px;} #firstb{border-radius:5px 0px 0px 5px;} #lastb{border-radius: 0px 5px 5px 0px;} th.time{background-color:white;color:black;font-size:30px;padding:4px;} #period{background-color:rgb(187,188,182);width:550px;font-size:20px;font-weight:bold;margin:2px;} sup{padding:2px;font-size:25px;} #selected{background-color:yellow;border-radius:10px;}</style></head><body>");
+            sb.Append("<html><head><style>.CityBusStop{font-size:20px;color:gainsboro;}#busstop{font-weight:bolder;font-size:25px;color:white;}.przystanek{font-size:18px;color:white;text-align:left;}th{background-color:black;color:white;} #lineName{width:70px;font-size:30px;} #arrows{font-size:28px;color:white;} #way{color:white;text-align:left;width:280px;} th.rotate{background-color:white;height:140px;white-space:nowrap;} th.rotate>div{-webkit-transform: rotate(315deg) translate(-17px,54px);width:30px;} th.rotate>div>span{border-bottom:1px solid #ccc;padding:4px 15px;color:black;} th.arrow{width:40px;text-align:center;border-radius:2px;} .ar{padding-right:10px;width:22px;} #first{background-color:white;} #przys{border-collapse:separate;border-spacing:0px;} #firstb{border-radius:5px 0px 0px 5px;} #lastb{border-radius: 0px 5px 5px 0px;} th.time{background-color:white;color:black;font-size:30px;padding:4px;} #period{background-color:rgb(187,188,182);width:650px;font-size:20px;font-weight:bold;margin:2px;} sup{padding:2px;font-size:25px;} #selected{background-color:yellow;border-radius:10px;}</style></head><body>");
 
             List<int> idTrasyDlaLinii = new List<int>();
             // dla każdej linii na przystanku
@@ -88,7 +88,7 @@ namespace hiddenAnaconda.Models {
                     sb.Append("&nbsp");
                     sb.Append("Jednokierunkowy");
                 }
-                sb.Append("<span id='arrows'> &nbsp; </span> <br> </div> </th> </tr> </table><br><br> <br>");
+                sb.Append("<span id='arrows'> &nbsp; </span> <br> </div> </th> </tr> </table><br><br><br><br><br>");
                 sb.Append("<table id='przys'> <tr>");
 
 
@@ -117,7 +117,7 @@ namespace hiddenAnaconda.Models {
                     } else
                         sb.Append("<th class='ar'><div><span>></span></div></th>");
                 }
-                sb.Append("</tr></table><br><br>"); // ostatni element paska z zaokraglonymi rogami
+                sb.Append("</tr></table><br><br><br>"); // ostatni element paska z zaokraglonymi rogami
                 // koniec drukowania trasy teraz czasy z podzialem na dni specjalne
 
 
@@ -168,7 +168,7 @@ namespace hiddenAnaconda.Models {
                     }
                     sb.Append("</tr>");
                 }
-                sb.Append("</table><br><br><br>");
+                sb.Append("</table><div style='page-break-after: always;'></div>");
             }
             sb.Append("</body></html>");
             SaveToPdf(sb.ToString());
