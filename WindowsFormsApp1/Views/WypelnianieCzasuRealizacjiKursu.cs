@@ -44,7 +44,7 @@ namespace hiddenAnaconda.Views
             return sharedView.EscKeyPressed(this, keyData);
         }
 
-        bool ErrorIsOn, ErrorCzasIsOn, ErrorCzas2IsOn, ErrorCzas4IsOn, ErrorCzas3IsOn, ErrorKierIsOn = true;
+        bool ErrorIsOn, ErrorCzasIsOn, ErrorCzas2IsOn, ErrorCzas3IsOn, ErrorKierIsOn = true;
      
 
         public const int WM_NCLBUTTONDOWN = 0xA1;                                               // stałe do funkcji przesuwania okna
@@ -146,7 +146,7 @@ namespace hiddenAnaconda.Views
                 }
             }
 
-            if (ErrorKierIsOn == false && ErrorIsOn == false && ErrorCzasIsOn == false && ErrorCzas2IsOn == false && ErrorCzas3IsOn == false && ErrorCzas4IsOn == false)
+            if (ErrorKierIsOn == false && ErrorIsOn == false && ErrorCzasIsOn == false && ErrorCzas2IsOn == false && ErrorCzas3IsOn == false)
             {
                 var result = MessageBox.Show("Czy na pewno chcesz przypisać czas realizacji danego kursu?", "Czy na pewno?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.Yes)

@@ -23,7 +23,7 @@ namespace hiddenAnaconda.Views {
             this.CityName = argsForTimeTableConstructor[Constants.BusStopCityName];
             this.Way = argsForTimeTableConstructor[Constants.BusStopWay];
         }
-        bool ErrorIsOn = false;
+   
         SharedView sharedView = new SharedView();
         Dictionary<string, string> argsForTimeTableConstructor = new Dictionary<string, string>();
         string BusStopName, CityName, Way;

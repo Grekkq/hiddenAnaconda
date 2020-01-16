@@ -166,7 +166,7 @@ namespace hiddenAnaconda.Views {
                 label2.Focus();
                 kierowcaSelectionComboBox.Focus();
 
-                if ((!string.IsNullOrEmpty(kierowcaSelectionComboBox.Text) && ErrorIsOn == false)) {
+                if ((!string.IsNullOrEmpty(kierowcaSelectionComboBox.Text) && ErrorKierIsOn == false)) {
                     if (radioButton4.Checked == true || radioButton3.Checked == true) {
                         if (radioButton4.Checked == true) {
                             var result = MessageBox.Show("Na pewno chcesz zmienić status kierowcy na: " + radioButton4.Text + "?", "Zmiana statusu", MessageBoxButtons.YesNo, MessageBoxIcon.Question);

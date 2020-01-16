@@ -14,7 +14,7 @@ namespace hiddenAnaconda.Views {
         public DodawanieDniWolnych() {
             InitializeComponent();
         }
-        bool ErrorIsOn, ErrorStartIsOn, ErrorEndIsOn = true;
+        bool ErrorIsOn = true;
 
         SharedView sharedView = new SharedView();
 

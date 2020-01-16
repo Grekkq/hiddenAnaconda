@@ -42,7 +42,7 @@ namespace hiddenAnaconda.Models {
             int trailIdForKurs = GetFirstStopInTrail(GetTrailNumberFromTrailId(trailId), line).id_trasy;
             try {
                 return dc.kurs.Where(k => k.id_trasy.Equals(trailIdForKurs) && k.rodzaj_kursu.Equals(dayType)).Single();
-            } catch (InvalidOperationException e) {
+            } catch (InvalidOperationException) {
                 Debug.Print("Trasa {0}nie została przypisana do kursu", trailIdForKurs);
                 return null;
             }
