@@ -46,6 +46,7 @@
             this.SaveButton = new System.Windows.Forms.Button();
             this.Anuluj = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.helpProvider1 = new System.Windows.Forms.HelpProvider();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -68,6 +69,7 @@
             this.help.TabStop = false;
             this.help.Text = "?";
             this.help.UseVisualStyleBackColor = false;
+            this.help.Click += new System.EventHandler(this.help_Click);
             // 
             // exit
             // 
@@ -305,6 +307,11 @@
             this.panel1.Size = new System.Drawing.Size(508, 277);
             this.panel1.TabIndex = 59;
             // 
+            // helpProvider1
+            // 
+            this.helpProvider1.HelpNamespace = "C:\\Users\\Mateusz\\source\\repos\\hiddenAnaconda\\WindowsFormsApp1\\Resources\\Help\\Pomo" +
+    "c.chm";
+            // 
             // ZmianaBazyDanych
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -314,8 +321,11 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.helpProvider1.SetHelpKeyword(this, "Pierwsze%20kroki%20w%20porgramie.htm");
+            this.helpProvider1.SetHelpNavigator(this, System.Windows.Forms.HelpNavigator.Topic);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ZmianaBazyDanych";
+            this.helpProvider1.SetShowHelp(this, true);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ZmianaBazyDanych";
             this.Activated += new System.EventHandler(this.TurnoffFocus);
@@ -355,5 +365,6 @@
         private System.Windows.Forms.Button Anuluj;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.CheckBox checkBoxIntegratedSecurity;
+        private System.Windows.Forms.HelpProvider helpProvider1;
     }
 }

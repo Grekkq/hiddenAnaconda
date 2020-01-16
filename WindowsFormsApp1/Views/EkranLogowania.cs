@@ -145,11 +145,19 @@ namespace hiddenAnaconda.Views {
         private void DatabaseButton_Click(object sender, EventArgs e) {
             
             using (Views.ZmianaBazyDanych InnerForm = new Views.ZmianaBazyDanych()) {
-                this.Hide();
                 if (InnerForm.ShowDialog() == DialogResult.OK) {
                 }
             };
-            this.Show();
+        }
+
+        private void EkranLogowania_KeyDown(object sender, KeyEventArgs e) {
+            if (e.KeyCode == Keys.F1) {
+                help.PerformClick();
+            }
+        }
+
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e) {
+
         }
     }
 }
