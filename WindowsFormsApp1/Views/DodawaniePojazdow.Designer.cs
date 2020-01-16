@@ -58,6 +58,7 @@
             this.help = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.helpProvider1 = new System.Windows.Forms.HelpProvider();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -374,6 +375,11 @@
             this.errorProvider1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.errorProvider1.ContainerControl = this;
             // 
+            // helpProvider1
+            // 
+            this.helpProvider1.HelpNamespace = "C:\\Users\\Mateusz\\source\\repos\\hiddenAnaconda\\WindowsFormsApp1\\Resources\\Help\\Pomo" +
+    "c.chm";
+            // 
             // DodawaniePojazdow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -388,9 +394,12 @@
             this.Controls.Add(this.label1);
             this.ForeColor = System.Drawing.SystemColors.MenuText;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.helpProvider1.SetHelpKeyword(this, "Tworzenie%20pojazdow.htm");
+            this.helpProvider1.SetHelpNavigator(this, System.Windows.Forms.HelpNavigator.Topic);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Name = "DodawaniePojazdow";
+            this.helpProvider1.SetShowHelp(this, true);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Kreator Dodawanie Pojazdu";
             this.Activated += new System.EventHandler(this.turnoffFocus);
@@ -438,5 +447,6 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.DateTimePicker year_number;
+        private System.Windows.Forms.HelpProvider helpProvider1;
     }
 }

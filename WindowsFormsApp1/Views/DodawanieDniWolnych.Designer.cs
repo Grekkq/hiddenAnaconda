@@ -49,6 +49,7 @@
             this.exit = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.helpProvider1 = new System.Windows.Forms.HelpProvider();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
@@ -277,6 +278,11 @@
             this.errorProvider1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.errorProvider1.ContainerControl = this;
             // 
+            // helpProvider1
+            // 
+            this.helpProvider1.HelpNamespace = "C:\\Users\\Mateusz\\source\\repos\\hiddenAnaconda\\WindowsFormsApp1\\Resources\\Help\\Pomo" +
+    "c.chm";
+            // 
             // DodawanieDniWolnych
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -289,9 +295,12 @@
             this.Controls.Add(this.exit);
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.helpProvider1.SetHelpKeyword(this, "Tworzenie%20terminow%20kursowania.htm");
+            this.helpProvider1.SetHelpNavigator(this, System.Windows.Forms.HelpNavigator.Topic);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "DodawanieDniWolnych";
+            this.helpProvider1.SetShowHelp(this, true);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DodawanieDniSwiatecznych";
             this.Activated += new System.EventHandler(this.turnoffFocus);
@@ -328,5 +337,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox type;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.HelpProvider helpProvider1;
     }
 }

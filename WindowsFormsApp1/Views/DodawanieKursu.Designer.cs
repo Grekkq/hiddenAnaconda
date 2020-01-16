@@ -48,6 +48,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProvider2 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.helpProvider1 = new System.Windows.Forms.HelpProvider();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -252,6 +253,11 @@
             this.errorProvider2.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.errorProvider2.ContainerControl = this;
             // 
+            // helpProvider1
+            // 
+            this.helpProvider1.HelpNamespace = "C:\\Users\\Mateusz\\source\\repos\\hiddenAnaconda\\WindowsFormsApp1\\Resources\\Help\\Pomo" +
+    "c.chm";
+            // 
             // DodawanieKursu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -265,8 +271,11 @@
             this.Controls.Add(this.panel1);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.helpProvider1.SetHelpKeyword(this, "Tworzenie%20kursow.htm");
+            this.helpProvider1.SetHelpNavigator(this, System.Windows.Forms.HelpNavigator.Topic);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "DodawanieKursu";
+            this.helpProvider1.SetShowHelp(this, true);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DodawaniekKursu";
             this.Activated += new System.EventHandler(this.TurnoffFocus);
@@ -303,5 +312,6 @@
         private System.Windows.Forms.ComboBox comboBox_trasa;
         private System.Windows.Forms.ComboBox comboBox_rodzajKursu;
         private System.Windows.Forms.Label label_rodzajKursu;
+        private System.Windows.Forms.HelpProvider helpProvider1;
     }
 }

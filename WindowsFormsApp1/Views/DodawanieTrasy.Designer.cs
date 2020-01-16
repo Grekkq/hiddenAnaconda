@@ -55,6 +55,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.helpProvider1 = new System.Windows.Forms.HelpProvider();
             this.bgPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -371,6 +372,11 @@
             this.errorProvider1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.errorProvider1.ContainerControl = this;
             // 
+            // helpProvider1
+            // 
+            this.helpProvider1.HelpNamespace = "C:\\Users\\Mateusz\\source\\repos\\hiddenAnaconda\\WindowsFormsApp1\\Resources\\Help\\Pomo" +
+    "c.chm";
+            // 
             // DodawanieTrasy
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -384,8 +390,11 @@
             this.Controls.Add(this.exit);
             this.Controls.Add(this.bgPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.helpProvider1.SetHelpKeyword(this, "Zarzadzanie%20trasami.htm");
+            this.helpProvider1.SetHelpNavigator(this, System.Windows.Forms.HelpNavigator.Topic);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "DodawanieTrasy";
+            this.helpProvider1.SetShowHelp(this, true);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Formularz tworzenia trasy";
             this.Activated += new System.EventHandler(this.Turnoff_focus);
@@ -429,5 +438,6 @@
         private System.Windows.Forms.Label label_trasa;
         private System.Windows.Forms.CheckBox checkBox_czyUtworzycNowaTrase;
         private System.Windows.Forms.Label label_przystanek;
+        private System.Windows.Forms.HelpProvider helpProvider1;
     }
 }

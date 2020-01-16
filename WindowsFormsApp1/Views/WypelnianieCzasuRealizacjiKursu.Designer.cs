@@ -52,6 +52,7 @@
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProvider2 = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProvider3 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.helpProvider1 = new System.Windows.Forms.HelpProvider();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RealizationTimeDataGridView)).BeginInit();
@@ -308,6 +309,11 @@
             this.errorProvider3.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.errorProvider3.ContainerControl = this;
             // 
+            // helpProvider1
+            // 
+            this.helpProvider1.HelpNamespace = "C:\\Users\\Mateusz\\source\\repos\\hiddenAnaconda\\WindowsFormsApp1\\Resources\\Help\\Pomo" +
+    "c.chm";
+            // 
             // WypelnianieCzasuRealizacjiKursu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -320,8 +326,11 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.exit);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.helpProvider1.SetHelpKeyword(this, "Czas%20realizacji%20kursu.htm");
+            this.helpProvider1.SetHelpNavigator(this, System.Windows.Forms.HelpNavigator.Topic);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "WypelnianieCzasuRealizacjiKursu";
+            this.helpProvider1.SetShowHelp(this, true);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "WypelnianieCzasuRealizacjiKursu";
             this.Activated += new System.EventHandler(this.turnoff_focus);
@@ -364,5 +373,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Przystanek;
         private System.Windows.Forms.DataGridViewTextBoxColumn Czas;
         private System.Windows.Forms.ErrorProvider errorProvider3;
+        private System.Windows.Forms.HelpProvider helpProvider1;
     }
 }
